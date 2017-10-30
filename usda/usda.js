@@ -29,8 +29,6 @@ usda.controller('USDAController',
 							food_group.food_alts.forEach( (food_alt, k) => {
 
 								if((food_alt.db_name == $scope.search) && ($scope.c_method == cooking_method.method_name)){
-									console.log(cooking_method);
-									console.log($scope.c_method);
 									$scope.have_match = 1;
 									$scope.orig_ndbno = food_alt.db_ndbno;
 									$scope.in_food_group = food_group.group_name;
@@ -43,7 +41,8 @@ usda.controller('USDAController',
 							if($scope.have_match == 1){
 								$scope.all_alt_in_group.forEach((alt_item, i) => {
 									if(alt_item.db_main_nutrient.db_amount < $scope.orig_nutrient_amount){
-										$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name});
+										$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
+										console.log($scope.map);
 									}
 								});
 							}
@@ -94,7 +93,9 @@ usda.controller('USDAController',
 			// $scope.ingredients = $scope.searched.report.food.ing.desc.toLowerCase();
 			$scope.nutrients = $scope.searched.report.food.nutrients;
 		}
-
+		$scope.sortAlt = () => {
+			
+		}
 		function getURL(url) {
 			return $http.get(url);
 		}
