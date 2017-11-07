@@ -33,10 +33,6 @@
       });
     }
 
-    // var alternative = {
-    //   'hello' : 'world'
-    // }
-
     // API KEY
 		var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
 

@@ -93,8 +93,10 @@ usda.controller('USDAController',
 			// $scope.ingredients = $scope.searched.report.food.ing.desc.toLowerCase();
 			$scope.nutrients = $scope.searched.report.food.nutrients;
 		}
+		
+		//implement merge sort
 		$scope.sortAlt = () => {
-			
+
 		}
 		function getURL(url) {
 			return $http.get(url);
