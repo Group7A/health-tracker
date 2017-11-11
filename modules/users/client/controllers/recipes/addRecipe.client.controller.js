@@ -38,15 +38,15 @@
       //var user = new UsersService(vm.user);
       //console.log("User ", user);
 
-      UsersService.addRecipe(recipe)
-        .then(success)
-        .catch(failure);
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Edit profile successful!' });
+        Authentication.user = response;
+      }, function (response) {
+        Notification.error({ message: response.data.message, title: '<i class="glyphicon glyphicon-remove"></i> Edit profile failed!' });
+      });
+    }
 
-      function success(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
-        console.log("Recipes success: ", response);
-        //$scope.recipes = response.recipes;
-      }
+    // API KEY
+		var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
 
       function failure(response) {
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
