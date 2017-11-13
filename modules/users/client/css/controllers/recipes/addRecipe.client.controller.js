@@ -38,7 +38,6 @@
       //var user = new UsersService(vm.user);
       //console.log("User ", user);
 
-<<<<<<< HEAD
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Edit profile successful!' });
         Authentication.user = response;
       }, function (response) {
@@ -48,17 +47,6 @@
 
     // API KEY
 		var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
-=======
-      UsersService.addRecipe(recipe)
-        .then(success)
-        .catch(failure);
-
-      function success(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
-        console.log("Recipes success: ", response);
-        //$scope.recipes = response.recipes;
-      }
->>>>>>> 88bb1f014c899586c882cc68bc60a74dce4ea233
 
       function failure(response) {
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
