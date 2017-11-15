@@ -14,6 +14,8 @@ function($scope, $http) {
 	var sort = "n";
 	var max = "200";
 	var ds = 'Standard Reference';
+
+	//variables for algorithm
 	$scope.map = [];
 	$scope.in_food_group;
 	$scope.orig_nutrient_amount;
@@ -54,6 +56,7 @@ function($scope, $http) {
 	}
 	*/
 
+	//sort alternative ingredients
 	function sort_alt() {
 		$http.get('food_alternatives.json')
 		.then ((response) =>{
@@ -131,6 +134,7 @@ function($scope, $http) {
 	//end of getting alt food
 	*/
 
+	//get alternatives
 	$scope.getAltFood = () => {
 		$scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
 			cooking_method.food_groups.forEach( (food_group, j) => {
