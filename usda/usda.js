@@ -132,61 +132,51 @@ function($scope, $http) {
 	*/
 
 	$scope.getAltFood = () => {
-		function loop() {
-			$scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
-				cooking_method.food_groups.forEach( (food_group, j) => {
-					food_group.food_alts.forEach( (food_alt, k) => {
+		$scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
+			cooking_method.food_groups.forEach( (food_group, j) => {
+				food_group.food_alts.forEach( (food_alt, k) => {
 						
-						if((food_alt.db_name == $scope.search) && ($scope.c_method == cooking_method.method_name)){
-							$scope.have_match = 1;
-						}
-						else if ((food_alt.db_name != $scope.search) && ($scope.have_match == 1)){
-							$scope.all_alt_in_group.push(food_alt);
-						}			
-					});
-					$scope.have_match = 0;
-				});
-			});
-		}
-
-	
-		function ifstatement() {
-			if($scope.alt_request == 0){
-				var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
-				$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
-			}
-			else if($scope.alt_request == 1){
-				var alt_item = $scope.all_alt_in_group[0];
-				//console.log($scope.all_alt_in_group);
-				$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
-			}
-			else if($scope.alt_request == 2){
-				if($scope.all_alt_in_group.length < $scope.top_alt_count){
-					$scope.all_alt_in_group.forEach((alt_item, i) => {
-						$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
-					});
-				}
-				else{
-					//control what alt we give
-					mid_ind = $scope.all_alt_in_group.length/2;
-					//index is not whole number
-					if(mid_ind % 1 != 0){
-						mid_ind = mid_ind - 0.5;
+					if((food_alt.db_name == $scope.search) && ($scope.c_method == cooking_method.method_name)){
+						$scope.have_match = 1;
 					}
-					$scope.all_alt_in_group.forEach((alt_item, i) => {
-						if(i==0 || i==mid_ind || i==$scope.all_alt_in_group.length-1){
-							$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
-							//console.log($scope.map);
-						}
-					});
-				}
-				
-			}
+					else if ((food_alt.db_name != $scope.search) && ($scope.have_match == 1)){
+						$scope.all_alt_in_group.push(food_alt);
+					}			
+				});
+				$scope.have_match = 0;
+			});
+		});
+	
+		if($scope.alt_request == 0){
+			var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
+			$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
 		}
-		
-		loop();		
-		ifstatement();
-
+		else if($scope.alt_request == 1){
+			var alt_item = $scope.all_alt_in_group[0];
+			//console.log($scope.all_alt_in_group);
+			$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
+		}
+		else if($scope.alt_request == 2){
+			if($scope.all_alt_in_group.length < $scope.top_alt_count){
+				$scope.all_alt_in_group.forEach((alt_item, i) => {
+					$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
+				});
+			}
+			else{
+				//control what alt we give
+				mid_ind = $scope.all_alt_in_group.length/2;
+				//index is not whole number
+				if(mid_ind % 1 != 0){
+					mid_ind = mid_ind - 0.5;
+				}
+				$scope.all_alt_in_group.forEach((alt_item, i) => {
+					if(i==0 || i==mid_ind || i==$scope.all_alt_in_group.length-1){
+						$scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount});
+						//console.log($scope.map);
+					}
+				});
+			}		
+		}
 		console.log($scope.map);
 		$scope.all_alt_in_group = [];
 		$scope.map = [];
