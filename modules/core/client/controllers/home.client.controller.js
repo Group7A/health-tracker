@@ -86,6 +86,7 @@
     function addRecipeFailure(response) {
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' });
     }
+    
     // ========= DELETE RECIPE ============
     $scope.delete = (myRecipe) => {
       var myRecipeIndex = {

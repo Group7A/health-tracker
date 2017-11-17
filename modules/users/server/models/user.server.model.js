@@ -71,7 +71,6 @@ var RecipeSchema = new Schema({
     directions: String
   }],
   cookingStyle: String,
-  cookingTime: Number,
   healthClassifications: {
     glutenFree: Boolean,
     noSugar: Boolean,

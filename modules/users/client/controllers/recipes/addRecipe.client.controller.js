@@ -16,34 +16,9 @@
     vm.updateMyRecipes = updateMyRecipes;
     vm.getImage = getImage;
 
-    // Sort alternative ingredients
-    async function sort_alt() {
-      await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
-        .then ((response) => {
-          $scope.alt_food_object = response.data;
-
-          $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
-            cooking_method.food_groups.forEach( (food_group, j) => {
-              food_group.food_alts.sort(function(a, b) {
-                var nut_valA = a.db_main_nutrient.db_amount;
-                var nut_valB = b.db_main_nutrient.db_amount;
-                if(nut_valA < nut_valB){
-                  return 1;
-                }
-                else if(nut_valA > nut_valB){
-                  return -1;
-                }	
-                else{
-                  return 0;
-                }
-              });
-            });
-          });
-        });
-    }
-
-    sort_alt();
-
+    // Initialize recipe, and ingredients, directions lists
+    $scope.ingredientList = [{}];
+    $scope.directionsList = [{}];
     $scope.recipe = {
       'name': '',
       'directions': '',
@@ -82,7 +57,7 @@
         });
     }
 
-    // Add the recipe
+    // ADD RECIPE TO MONGO
     function updateMyRecipes(isValid) {
       var recipe = $scope.recipe;
       recipe.image = $scope.image;
@@ -108,6 +83,34 @@
       TransferService.setRecipe(recipe);
       $location.path('/alternatives');
     }
+
+    // Sort alternative ingredients
+    async function sort_alt() {
+      await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
+        .then ((response) => {
+          $scope.alt_food_object = response.data;
+
+          $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
+            cooking_method.food_groups.forEach( (food_group, j) => {
+              food_group.food_alts.sort(function(a, b) {
+                var nut_valA = a.db_main_nutrient.db_amount;
+                var nut_valB = b.db_main_nutrient.db_amount;
+                if(nut_valA < nut_valB){
+                  return 1;
+                }
+                else if(nut_valA > nut_valB){
+                  return -1;
+                }	
+                else{
+                  return 0;
+                }
+              });
+            });
+          });
+        });
+    }
+
+    sort_alt();
 
     // GET ALTERNATIVES FROM RECIPE
     function getAlternatives() {
@@ -177,9 +180,6 @@
       TransferService.setAlternatives($scope.map);
     }
 
-    // INGREDIENTS LIST
-    $scope.ingredientList = [{}];
-
     // Add an ingredient to the list
     $scope.addIngredient = function () {
       $scope.ingredientList.push({});
@@ -192,9 +192,6 @@
       $scope.ingredientList.splice(index,1);
       $scope.$emit('customerDeleted', ingredient); 
     };
-
-    // DIRECTIONS LIST
-    $scope.directionsList = [{}];
 
     // Add another direction to the list
     $scope.addDirections = function () {
