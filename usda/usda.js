@@ -57,6 +57,7 @@ function($scope, $http) {
 	*/
 
 	//sort alternative ingredients
+	//$scope.alt_food_object has the sorted ingredients list
 	function sort_alt() {
 		$http.get('food_alternatives.json')
 		.then ((response) =>{

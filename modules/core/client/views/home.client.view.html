@@ -13,8 +13,7 @@
     <div class="dropMenu">
       <div class="dropdown">
         Filter by:
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" 
-            aria-haspopup="true" aria-expanded="false" onclick="filterSelection('calories')">
+        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="filterSelection('calories')">
           Calories
           <span class="caret"></span></a>
         </button>
@@ -67,18 +66,30 @@
     </div>
 
     <!-- COMMUNITY RECIPES -->
-    <div ng-show="showCommunity" ng-repeat="userRecipes in communityRecipes">
+    <div ng-show="showCommunity">
       <div class="row row-margin">
-        <div ng-repeat="recipe in userRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
-          <img class="img-prop" src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png">
+        <div ng-repeat="recipe in communityRecipesFiltered" class="col-xs-12 col-sm-6 col-md-3 properties">
+          <div class="communityImageContainer">
+            <a ui-sref="details({recipeDetails: recipe})">
+              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
+            </a>
+            <!--Add Recipe-->
+            <a class="add-delete" ng-show="vm.authentication.user" href="">
+              <span class="glyphicon glyphicon-plus" ng-click="add(recipe)"></span>
+            </a>
+          </div>
           <div class="card-info2"></div>
-          <div class="card-info">
-            <h3 class="card-name">{{recipe.name}}</h3>
-            <div class="card-icon-container">
-              <ul class="nav navbar-nav navbar-right" ng-hide="vm.user">
-                <!--<img class="card-icon" src="https://manylivescm.com/wp-content/uploads/2014/03/icon-glutenfree.png">
-                <img class="card-icon" src="http://www.theproteinbakeshop.com/ae/files/icon-no-refined-sugar.png">-->
-              </ul>
+          <div class="card-info row">
+            <div class="col-md-6">
+              <center>
+                <h3 class="card-name">
+                  <a ui-sref="details({recipeDetails: recipe})" style="text-decoration: none">
+                    {{recipe.name}}
+                  </a>
+                </h3>
+              </center>
+            </div>
+            <div class="card-icon-container col-md-6">
               <div id="stars">
                 <span class="fa fa-star checked"></span>
                 <span class="fa fa-star checked"></span>
@@ -87,11 +98,11 @@
                 <span class="fa fa-star"></span>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                <img class="card-icon" src="https://manylivescm.com/wp-content/uploads/2014/03/icon-glutenfree.png">
-                <img class="card-icon" src="http://www.theproteinbakeshop.com/ae/files/icon-no-refined-sugar.png">
-                <a ng-show="vm.authentication.user">
-                  <span class="glyphicon glyphicon-plus"></span>
-                </a>
+                <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                <img class="card-icon" ng-show="recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                <img class="card-icon" ng-show="recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                <img class="card-icon" ng-show="recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
               </ul>
             </div>
           </div>
@@ -103,10 +114,21 @@
     <div ng-hide="showCommunity">
       <div class="row row-margin">
         <div ng-repeat="myRecipe in myRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
-          <img class="img-prop" src="http://drpattydental.com/wp-content/uploads/2017/05/placeholder.png">
+          <div class="communityImageContainer">
+            <a ui-sref="details({recipeDetails: myRecipe})">
+              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 80%">
+            </a>
+            <a class="add-delete" ng-show="vm.authentication.user" href="">
+                <span class="glyphicon glyphicon-remove" ng-click="delete(myRecipe)" style="color:red"></span>
+              </a>
+          </div>
           <div class="card-info2"></div>
           <div class="card-info">
-            <h3 class="card-name">{{myRecipe.name}}</h3>
+            <h3 class="card-name">
+              <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
+                {{myRecipe.name}}
+              </a>
+            </h3>
             <div class="card-icon-container">
               <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
                 <!--<img class="card-icon" src="https://manylivescm.com/wp-content/uploads/2014/03/icon-glutenfree.png">
@@ -120,11 +142,11 @@
                 <span class="fa fa-star"></span>
               </div>
               <ul class="nav navbar-nav navbar-right">
-                <img class="card-icon" src="https://manylivescm.com/wp-content/uploads/2014/03/icon-glutenfree.png">
-                <img class="card-icon" src="http://www.theproteinbakeshop.com/ae/files/icon-no-refined-sugar.png">
-                <a ng-show="vm.authentication.user">
-                  <span class="glyphicon glyphicon-plus"></span>
-                </a>
+                <img class="card-icon" ng-show="myRecipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                <img class="card-icon" ng-show="myRecipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                <img class="card-icon" ng-show="myRecipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                <img class="card-icon" ng-show="myRecipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                <img class="card-icon" ng-show="myRecipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
               </ul>
             </div>
           </div>

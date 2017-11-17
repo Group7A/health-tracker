@@ -55,15 +55,30 @@ var IngredientSchema = new Schema({
   units: String
 });
 
+var ReviewSchema = new Schema({
+  review: String,
+  rating: Number
+});
+
 var RecipeSchema = new Schema({
   name: String,
-  image: { 
+  time: Number,
+  image: {
     type: String,
-    default: 'modules/users/client/img/profile/default.png'
+    default: 'modules/core/client/img/no-image.jpg'
   },
   directions: String,
   cookingStyle: String,
-  ingredients: [IngredientSchema]
+  cookingTime: Number,
+  healthClassifications: {
+    glutenFree: Boolean,
+    noSugar: Boolean,
+    lowFat: Boolean,
+    vegan: Boolean,
+    lowCalorie: Boolean
+  },
+  ingredients: [IngredientSchema],
+  review: [ReviewSchema]
 });
 
 /**
@@ -168,7 +183,7 @@ var UserSchema = new Schema({
     lowSalt: Boolean,
     lowFat: Boolean,
     lowCalorie: Boolean, // less than 400 calories/meal
-    bland: Boolean,
+    bland: Boolean
   },
   religiousRestrictions: {
     hinduism: Boolean,
