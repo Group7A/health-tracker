@@ -36,8 +36,7 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Add Recipe'
-        },
-        css: 'modules/users/client/css/recipes/addRecipe.css'
+        }
       })
       .state('details', { // RECIPE DETAILS
         url: '/recipe-details',
@@ -47,8 +46,7 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Recipe Details'
-        },
-        css: 'modules/users/client/css/recipes/recipeDetails.css'
+        }
       })
       .state('alternatives', { // SUGGESTED ALTERNATIVES
         url: '/alternatives',
@@ -57,8 +55,7 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Alternatives'
-        },
-        css: 'modules/users/client/css/recipes/alternatives.css'
+        }
       })
       .state('customize', { // CUSTOMIZE A RECIPE
         url: '/customize',
@@ -67,8 +64,7 @@
         controllerAs: 'vm',
         data: {
           pageTitle: 'Customize'
-        },
-        css: 'modules/users/client/css/recipes/customize.css'
+        }
       })
       .state('healthprofile', { // HEALTH PROFILE
         url: '/healthprofile',

@@ -16,6 +16,74 @@
     vm.updateMyRecipes = updateMyRecipes;
     vm.getImage = getImage;
 
+    // Initialize recipe, and ingredients, directions lists
+    $scope.ingredientList = [{}];
+    $scope.directionsList = [{}];
+    $scope.recipe = {
+      'name': '',
+      'directions': '',
+      'cookingStyle': '',
+      'time':'',
+      'healthClassifications': {
+        'glutenFree': false,
+        'noSugar': false,
+        'lowFat': false,
+        'vegan': false,
+        'lowCalorie': false
+      },
+      'ingredients': [{
+        'name': '',
+        'quantity': '',
+        'units': ''
+      }],
+      'directionsList:': [{
+        'directions': ''
+      }],
+      'review': [{
+        'writtenReview': '',
+        'rating': ''
+      }]
+    };
+
+    // GET IMAGE = qwant, can only get a certain amount of requests
+    function getImage() {
+      const proxyurl = "https://cors-anywhere.herokuapp.com/"; // Fixes CORS permissions issue
+      var imageUrl = "https://api.qwant.com/api/search/images?"+ // Gets image
+        "count=10&offset=1&q="+$scope.recipe.name+"food";
+      
+      $http.get(proxyurl + imageUrl)
+        .then( function(response) {
+          $scope.image = response.data.data.result.items[0].media;
+        });
+    }
+
+    // ADD RECIPE TO MONGO
+    function updateMyRecipes(isValid) {
+      var recipe = $scope.recipe;
+      recipe.image = $scope.image;
+      getAlternatives();
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.addRecipeForm');
+        return false;
+      }
+
+      UsersService.addRecipe(recipe)
+        .then(success)
+        .catch(failure);
+
+      function success(response) {
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
+      }
+
+      function failure(response) {
+        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
+      }
+
+      TransferService.setRecipe(recipe);
+      $location.path('/alternatives');
+    }
+
     // Sort alternative ingredients
     async function sort_alt() {
       await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
@@ -43,64 +111,6 @@
     }
 
     sort_alt();
-
-    $scope.recipe = {
-      'name': '',
-      'directions': '',
-      'cookingStyle': '',
-      'time':'',
-      'healthClassifications': {
-        'glutenFree': false,
-        'noSugar': false,
-        'lowFat': false,
-        'vegan': false,
-        'lowCalorie': false
-      },
-      'ingredients': [{
-        'name': '',
-        'quantity': '',
-        'units': ''
-      }]
-    };
-
-    // GET IMAGE = qwant, can only get a certain amount of requests
-    function getImage() {
-      const proxyurl = "https://cors-anywhere.herokuapp.com/"; // Fixes CORS permissions issue
-      var imageUrl = "https://api.qwant.com/api/search/images?"+ // Gets image
-        "count=10&offset=1&q="+$scope.recipe.name+"food";
-      
-      $http.get(proxyurl + imageUrl)
-        .then( function(response) {
-          $scope.image = response.data.data.result.items[0].media;
-        });
-    }
-
-    // Add the recipe
-    function updateMyRecipes(isValid) {
-      var recipe = $scope.recipe;
-      recipe.image = $scope.image;
-      getAlternatives();
-
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.addRecipeForm');
-        return false;
-      }
-
-      UsersService.addRecipe(recipe)
-        .then(success)
-        .catch(failure);
-
-      function success(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
-      }
-
-      function failure(response) {
-        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
-      }
-
-      TransferService.setRecipe(recipe);
-      $location.path('/alternatives');
-    }
 
     // GET ALTERNATIVES FROM RECIPE
     function getAlternatives() {
@@ -170,19 +180,35 @@
       TransferService.setAlternatives($scope.map);
     }
 
-    // Add to ingredient list
-    $scope.recipeList = [{}];
-
-    $scope.recipeAdd = function () {
-      $scope.recipeList.push({});
+    // Add an ingredient to the list
+    $scope.addIngredient = function () {
+      $scope.ingredientList.push({});
     };
-    $scope.removeRow = function (ingredient) {
-      // $scope.ingredient.splice(idx, 1);
+
+    // Remove an ingredient from the list
+    $scope.removeIngredientRow = function (ingredient) {
       var index = $scope.recipe.ingredients.indexOf(ingredient);
       $scope.recipe.ingredients.splice(index, 1);
-      $scope.recipeList.splice(index,1);
-      // $scope.customers.splice($index, 1);
+      $scope.ingredientList.splice(index,1);
       $scope.$emit('customerDeleted', ingredient); 
     };
+
+    // Add another direction to the list
+    $scope.addDirections = function () {
+      $scope.directionsList.push({});
+    };
+
+    // Remove a direction from the list
+    $scope.removeDirectionsRow = function(direction) {
+      var index = $scope.recipe.directionsList.indexOf(direction);
+      $scope.recipe.directionsList.splice(index, 1);
+      $scope.directionsList.splice(index,1);
+      $scope.$emit('customerDeleted', direction); 
+    };
+
+    // RATING FROM USER
+    $scope.getStars = (number) => {
+      $scope.recipe.review.rating = number;
+    }
   }
 }());

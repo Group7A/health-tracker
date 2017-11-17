@@ -50,6 +50,12 @@
           };
         }
       }
+
+      // $scope.communityRecipesFiltered.forEach( (recipe, i) => {
+      //   recipe.review.forEach( (rev, j) => {
+      //     console.log(rev);
+      //   });
+      // });
     }
 
     // ======== GET MY RECIPES =========
@@ -64,6 +70,7 @@
     function failure(error) {
       console.log('Failure: ', error);
     }  
+
     // ======== ADD A RECIPE ===========
     $scope.add = (recipe) => {
       CommunityService.addRecipe(recipe)
@@ -86,11 +93,13 @@
     function addRecipeFailure(response) {
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' });
     }
+
     // ========= DELETE RECIPE ============
     $scope.delete = (myRecipe) => {
       var myRecipeIndex = {
         'index': $scope.myRecipes.indexOf(myRecipe)
       };
+
       CommunityService.deleteThisRecipe(myRecipeIndex)
         .then(deleteRecipeSuccess)
         .catch(deleteRecipeFailure);

@@ -56,7 +56,7 @@ var IngredientSchema = new Schema({
 });
 
 var ReviewSchema = new Schema({
-  review: String,
+  writtenReview: String,
   rating: Number
 });
 
@@ -67,9 +67,10 @@ var RecipeSchema = new Schema({
     type: String,
     default: 'modules/core/client/img/no-image.jpg'
   },
-  directions: String,
+  directionsList: [{
+    directions: String
+  }],
   cookingStyle: String,
-  cookingTime: Number,
   healthClassifications: {
     glutenFree: Boolean,
     noSugar: Boolean,
