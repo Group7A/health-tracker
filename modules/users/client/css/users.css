@@ -446,4 +446,13 @@ span.glyphicon-time {
   font-size: 30px;
 }
 
+.healthClassifications {
+ padding:10px;
+ margin:0 0 10px;
+ display:block; 
+}
 
+.healthClassifications:hover {
+ background:#eee;
+ cursor:pointer;
+}

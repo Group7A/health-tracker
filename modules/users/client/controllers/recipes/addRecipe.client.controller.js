@@ -60,6 +60,13 @@
         'name': '',
         'quantity': '',
         'units': ''
+      }],
+      'directionsList:': [{
+        'directions': ''
+      }],
+      'review': [{
+        'writtenReview': '',
+        'rating': ''
       }]
     };
 
@@ -170,19 +177,41 @@
       TransferService.setAlternatives($scope.map);
     }
 
-    // Add to ingredient list
-    $scope.recipeList = [{}];
+    // INGREDIENTS LIST
+    $scope.ingredientList = [{}];
 
-    $scope.recipeAdd = function () {
-      $scope.recipeList.push({});
+    // Add an ingredient to the list
+    $scope.addIngredient = function () {
+      $scope.ingredientList.push({});
     };
-    $scope.removeRow = function (ingredient) {
-      // $scope.ingredient.splice(idx, 1);
+
+    // Remove an ingredient from the list
+    $scope.removeIngredientRow = function (ingredient) {
       var index = $scope.recipe.ingredients.indexOf(ingredient);
       $scope.recipe.ingredients.splice(index, 1);
-      $scope.recipeList.splice(index,1);
-      // $scope.customers.splice($index, 1);
+      $scope.ingredientList.splice(index,1);
       $scope.$emit('customerDeleted', ingredient); 
     };
+
+    // DIRECTIONS LIST
+    $scope.directionsList = [{}];
+
+    // Add another direction to the list
+    $scope.addDirections = function () {
+      $scope.directionsList.push({});
+    };
+
+    // Remove a direction from the list
+    $scope.removeDirectionsRow = function(direction) {
+      var index = $scope.recipe.directionsList.indexOf(direction);
+      $scope.recipe.directionsList.splice(index, 1);
+      $scope.directionsList.splice(index,1);
+      $scope.$emit('customerDeleted', direction); 
+    };
+
+    // RATING FROM USER
+    $scope.getStars = (number) => {
+      $scope.recipe.review.rating = number;
+    }
   }
 }());
