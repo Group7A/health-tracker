@@ -17,8 +17,10 @@
 }
 
 .user-profile-picture {
-  max-height: 300px;
-  min-height: 300px;
+  max-height: 150px;
+  min-height: 150px;
+  max-width: 100%;
+  min-width: 100%;
 }
 
 .social-button {
