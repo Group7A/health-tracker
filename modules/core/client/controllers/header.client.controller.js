@@ -63,12 +63,10 @@
       $scope.mid_ind;
       $scope.cookingStyle = 'baked';
 
-      $scope.alt_request = 0;
+      $scope.alt_request = 2;
       // 0 - want single healthies alt
       // 1 - want single "tastiest" alt
       // 2 - want 3 alts for ingredients
-
-      $scope.map.push(vm.searchFood);
 
       // Get alternatives
       $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
@@ -76,10 +74,13 @@
           food_group.food_alts.forEach( (food_alt, k) => {
               
             if((food_alt.db_name == vm.searchFood) && ($scope.cookingStyle == cooking_method.method_name)){
+              var alt_item = food_alt;
+              $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
               $scope.have_match = 1;
             }
             else if ((food_alt.db_name != vm.searchFood) && ($scope.have_match == 1)){
               $scope.all_alt_in_group.push(food_alt);
+              console.log(food_alt);
             }			
           });
           $scope.have_match = 0;
@@ -103,13 +104,13 @@
           }
           else{
             // Control what alt we give
-            mid_ind = $scope.all_alt_in_group.length/2;
+            $scope.mid_ind = $scope.all_alt_in_group.length/2;
             // Index is not whole number
-            if(mid_ind % 1 != 0){
-              mid_ind = mid_ind - 0.5;
+            if($scope.mid_ind % 1 != 0){
+              $scope.mid_ind = $scope.mid_ind - 0.5;
             }
             $scope.all_alt_in_group.forEach((alt_item, i) => {
-              if(i==0 || i==mid_ind || i==$scope.all_alt_in_group.length-1){
+              if(i==0 || i==$scope.mid_ind || i==$scope.all_alt_in_group.length-1){
                 $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
               }
             });
