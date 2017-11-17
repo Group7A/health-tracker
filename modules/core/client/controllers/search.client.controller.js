@@ -43,18 +43,31 @@
     };
 
     $scope.flip = function(alternative) {
-      $scope.flipped = !$scope.flipped[alternative];
+      alternative.flipped = !alternative.flipped;
     }
     //function to uppercase the first letter
-    $scope.firstUpper = function(string) {
+    $scope.uppercaseFirstLetter = function(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
     // FIRST ITME IS ORIGINAL INGREDIENT
     $scope.alternatives = TransferService.getAlternatives();
+    $scope.wholename = $scope.alternatives[0].map_name;
+    //search through each alternative and getReport for each one
+    async function getR() {
+    	var alternatives = await $scope.alternatives;
+
+    	alternatives.forEach( (alternative, i) => {
+	    	getReport(alternative);
+	    });
+    }
+
+    getR();
+
     console.log('Here are alternatives: ', $scope.alternatives);
     // wholename = searched item
-    $scope.wholename = $scope.alternatives[0];
+
+
     // alternative1's report
     // $scope.alternative1 = getReport($scope.alternatives[1].map_ndbno);
     // console.log("alternative # 1: ",$scope.alternatives[1].map_ndbno);
@@ -71,10 +84,10 @@
     var max = '200';
     var ds = 'Standard Reference';
 
-    $scope.getReport = (searchedItem) => {
+    function getReport (alternative) {
       var reportURL = 
           'http://api.nal.usda.gov/ndb/reports/' + 
-          '?ndbno=' + searchedItem + 
+          '?ndbno=' + alternative.map_ndbno + 
           '&type=' + type + 
           '&format=' + format + 
           '&api_key=' + apiKey; 
@@ -82,24 +95,24 @@
       getURL(reportURL)
           .then((results) => {
             $scope.searched = results.data;
-            assignFood();
+            assignFood(alternative);
           });
     };
 
-    function assignFood() {
+    function assignFood(alternative) {
       $scope.food = $scope.searched.report.food.name.toLowerCase();
-      $scope.nutrients = [];
+      alternative.nutrients = [];
 
       $scope.searched.report.food.nutrients.forEach((nutrient, i) => {
-        if (nutrient.name === 'Protein') $scope.nutrients.push(nutrient);
-        else if (nutrient.name === 'Total lipid (fat)') $scope.nutrients.push(nutrient);
-        else if (nutrient.name === 'Carbohydrate, by difference') $scope.nutrients.push(nutrient);
-        else if (nutrient.name === 'Fiber, total dietary') $scope.nutrients.push(nutrient);
-        else if (nutrient.name === 'Sugars, total') $scope.nutrients.push(nutrient);
-        else if (nutrient.name === 'Cholesterol') $scope.nutrients.push(nutrient);
+        if (nutrient.name === 'Protein') alternative.nutrients.push(nutrient);
+        else if (nutrient.name === 'Total lipid (fat)') alternative.nutrients.push(nutrient);
+        else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
+        else if (nutrient.name === 'Fiber, total dietary') alternative.nutrients.push(nutrient);
+        else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
+        else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
       });
 
-      console.log('nutrients: ', $scope.nutrients);
+      console.log('nutrients: ', alternative.nutrients);
     }
 
     function getURL(url) {
