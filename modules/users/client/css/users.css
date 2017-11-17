@@ -306,4 +306,11 @@ span.glyphicon-time {
   font-size: 30px;
 }
 
+/*SETTINGS VIEW*/
+.seven{
+  background-color: #013A6B;
+  /*background-image: -webkit-linear-gradient(150deg, #AEC86B 35%, #8DB83A 35%);*/
+  background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);
+  min-height: 500px;
+}
 
