@@ -1,20 +1,23 @@
-<div style="margin-top:50px">
+<div style="background-color:rgb(174,200,107); height: 650px ">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3" style="background-color:red">
+    <div class="col-md-6 col-md-offset-3 profile-container" style="">
       <div class="col-md-4" style="margin-left: -30px;">
         <!--TODO: PUT THE PICTURE HERE. DO NOT LINK TO ANOTHER VIEW, JUST PUT THE HTML HERE.-->
         <!--<div style="background: gray; height: 300px;">Profile Picture Goes Here</div>-->
-          <form class="signin">
+        <form class="signin">
           <fieldset>
-            <div class="form-group">
-              <img ngf-src="vm.fileSelected ? picFile : vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="user-profile-picture" ngf-drop>
+            <div class="form-group profileImg-container">
+              <img ngf-src="vm.fileSelected ? picFile : vm.user.profileImageURL" alt="{{vm.user.displayName}}" class="user-profile-picture image" ngf-drop>
+              <div ng-show="!vm.fileSelected" class="middle">
+                <div class="text1"><span class="glyphicon glyphicon-camera" style="margin-right:3px"></span> <a ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="picFile" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">Update Picture</a></div>
+              </div>
             </div>
             <div ng-show="vm.loading" class="form-group text-center">
               <img ng-src="/modules/core/client/img/loaders/loader.gif" height="50" width="50" alt="Loading image...">
             </div>
-            <div ng-show="!vm.fileSelected" class="form-group">
+<!--             <div ng-show="!vm.fileSelected" class="form-group">
               <button class="btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="picFile" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">Select Picture</button>
-            </div>
+            </div> -->
             <div ng-show="vm.fileSelected" class="text-center form-group">
               <button class="btn btn-primary" ng-click="vm.upload(picFile)">Use This Picture</button>
               <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
@@ -26,20 +29,44 @@
             </div>
           </fieldset>
         </form>
+
+        <div style="background-color: rgb(239,239,239); height: 100px ">
+          <div ng-show="personalProfile">
+            <!--TODO: MAKE THE TEXT OF THIS NAVIGATION BIGGER BIGGER-->
+            <div class="tab-selection">
+              <a class="active padding-text" href="" ng-click="personal()" id="viewName">Personal</a>
+            </div>
+            <div class="tab-selection1">
+              <a class="padding-text" href="" ng-click="health()" id="viewName">Health</a>
+            </div>
+            
+          </div>
+          <div ng-show="healthProfile">
+            <div class="tab-selection1">
+              <a class="padding-text" href="" ng-click="personal()" id="viewName">Personal</a>
+            </div>
+            <div class="tab-selection">
+              <a class="active padding-text" href="" ng-click="health()" id="viewName">Health</a>
+            </div>
+            
+          </div>
+        </div>
+
+    
       </div>
       <!--END PROFILE PICTURE 
 
       PERSONAL PROFILE INPUTS-->
       <div class="col-md-8">
         <div ng-show="personalProfile">
-          <div style="margin-top:25px">
+          <div style="margin-top:25px; margin-left: 35px;" class="">
             <form name="vm.userForm" ng-submit="vm.updateUserProfile(vm.userForm.$valid)" 
                 class="signin" novalidate autocomplete="off">
               <fieldset>
                 <div class="form-group" show-errors>
                   <label for="firstName" class="">First Name</label>
                   <div class="">
-                    <input type="text" id="firstName" name="firstName" class="form-control" style=""
+                    <input type="text" id="firstName" name="firstName" class="form-control input-boxHT" style=""
                         ng-model="vm.user.firstName" placeholder="First Name" required autofocus>
                   </div>
 
@@ -51,7 +78,7 @@
                 <div class="form-group " show-errors>
                   <label for="lastName" class="">Last Name</label>
                   <div class="">
-                    <input type="text" id="lastName" name="lastName" class="form-control" style=""
+                    <input type="text" id="lastName" name="lastName" class="form-control input-boxHT" style=""
                         ng-model="vm.user.lastName" placeholder="Last Name" required>
                   </div>
 
@@ -72,7 +99,7 @@
                 <div class="form-group" show-errors>
                   <label for="username" class="">Username</label>
                   <div class="">
-                    <input type="text" id="username" name="username" class="form-control" style=""
+                    <input type="text" id="username" name="username" class="form-control input-boxHT" style=""
                       ng-model="vm.user.username" placeholder="Username" lowercase required>
                   </div>
 
@@ -80,9 +107,10 @@
                     <p class="help-block error-text" ng-message="required">Username is required.</p>
                   </div>
                 </div>
-
-                <div>
-                  <button type="submit" class="btn btn-primary">Save Profile</button>
+                <hr class="profile-hr">
+                <hr class="profile-hr2">
+                <div class="saveProfile-btn">
+                  <button type="submit" class="htb htb-primary btn-lg sharp">Save Profile</button>
                 </div>
               </fieldset>
             </form>
@@ -92,4 +120,6 @@
     
   </div>
 </div>
+
+
 
