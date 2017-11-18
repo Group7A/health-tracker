@@ -23,19 +23,15 @@
         
     //   });
     // });
-
-    // API KEY
+    
+    /*
+    //Alternative Getter
 		var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
-
-		// FOR REPORT
 		var type = "b";
 		var format = "json";
-
-		// FOR INDIVIDUAL SEARCHES
 		var sort = "n";
 		var max = "200";
 		var ds = 'Standard Reference';
-
     $scope.getReport = (searchedItem) => {
 			var reportURL = 
 			  	"http://api.nal.usda.gov/ndb/reports/" + 
@@ -49,7 +45,7 @@
             $scope.searched = results.data;
             assignFood();
           });
-		}
+    }
 
     function assignFood() {
 			$scope.food = $scope.searched.report.food.name.toLowerCase();
@@ -59,7 +55,12 @@
     function getURL(url) {
 			return $http.get(url);
 		}
-
+ 
     //vm.customizings = UserssService.query();
+
+      function searchAssign(food){
+        vm.searchFood = food;
+      }*/
+      
   }
 }());
