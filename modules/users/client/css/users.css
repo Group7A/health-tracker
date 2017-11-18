@@ -54,7 +54,7 @@
   background-color:rgb(255,255,255); 
   padding-bottom: 24px; 
   margin-top: 120px;
-  box-shadow: 7px 7px 8px #888888;
+  /*box-shadow: 7px 7px 8px #888888;*/
   border-radius: 2px;
   margin-bottom: 60px;
 }
@@ -451,7 +451,8 @@ span.glyphicon-time {
 .seven{
   background-color: #013A6B;
   /*background-image: -webkit-linear-gradient(150deg, #AEC86B 35%, #8DB83A 35%);*/
-  background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);
+  /*background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);*/
+  background-image: -webkit-linear-gradient(150deg, rgb(244,244,244) 35%, rgb(244,244,244) 35%);
   min-height: 650px;
 }
 .setting-container{
