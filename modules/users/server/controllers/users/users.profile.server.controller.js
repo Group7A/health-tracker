@@ -265,7 +265,7 @@ exports.add = function (req, res) {
   var addedRecipe = {
     'name': recipe.name,
     'time': recipe.time,
-    'directions': recipe.directions,
+    'directionsList': recipe.directionsList,
     'cookingStyle': recipe.cookingStyle,
     'ingredients': recipe.ingredients,
     'healthClassifications': recipe.healthClassifications,
