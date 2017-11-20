@@ -123,7 +123,7 @@
       $scope.top_alt_count = 3;
       $scope.mid_ind;
 
-      $scope.alt_request = 0;
+      $scope.alt_request = 1;
       // 0 - want single healthies alt
       // 1 - want single "tastiest" alt
       // 2 - want 3 alts for ingredients
@@ -138,7 +138,7 @@
             //console.log("Alt name", food_alt.db_name);
             //console.log($scope.recipe.cookingStyle);
             //console.log("Cooking Method", cooking_method.method_name);
-            if((food_alt.db_name == ingredient.name) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
+            if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
               $scope.have_match = 1;
               console.log(food_alt);
             }
@@ -154,16 +154,16 @@
       //console.log($scope.all_alt_in_group);
 
       if($scope.all_alt_in_group.length > 0) {
-        if($scope.alt_request == 0){
+        //if($scope.alt_request == 0){
           var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
           console.log(alt_item);
-          $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
-        }
-        else if($scope.alt_request == 1){
+          $scope.healthy_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+        //}
+        //else if($scope.alt_request == 1){
           var alt_item = $scope.all_alt_in_group[0];
-          $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
-        }
-        else if($scope.alt_request == 2){
+          $scope.true_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+        //}
+        /*if($scope.alt_request == 2){
           if($scope.all_alt_in_group.length < $scope.top_alt_count){
             $scope.all_alt_in_group.forEach((alt_item, i) => {
               $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
@@ -182,7 +182,7 @@
               }
             });
           }		
-        }
+      }*/
       }
       else $scope.map.push({"map_name": 'No alternatives available'});
       while($scope.all_alt_in_group.length > 0){
