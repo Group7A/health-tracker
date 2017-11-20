@@ -11,6 +11,8 @@
     var vm = this;
 
     $scope.recipe = $stateParams.recipeDetails;
-    console.log($scope.recipe);
+
+    if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
+    else $scope.showDirections = false;
   }
 }());
