@@ -1,6 +1,7 @@
 <div class="seven">
   <div class="row row-fix">
-    <div class="col-md-6 col-md-offset-3 profile-container" style="">
+    <div class="col-md-6 col-md-offset-3 profile-container" style="">  
+      <h3 class="text-center" style="background-color:red">Profile</h3>
       <div class="col-md-4" style="margin-left: -30px;">
         <!--TODO: PUT THE PICTURE HERE. DO NOT LINK TO ANOTHER VIEW, JUST PUT THE HTML HERE.-->
         <!--<div style="background: gray; height: 300px;">Profile Picture Goes Here</div>-->
@@ -19,19 +20,7 @@
                 <a class="text1OkCancel text1Cancel" ng-click="vm.fileSelected = false"><span class="glyphicon glyphicon-remove"></span></a>
               </div>
             </div>
-            
-<!--             <div ng-show="!vm.fileSelected" class="form-group">
-              <button class="btn btn-default btn-file" ngf-select="(vm.fileSelected = true) && (vm.loading = false)" ng-model="picFile" accept="image/*" ngf-before-model-change="vm.loading = true" ngf-resize="{width: 400}" ngf-resize-if="$width > 400 || $height > 400">Select Picture</button>
-            </div> -->
-<!--             <div ng-show="vm.fileSelected" class="text-center form-group">
-              <button class="btn btn-primary" ng-click="vm.upload(picFile)">Use This Picture</button>
-              <button class="btn btn-default" ng-click="vm.fileSelected = false">Cancel</button>
-            </div> -->
-<!--             <div ng-show="vm.fileSelected" class="progress text-center">
-              <div class="progress-bar" role="progressbar" aria-valuenow="{{vm.progress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{vm.progress}}%" ng-bind="vm.progress + '%'">
-                <span class="sr-only">{{vm.progress}}% Complete</span>
-              </div>
-            </div> -->
+          
           </fieldset>
         </form>
 
@@ -39,23 +28,21 @@
           <div ng-show="personalProfile">
             <!--TODO: MAKE THE TEXT OF THIS NAVIGATION BIGGER BIGGER-->
             <div class="tab-selection" style="padding-top:7px">
-              <a class="padding-textSelected" href="" ng-click="personal()" id="viewName">Personal</a>
+              <a class="padding-textSelected" href="" ng-click="personal()" id="viewName"><span class="glyphicon glyphicon-user padding-icon"></span> Personal</a>
             </div>
             <div class="tab-selection1" style="padding-top:7px">
-              <a class="padding-text" href="" ng-click="health()" id="viewName">Health</a>
+              <a class="padding-text" href="" ng-click="health()" id="viewName"><span class="glyphicon glyphicon-heart padding-icon"></span>Health</a>
             </div>
             
           </div>
           <div ng-show="healthProfile">
             <div class="tab-selection1" style="padding-top:7px">
-              <a class="padding-text" href="" ng-click="personal()" id="viewName">Personal</a>
+              <a class="padding-text" href="" ng-click="personal()" id="viewName"><span class="glyphicon glyphicon-user padding-icon"></span>Personal</a>
             </div>
             <div class="tab-selection" style="padding-top:7px">
-              <a class="padding-textSelected" href="" ng-click="health()" id="viewName">Health</a>
+              <a class="padding-textSelected" href="" ng-click="health()" id="viewName"><span class="glyphicon glyphicon-heart padding-icon"></span> Health</a>
             </div>
-            
           </div>
-
         </div>
 
     
@@ -326,9 +313,10 @@
           </div>
         </div>
         
+      </div>
     </div>
-    
   </div>
+    
 </div>
 
 

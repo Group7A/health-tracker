@@ -95,6 +95,10 @@
 .linkUpdatePic{
   color: white !important;
 }
+.padding-icon{
+  padding-right: 10px;
+  font-size: 16px;
+}
 
 /*ghfhjgfj */
 .profileImg-container {
@@ -171,7 +175,7 @@
   width: 119%;
   padding-left: 16px;
   padding-right: 24px;
-  box-shadow: 3px 3px 5px #888888;
+  box-shadow: 4px 5px 10px rgb(231,231,231);
 }
 .health-containerL{
   margin-left: -10px;
