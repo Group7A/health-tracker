@@ -21,7 +21,6 @@
     $scope.directionsList = [{}];
     $scope.recipe = {
       'name': '',
-      'directions': '',
       'cookingStyle': '',
       'time':'',
       'healthClassifications': {
@@ -36,7 +35,7 @@
         'quantity': '',
         'units': ''
       }],
-      'directionsList:': [{
+      'directionsList': [{
         'directions': ''
       }],
       'review': [{

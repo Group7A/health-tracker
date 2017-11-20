@@ -37,7 +37,12 @@
     <div class="text">
       <ul class="list">
         <li class="direction-list"> <u>{{recipe.cookingStyle}}</u> </li>
-        <li class="direction-list"><div class="glyphicon-ring glyphicon-white"> 1  </div> {{recipe.directionsList}} </li>
+        <li class="direction-list" ng-repeat = "directions in recipe.directionsList">
+          <div class="glyphicon-ring glyphicon-white"> 
+            {{$index + 1}}
+          </div> 
+          {{directions.directions}} 
+        </li>
       </ul>
     </div>
   </div>
