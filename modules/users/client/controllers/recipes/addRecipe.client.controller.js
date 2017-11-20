@@ -163,12 +163,13 @@
           var alt_item = $scope.all_alt_in_group[0];
           $scope.true_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
         //}
-        /*if($scope.alt_request == 2){
+        /*else if($scope.alt_request == 2){
           if($scope.all_alt_in_group.length < $scope.top_alt_count){
             $scope.all_alt_in_group.forEach((alt_item, i) => {
               $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
             });
           }
+
           else{
             // Control what alt we give
             mid_ind = $scope.all_alt_in_group.length/2;
