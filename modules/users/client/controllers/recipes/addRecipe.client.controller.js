@@ -6,10 +6,10 @@
     .controller('AddRecipeController', AddRecipeController);
 
   AddRecipeController.$inject = ['UsersService', 'TransferService', '$scope', '$http', 
-    'Authentication', 'Notification', '$location'];
+    'Authentication', 'Notification', '$location', '$state'];
 
   function AddRecipeController(UsersService, TransferService, $scope, $http, 
-      Authentication, Notification, $location) {
+      Authentication, Notification, $location, $state) {
     var vm = this;
 
     vm.user = Authentication.user;
@@ -79,8 +79,16 @@
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
       }
 
-      TransferService.setRecipe(recipe);
-      $location.path('/alternatives');
+      //TransferService.setRecipe(recipe);
+      //$location.path('/alternatives');
+
+      var transferData = {
+        'recipe': recipe,
+        'healthy_map': $scope.healthy_map,
+        'truest_map': $scope.truest_map
+      };
+
+      $state.go('alternatives', transferData);
     }
 
     // Sort alternative ingredients
@@ -114,7 +122,8 @@
     // GET ALTERNATIVES FROM RECIPE
     function getAlternatives() {
       // Initialize variables
-      $scope.map = [];
+      $scope.healthy_map = [];
+      $scope.truest_map = [];
       $scope.in_food_group;
       $scope.orig_nutrient_amount;
       $scope.all_alt_in_group = [];
@@ -129,34 +138,26 @@
 
       // Get alternatives
       $scope.recipe.ingredients.forEach( (ingredient, x) => {
-      $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
-        cooking_method.food_groups.forEach( (food_group, j) => {
-          food_group.food_alts.forEach( (food_alt, k) => {
-              
-            //console.log("Ingredient", ingredient.name);
-            //console.log("Alt name", food_alt.db_name);
-            //console.log($scope.recipe.cookingStyle);
-            //console.log("Cooking Method", cooking_method.method_name);
-            if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
-              $scope.have_match = 1;
-              console.log(food_alt);
-            }
-            else if ((food_alt.db_name != ingredient.name) && ($scope.have_match == 1)){
-              $scope.all_alt_in_group.push(food_alt);
-              console.log(food_alt);
-            }			
+        $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
+          cooking_method.food_groups.forEach( (food_group, j) => {
+            food_group.food_alts.forEach( (food_alt, k) => {                
+              if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
+                $scope.have_match = 1;
+              }
+              else if ((food_alt.db_name != ingredient.name) && ($scope.have_match == 1)){
+                $scope.all_alt_in_group.push(food_alt);
+              }			
+            });
+            $scope.have_match = 0;
           });
-          $scope.have_match = 0;
         });
-      });
 
-      //console.log($scope.all_alt_in_group);
-
-      if($scope.all_alt_in_group.length > 0) {
-        //if($scope.alt_request == 0){
+        // Loop through all the alternatives
+        if($scope.all_alt_in_group.length > 0) {
+          // HEALTH MAP
           var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
-          console.log(alt_item);
           $scope.healthy_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+<<<<<<< HEAD
         //}
         //else if($scope.alt_request == 1){
           var alt_item = $scope.all_alt_in_group[0];
@@ -189,10 +190,23 @@
         $scope.all_alt_in_group.pop();
       }
       console.log("Completed Alternatives");
+=======
+>>>>>>> master
 
-    });
-      console.log($scope.map);
-      TransferService.setAlternatives($scope.map);
+          // TRUEST TO TASTE MAP
+          var alt_item = $scope.all_alt_in_group[0];
+          $scope.truest_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+        }
+        else { // If no alternatives available, send this to the map
+          $scope.healthy_map.push({"map_name": 'No alternatives available'});
+          $scope.truest_map.push({"map_name": 'No alternatives available'});
+        }
+
+        // Empty array for next alternatives
+        while($scope.all_alt_in_group.length > 0) {
+          $scope.all_alt_in_group.pop();
+        }
+      });
     }
 
     // Add an ingredient to the list

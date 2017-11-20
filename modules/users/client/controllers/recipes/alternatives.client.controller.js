@@ -5,14 +5,21 @@
     .module('users')
     .controller('AlternativesController', AlternativesController);
 
-  AlternativesController.$inject = ['UsersService', 'TransferService', '$scope'];
+  AlternativesController.$inject = ['UsersService', 'TransferService', '$scope', '$stateParams'];
 
-  function AlternativesController(UsersService, TransferService, $scope) {
+  function AlternativesController(UsersService, TransferService, $scope, $stateParams) {
     var vm = this;
 
-    $scope.alternatives = TransferService.getAlternatives();
-    $scope.recipe = TransferService.getRecipe();
-    console.log("Here are alternatives: ", $scope.alternatives);
+    // $scope.alternatives = TransferService.getAlternatives();
+    // $scope.recipe = TransferService.getRecipe();
+
+    $scope.recipe = $stateParams.recipe;
+    $scope.healthy_alternatives = $stateParams.healthy_map;
+    $scope.truest_alternatives = $stateParams.truest_map;
+    $scope.showHealthy = true;
+
+    console.log("Here are healthy alternatives: ", $scope.healthy_alternatives);
+    console.log("Here are truest alternatives: ", $scope.truest_alternatives);
     console.log("Here is the recipe", $scope.recipe);
 
     $scope.ingredients = $scope.recipe.ingredients;

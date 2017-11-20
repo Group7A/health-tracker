@@ -51,6 +51,11 @@
       .state('alternatives', { // SUGGESTED ALTERNATIVES
         url: '/alternatives',
         templateUrl: 'modules/users/client/views/recipes/alternatives.client.view.html',
+        params: { 
+          'recipe': null,
+          'healthy_map': null,
+          'truest_map': null
+        },
         controller: 'AlternativesController',
         controllerAs: 'vm',
         data: {
