@@ -6,7 +6,7 @@
 				<li><div class="al-list-measureL">
 					{{ingredient.quantity}} {{ingredient.units}}
 				</div>{{ingredient.name}}</li>
-				
+
 			</div>
 			<button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
 		</div>
@@ -18,7 +18,7 @@
 			</div>
 			<div ng-show="health" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
 					ng-click="getReport(healthy_alternatives.map_ndbno)">
-				<li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
+				<li><div class="al-list-measureR"></div>{{healthy_alternatives.map_name}}</li>
 			</div>
 			<div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
 			ng-click="getReport(truest_alternative.map_ndbno)">
