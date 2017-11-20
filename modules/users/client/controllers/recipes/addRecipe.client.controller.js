@@ -151,7 +151,8 @@
         });
       });
 
-      console.log($scope.all_alt_in_group);
+      //console.log($scope.all_alt_in_group);
+
       if($scope.all_alt_in_group.length > 0) {
         if($scope.alt_request == 0){
           var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
@@ -184,6 +185,11 @@
         }
       }
       else $scope.map.push({"map_name": 'No alternatives available'});
+      while($scope.all_alt_in_group.length > 0){
+        $scope.all_alt_in_group.pop();
+      }
+      console.log("Completed Alternatives");
+
     });
       console.log($scope.map);
       TransferService.setAlternatives($scope.map);
