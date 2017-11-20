@@ -32,16 +32,24 @@
     </div>
     <hr>
     <div style="margin-left: 29%;">
-      <div class="verticalLine"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{recipe.time}} min | Total</div>
+      <div class="verticalLine">
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+        {{recipe.time}} min | Total
+      </div>
     </div>
     <div class="text">
       <ul class="list">
-        <li class="direction-list"> <u>{{recipe.cookingStyle}}</u> </li>
-        <li class="direction-list" ng-repeat = "directions in recipe.directionsList">
+        <li class="direction-list"> 
+          Cooking style: <u>{{recipe.cookingStyle}}</u> 
+        </li>
+        <li ng-show="showDirections" class="direction-list" ng-repeat="directions in recipe.directionsList">
           <div class="glyphicon-ring glyphicon-white"> 
             {{$index + 1}}
           </div> 
           {{directions.directions}} 
+        </li>
+        <li ng-hide="showDirections" class="direction-list">
+          <div>No directions available</div>
         </li>
       </ul>
     </div>
