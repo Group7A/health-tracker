@@ -25,13 +25,16 @@
 
     $scope.ingredients = $scope.recipe.ingredients;
 
+    /*$scope.switch = () => {
+      $scope.health = !$scope.health;
+    }*/
     $scope.showHealthy = () => {
-      health = true;
-      truest = false;
+      $scope.health = true;
+      $scope.truest = false;
     }
     $scope.showTruest = () => {
-      truest = true;
-      health = false;
+      $scope.truest = true;
+      $scope.health = false;
     }
 
     // TODO: Sort through alternatives and get healthiest and truest to taste
