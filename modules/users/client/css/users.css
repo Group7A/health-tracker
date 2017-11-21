@@ -496,17 +496,19 @@ span.glyphicon-time {
 }
 
 /*SETTINGS VIEW*/
-.seven{
+.seven {
   background-color: #013A6B;
   /*background-image: -webkit-linear-gradient(150deg, #AEC86B 35%, #8DB83A 35%);*/
   /*background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);*/
   background-image: -webkit-linear-gradient(150deg, rgb(244,244,244) 35%, rgb(244,244,244) 35%);
   min-height: 650px;
 }
-.setting-container{
+
+.setting-container {
   margin-top: 35px;
   padding-left: 20%;
   padding-right: 20%;
+}
 
 .healthClassifications {
  padding:10px;

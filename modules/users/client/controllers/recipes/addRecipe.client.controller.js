@@ -44,7 +44,7 @@
       }]
     };
 
-    // GET IMAGE = qwant, can only get a certain amount of requests
+    // GET IMAGE
     async function getImage() {
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       let host = 'https://api.cognitive.microsoft.com';
@@ -66,16 +66,6 @@
         .catch( (err) => {
           console.log(err);
         });
-
-      // const proxyurl = "https://cors-anywhere.herokuapp.com/"; // Fixes CORS permissions issue
-      // var imageUrl = "https://api.qwant.com/api/search/images?"+ // Gets image
-      //   "count=10&offset=1&q="+$scope.recipe.name+"food";
-      
-      // $http.get(proxyurl + imageUrl)
-      //   .then( function(response) {
-      //     $scope.image = response.data.data.result.items[0].media;
-      //   });
-      console.log($scope.image);
     }
 
     // ADD RECIPE TO MONGO
