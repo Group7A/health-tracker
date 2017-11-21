@@ -44,15 +44,27 @@
       }]
     };
 
-    // GET IMAGE = qwant, can only get a certain amount of requests
-    function getImage() {
-      const proxyurl = "https://cors-anywhere.herokuapp.com/"; // Fixes CORS permissions issue
-      var imageUrl = "https://api.qwant.com/api/search/images?"+ // Gets image
-        "count=10&offset=1&q="+$scope.recipe.name+"food";
-      
-      $http.get(proxyurl + imageUrl)
-        .then( function(response) {
-          $scope.image = response.data.data.result.items[0].media;
+    // GET IMAGE
+    async function getImage() {
+      let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
+      let host = 'https://api.cognitive.microsoft.com';
+      let path = '/bing/v7.0/search';
+      let search = $scope.recipe.name;
+
+      let req = {
+          method : 'GET',
+          url: host + path + '?q=' + encodeURIComponent(search),
+          headers : {
+              'Ocp-Apim-Subscription-Key' : subscriptionKey,
+          }
+      };
+
+      await $http(req)
+        .then( (response) => {
+          $scope.image = response.data.images.value[0].contentUrl;
+        })
+        .catch( (err) => {
+          console.log(err);
         });
     }
 

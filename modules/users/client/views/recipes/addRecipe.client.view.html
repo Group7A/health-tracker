@@ -12,15 +12,18 @@
   <form name="vm.addRecipeForm" ng-submit="vm.updateMyRecipes(vm.addRecipeForm.$valid)" novalidate>
     <fieldset>
       <div class="row recipeName">
-        <input name="name" type="text" ng-model="recipe.name" style="width: 50%; text-align:center; border:none; text-transform: uppercase; " id="name" class="" placeholder="Enter Recipe Name..." required>
+        <input name="name" type="text" ng-model="recipe.name" style="width: 50%; text-align:center; border:none; text-transform: uppercase; " 
+            id="name" placeholder="Enter Recipe Name..." ng-blur="vm.getImage()" required>
       </div>
       <hr>
       <div class="container-fluid" style="padding-left: 50px;">
         <div class="col-md-2 col-md-offset-2">
           <div style="float:right">  
             <img src="../modules/users/client/img/addRecipe/cooking-style.png" style="height: 45px; width: 45px ">  
-            <div style="font-weight:bold; margin-top: 0px; margin-bottom: 5px">Method</div>
-            <select style= "    border-radius: 0px;" class="" ng-model="recipe.cookingStyle">
+            <div style="font-weight:bold; margin-top: 0px; margin-bottom: 5px">
+              Method
+            </div>
+            <select style= "border-radius: 0px;" ng-model="recipe.cookingStyle">
               <option>baked</option>
               <option>fried</option>
               <option>grilled</option>
