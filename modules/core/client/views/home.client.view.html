@@ -80,7 +80,7 @@
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <center>
                 <h3 class="card-name">
                   <a ui-sref="details({recipeDetails: recipe})" style="text-decoration: none">
@@ -89,14 +89,16 @@
                 </h3>
               </center>
             </div>
-            <div class="card-icon-container col-md-6">
-              <div id="stars">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-              </div>
+            <div class="card-icon-container col-md-8">
+              <center>
+                <div id="stars">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                </div>
+              </center>
               <ul class="nav navbar-nav navbar-right">
                 <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
                 <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
@@ -123,24 +125,26 @@
               </a>
           </div>
           <div class="card-info2"></div>
-          <div class="card-info">
-            <h3 class="card-name">
-              <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
-                {{myRecipe.name}}
-              </a>
-            </h3>
-            <div class="card-icon-container">
-              <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-                <!--<img class="card-icon" src="https://manylivescm.com/wp-content/uploads/2014/03/icon-glutenfree.png">
-                <img class="card-icon" src="http://www.theproteinbakeshop.com/ae/files/icon-no-refined-sugar.png">-->
-              </ul>
-              <div id="stars">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-              </div>
+          <div class="card-info row">
+            <div class="col-md-4">
+              <center>
+                <h3 class="card-name">
+                  <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
+                    {{myRecipe.name}}
+                  </a>
+                </h3>
+              </center> 
+            </div>
+            <div class="card-icon-container col-md-8">
+              <center>
+                <div id="stars">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                </div>
+              </center>
               <ul class="nav navbar-nav navbar-right">
                 <img class="card-icon" ng-show="myRecipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
                 <img class="card-icon" ng-show="myRecipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">

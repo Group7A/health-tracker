@@ -8,19 +8,7 @@
   SearchController.$inject = ['$scope', 'menuService', 'TransferService', '$http'];
 
   function SearchController($scope, menuService, TransferService, $http) {
-    // $scope.pages = [{name:"Whole Milk", calories:"105", protein:"8", sugar:"13", fat:"2.5"},
-    //                 {name:"Comparison View", show: false}
-    // ]
-    $scope.wholeCal = '105';
-    $scope.wholePro = '8';
-    $scope.wholeSug = '13';
-    $scope.wholeFat = '2.5';
-
     var vm = this;
-    // $scope.show = function(item){
-    //   console.log("completed");
-    //   item.show = !item.show;
-    // }
 
     $scope.showItem = true;
     $scope.showComparison = false;
@@ -31,7 +19,6 @@
         $scope.showItem = true;
         $scope.showComparison = false;
       }
-      // $scope.showItem = !$scope.showItem;
     };
 
     $scope.showC = function () {
@@ -39,7 +26,6 @@
         $scope.showComparison = true;
         $scope.showItem = false;
       }
-      // $scope.showItem = !$scope.showItem;
     };
 
     $scope.flip = function(alternative) {
@@ -52,26 +38,22 @@
 
     // FIRST ITME IS ORIGINAL INGREDIENT
     $scope.alternatives = TransferService.getAlternatives();
-    $scope.wholename = $scope.alternatives[0].map_name;
+    $scope.name = 'No Search';
     //search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
 	    	getReport(alternative);
+	    	if(i==0){
+	    		$scope.name = alternative.map_name;
+	    	}
 	    });
     }
 
     getR();
 
     console.log('Here are alternatives: ', $scope.alternatives);
-    // wholename = searched item
-
-
-    // alternative1's report
-    // $scope.alternative1 = getReport($scope.alternatives[1].map_ndbno);
-    // console.log("alternative # 1: ",$scope.alternatives[1].map_ndbno);
-
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
 
