@@ -13,12 +13,13 @@
       </a>
     </div> -->
     <!-- SEARCH BAR -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <!--  -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">
       <div class="col-sm-3 col-md-3">
         <form class="navbar-form" role="search" ng-submit="vm.getAlternatives()">
           <div class="input-group">
               <input type="text" class="form-control searchBar" ng-model="vm.searchFood"
-                placeholder="Search" name="q">
+                placeholder="Search" name="search" id = "search" list = "Foods"/>
               <div class="input-group-btn">
                 <button class="btn searchBar searchBar-btn" type="submit">
                   <i class="glyphicon glyphicon-search"></i>
@@ -27,6 +28,11 @@
           </div>
         </form>
     </div>
+   
+    <datalist id = "Foods"> 
+      <option ng-repeat="food in altFoods" value="{{food}}"></option>
+    </datalist>
+
     <!-- LOGGED OUT = SIGN UP AND SIGN IN -->
     <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
       <li ui-sref-active="active">
