@@ -28,11 +28,12 @@
     /*$scope.switch = () => {
       $scope.health = !$scope.health;
     }*/
-    $scope.showHealthy = () => {
+
+    $scope.showHealthy = function () {
       $scope.health = true;
       $scope.truest = false;
     }
-    $scope.showTruest = () => {
+    $scope.showTruest = function () {
       $scope.truest = true;
       $scope.health = false;
     }
