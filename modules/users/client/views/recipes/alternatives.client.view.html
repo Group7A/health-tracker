@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-md-6 al-containerPaddingR">
 			<h1 class="al-h1 text-center">Alternative Recipe</h1>
-			<div class="al-tabs">
+			<div class="al-tabs" ng-click="switch()">
 				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA" href="">Healthiest</a> </div>
 				<div class="" ng-click="showTruest()"><a class="tabA" href="">Truest to Taste</a></div>
 			</div>
@@ -20,10 +20,10 @@
 					ng-click="getReport(healthy_alternatives.map_ndbno)">
 				<li><div class="al-list-measureR"></div>{{healthy_alternatives.map_name}}</li>
 			</div>
-			<div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
+			<!--<div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
 			ng-click="getReport(truest_alternative.map_ndbno)">
 				<li><div class="al-list-measureR"></div>{{truest_alternatives.map_name}}</li>
-			</div>
+			</div>-->
 			<button type="button" class="htb htb-primary btn-lg sharp al-btnR"
 				ui-sref="customize">Customize</button>
 		</div>
