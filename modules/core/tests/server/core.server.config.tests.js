@@ -13,8 +13,8 @@ var _ = require('lodash'),
   config = require(path.resolve('./config/config')),
   logger = require(path.resolve('./config/lib/logger')),
   seed = require(path.resolve('./config/lib/mongo-seed')),
-  express = require(path.resolve('./config/lib/express')),
-  Article = mongoose.model('Article');
+  express = require(path.resolve('./config/lib/express'));
+//  Article = mongoose.model('Article');                      //not using this module so don't test it
 
 /**
  * Globals
