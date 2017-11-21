@@ -52,11 +52,14 @@
 }
 .profile-container{
   background-color:rgb(255,255,255); 
-  padding-bottom: 24px; 
+  padding-bottom: 30px; 
   margin-top: 120px;
   /*box-shadow: 7px 7px 8px #888888;*/
+  box-shadow: 4px 5px 10px rgb(231,231,231);
   border-radius: 2px;
   margin-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .tab-selection{
   background-color: rgb(255,255,255); 
@@ -105,7 +108,20 @@
   position: relative;
   margin-bottom: 0;
     /*width: 50%;*/
-
+  margin-top: -10px;
+}
+.info-container{
+  padding-left: 0;
+  padding-right: 0;
+  /*box-shadow: 3px 3px 5px 6px rgb(231,231,231);*/
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  box-shadow: 0 0 10px rgba(0,0,0, .65);
+  margin-top: -40px;
+}
+.info-container1{
+  padding-right: 0px;
+  padding-left: 50px;
 }
 
 .image {
@@ -162,8 +178,8 @@
 .text1 {
   background-color: rgba(43,43,43,0.8);
   color: white;
-  font-size: 14px;
-  padding: 10px 32px;
+  font-size: 12px;
+  padding: 10px 23px;
 }
 .text1:hover{
   background-color: rgba(43,43,43,0.9);
@@ -172,19 +188,47 @@
 .health-container{
   background-color: rgb(219,219,219);
   border-radius: 2px;
-  width: 119%;
-  padding-left: 16px;
-  padding-right: 24px;
+  /*width: 119%;*/
+/*  padding-left: 16px;
+  padding-right: 24px;*/
   box-shadow: 4px 5px 10px rgb(231,231,231);
 }
-.health-containerL{
-  margin-left: -10px;
+.HrowContainer{
+  padding-left: 9%;
+  padding-right: 9%;
 }
-.health-containerR{
-  margin-left: 7px;
+.health-headerMargin{
+  padding-top: 7%;
+}
+.health-containerBox{
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-
+.profileHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 6%;
+  padding-left: 38%;
+}
+.settingsHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 5%;
+}
+.personal-profile{
+  margin-top: 25px;
+  padding-left: 7%;
+  padding-right: 7%;
+}
 
 /* ALTERNATIVE VIEW*/
 .ingredient-containerL{
