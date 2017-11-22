@@ -16,13 +16,27 @@
     $scope.recipe = $stateParams.recipe;
     $scope.healthy_alternatives = $stateParams.healthy_map;
     $scope.truest_alternatives = $stateParams.truest_map;
-    $scope.showHealthy = true;
+    $scope.health = true;
+    $scope.truest = false;
 
     console.log("Here are healthy alternatives: ", $scope.healthy_alternatives);
     console.log("Here are truest alternatives: ", $scope.truest_alternatives);
     console.log("Here is the recipe", $scope.recipe);
 
     $scope.ingredients = $scope.recipe.ingredients;
+
+    /*$scope.switch = () => {
+      $scope.health = !$scope.health;
+    }*/
+
+    $scope.showHealthy = function () {
+      $scope.health = true;
+      $scope.truest = false;
+    }
+    $scope.showTruest = function () {
+      $scope.truest = true;
+      $scope.health = false;
+    }
 
     // TODO: Sort through alternatives and get healthiest and truest to taste
     // $scope.ingredients.forEach( (ingredient, i) => {
