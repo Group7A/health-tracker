@@ -53,7 +53,7 @@
 .profile-container{
   background-color:rgb(255,255,255); 
   padding-bottom: 30px; 
-  margin-top: 120px;
+  margin-top: 80px;
   /*box-shadow: 7px 7px 8px #888888;*/
   box-shadow: 4px 5px 10px rgb(231,231,231);
   border-radius: 2px;
@@ -83,13 +83,15 @@
   text-decoration: none; 
 }
 .padding-text{
-  margin-left: 15px;
   color: rgb(78,78,78);
   font-size: 15px;
 }
 .padding-text:hover{
   color: rgba(78,78,78,0.8);
   text-decoration: none;
+}
+.margin-tab{
+  margin-left: 15px;
 }
 .row-fix{
   margin-right: 0; 
@@ -423,19 +425,36 @@
 
 }
 .savebtn{
-	width: 150px;
-	height: 50px;
-	background-color: red;
 	float: right;
-	margin-right: 10%;
+  color: rgb(169,169,169);
+  margin-bottom: 10px;
+}
+.savebtn:hover{
+  text-decoration: none;
+  color: grey;
+}
+.savebtn-size{
+  color: #DF5D4A;
+  /*font-size: 24px;*/
+
 }
 .recipeDetail{
 	text-align: center;
 	margin-top: 5%;
 }
 .heading{
-	font-size: 20px;
+	font-size: 16px;
   padding-top: 35px;
+}
+.ingDirActive{
+  border-bottom: 2px solid #DF5D4A;
+  text-align: center;
+}
+.ingDirDisable{
+  border-bottom: 2px solid gray;
+}
+.ingDirActive-a{
+  text-decoration: none;
 }
 .text{
 	font-size: 15px;
@@ -443,8 +462,9 @@
 	/*display: inline-block;*/
   /*text-align: left;*/
   line-height: 230%;
-  margin-top: 10px;
+  margin-top: 20px;
 }
+.
 hr{
 	width: 60%;
 	border-width: 1.5px;
@@ -457,6 +477,16 @@ hr{
   /*background-color:#fff;*/
   /*height:1px;*/
   width:100%;
+}
+.ingredient-containerRecipeDetails{
+  background-color: rgb(244,244,244);
+  text-align: left;
+  padding-left: 10%;
+  /* padding-bottom: 183px; */
+  max-height: 410px;
+  min-height: 410px;
+  overflow-y:scroll;
+  box-shadow: inset 1px -5px 9px -6px #AEC86B;
 }
 .ingredient-quantity{
   color: #AEC86B;
@@ -482,7 +512,7 @@ span.glyphicon-time {
 	list-style-type: none;
   padding: 0px;
 }
-.glyphicon-ring {
+/*.glyphicon-ring {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -495,7 +525,7 @@ span.glyphicon-time {
   background: white;
   color: black;
   border: 1px solid black;
-}
+}*/
 .review-containter{
 	height: 200px;
 	text-align: center;
