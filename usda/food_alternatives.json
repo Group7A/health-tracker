@@ -1391,6 +1391,31 @@
                             "db_ndbno": "09421"
                         }
                     ]
+                },
+                {
+                    "group_name": "db_Peanut_Butter",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Butter",
+                            "db_full_name": "Peanut butter, smooth style, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.325
+                            }, 
+                            "db_ndbno": "16398"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "Nuts, almond butter, plain, without salt added",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 4.152
+                            }, 
+                            "db_ndbno": "12195"
+                        }
+                    ]
                 }
             ]       
         },       
@@ -1526,6 +1551,31 @@
                             "db_ndbno": "09421"
                         }
                     ]
+                },
+                {
+                    "group_name": "db_Peanut_Butter",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Butter",
+                            "db_full_name": "Peanut butter, smooth style, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.325
+                            }, 
+                            "db_ndbno": "16398"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "Nuts, almond butter, plain, without salt added",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 4.152
+                            }, 
+                            "db_ndbno": "12195"
+                        }
+                    ]
                 }
             ]
         },       
@@ -1651,57 +1701,27 @@
                     "group_name": "db_Fats_and_Oils",
                     "food_alts": [
                         {
-                            "db_name": "Peanut Oil",
-                            "db_full_name": "PEANUT OIL",
+                            "db_name": "butter",
+                            "db_full_name": "Butter, light, stick, without salt",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
-                                "db_amount": 17.86
+                                "db_amount": 50.489
                             }, 
-                            "db_ndbno": "45090313"
-                        },
-                        {  
-                            "db_name": "Vegetable Oil",
-                            "db_full_name": "Vegetable oil, palm kernel",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 81.5
-                            }, 
-                            "db_ndbno": "04513"
+                            "db_ndbno": "04602"
                         },
                         {
-                            "db_name": "Rice Bran Oil",
-                            "db_full_name": "Oil, rice bran",
+                            "db_name": "olive oil",
+                            "db_full_name": "Oil, olive, salad or cooking",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
-                                "db_amount": 19.7
+                                "db_amount": 13.808
                             }, 
-                            "db_ndbno": "04037"
+                            "db_ndbno": "04053"
                         },
                         {
-                            "db_name": "Safflower Oil",
-                            "db_full_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 7.541
-                            }, 
-                            "db_ndbno": "04511"
-                        },
-                        {
-                            "db_name": "Avacado Oil",
-                            "db_full_name": "Oil, avocado",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 11.56
-                            }, 
-                            "db_ndbno": "04581"
-                        },
-                        {
-                            "db_name": "Coconut Oil",
+                            "db_name": "coconut oil",
                             "db_full_name": "Oil, Coconut",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -1711,34 +1731,14 @@
                             "db_ndbno": "04047"
                         },
                         {
-                            "db_name": "Palm Oil",
-                            "db_full_name": "Oil, palm",
+                            "db_name": "canola oil",
+                            "db_full_name": "Oil, canola",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
-                                "db_amount": 49.3
+                                "db_amount": 100
                             }, 
-                            "db_ndbno": "04055"
-                        },
-                        {
-                            "db_name": "Ghee",
-                            "db_full_name": "GHEE",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 60
-                            }, 
-                            "db_ndbno": "45086955"
-                        },
-                        {
-                            "db_name": "Sunflower Oil",
-                            "db_full_name": "SUNFLOWER OIL",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 10.71
-                            }, 
-                            "db_ndbno": "45059989"
+                            "db_ndbno": "04582"
                         }
                     ]
                 }
