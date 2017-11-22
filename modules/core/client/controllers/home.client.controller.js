@@ -144,5 +144,32 @@
     function deleteRecipeFailure(response) {
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Delete recipe failed!' });
     }
+
+    // RATING FILTER
+    $scope.ratingFilter = true;
+    $scope.highestRating = true;
+    $scope.ratingFilterOption = (highestOrLowest) => {
+      if(highestOrLowest === 'highest') {
+        $scope.ratingFilter = true;
+        $scope.highestRating = true;
+        $scope.lowestRating = false;
+      }
+      else {
+        $scope.ratingFilter = false;
+        $scope.highestRating = false;
+        $scope.lowestRating = true;
+      }
+    }
+
+    // COOKING STYLE FILTER
+    $scope.showBaked = true;
+    $scope.showFried = true;
+    $scope.showGrilled = true;
+
+    $scope.cookingStyleFilter = (style) => {
+      if(style === 'baked') $scope.showBaked = !$scope.showBaked;
+      else if(style === 'fried') $scope.showFried = !$scope.showFried;
+      else if(style === 'grilled') $scope.showGrilled = !$scope.showGrilled;
+    }
   }
 }());
