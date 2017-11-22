@@ -22,12 +22,13 @@
       vm.isCollapsed = false;
     }
 
+    $scope.altFoods = [];
+
     // Sort alternative ingredients
     async function sort_alt() {
       await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
         .then ((response) => {
           $scope.alt_food_object = response.data;
-
           $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
             cooking_method.food_groups.forEach( (food_group, j) => {
               food_group.food_alts.sort(function(a, b) {
@@ -45,10 +46,35 @@
               });
             });
           });
+
+          $scope.duplicate = 0;
+
+          $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
+            cooking_method.food_groups.forEach( (food_group, j) => {
+              food_group.food_alts.forEach( (food_alt, k) => {
+
+                $scope.altFoods.forEach( (altFood, l) => {
+                  if(food_alt.db_name == altFood){
+                    $scope.duplicate = 1;
+                  }
+                });
+
+                if($scope.duplicate == 0){
+                    $scope.altFoods.push(food_alt.db_name);
+                }
+                else{
+                  $scope.duplicate = 0
+                }
+                
+              });
+            });
+          });
         });
     }
 
     sort_alt();
+
+    console.log("altFoods",$scope.altFoods);
 
     vm.getAlternatives = getAlternatives;
 
