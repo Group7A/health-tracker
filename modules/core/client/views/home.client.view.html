@@ -30,27 +30,27 @@
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
           <li>
             <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Gluten Free
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;No Sugar
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Low Fat
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
               <input type="checkbox"/>&nbsp;Vegan
             </label>
           </li>
           <li>
             <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Pescetarian
-            </label>
-          </li>
-          <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Ovo Vegetarian
-            </label>
-          </li>
-          <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Lacto-Vegetarian
-            </label>
-          </li>
-          <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Lacto-Ovo-Vegetarian
+              <input type="checkbox"/>&nbsp;Low Calorie
             </label>
           </li>
         </div>
@@ -62,18 +62,18 @@
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Baked
+            <label ng-click="cookingStyleFilter('baked')" class="small healthClassifications">
+              <input ng-model="showBaked" type="checkbox"/>&nbsp;Baked
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Fried
+            <label ng-click="cookingStyleFilter('fried')" class="small healthClassifications">
+              <input ng-model="showFried" type="checkbox"/>&nbsp;Fried
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Grilled
+            <label ng-click="cookingStyleFilter('grilled')" class="small healthClassifications">
+              <input ng-model="showGrilled" type="checkbox"/>&nbsp;Grilled
             </label>
           </li>
         </div>
@@ -101,7 +101,9 @@
     <!-- COMMUNITY RECIPES -->
     <div ng-show="showCommunity">
       <div class="row row-margin">
-        <div ng-repeat="recipe in communityRecipesFiltered | orderBy:'totalRating':ratingFilter" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="recipe in communityRecipesFiltered | 
+            orderBy:'totalRating':ratingFilter | limitTo: 16" 
+            class="col-xs-12 col-sm-6 col-md-3 properties">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: recipe})">
               <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">

@@ -160,5 +160,16 @@
         $scope.lowestRating = true;
       }
     }
+
+    // COOKING STYLE FILTER
+    $scope.showBaked = true;
+    $scope.showFried = true;
+    $scope.showGrilled = true;
+
+    $scope.cookingStyleFilter = (style) => {
+      if(style === 'baked') $scope.showBaked = !$scope.showBaked;
+      else if(style === 'fried') $scope.showFried = !$scope.showFried;
+      else if(style === 'grilled') $scope.showGrilled = !$scope.showGrilled;
+    }
   }
 }());
