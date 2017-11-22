@@ -49,7 +49,7 @@
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       let host = 'https://api.cognitive.microsoft.com';
       let path = '/bing/v7.0/search';
-      let search = $scope.recipe.name;
+      let search = $scope.recipe.name + ' food';
 
       let req = {
           method : 'GET',
@@ -214,7 +214,7 @@
 
     // RATING FROM USER
     $scope.getStars = (number) => {
-      $scope.recipe.review.rating = number;
+      $scope.recipe.review[0].rating = number;
     }
   }
 }());
