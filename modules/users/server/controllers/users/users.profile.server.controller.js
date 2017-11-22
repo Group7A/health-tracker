@@ -264,11 +264,12 @@ exports.add = function (req, res) {
 
   var addedRecipe = {
     'name': recipe.name,
-    'time': recipe.time,
-    'directionsList': recipe.directionsList,
     'cookingStyle': recipe.cookingStyle,
-    'ingredients': recipe.ingredients,
+    'time': recipe.time,
     'healthClassifications': recipe.healthClassifications,
+    'ingredients': recipe.ingredients,
+    'directionsList': recipe.directionsList,
+    'review': recipe.review,
     'image': recipe.image
   };
 

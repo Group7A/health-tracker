@@ -51,11 +51,27 @@
         }
       }
 
-      // $scope.communityRecipesFiltered.forEach( (recipe, i) => {
-      //   recipe.review.forEach( (rev, j) => {
-      //     console.log(rev);
-      //   });
-      // });
+      for(var recipe in $scope.communityRecipesFiltered) {
+        if($scope.communityRecipesFiltered[recipe].review.length > 0) {
+          $scope.communityRecipesFiltered[recipe].totalRating = averageStars($scope.communityRecipesFiltered[recipe].review);
+        }
+        else $scope.communityRecipesFiltered[recipe].totalRating = 0;
+      };
+    }
+
+    function averageStars(starsArray) {
+      var total = 0;
+
+      for(var i = 0; i < starsArray.length; i++) {
+          total += starsArray[i].rating;
+      }
+
+      var avg = total / starsArray.length;
+      return avg;
+    }
+
+    $scope.getNumber = (num) => {
+      return new Array(num); 
     }
 
     // ======== GET MY RECIPES =========
@@ -65,6 +81,13 @@
 
     function MyRecipeSuccess(response) {
       $scope.myRecipes = response.recipes;
+
+      for(var recipe in $scope.myRecipes) {
+        if($scope.myRecipes[recipe].review.length > 0) {
+          $scope.myRecipes[recipe].totalRating = averageStars($scope.myRecipes[recipe].review);
+        }
+        else $scope.myRecipes[recipe].totalRating = 0;
+      };
     }
 
     function failure(error) {

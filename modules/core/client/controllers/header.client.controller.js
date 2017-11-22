@@ -29,6 +29,7 @@
       await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
         .then ((response) => {
           $scope.alt_food_object = response.data;
+          
           $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
             cooking_method.food_groups.forEach( (food_group, j) => {
               food_group.food_alts.sort(function(a, b) {
@@ -73,8 +74,6 @@
     }
 
     sort_alt();
-
-    console.log("altFoods",$scope.altFoods);
 
     vm.getAlternatives = getAlternatives;
 
