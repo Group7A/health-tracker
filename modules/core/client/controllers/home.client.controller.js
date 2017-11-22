@@ -144,5 +144,21 @@
     function deleteRecipeFailure(response) {
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Delete recipe failed!' });
     }
+
+    // RATING FILTER
+    $scope.ratingFilter = true;
+    $scope.highestRating = true;
+    $scope.ratingFilterOption = (highestOrLowest) => {
+      if(highestOrLowest === 'highest') {
+        $scope.ratingFilter = true;
+        $scope.highestRating = true;
+        $scope.lowestRating = false;
+      }
+      else {
+        $scope.ratingFilter = false;
+        $scope.highestRating = false;
+        $scope.lowestRating = true;
+      }
+    }
   }
 }());

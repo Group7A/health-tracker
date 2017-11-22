@@ -28,11 +28,31 @@
           <span class="caret"></span></a>
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li><a href="" class="small" data-value="vegan" tabIndex="-1"><input type="checkbox"/>&nbsp;Vegan</a></li>
-          <li><a href="" class="small" data-value="pescetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Pescetarian</a></li>
-          <li><a href="" class="small" data-value="ovo-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Ovo Vegetarian</a></li>
-          <li><a href="" class="small" data-value="lacto-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Lacto-Vegetarian </a></li>
-          <li><a href="" class="small" data-value="lacto-ovo-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Lacto-Ovo-Vegetarian</a></li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Vegan
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Pescetarian
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Ovo Vegetarian
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Lacto-Vegetarian
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Lacto-Ovo-Vegetarian
+            </label>
+          </li>
         </div>
       </div>
       <div class="dropdown">
@@ -41,9 +61,21 @@
           <span class="caret"></span></a>
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li><a href="#" class="small" data-value="fried" tabIndex="-1"><input type="checkbox"/>&nbsp;Fried</a></li>
-          <li><a href="#" class="small" data-value="grilled" tabIndex="-1"><input type="checkbox"/>&nbsp;Grilled</a></li>
-          <li><a href="#" class="small" data-value="baked" tabIndex="-1"><input type="checkbox"/>&nbsp;Baked</a></li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Baked
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Fried
+            </label>
+          </li>
+          <li>
+            <label class="small healthClassifications">
+              <input type="checkbox"/>&nbsp;Grilled
+            </label>
+          </li>
         </div>
       </div>
       <div class="dropdown">
@@ -52,15 +84,16 @@
           <span class="caret"></span></a>
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <div class="acidjs-rating-stars">
-            <form id="rating">
-                <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label>
-                <input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label>
-                <input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label>
-                <input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label>
-                <input type="radio" name="group-1" id="group-1-4" value="1" /><label for="group-1-4"></label>
-            </form>
-          </div>
+          <li>
+            <label ng-click="ratingFilterOption('highest')" class="small healthClassifications">
+              <input ng-model="highestRating" type="checkbox"/>&nbsp;Highest to Lowest
+            </label>
+          </li>
+          <li>
+            <label ng-click="ratingFilterOption('lowest')" class="small healthClassifications">
+              <input ng-model="lowestRating" type="checkbox"/>&nbsp;Lowest to Highest
+            </label>
+          </li>
         </div>
       </div>
     </div>
@@ -68,7 +101,7 @@
     <!-- COMMUNITY RECIPES -->
     <div ng-show="showCommunity">
       <div class="row row-margin">
-        <div ng-repeat="recipe in communityRecipesFiltered" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="recipe in communityRecipesFiltered | orderBy:'totalRating':ratingFilter" class="col-xs-12 col-sm-6 col-md-3 properties">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: recipe})">
               <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
