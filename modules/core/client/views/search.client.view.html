@@ -1,122 +1,126 @@
-<div class="container">
-  <center>
-    <text id="title">Healthy Alternatives for "</text>
-    <text id="ingredient">{{uppercaseFirstLetter(name)}}</text>
-    <text id="title">"</text>
-    <text id = "alternativeNutrienttest"></text>
+<div class="row text-center" style="background-color:rgb(230,230,230)">
+  <div class="col-md-10 col-md-offset-1" style="background-color:rgb(244,244,244)">
+    <div class="" style="padding-left: 3%; padding-right: 3%;">
+      <div style="background-color:rgb(255,255,255); box-shadow: 4px 5px 10px rgb(231,231,231); padding-bottom: 211px;;">
+        <div class="container">
+          <center style="margin-top: 35px;">
+            <text id="title">Healthy Alternatives for "</text>
+            <text id="ingredient">{{uppercaseFirstLetter(name)}}</text>
+            <text id="title">"</text>
+            <text id = "alternativeNutrienttest"></text>
 
-  </center>
-  </br>
-  <div class="lowerNav text-center">
-    <div class="textLN" id="views">
-      <div ng-show="showItem">
-        <a class="test left active" href="" ng-click="showI()" id="viewName">Item View</a>
-        <a class="test" href="" ng-click="showC()" id="viewName">Comparison View</a>
-      </div>
-      <div ng-show="showComparison">
-        <a class="test left" href="" ng-click="showI()" id="viewName">Item View</a>
-        <a class="test active" href="" ng-click="showC()" id="viewName">Comparison View</a>
-      </div>
-    </div>
-  </div>
-  </br>
-  <div ng-show="showItem">
-  <center>
-      
-      <div class="col-md-3" ng-repeat="alternative in alternatives">
-        <div class="boxed">
+          </center>
+          </br>
+          <div class="text-center">
+            <div class="" id="">
+              <div ng-show="showItem">
+                <a class="padding-text left active" href="" ng-click="showI()" id="viewName">Item View</a>
+                <a class="padding-text" href="" ng-click="showC()" id="viewName">Comparison View</a>
+              </div>
+              <div ng-show="showComparison">
+                <a class="padding-text left" href="" ng-click="showI()" id="viewName">Item View</a>
+                <a class="padding-text active" href="" ng-click="showC()" id="viewName">Comparison View</a>
+              </div>
+            </div>
+          </div>
+          <hr class="hr-search">
+          </br>
+          <div ng-show="showItem" class="showContainer">
+          <center>
+              
+              <div class="col-md-3" ng-repeat="alternative in alternatives">
+                <div class="boxed">
 
-          <div ng-hide="alternative.flipped" >
-            </br>
-            <a href="" ng-click="flip(alternative)" style="text-decoration: none">
-              <text>{{alternative.map_name.toUpperCase()}}</text>
-              </br>
-              <img src="http://www.newhealthadvisor.com/images/1HT19198/soy%20milk.jpg" alt="Soy Milk" width="250" height="260">
-            </a>
-            </br>
-            </br>
+                  <div ng-hide="alternative.flipped" style="" >
+                    </br>
+                    <a href="" ng-click="flip(alternative)" style="text-decoration: none">
+                      <text>{{alternative.map_name.toUpperCase()}}</text>
+                      </br>
+                      <img class="comparisonImg" src="http://www.newhealthadvisor.com/images/1HT19198/soy%20milk.jpg" alt="Soy Milk">
+                    </a>
+                    </br>
+                    </br>
+                  </div>
+
+                  <div ng-show="alternative.flipped">
+                    </br>
+                    <a href="" ng-click="flip(alternative)" style="text-decoration: none">
+                      <text>{{alternative.map_name.toUpperCase()}}</text>
+                      </br>
+                      </br>
+                      <table id="flipTable" ng-repeat="nutrient in alternative.nutrients">
+                        <tr>
+                          <th>{{nutrient.name}}</th>
+                        </tr>
+                        <tr>
+                          <td>{{nutrient.value}} {{nutrient.unit}}</td>
+                        </tr>
+                      </table>
+                      </br>
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+            </center>
           </div>
 
-          <div ng-show="alternative.flipped">
-            </br>
-            <a href="" ng-click="flip(alternative)" style="text-decoration: none">
-              <text>{{alternative.map_name.toUpperCase()}}</text>
-              </br>
-              </br>
-              <table id="flipTable" ng-repeat="nutrient in alternative.nutrients">
-                <tr>
-                  <th>{{nutrient.name}}</th>
-                </tr>
-                <tr>
-                  <td>{{nutrient.value}} {{nutrient.unit}}</td>
-                </tr>
-              </table>
-              </br>
-            </a>
-          </div>
+          <div ng-show="showComparison" class="showContainer">
 
+            <table class="searchV">
+              <tr>
+                <th></th>
+                <th class="th-propertiesSearch" ng-repeat = "alternative in alternatives"> {{uppercaseFirstLetter(alternative.map_name)}} </th> 
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Protein</td>
+                <td> {{alternatives[0].nutrients[0].value}} {{alternatives[0].nutrients[0].unit}} </td>
+                <td> {{alternatives[1].nutrients[0].value}} {{alternatives[1].nutrients[0].unit}} </td>
+                <td> {{alternatives[2].nutrients[0].value}} {{alternatives[2].nutrients[0].unit}} </td>
+                <td> {{alternatives[3].nutrients[0].value}} {{alternatives[3].nutrients[0].unit}} </td>
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Fat</td>
+                <td> {{alternatives[0].nutrients[1].value}} {{alternatives[0].nutrients[1].unit}} </td>
+                <td> {{alternatives[1].nutrients[1].value}} {{alternatives[1].nutrients[1].unit}} </td>
+                <td> {{alternatives[2].nutrients[1].value}} {{alternatives[2].nutrients[1].unit}} </td>
+                <td> {{alternatives[3].nutrients[1].value}} {{alternatives[3].nutrients[1].unit}} </td>
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Carbohydrates</td>
+                <td> {{alternatives[0].nutrients[2].value}} {{alternatives[0].nutrients[2].unit}} </td>
+                <td> {{alternatives[1].nutrients[2].value}} {{alternatives[1].nutrients[2].unit}} </td>
+                <td> {{alternatives[2].nutrients[2].value}} {{alternatives[2].nutrients[2].unit}} </td>
+                <td> {{alternatives[3].nutrients[2].value}} {{alternatives[3].nutrients[2].unit}} </td>
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Fiber</td>
+                <td> {{alternatives[0].nutrients[3].value}} {{alternatives[0].nutrients[3].unit}} </td>
+                <td> {{alternatives[1].nutrients[3].value}} {{alternatives[1].nutrients[3].unit}} </td>
+                <td> {{alternatives[2].nutrients[3].value}} {{alternatives[2].nutrients[3].unit}} </td>
+                <td> {{alternatives[3].nutrients[3].value}} {{alternatives[3].nutrients[3].unit}} </td>
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Sugars</td>
+                <td> {{alternatives[0].nutrients[4].value}} {{alternatives[0].nutrients[4].unit}} </td>
+                <td> {{alternatives[1].nutrients[4].value}} {{alternatives[1].nutrients[4].unit}} </td>
+                <td> {{alternatives[2].nutrients[4].value}} {{alternatives[2].nutrients[4].unit}} </td>
+                <td> {{alternatives[3].nutrients[4].value}} {{alternatives[3].nutrients[4].unit}} </td>
+              </tr>
+              <tr class="tr-propertiesSearch">
+                <td>Cholesterol</td>
+                <td> {{alternatives[0].nutrients[5].value}} {{alternatives[0].nutrients[5].unit}} </td>
+                <td> {{alternatives[1].nutrients[5].value}} {{alternatives[1].nutrients[5].unit}} </td>
+                <td> {{alternatives[2].nutrients[5].value}} {{alternatives[2].nutrients[5].unit}} </td>
+                <td> {{alternatives[3].nutrients[5].value}} {{alternatives[3].nutrients[5].unit}} </td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
-
-
     </div>
-    </center>
   </div>
-
-  <div ng-show="showComparison" >
-
-    <table>
-      <tr>
-        <th>Nutritional Information</th>
-        <th ng-repeat = "alternative in alternatives"> {{uppercaseFirstLetter(alternative.map_name)}} </th> 
-      </tr>
-      <tr>
-        <td>Protein</td>
-        <td> {{alternatives[0].nutrients[0].value}} {{alternatives[0].nutrients[0].unit}} </td>
-        <td> {{alternatives[1].nutrients[0].value}} {{alternatives[1].nutrients[0].unit}} </td>
-        <td> {{alternatives[2].nutrients[0].value}} {{alternatives[2].nutrients[0].unit}} </td>
-        <td> {{alternatives[3].nutrients[0].value}} {{alternatives[3].nutrients[0].unit}} </td>
-      </tr>
-      <tr>
-        <td>Fat</td>
-        <td> {{alternatives[0].nutrients[1].value}} {{alternatives[0].nutrients[1].unit}} </td>
-        <td> {{alternatives[1].nutrients[1].value}} {{alternatives[1].nutrients[1].unit}} </td>
-        <td> {{alternatives[2].nutrients[1].value}} {{alternatives[2].nutrients[1].unit}} </td>
-        <td> {{alternatives[3].nutrients[1].value}} {{alternatives[3].nutrients[1].unit}} </td>
-      </tr>
-      <tr>
-        <td>Carbohydrates</td>
-        <td> {{alternatives[0].nutrients[2].value}} {{alternatives[0].nutrients[2].unit}} </td>
-        <td> {{alternatives[1].nutrients[2].value}} {{alternatives[1].nutrients[2].unit}} </td>
-        <td> {{alternatives[2].nutrients[2].value}} {{alternatives[2].nutrients[2].unit}} </td>
-        <td> {{alternatives[3].nutrients[2].value}} {{alternatives[3].nutrients[2].unit}} </td>
-      </tr>
-      <tr>
-        <td>Fiber</td>
-        <td> {{alternatives[0].nutrients[3].value}} {{alternatives[0].nutrients[3].unit}} </td>
-        <td> {{alternatives[1].nutrients[3].value}} {{alternatives[1].nutrients[3].unit}} </td>
-        <td> {{alternatives[2].nutrients[3].value}} {{alternatives[2].nutrients[3].unit}} </td>
-        <td> {{alternatives[3].nutrients[3].value}} {{alternatives[3].nutrients[3].unit}} </td>
-      </tr>
-      <tr>
-        <td>Sugars</td>
-        <td> {{alternatives[0].nutrients[4].value}} {{alternatives[0].nutrients[4].unit}} </td>
-        <td> {{alternatives[1].nutrients[4].value}} {{alternatives[1].nutrients[4].unit}} </td>
-        <td> {{alternatives[2].nutrients[4].value}} {{alternatives[2].nutrients[4].unit}} </td>
-        <td> {{alternatives[3].nutrients[4].value}} {{alternatives[3].nutrients[4].unit}} </td>
-      </tr>
-      <tr>
-        <td>Cholesterol</td>
-        <td> {{alternatives[0].nutrients[5].value}} {{alternatives[0].nutrients[5].unit}} </td>
-        <td> {{alternatives[1].nutrients[5].value}} {{alternatives[1].nutrients[5].unit}} </td>
-        <td> {{alternatives[2].nutrients[5].value}} {{alternatives[2].nutrients[5].unit}} </td>
-        <td> {{alternatives[3].nutrients[5].value}} {{alternatives[3].nutrients[5].unit}} </td>
-      </tr>
-    </table>
-
-  </div>
-
-
-
-
 </div>
