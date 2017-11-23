@@ -29,28 +29,33 @@
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Gluten Free
+            <label ng-click="healthClassificationFilter('any')" class="small healthClassifications">
+              <input ng-model="showAnyClass" type="checkbox"/>&nbsp;Any
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;No Sugar
+            <label ng-click="healthClassificationFilter('glutenFree')" class="small healthClassifications">
+              <input ng-model="showGlutenFree" type="checkbox"/>&nbsp;Gluten Free
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Low Fat
+            <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
+              <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Vegan
+            <label ng-click="healthClassificationFilter('lowFat')" class="small healthClassifications">
+              <input ng-model="showLowFat" type="checkbox"/>&nbsp;Low Fat
             </label>
           </li>
           <li>
-            <label class="small healthClassifications">
-              <input type="checkbox"/>&nbsp;Low Calorie
+            <label ng-click="healthClassificationFilter('vegan')" class="small healthClassifications">
+              <input ng-model="showVegan" type="checkbox"/>&nbsp;Vegan
+            </label>
+          </li>
+          <li>
+            <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
+              <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
             </label>
           </li>
         </div>
@@ -61,6 +66,11 @@
           <span class="caret"></span></a>
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+          <li>
+            <label ng-click="cookingStyleFilter('any')" class="small healthClassifications">
+              <input ng-model="showAny" type="checkbox"/>&nbsp;Any
+            </label>
+          </li>
           <li>
             <label ng-click="cookingStyleFilter('baked')" class="small healthClassifications">
               <input ng-model="showBaked" type="checkbox"/>&nbsp;Baked
@@ -103,10 +113,11 @@
       <div class="row row-margin">
         <div ng-repeat="recipe in communityRecipesFiltered | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
-            class="col-xs-12 col-sm-6 col-md-3 properties">
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: recipe})">
-              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
+              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 100%">
             </a>
             <!--Add Recipe-->
             <a class="add-delete" ng-show="vm.authentication.user" href="">
@@ -147,10 +158,13 @@
     <!--MY RECIPES-->
     <div ng-hide="showCommunity">
       <div class="row row-margin">
-        <div ng-repeat="myRecipe in myRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="myRecipe in myRecipes | 
+            orderBy:'totalRating':ratingFilter | limitTo: 16" 
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: myRecipe})">
-              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 80%">
+              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 100%">
             </a>
             <a class="add-delete" ng-show="vm.authentication.user" href="">
                 <span class="glyphicon glyphicon-remove" ng-click="delete(myRecipe)" style="color:red"></span>

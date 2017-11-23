@@ -148,6 +148,7 @@
     // RATING FILTER
     $scope.ratingFilter = true;
     $scope.highestRating = true;
+
     $scope.ratingFilterOption = (highestOrLowest) => {
       if(highestOrLowest === 'highest') {
         $scope.ratingFilter = true;
@@ -162,14 +163,111 @@
     }
 
     // COOKING STYLE FILTER
-    $scope.showBaked = true;
-    $scope.showFried = true;
-    $scope.showGrilled = true;
+    $scope.showAny = true;
+    $scope.showBaked = false;
+    $scope.showFried = false;
+    $scope.showGrilled = false;
 
     $scope.cookingStyleFilter = (style) => {
-      if(style === 'baked') $scope.showBaked = !$scope.showBaked;
-      else if(style === 'fried') $scope.showFried = !$scope.showFried;
-      else if(style === 'grilled') $scope.showGrilled = !$scope.showGrilled;
+      if(style === 'any') {
+        $scope.showAny = true;
+        $scope.showBaked = false;
+        $scope.showFried = false;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'baked') {
+        $scope.showAny = false;
+        $scope.showBaked = true;
+        $scope.showFried = false;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'fried') {
+        $scope.showAny = false;
+        $scope.showBaked = false;
+        $scope.showFried = true;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'grilled') {
+        $scope.showAny = false;
+        $scope.showBaked = false;
+        $scope.showFried = false;
+        $scope.showGrilled = true;
+      }
+    }
+
+    $scope.checkStyle = (recipe) => {
+      if($scope.showBaked && recipe.cookingStyle != 'baked') return false;
+      else if($scope.showFried && recipe.cookingStyle != 'fried') return false;
+      else if($scope.showGrilled && recipe.cookingStyle != 'grilled') return false;
+      else return true; 
+    }
+
+    // HEALTH CLASSIFICATION FILTER
+    $scope.showAnyClass = true;
+    $scope.showGlutenFree = false;
+    $scope.showNoSugar = false;
+    $scope.showLowFat = false;
+    $scope.showVegan = false;
+    $scope.showLowCalorie = false;
+
+    $scope.healthClassificationFilter = (classif) => {
+      if(classif === 'any') {
+        $scope.showAnyClass = true;
+        $scope.showGlutenFree = false;
+        $scope.showNoSugar = false;
+        $scope.showLowFat = false;
+        $scope.showVegan = false;
+        $scope.showLowCalorie = false;
+      }
+      else if(classif === 'glutenFree') {
+        $scope.showAnyClass = false;
+        $scope.showGlutenFree = true;
+        $scope.showNoSugar = false;
+        $scope.showLowFat = false;
+        $scope.showVegan = false;
+        $scope.showLowCalorie = false;
+      }
+      else if(classif === 'noSugar') {
+        $scope.showAnyClass = false;
+        $scope.showGlutenFree = false;
+        $scope.showNoSugar = true;
+        $scope.showLowFat = false;
+        $scope.showVegan = false;
+        $scope.showLowCalorie = false;
+      }
+      else if(classif === 'lowFat') {
+        $scope.showAnyClass = false;
+        $scope.showGlutenFree = false;
+        $scope.showNoSugar = false;
+        $scope.showLowFat = true;
+        $scope.showVegan = false;
+        $scope.showLowCalorie = false;
+      }
+      else if(classif === 'vegan') {
+        $scope.showAnyClass = false;
+        $scope.showGlutenFree = false;
+        $scope.showNoSugar = false;
+        $scope.showLowFat = false;
+        $scope.showVegan = true;
+        $scope.showLowCalorie = false;
+      }
+      else if(classif === 'lowCalorie') {
+        $scope.showAnyClass = false;
+        $scope.showGlutenFree = false;
+        $scope.showNoSugar = false;
+        $scope.showLowFat = false;
+        $scope.showVegan = false;
+        $scope.showLowCalorie = true;
+      }
+    }
+
+    $scope.checkClassif = (recipe) => {
+      if($scope.showGlutenFree && !recipe.healthClassifications.glutenFree) return false;
+      else if($scope.showNoSugar && !recipe.healthClassifications.noSugar) return false;
+      else if($scope.showLowFat && !recipe.healthClassifications.lowFat) return false;
+      else if($scope.showVegan && !recipe.healthClassifications.vegan) return false;
+      else if($scope.showLowCalorie && !recipe.healthClassifications.lowCalorie) return false;
+      else return true; 
     }
   }
 }());
