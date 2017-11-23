@@ -162,14 +162,43 @@
     }
 
     // COOKING STYLE FILTER
-    $scope.showBaked = true;
-    $scope.showFried = true;
-    $scope.showGrilled = true;
+    $scope.showAny = true;
+    $scope.showBaked = false;
+    $scope.showFried = false;
+    $scope.showGrilled = false;
 
     $scope.cookingStyleFilter = (style) => {
-      if(style === 'baked') $scope.showBaked = !$scope.showBaked;
-      else if(style === 'fried') $scope.showFried = !$scope.showFried;
-      else if(style === 'grilled') $scope.showGrilled = !$scope.showGrilled;
+      if(style === 'any') {
+        $scope.showAny = true;
+        $scope.showBaked = false;
+        $scope.showFried = false;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'baked') {
+        $scope.showAny = false;
+        $scope.showBaked = true;
+        $scope.showFried = false;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'fried') {
+        $scope.showAny = false;
+        $scope.showBaked = false;
+        $scope.showFried = true;
+        $scope.showGrilled = false;
+      }
+      else if(style === 'grilled') {
+        $scope.showAny = false;
+        $scope.showBaked = false;
+        $scope.showFried = false;
+        $scope.showGrilled = true;
+      }
+    }
+
+    $scope.checkStyle = (recipe) => {
+      if($scope.showBaked && recipe.cookingStyle != 'baked') return false;
+      else if($scope.showFried && recipe.cookingStyle != 'fried') return false;
+      else if($scope.showGrilled && recipe.cookingStyle != 'grilled') return false;
+      else return true; 
     }
   }
 }());

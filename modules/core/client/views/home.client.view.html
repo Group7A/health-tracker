@@ -62,6 +62,11 @@
         </button>
         <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
           <li>
+            <label ng-click="cookingStyleFilter('any')" class="small healthClassifications">
+              <input ng-model="showAny" type="checkbox"/>&nbsp;Any
+            </label>
+          </li>
+          <li>
             <label ng-click="cookingStyleFilter('baked')" class="small healthClassifications">
               <input ng-model="showBaked" type="checkbox"/>&nbsp;Baked
             </label>
@@ -103,10 +108,11 @@
       <div class="row row-margin">
         <div ng-repeat="recipe in communityRecipesFiltered | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
-            class="col-xs-12 col-sm-6 col-md-3 properties">
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(recipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: recipe})">
-              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
+              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 100%">
             </a>
             <!--Add Recipe-->
             <a class="add-delete" ng-show="vm.authentication.user" href="">
@@ -150,7 +156,7 @@
         <div ng-repeat="myRecipe in myRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: myRecipe})">
-              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 80%">
+              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 100%">
             </a>
             <a class="add-delete" ng-show="vm.authentication.user" href="">
                 <span class="glyphicon glyphicon-remove" ng-click="delete(myRecipe)" style="color:red"></span>
