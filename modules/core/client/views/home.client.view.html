@@ -158,7 +158,10 @@
     <!--MY RECIPES-->
     <div ng-hide="showCommunity">
       <div class="row row-margin">
-        <div ng-repeat="myRecipe in myRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="myRecipe in myRecipes | 
+            orderBy:'totalRating':ratingFilter | limitTo: 16" 
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: myRecipe})">
               <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 100%">
