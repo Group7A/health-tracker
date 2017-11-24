@@ -41,12 +41,15 @@
     async function CommunityRecipeSuccess(response) {
       $scope.communityRecipes = await response;
       $scope.communityRecipesFiltered = [];
+      $scope.communityNames = [];
 
       // Filter through all recipes and put them in one array
       for(var recipe in $scope.communityRecipes) { 
         for(var rec in $scope.communityRecipes[recipe]) {
-          if($scope.communityRecipes[recipe][rec]._id) { // Directions means its a recipe
-            $scope.communityRecipesFiltered.push($scope.communityRecipes[recipe][rec]); 
+          // Check for ID to make sure it's a recipe. Also check if recipe is already in array
+          if($scope.communityRecipes[recipe][rec]._id && !$scope.communityNames.includes($scope.communityRecipes[recipe][rec].name)) { 
+            $scope.communityRecipesFiltered.push($scope.communityRecipes[recipe][rec]);
+            $scope.communityNames.push($scope.communityRecipes[recipe][rec].name);
           };
         }
       }
