@@ -1,38 +1,51 @@
-<div>
-	<div class="row al-row">
-		<div class="col-md-6 al-containerPaddingL">
-			<h1 class="al-h1L text-center">{{recipe.name}}</h1>
-			<div class="ingredient-containerL al-list" ng-repeat="ingredient in ingredients">
-				<li><div class="al-list-measureL">
-					{{ingredient.quantity}} {{ingredient.units}}
-				</div>{{ingredient.name}}</li>
-				<!--<li><div class="al-list-measureL">0 cups</div>Ingredient 2</li>
-				<li><div class="al-list-measureL">0 cups</div>Ingredient 3</li>
-				<li><div class="al-list-measureL">0 cups</div>Ingredient 4</li>
-				<li><div class="al-list-measureL">0 cups</div>Ingredient 5</li>-->
+<div class="row text-center" style="background-color:rgb(230,230,230)">
+  <div class="col-md-10 col-md-offset-1" style="background-color:rgb(244,244,244)">
+    <div class="" style="padding-left: 3%; padding-right: 3%;">
+      <div style="background-color:rgb(255,255,255); box-shadow: 4px 5px 10px rgb(231,231,231); padding-bottom: 65px;">
+				<div>
+          <h5>{{recipe.name}}</h5>
+        </div>
+				<div class="row al-row">
+					<div class="col-md-6 al-containerPaddingL">
+						<h1 class="al-h1L text-center">My Recipe</h1>
+						<div class="ingredient-containerL al-list">
+							<li ng-repeat="ingredient in ingredients"><div class="al-list-measureL">
+								{{ingredient.quantity}} {{ingredient.units}}
+							</div>{{ingredient.name}}</li>
+							<!--<li><div class="al-list-measureL">0 cups</div>Ingredient 2</li>
+							<li><div class="al-list-measureL">0 cups</div>Ingredient 3</li>
+							<li><div class="al-list-measureL">0 cups</div>Ingredient 4</li>
+							<li><div class="al-list-measureL">0 cups</div>Ingredient 5</li>-->
+						</div>
+						<button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
+					</div>
+					<div class="col-md-6 al-containerPaddingR">
+						<h1 class="al-h1 text-center">Alternative Recipe</h1>
+						<div class="al-tabs">
+							<div class="al-tabMargin"><a class="padding-text active" href="">Healthiest</a> </div>
+							<div class=""><a class="padding-text" href="">Truest to Taste</a></div>
+						</div>
+						<div class="al-tabs">
+							<div class="al-tabMargin"><a class="padding-text" href="">Healthiest</a> </div>
+							<div class=""><a class="padding-text active" href="">Truest to Taste</a></div>
+						</div>
+						<div class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
+								ng-click="getReport(alternative.map_ndbno)">
+							<li><div class="al-list-measureR"><!--{{alternative.map_name}} {{ingredient.units}}--></div>{{alternative.map_name}}</li>
+							<!--<li><div class="al-list-measureR">0 cups</div>Ingredient 2</li>
+							<li><div class="al-list-measureR">0 cups</div>Ingredient 3</li>
+							<li><div class="al-list-measureR">0 cups</div>Ingredient 4</li>
+							<li><div class="al-list-measureR">0 cups</div>Ingredient 5</li>-->
+						</div>
+						<button type="button" class="htb htb-primary btn-lg sharp al-btnR"
+							ui-sref="customize">Customize</button>
+					</div>
+				</div>
 			</div>
-			<button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
-		</div>
-		<div class="col-md-6 al-containerPaddingR">
-			<h1 class="al-h1 text-center">Alternative Recipe</h1>
-			<div class="al-tabs">
-				<div class="al-tabMargin"><a class="tabA" href="">Healthiest</a> </div>
-				<div class=""><a class="tabA" href="">Truest to Taste</a></div>
-			</div>
-			<div class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
-					ng-click="getReport(alternative.map_ndbno)">
-				<li><div class="al-list-measureR"><!--{{alternative.map_name}} {{ingredient.units}}--></div>{{alternative.map_name}}</li>
-				<!--<li><div class="al-list-measureR">0 cups</div>Ingredient 2</li>
-				<li><div class="al-list-measureR">0 cups</div>Ingredient 3</li>
-				<li><div class="al-list-measureR">0 cups</div>Ingredient 4</li>
-				<li><div class="al-list-measureR">0 cups</div>Ingredient 5</li>-->
-			</div>
-			<button type="button" class="htb htb-primary btn-lg sharp al-btnR"
-				ui-sref="customize">Customize</button>
 		</div>
 	</div>
-
 </div>
+
 
 <!--
 <div class="row al-row">
