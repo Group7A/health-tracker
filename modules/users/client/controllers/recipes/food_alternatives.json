@@ -1,7 +1,7 @@
 {
     "cooking_methods":[
         {
-            "method_name" : "baked goods",
+            "method_name" : "Baked Goods",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -265,7 +265,7 @@
                 }
             ]
         }, {
-            "method_name" : "baked foods",
+            "method_name" : "Baked Foods",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -605,7 +605,7 @@
             ]
         },        
         {
-            "method_name" : "fried",
+            "method_name" : "Fried",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -865,7 +865,7 @@
             ]
         },
         {
-            "method_name" : "grilled",
+            "method_name" : "Grilled",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -915,7 +915,7 @@
             ]
         },
         {
-            "method_name" : "stove top",
+            "method_name" : "Stove Top",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -1260,7 +1260,7 @@
             ]
         },       
         {
-            "method_name" : "frozen treats",
+            "method_name" : "Frozen Treats",
             "food_groups": [
                 {
                     "group_name": "db_Milk",
@@ -1420,7 +1420,7 @@
             ]       
         },       
         {
-            "method_name" : "beverage",
+            "method_name" : "Beverage",
             "food_groups": [
                 {
                     "group_name": "db_Milk",
@@ -1580,7 +1580,7 @@
             ]
         },       
         {
-            "method_name" : "soup",
+            "method_name" : "Soup",
             "food_groups": [
                 {
                     "group_name": "db_Milk",
@@ -1695,7 +1695,7 @@
             ]
         },
         {
-            "method_name" : "slow cook",
+            "method_name" : "Slow Cook",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -1745,7 +1745,7 @@
             ]
         },
         {
-            "method_name" : "others",
+            "method_name" : "Others",
             "food_groups": [
                 {
                     "group_name": "db_Peanut_Butter",
