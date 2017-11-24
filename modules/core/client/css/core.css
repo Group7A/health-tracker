@@ -25,14 +25,16 @@ h5{
 
 .underline {
   text-decoration: underline;
+  /*border-bottom: 1px solid black;*/
 }
 
 .no-underline {
   text-decoration: none;
+  
 }
 
 .content {
-  margin-top: 52px ;
+  margin-top: 62px ;
 }
 
 .undecorated-link:hover {
@@ -177,7 +179,7 @@ body{
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  /*border-bottom: 1px solid rgba(0,0,0,0.05);*/
 }
 .properties{
   height: 300px;
