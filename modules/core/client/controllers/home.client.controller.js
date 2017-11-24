@@ -162,46 +162,6 @@
       }
     }
 
-    // COOKING STYLE FILTER
-    $scope.showAny = true;
-    $scope.showBaked = false;
-    $scope.showFried = false;
-    $scope.showGrilled = false;
-
-    $scope.cookingStyleFilter = (style) => {
-      if(style === 'any') {
-        $scope.showAny = true;
-        $scope.showBaked = false;
-        $scope.showFried = false;
-        $scope.showGrilled = false;
-      }
-      else if(style === 'baked') {
-        $scope.showAny = false;
-        $scope.showBaked = true;
-        $scope.showFried = false;
-        $scope.showGrilled = false;
-      }
-      else if(style === 'fried') {
-        $scope.showAny = false;
-        $scope.showBaked = false;
-        $scope.showFried = true;
-        $scope.showGrilled = false;
-      }
-      else if(style === 'grilled') {
-        $scope.showAny = false;
-        $scope.showBaked = false;
-        $scope.showFried = false;
-        $scope.showGrilled = true;
-      }
-    }
-
-    $scope.checkStyle = (recipe) => {
-      if($scope.showBaked && recipe.cookingStyle != 'baked') return false;
-      else if($scope.showFried && recipe.cookingStyle != 'fried') return false;
-      else if($scope.showGrilled && recipe.cookingStyle != 'grilled') return false;
-      else return true; 
-    }
-
     // HEALTH CLASSIFICATION FILTER
     $scope.showAnyClass = true;
     $scope.showGlutenFree = false;
@@ -267,6 +227,179 @@
       else if($scope.showLowFat && !recipe.healthClassifications.lowFat) return false;
       else if($scope.showVegan && !recipe.healthClassifications.vegan) return false;
       else if($scope.showLowCalorie && !recipe.healthClassifications.lowCalorie) return false;
+      else return true; 
+    }
+
+    // COOKING STYLE FILTER
+    $scope.showAny = true;
+    $scope.showBeverage = false;
+    $scope.showBakedGoods = false;
+    $scope.showBakedFoods = false;
+    $scope.showFried = false;
+    $scope.showFrozenTreats = false;
+    $scope.showGrilled = false;
+    $scope.showSlowCook = false;
+    $scope.showSoup = false;
+    $scope.showStoveTop = false;
+    $scope.showOthers = false;
+
+    $scope.cookingStyleFilter = (style) => {
+      if(style === 'any') {
+        $scope.showAny = true;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'beverage') {
+        $scope.showAny = false;
+        $scope.showBeverage = true;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'bakedGoods') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = true;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'bakedFoods') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = true;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'fried') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = true;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'frozenTreats') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = true;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'grilled') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = true;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'slowCook') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = true;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'soup') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = true;
+        $scope.showStoveTop = false;
+        $scope.showOthers = false;
+      }
+      else if(style === 'stoveTop') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = true;
+        $scope.showOthers = false;
+      }
+      else if(style === 'others') {
+        $scope.showAny = false;
+        $scope.showBeverage = false;
+        $scope.showBakedGoods = false;
+        $scope.showBakedFoods = false;
+        $scope.showFried = false;
+        $scope.showFrozenTreats = false;
+        $scope.showGrilled = false;
+        $scope.showSlowCook = false;
+        $scope.showSoup = false;
+        $scope.showStoveTop = false;
+        $scope.showOthers = true;
+      }
+    }
+
+    $scope.checkStyle = (recipe) => {
+      if($scope.showBeverage && recipe.cookingStyle != 'Beverage') return false;
+      else if($scope.showBakedGoods && recipe.cookingStyle != 'Baked Goods') return false;
+      else if($scope.showBakedFoods && recipe.cookingStyle != 'Baked Foods') return false;
+      else if($scope.showFried && recipe.cookingStyle != 'Fried') return false;
+      else if($scope.showFrozenTreats && recipe.cookingStyle != 'Frozen Treats') return false;
+      else if($scope.showGrilled && recipe.cookingStyle != 'Grilled') return false;
+      else if($scope.showSlowCook && recipe.cookingStyle != 'Slow Cook') return false;
+      else if($scope.showSoup && recipe.cookingStyle != 'Soup') return false;
+      else if($scope.showStoveTop && recipe.cookingStyle != 'Stove Top') return false;
+      else if($scope.showOthers && recipe.cookingStyle != 'Others') return false;
       else return true; 
     }
   }

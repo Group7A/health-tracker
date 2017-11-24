@@ -39,8 +39,8 @@
             </label>
           </li>
           <li>
-            <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
-              <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
+            <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
+              <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
             </label>
           </li>
           <li>
@@ -49,15 +49,16 @@
             </label>
           </li>
           <li>
+            <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
+              <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
+            </label>
+          </li>
+          <li>
             <label ng-click="healthClassificationFilter('vegan')" class="small healthClassifications">
               <input ng-model="showVegan" type="checkbox"/>&nbsp;Vegan
             </label>
           </li>
-          <li>
-            <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
-              <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
-            </label>
-          </li>
+          
         </div>
       </div>
       <div class="dropdown">
@@ -72,8 +73,18 @@
             </label>
           </li>
           <li>
-            <label ng-click="cookingStyleFilter('baked')" class="small healthClassifications">
-              <input ng-model="showBaked" type="checkbox"/>&nbsp;Baked
+            <label ng-click="cookingStyleFilter('beverage')" class="small healthClassifications">
+              <input ng-model="showBeverage" type="checkbox"/>&nbsp;Beverage
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('bakedGoods')" class="small healthClassifications">
+              <input ng-model="showBakedGoods" type="checkbox"/>&nbsp;Baked Goods
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('bakedFoods')" class="small healthClassifications">
+              <input ng-model="showBakedFoods" type="checkbox"/>&nbsp;Baked Foods
             </label>
           </li>
           <li>
@@ -82,8 +93,33 @@
             </label>
           </li>
           <li>
+            <label ng-click="cookingStyleFilter('frozenTreats')" class="small healthClassifications">
+              <input ng-model="showFrozenTreats" type="checkbox"/>&nbsp;Frozen Treats
+            </label>
+          </li>
+          <li>
             <label ng-click="cookingStyleFilter('grilled')" class="small healthClassifications">
               <input ng-model="showGrilled" type="checkbox"/>&nbsp;Grilled
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('slowCook')" class="small healthClassifications">
+              <input ng-model="showSlowCook" type="checkbox"/>&nbsp;Slow Cook
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('soup')" class="small healthClassifications">
+              <input ng-model="showSoup" type="checkbox"/>&nbsp;Soup
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('stoveTop')" class="small healthClassifications">
+              <input ng-model="showStoveTop" type="checkbox"/>&nbsp;Stove Top
+            </label>
+          </li>
+          <li>
+            <label ng-click="cookingStyleFilter('others')" class="small healthClassifications">
+              <input ng-model="showOthers" type="checkbox"/>&nbsp;Others
             </label>
           </li>
         </div>
