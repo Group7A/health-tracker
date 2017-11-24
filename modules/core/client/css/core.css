@@ -35,7 +35,7 @@ h5{
 }
 
 .content {
-  margin-top: 61px ;
+  margin-top: 71px ;
 }
 
 .undecorated-link:hover {
@@ -97,14 +97,18 @@ a:hover .header-profile-image {
   font-size: 20px;
 }
 .searchBar{
-  border-radius: 0;
+  border-radius: 2px;
+  height: inherit;
+  width: 445px;
 
 }
 .searchBar-btn{
-  background-color: rgba(223,93,74,0.4);
+  background-color: rgba(223,93,74,0.6);
+  height: 54px;
+  width: 54px;
 }
 .searchBar-btn:hover{
-  background-color: rgba(223,93,74,0.6)
+  background-color: rgba(223,93,74,0.4)
 }
 .head:hover{
   color: #383838 !important;
@@ -136,7 +140,7 @@ a:hover .header-profile-image {
   padding-top: 12px !important;
 }
 .logo{
-  margin-left: 24px !important;
+  margin-left: 32px !important;
 
 }  
 .HTlogo{
@@ -253,9 +257,9 @@ body{
 
 /* Drop down menus in home page */
 .dropMenu{
-  float: left;
+  /*float: left;*/
   width: 100%;
-  padding-left: 36.3%;
+  /*padding-left: 36.3%;*/
 
 }
 
