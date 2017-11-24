@@ -17,6 +17,7 @@ h5{
   text-transform: capitalize;
   margin-bottom: 20px;
   color: rgb(78,78,78);
+  margin-top: 0px;
 }
 .text-navbar{
   font-size: 16px;
@@ -30,11 +31,11 @@ h5{
 
 .no-underline {
   text-decoration: none;
-  
+
 }
 
 .content {
-  margin-top: 62px ;
+  margin-top: 61px ;
 }
 
 .undecorated-link:hover {
@@ -100,10 +101,10 @@ a:hover .header-profile-image {
 
 }
 .searchBar-btn{
-  background-color: rgb(249,192,120);
+  background-color: rgba(223,93,74,0.4);
 }
 .searchBar-btn:hover{
-  background-color: rgb(247,202,154);
+  background-color: rgba(223,93,74,0.6)
 }
 .head:hover{
   color: #383838 !important;
@@ -135,7 +136,7 @@ a:hover .header-profile-image {
   padding-top: 12px !important;
 }
 .logo{
-  margin-left: 15px !important;
+  margin-left: 24px !important;
 
 }  
 .HTlogo{
@@ -146,7 +147,9 @@ a:hover .header-profile-image {
 /*  font-weight: bolder;
   text-shadow: 0px 1px 0px rgba(0,0,0,0.3) !important*/
   padding: 0;
-  margin-top: 10px;
+  margin-top: 7px;
+  height: 63px;
+
 
 }
 /*
