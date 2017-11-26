@@ -26,6 +26,7 @@
 		  alert($scope.name);
     }
     
+    $scope.recipe = $stateParams.recipe;
     $scope.multiple_alternatives = $stateParams.multiple_map;
 
     //console.log($stateParams.multiple_map);
