@@ -177,6 +177,26 @@
           // TRUEST TO TASTE MAP
           var alt_item = $scope.all_alt_in_group[0];
           $scope.truest_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+        
+          //MULTIPLE ITEMS MAP
+          if($scope.all_alt_in_group.length < $scope.top_alt_count){
+            $scope.all_alt_in_group.forEach((alt_item, i) => {
+              $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+            });
+          }
+          else{
+            // Control what alt we give
+            $scope.mid_ind = $scope.all_alt_in_group.length/2;
+            // Index is not whole number
+            if($scope.mid_ind % 1 != 0){
+              $scope.mid_ind = $scope.mid_ind - 0.5;
+            }
+            $scope.all_alt_in_group.forEach((alt_item, i) => {
+              if(i==0 || i==$scope.mid_ind || i==$scope.all_alt_in_group.length-1){
+                $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+              }
+            });
+          }	
         }
         else { // If no alternatives available, send this to the map
           $scope.healthy_map.push({"map_name": 'No alternatives available'});
