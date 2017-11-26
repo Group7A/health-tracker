@@ -54,15 +54,15 @@
       <table id="myTable">
         <tr>
           <th>{{wholename}}</th>
-          <th>Alternate Ingredient Name</th>
+          <th ng-repeat="alternative in alternatives">{{alternative.name}} Alternate Ingredient Name</th>
           <th>Alternate Ingredient Name</th>
         </tr>
-        <tr>
+        <tr >
           <td>
             <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PICTURE" width="225" height="170">
             <table id="insideTable">
-              <tr>
-                <th>Calories</th>
+              <tr ng-repeat="nutrient in alternative.nutrients">
+                <th>{{nutirent.name}}Calories</th>
                 <th>Fat</th>
                 <th>Sugar</th>
                 <th>Protein</th>
@@ -75,7 +75,7 @@
               </tr>
             </table>
           </td>
-          <td>
+          <td ng-repeat="alternative in alternatives">
             <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
             <table id="insideTable">
               <tr>
@@ -92,7 +92,7 @@
               </tr>
             </table>
           </td>
-          <td>
+          <!--<td>
             <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
             <table id="insideTable">
               <tr>
@@ -108,7 +108,7 @@
                 <td>DATA</td>
               </tr>
             </table>
-          </td>
+          </td>-->
         </tr>
       </table>
     <!--</div>-->
