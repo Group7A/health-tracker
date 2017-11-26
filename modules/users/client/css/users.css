@@ -52,10 +52,14 @@
 }
 .profile-container{
   background-color:rgb(255,255,255); 
-  padding-bottom: 24px; 
-  margin-top: 120px;
-  box-shadow: 7px 7px 8px #888888;
+  padding-bottom: 30px; 
+  margin-top: 80px;
+  /*box-shadow: 7px 7px 8px #888888;*/
+  box-shadow: 4px 5px 10px rgb(231,231,231);
   border-radius: 2px;
+  margin-bottom: 60px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .tab-selection{
   background-color: rgb(255,255,255); 
@@ -79,13 +83,15 @@
   text-decoration: none; 
 }
 .padding-text{
-  margin-left: 15px;
   color: rgb(78,78,78);
   font-size: 15px;
 }
 .padding-text:hover{
   color: rgba(78,78,78,0.8);
   text-decoration: none;
+}
+.margin-tab{
+  margin-left: 15px;
 }
 .row-fix{
   margin-right: 0; 
@@ -94,13 +100,30 @@
 .linkUpdatePic{
   color: white !important;
 }
+.padding-icon{
+  padding-right: 10px;
+  font-size: 16px;
+}
 
 /*ghfhjgfj */
 .profileImg-container {
-    position: relative;
-    margin-bottom: 0;
+  position: relative;
+  margin-bottom: 0;
     /*width: 50%;*/
-
+  margin-top: -10px;
+}
+.info-container{
+  padding-left: 0;
+  padding-right: 0;
+  /*box-shadow: 3px 3px 5px 6px rgb(231,231,231);*/
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  box-shadow: 0 0 10px rgba(0,0,0, .65);
+  margin-top: -40px;
+}
+.info-container1{
+  padding-right: 0px;
+  padding-left: 50px;
 }
 
 .image {
@@ -157,8 +180,8 @@
 .text1 {
   background-color: rgba(43,43,43,0.8);
   color: white;
-  font-size: 14px;
-  padding: 10px 32px;
+  font-size: 12px;
+  padding: 10px 23px;
 }
 .text1:hover{
   background-color: rgba(43,43,43,0.9);
@@ -167,19 +190,47 @@
 .health-container{
   background-color: rgb(219,219,219);
   border-radius: 2px;
-  width: 119%;
-  padding-left: 16px;
-  padding-right: 24px;
-  box-shadow: 3px 3px 5px #888888;
+  /*width: 119%;*/
+/*  padding-left: 16px;
+  padding-right: 24px;*/
+  box-shadow: 4px 5px 10px rgb(231,231,231);
 }
-.health-containerL{
-  margin-left: -10px;
+.HrowContainer{
+  padding-left: 9%;
+  padding-right: 9%;
 }
-.health-containerR{
-  margin-left: 7px;
+.health-headerMargin{
+  padding-top: 7%;
+}
+.health-containerBox{
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-
+.profileHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 5%;
+  padding-left: 38%;
+}
+.settingsHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 5%;
+}
+.personal-profile{
+  margin-top: 25px;
+  padding-left: 7%;
+  padding-right: 7%;
+}
 
 /* ALTERNATIVE VIEW*/
 .ingredient-containerL{
@@ -357,12 +408,12 @@
 /* RECIPE DETAILS CSS */
 .heroimage {
   width:100%;
-  height:500px;
-  background: url('http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
-  background-attachment: fixed;
+  height:350px;
+  /*background: url('http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+  /*background-size:cover;*/
+  /*background-attachment: fixed;*/
 }
 .heroimage h5 {
   color:white;
@@ -370,35 +421,79 @@
   text-align: center;
   padding-top: 250px;
   font-size: 30px;
+  text-transform: capitalize;
 
 }
 .savebtn{
-	width: 150px;
-	height: 50px;
-	background-color: red;
 	float: right;
-	margin-right: 10%;
+  color: rgb(169,169,169);
+  margin-bottom: 10px;
+}
+.savebtn:hover{
+  text-decoration: none;
+  color: grey;
+}
+.savebtn-size{
+  color: #DF5D4A;
+  /*font-size: 24px;*/
+
 }
 .recipeDetail{
 	text-align: center;
 	margin-top: 5%;
 }
 .heading{
-	font-size: 20px;
-	margin-right: 45%;
+	font-size: 16px;
+  padding-top: 35px;
+}
+.ingDirActive{
+  border-bottom: 2px solid #DF5D4A;
+  text-align: center;
+}
+.ingDirDisable{
+  border-bottom: 2px solid gray;
+}
+.ingDirActive-a{
+  text-decoration: none;
 }
 .text{
 	font-size: 15px;
 	/*margin-right: 45%;*/
-	display: inline-block;
-    text-align: left;
-    line-height: 230%;
-    margin-top: 10px;
+	/*display: inline-block;*/
+  /*text-align: left;*/
+  line-height: 230%;
+  margin-top: 20px;
 }
+.
 hr{
 	width: 60%;
 	border-width: 1.5px;
 	margin-top: 10px;
+}
+.hr-ingredientes{
+  border:none;
+  border-top:1.5px dotted rgb(230,230,230);
+  color:#fff;
+  /*background-color:#fff;*/
+  /*height:1px;*/
+  width:100%;
+}
+.ingredient-containerRecipeDetails{
+  background-color: rgb(244,244,244);
+  text-align: left;
+  padding-left: 10%;
+  /* padding-bottom: 183px; */
+  max-height: 410px;
+  min-height: 410px;
+  overflow-y:scroll;
+  box-shadow: inset 1px -5px 9px -6px #AEC86B;
+}
+.ingredient-quantity{
+  color: #AEC86B;
+  font-size: 32px;
+  font-weight: bold;
+  float: left;
+  margin-right: 18px;
 }
 .directions{
 	margin-top: 15px;
@@ -415,8 +510,9 @@ span.glyphicon-time {
 }
 .list{
 	list-style-type: none;
+  padding: 0px;
 }
-.glyphicon-ring {
+/*.glyphicon-ring {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -429,7 +525,7 @@ span.glyphicon-time {
   background: white;
   color: black;
   border: 1px solid black;
-}
+}*/
 .review-containter{
 	height: 200px;
 	text-align: center;
@@ -444,6 +540,21 @@ span.glyphicon-time {
   margin-top: 36px;
   margin-bottom: 36px;
   font-size: 30px;
+}
+
+/*SETTINGS VIEW*/
+.seven {
+  background-color: #013A6B;
+  /*background-image: -webkit-linear-gradient(150deg, #AEC86B 35%, #8DB83A 35%);*/
+  /*background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);*/
+  background-image: -webkit-linear-gradient(150deg, rgb(244,244,244) 35%, rgb(244,244,244) 35%);
+  min-height: 650px;
+}
+
+.setting-container {
+  margin-top: 35px;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .healthClassifications {

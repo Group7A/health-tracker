@@ -8,6 +8,16 @@ h4{
   font-weight:bold;
   color: rgb(78,78,78);
 }
+h5{
+  color: black;
+  /*text-shadow:2px 2px #333;*/
+  text-align: center;
+  padding-top: 80px;
+  font-size: 40px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: rgb(78,78,78);
+}
 .text-navbar{
   font-size: 16px;
   font-weight: 600;
@@ -15,14 +25,16 @@ h4{
 
 .underline {
   text-decoration: underline;
+  /*border-bottom: 1px solid black;*/
 }
 
 .no-underline {
   text-decoration: none;
+  
 }
 
 .content {
-  margin-top: 52px ;
+  margin-top: 62px ;
 }
 
 .undecorated-link:hover {
@@ -154,6 +166,7 @@ a:hover .header-profile-image {
 
 body{
   font-family: "Source Sans Pro", "Sans";
+  font-size: 15px;
 }
 .row-margin{
   margin-right: 0; 
@@ -166,7 +179,7 @@ body{
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  /*border-bottom: 1px solid rgba(0,0,0,0.05);*/
 }
 .properties{
   height: 300px;
@@ -382,4 +395,5 @@ light blue: rgb(140,212,201), hex(8CD4C9);
 light orange: rgb(249,192,120), hex(F9C078);
 orange: rgb(253,131,93), hex(FD835D);
 dark orange: rgb(223,93,74), hex(DF5D4A);
+grey: rgb(57,62,65);
 */

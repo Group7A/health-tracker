@@ -1,13 +1,13 @@
 {
     "cooking_methods":[
         {
-            "method_name" : "baked",
+            "method_name" : "Baked Goods",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
                     "food_alts": [
                         {
-                            "db_name": "butter",
+                            "db_name": "Butter",
                             "db_full_name": "Butter, light, stick, without salt",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -17,7 +17,7 @@
                             "db_ndbno": "04602"
                         },
                         {
-                            "db_name": "olive oil",
+                            "db_name": "Olive Oil",
                             "db_full_name": "Oil, olive, salad or cooking",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -27,7 +27,7 @@
                             "db_ndbno": "04053"
                         },
                         {
-                            "db_name": "coconut oil",
+                            "db_name": "Coconut Oil",
                             "db_full_name": "Oil, Coconut",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -37,7 +37,7 @@
                             "db_ndbno": "04047"
                         },
                         {
-                            "db_name": "margarine",
+                            "db_name": "Margarine",
                             "db_full_name": "Margarine Spread, approximately 48% fat, tub",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -47,7 +47,7 @@
                             "db_ndbno": "04630"
                         },
                         {  
-                            "db_name": "canola oil",
+                            "db_name": "Canola Oil",
                             "db_full_name": "Oil, canola",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -55,67 +55,107 @@
                                 "db_amount": 100
                             }, 
                             "db_ndbno": "04582"
+                        },
+                        {  
+                            "db_name": "Vegetable Oil",
+                            "db_full_name": "Vegetable oil, palm kernel",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 81.5
+                            }, 
+                            "db_ndbno": "04513"
+                        },
+                        {  
+                            "db_name": "Buttermilk",
+                            "db_full_name": "Milk, buttermilk, fluid, whole",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.899
+                            }, 
+                            "db_ndbno": "01230"
+                        },
+                        {  
+                            "db_name": "Avacado",
+                            "db_full_name": "avacado",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.008
+                            }, 
+                            "db_ndbno": "45243876"
+                        },
+                        {  
+                            "db_name": "Greek Yogurt",
+                            "db_full_name": "Yogurt, Greek, plain, whole milk",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.395
+                            }, 
+                            "db_ndbno": "01293"
                         }
                     ]
                 },
                 {
-                    "group_name": "db_Dairy_and_Egg_Products",
+                    "group_name": "db_Milk",
                     "food_alts": [
                         {
-                            "db_name": "whole milk",
+                            "db_name": "Whole Milk",
                             "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 55.10
                             }, 
                             "db_ndbno": "01077"
                         },
                         {
-                            "db_name": "almond milk",
+                            "db_name": "Almond Milk",
                             "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 1.10
                             }, 
                             "db_ndbno": "14091"
                         },
                         {
-                            "db_name": "coconut milk",
+                            "db_name": "Coconut Milk",
                             "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 2.08
                             }, 
                             "db_ndbno": "14171"
                         },
                         {
-                            "db_name": "rice milk",
+                            "db_name": "Rice Milk",
                             "db_full_name": "Beverages, rice milk, unsweetened",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0.97
                             }, 
                             "db_ndbno": "14639"
                         },
                         {
-                            "db_name": "reduced fat milk",
+                            "db_name": "Reduced Fat Milk",
                             "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 1.92
                             }, 
                             "db_ndbno": "01080"
                         },
                         {
-                            "db_name": "nonfat milk",
+                            "db_name": "Nonfat Milk",
                             "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0.25
                             }, 
@@ -124,23 +164,437 @@
                     ]
                 },
                 {
-                    "group_name": "db_Cheese",
+                    "group_name": "db_Sugar",
                     "food_alts": [
                         {
-                            "db_name": "cheddar cheese",
+                            "db_name": "Agave Nectar",
+                            "db_full_name": "ORGANIC RAW AGAVE NECTAR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 76.19
+                            }, 
+                            "db_ndbno": "45068013"
+                        },
+                        {
+                            "db_name": "Sugar",
+                            "db_full_name": "Sugars, granulated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 99.8
+                            }, 
+                            "db_ndbno": "19335"
+                        },
+                        {
+                            "db_name": "Honey",
+                            "db_full_name": "Honey",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.12
+                            }, 
+                            "db_ndbno": "19296"
+                        },
+                        {
+                            "db_name": "Maple Syrup",
+                            "db_full_name": "Syrups, maple",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60.46
+                            }, 
+                            "db_ndbno": "19353"
+                        },
+                        {
+                            "db_name": "Stevia",
+                            "db_full_name": "Sweetener, herbal extract powder from Stevia leaf",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.00
+                            }, 
+                            "db_ndbno": "19918"
+                        },
+                        {
+                            "db_name": "Medjool Dates",
+                            "db_full_name": "Dates, medjool",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 66.47
+                            }, 
+                            "db_ndbno": "09421"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Flour",
+                    "food_alts": [
+                        {
+                            "db_name": "White Flour",
+                            "db_full_name": "Wheat flour, white, all-purpose, unenriched",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.7
+                            }, 
+                            "db_ndbno": "20481"
+                        },
+                        {
+                            "db_name": "Almond Flour",
+                            "db_full_name": "BOB'S RED MILL, FINELY GROUND ALMOND MEAL/FLOUR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "45182306"
+                        },
+                        {
+                            "db_name": "Whole Wheat Flour",
+                            "db_full_name": "Wheat flour, whole-grain",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "20080"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "method_name" : "Baked Foods",
+            "food_groups": [
+                {
+                    "group_name": "db_Fats_and_Oils",
+                    "food_alts": [
+                        {
+                            "db_name": "Butter",
+                            "db_full_name": "Butter, light, stick, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 50.489
+                            }, 
+                            "db_ndbno": "04602"
+                        },
+                        {
+                            "db_name": "Olive Oil",
+                            "db_full_name": "Oil, olive, salad or cooking",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 13.808
+                            }, 
+                            "db_ndbno": "04053"
+                        },
+                        {
+                            "db_name": "Coconut Oil",
+                            "db_full_name": "Oil, Coconut",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.475
+                            }, 
+                            "db_ndbno": "04047"
+                        },
+                        {
+                            "db_name": "Margarine",
+                            "db_full_name": "Margarine Spread, approximately 48% fat, tub",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 8.792
+                            }, 
+                            "db_ndbno": "04630"
+                        },
+                        {  
+                            "db_name": "Canola Oil",
+                            "db_full_name": "Oil, canola",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 100
+                            }, 
+                            "db_ndbno": "04582"
+                        },
+                        {  
+                            "db_name": "Vegetable Oil",
+                            "db_full_name": "Vegetable oil, palm kernel",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 81.5
+                            }, 
+                            "db_ndbno": "04513"
+                        },
+                        {  
+                            "db_name": "Buttermilk",
+                            "db_full_name": "Milk, buttermilk, fluid, whole",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.899
+                            }, 
+                            "db_ndbno": "01230"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Milk",
+                    "food_alts": [
+                        {
+                            "db_name": "Whole Milk",
+                            "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 55.10
+                            }, 
+                            "db_ndbno": "01077"
+                        },
+                        {
+                            "db_name": "Almond Milk",
+                            "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.10
+                            }, 
+                            "db_ndbno": "14091"
+                        },
+                        {
+                            "db_name": "Coconut Milk",
+                            "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.08
+                            }, 
+                            "db_ndbno": "14171"
+                        },
+                        {
+                            "db_name": "Rice Milk",
+                            "db_full_name": "Beverages, rice milk, unsweetened",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.97
+                            }, 
+                            "db_ndbno": "14639"
+                        },
+                        {
+                            "db_name": "Reduced Fat Milk",
+                            "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.92
+                            }, 
+                            "db_ndbno": "01080"
+                        },
+                        {
+                            "db_name": "Nonfat Milk",
+                            "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.25
+                            }, 
+                            "db_ndbno": "01086"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sugar",
+                    "food_alts": [
+                        {
+                            "db_name": "Agave Nectar",
+                            "db_full_name": "ORGANIC RAW AGAVE NECTAR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 76.19
+                            }, 
+                            "db_ndbno": "45068013"
+                        },
+                        {
+                            "db_name": "Sugar",
+                            "db_full_name": "Sugars, granulated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 99.8
+                            }, 
+                            "db_ndbno": "19335"
+                        },
+                        {
+                            "db_name": "Honey",
+                            "db_full_name": "Honey",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.12
+                            }, 
+                            "db_ndbno": "19296"
+                        },
+                        {
+                            "db_name": "Maple Syrup",
+                            "db_full_name": "Syrups, maple",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60.46
+                            }, 
+                            "db_ndbno": "19353"
+                        },
+                        {
+                            "db_name": "Stevia",
+                            "db_full_name": "Sweetener, herbal extract powder from Stevia leaf",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.00
+                            }, 
+                            "db_ndbno": "19918"
+                        },
+                        {
+                            "db_name": "Medjool Dates",
+                            "db_full_name": "Dates, medjool",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 66.47
+                            }, 
+                            "db_ndbno": "09421"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Cheddar_Cheese",
+                    "food_alts": [
+                        {
+                            "db_name": "Cheddar Cheese",
                             "db_full_name": "Cheese, cheddar",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 404
+                            }, 
+                            "db_ndbno": "01009"
+                        },
+                        {
+                            "db_name": "Swiss Cheese",
+                            "db_full_name": "SWISS CHEESE",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 357
+                            }, 
+                            "db_ndbno": "45034605"
+                        },
+                        {
+                            "db_name": "Colby Cheese",
+                            "db_full_name": "Cheese, colby",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 394
+                            }, 
+                            "db_ndbno": "01011"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Flour",
+                    "food_alts": [
+                        {
+                            "db_name": "White Flour",
+                            "db_full_name": "Wheat flour, white, all-purpose, unenriched",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.7
+                            }, 
+                            "db_ndbno": "20481"
+                        },
+                        {
+                            "db_name": "Almond Flour",
+                            "db_full_name": "BOB'S RED MILL, FINELY GROUND ALMOND MEAL/FLOUR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "45182306"
+                        },
+                        {
+                            "db_name": "Whole Wheat Flour",
+                            "db_full_name": "Wheat flour, whole-grain",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "20080"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sour_Cream",
+                    "food_alts": [
+                        {
+                            "db_name": "Sour Cream",
+                            "db_full_name": "GREAT VALUE, SOUR CREAM",
                             "db_main_nutrient": {
                                 "db_nutrient": "fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 33.31
                             }, 
-                            "db_ndbno": "01009"
+                            "db_ndbno": "45034993"
                         },
                         {
-                            "db_name": "nutritional yeast",
-                            "db_full_name": "PREMIUM NUTRITIONAL YEAST SEASONING",
+                            "db_name": "Greek Yogurt",
+                            "db_full_name": "Yogurt, Greek, plain, whole milk",
                             "db_main_nutrient": {
                                 "db_nutrient": "fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 5
+                            }, 
+                            "db_ndbno": "01293"
+                        },
+                        {  
+                            "db_name": "Nonfat Greek Yourt",
+                            "db_full_name": "Yogurt, Greek, plain, nonfat",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.117
+                            }, 
+                            "db_ndbno": "01256"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Parmesan",
+                    "food_alts": [
+                        {
+                            "db_name": "Parmesan Cheese",
+                            "db_full_name": "Cheese, parmesan, grated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 15.371
+                            }, 
+                            "db_ndbno": "01032"
+                        },
+                        {
+                            "db_name": "Nutritional Yeast",
+                            "db_full_name": "PREMIUM NUTRITIONAL YEAST SEASONING",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0
                             }, 
@@ -149,9 +603,269 @@
                     ]
                 }
             ]
+        },        
+        {
+            "method_name" : "Fried",
+            "food_groups": [
+                {
+                    "group_name": "db_Fats_and_Oils",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Oil",
+                            "db_full_name": "PEANUT OIL",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 17.86
+                            }, 
+                            "db_ndbno": "45090313"
+                        },
+                        {  
+                            "db_name": "Vegetable Oil",
+                            "db_full_name": "Vegetable oil, palm kernel",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 81.5
+                            }, 
+                            "db_ndbno": "04513"
+                        },
+                        {
+                            "db_name": "Rice Bran Oil",
+                            "db_full_name": "Oil, rice bran",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 19.7
+                            }, 
+                            "db_ndbno": "04037"
+                        },
+                        {
+                            "db_name": "Safflower Oil",
+                            "db_full_name": "Oil, safflower, salad or cooking, high oleic (primary safflower oil of commerce)",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 7.541
+                            }, 
+                            "db_ndbno": "04511"
+                        },
+                        {
+                            "db_name": "Avacado Oil",
+                            "db_full_name": "Oil, avocado",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 11.56
+                            }, 
+                            "db_ndbno": "04581"
+                        },
+                        {
+                            "db_name": "Coconut Oil",
+                            "db_full_name": "Oil, Coconut",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.475
+                            }, 
+                            "db_ndbno": "04047"
+                        },
+                        {
+                            "db_name": "Palm Oil",
+                            "db_full_name": "Oil, palm",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 49.3
+                            }, 
+                            "db_ndbno": "04055"
+                        },
+                        {
+                            "db_name": "Ghee",
+                            "db_full_name": "GHEE",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60
+                            }, 
+                            "db_ndbno": "45086955"
+                        },
+                        {
+                            "db_name": "Sunflower Oil",
+                            "db_full_name": "SUNFLOWER OIL",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.71
+                            }, 
+                            "db_ndbno": "45059989"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Fried_Starch",
+                    "food_alts": [
+                        {
+                            "db_name": "Potatoes",
+                            "db_full_name": "Potatoes, flesh and skin, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 77
+                            }, 
+                            "db_ndbno": "11352"
+                        },
+                        {  
+                            "db_name": "Sweet Potatoes",
+                            "db_full_name": "Sweet potato, raw, unprepared",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 86
+                            }, 
+                            "db_ndbno": "11507"
+                        },
+                        {
+                            "db_name": "Butternut Squash",
+                            "db_full_name": "Squash, winter, butternut, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 45
+                            }, 
+                            "db_ndbno": "11485"
+                        },
+                        {
+                            "db_name": "Turnips",
+                            "db_full_name": "Turnips, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 36
+                            }, 
+                            "db_ndbno": "04511"
+                        },
+                        {
+                            "db_name": "Parsnips",
+                            "db_full_name": "Parsnips, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 75
+                            }, 
+                            "db_ndbno": "11298"
+                        },
+                        {
+                            "db_name": "Pumpkin",
+                            "db_full_name": "Pumpkin, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 26
+                            }, 
+                            "db_ndbno": "11422"
+                        },
+                        {
+                            "db_name": "Zucchini",
+                            "db_full_name": "Squash, summer, zucchini, includes skin, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 17
+                            }, 
+                            "db_ndbno": "11477"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Mayo",
+                    "food_alts": [
+                        {
+                            "db_name": "Mayonnaise",
+                            "db_full_name": "REAL MAYONNAISE",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 11.54
+                            }, 
+                            "db_ndbno": "45035962"
+                        },
+                        {
+                            "db_name": "Greek Yogurt",
+                            "db_full_name": "Yogurt, Greek, plain, whole milk",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 5
+                            }, 
+                            "db_ndbno": "01293"
+                        },
+                        {  
+                            "db_name": "Nonfat Greek Yourt",
+                            "db_full_name": "Yogurt, Greek, plain, nonfat",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.117
+                            }, 
+                            "db_ndbno": "01256"
+                        },
+                        {
+                            "db_name": "Hummus",
+                            "db_full_name": "Hummus, commercial",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.437	
+                            }, 
+                            "db_ndbno": "16158"
+                        },
+                        {
+                            "db_name": "Low Fat Cottage Cheese",
+                            "db_full_name": "Cheese, cottage, lowfat, 1% milkfat",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.645	
+                            }, 
+                            "db_ndbno": "01016"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "ALMOND BUTTER",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 6.250	
+                            }, 
+                            "db_ndbno": "45036200"
+                        },
+                        {  
+                            "db_name": "Mashed Avacado",
+                            "db_full_name": "avacado",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.008
+                            }, 
+                            "db_ndbno": "45243876"
+                        },
+                        {  
+                            "db_name": "Vegan Nayonaise",
+                            "db_full_name": "VEGAN NAYONAISE",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 3.33
+                            }, 
+                            "db_ndbno": "45080674"
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "method_name" : "fried",
+            "method_name" : "Grilled",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -187,16 +901,6 @@
                             "db_ndbno": "04047"
                         },
                         {
-                            "db_name": "margarine",
-                            "db_full_name": "Margarine Spread, approximately 48% fat, tub",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 8.792
-                            }, 
-                            "db_ndbno": "04630"
-                        },
-                        {
                             "db_name": "canola oil",
                             "db_full_name": "Oil, canola",
                             "db_main_nutrient": {
@@ -207,101 +911,11 @@
                             "db_ndbno": "04582"
                         }
                     ]
-                },
-                {
-                    "group_name": "db_Dairy_and_Egg_Products",
-                    "food_alts": [
-                        {
-                            "db_name": "whole milk",
-                            "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 55.10
-                            }, 
-                            "db_ndbno": "01077"
-                        },
-                        {
-                            "db_name": "almond milk",
-                            "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 1.10
-                            }, 
-                            "db_ndbno": "14091"
-                        },
-                        {
-                            "db_name": "coconut milk",
-                            "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 2.08
-                            }, 
-                            "db_ndbno": "14171"
-                        },
-                        {
-                            "db_name": "rice milk",
-                            "db_full_name": "Beverages, rice milk, unsweetened",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 0.97
-                            }, 
-                            "db_ndbno": "14639"
-                        },
-                        {
-                            "db_name": "reduced fat milk",
-                            "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 1.92
-                            }, 
-                            "db_ndbno": "01080"
-                        },
-                        {
-                            "db_name": "nonfat milk",
-                            "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 0.25
-                            }, 
-                            "db_ndbno": "01086"
-                        }
-                    ]
-                },
-                {
-                    "group_name": "db_Cheese",
-                    "food_alts": [
-                        {
-                            "db_name": "cheddar cheese",
-                            "db_full_name": "Cheese, cheddar",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 33.31
-                            }, 
-                            "db_ndbno": "01009"
-                        },
-                        {
-                            "db_name": "nutritional yeast",
-                            "db_full_name": "PREMIUM NUTRITIONAL YEAST SEASONING",
-                            "db_main_nutrient": {
-                                "db_nutrient": "fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 0
-                            }, 
-                            "db_ndbno": "45067042"
-                        }
-                    ]
                 }
             ]
         },
         {
-            "method_name" : "grilled",
+            "method_name" : "Stove Top",
             "food_groups": [
                 {
                     "group_name": "db_Fats_and_Oils",
@@ -337,16 +951,6 @@
                             "db_ndbno": "04047"
                         },
                         {
-                            "db_name": "margarine",
-                            "db_full_name": "Margarine Spread, approximately 48% fat, tub",
-                            "db_main_nutrient": {
-                                "db_nutrient": "sat_fat",
-                                "db_unit": "gram per 100g",
-                                "db_amount": 8.792
-                            }, 
-                            "db_ndbno": "04630"
-                        },
-                        {
                             "db_name": "canola oil",
                             "db_full_name": "Oil, canola",
                             "db_main_nutrient": {
@@ -359,63 +963,63 @@
                     ]
                 },
                 {
-                    "group_name": "db_Dairy_and_Egg_Products",
+                    "group_name": "db_Milk",
                     "food_alts": [
                         {
-                            "db_name": "whole milk",
+                            "db_name": "Whole Milk",
                             "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 55.10
                             }, 
                             "db_ndbno": "01077"
                         },
                         {
-                            "db_name": "almond milk",
+                            "db_name": "Almond Milk",
                             "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 1.10
                             }, 
                             "db_ndbno": "14091"
                         },
                         {
-                            "db_name": "coconut milk",
+                            "db_name": "Coconut Milk",
                             "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 2.08
                             }, 
                             "db_ndbno": "14171"
                         },
                         {
-                            "db_name": "rice milk",
+                            "db_name": "Rice Milk",
                             "db_full_name": "Beverages, rice milk, unsweetened",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0.97
                             }, 
                             "db_ndbno": "14639"
                         },
                         {
-                            "db_name": "reduced fat milk",
+                            "db_name": "Reduced Fat Milk",
                             "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 1.92
                             }, 
                             "db_ndbno": "01080"
                         },
                         {
-                            "db_name": "nonfat milk",
+                            "db_name": "Nonfat Milk",
                             "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
                             "db_main_nutrient": {
-                                "db_nutrient": "fat",
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0.25
                             }, 
@@ -424,27 +1028,747 @@
                     ]
                 },
                 {
-                    "group_name": "db_Cheese",
+                    "group_name": "db_Cheddar_Cheese",
                     "food_alts": [
                         {
-                            "db_name": "cheddar cheese",
+                            "db_name": "Cheddar Cheese",
                             "db_full_name": "Cheese, cheddar",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 404
+                            }, 
+                            "db_ndbno": "01009"
+                        },
+                        {
+                            "db_name": "Swiss Cheese",
+                            "db_full_name": "SWISS CHEESE",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 357
+                            }, 
+                            "db_ndbno": "45034605"
+                        },
+                        {
+                            "db_name": "Colby Cheese",
+                            "db_full_name": "Cheese, colby",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 394
+                            }, 
+                            "db_ndbno": "01011"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sour_Cream",
+                    "food_alts": [
+                        {
+                            "db_name": "Sour Cream",
+                            "db_full_name": "GREAT VALUE, SOUR CREAM",
                             "db_main_nutrient": {
                                 "db_nutrient": "fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 33.31
                             }, 
-                            "db_ndbno": "01009"
+                            "db_ndbno": "45034993"
                         },
                         {
-                            "db_name": "nutritional yeast",
-                            "db_full_name": "PREMIUM NUTRITIONAL YEAST SEASONING",
+                            "db_name": "Greek Yogurt",
+                            "db_full_name": "Yogurt, Greek, plain, whole milk",
                             "db_main_nutrient": {
                                 "db_nutrient": "fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 5
+                            }, 
+                            "db_ndbno": "01293"
+                        },
+                        {  
+                            "db_name": "Nonfat Greek Yourt",
+                            "db_full_name": "Yogurt, Greek, plain, nonfat",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.117
+                            }, 
+                            "db_ndbno": "01256"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sugar",
+                    "food_alts": [
+                        {
+                            "db_name": "Agave Nectar",
+                            "db_full_name": "ORGANIC RAW AGAVE NECTAR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 76.19
+                            }, 
+                            "db_ndbno": "45068013"
+                        },
+                        {
+                            "db_name": "Sugar",
+                            "db_full_name": "Sugars, granulated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 99.8
+                            }, 
+                            "db_ndbno": "19335"
+                        },
+                        {
+                            "db_name": "Honey",
+                            "db_full_name": "Honey",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.12
+                            }, 
+                            "db_ndbno": "19296"
+                        },
+                        {
+                            "db_name": "Maple Syrup",
+                            "db_full_name": "Syrups, maple",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60.46
+                            }, 
+                            "db_ndbno": "19353"
+                        },
+                        {
+                            "db_name": "Stevia",
+                            "db_full_name": "Sweetener, herbal extract powder from Stevia leaf",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.00
+                            }, 
+                            "db_ndbno": "19918"
+                        },
+                        {
+                            "db_name": "Medjool Dates",
+                            "db_full_name": "Dates, medjool",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 66.47
+                            }, 
+                            "db_ndbno": "09421"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Flour",
+                    "food_alts": [
+                        {
+                            "db_name": "White Flour",
+                            "db_full_name": "Wheat flour, white, all-purpose, unenriched",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.7
+                            }, 
+                            "db_ndbno": "20481"
+                        },
+                        {
+                            "db_name": "Almond Flour",
+                            "db_full_name": "BOB'S RED MILL, FINELY GROUND ALMOND MEAL/FLOUR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "45182306"
+                        },
+                        {
+                            "db_name": "Whole Wheat Flour",
+                            "db_full_name": "Wheat flour, whole-grain",
+                            "db_main_nutrient": {
+                                "db_nutrient": "fiber",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.7
+                            }, 
+                            "db_ndbno": "20080"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Pasta",
+                    "food_alts": [
+                        {
+                            "db_name": "Pasta",
+                            "db_full_name": "Pasta, dry, enriched",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 371
+                            }, 
+                            "db_ndbno": "20120"
+                        },
+                        {
+                            "db_name": "Whole Wheat Pasta",
+                            "db_full_name": "Pasta, whole-wheat, dry",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 352
+                            }, 
+                            "db_ndbno": "20124"
+                        },
+                        {
+                            "db_name": "Spaghetti Squash",
+                            "db_full_name": "Squash, winter, spaghetti, raw",
+                            "db_main_nutrient": {
+                                "db_nutrient": "kcal",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 31
+                            }, 
+                            "db_ndbno": "11492"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Parmesan",
+                    "food_alts": [
+                        {
+                            "db_name": "Parmesan Cheese",
+                            "db_full_name": "Cheese, parmesan, grated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 15.371
+                            }, 
+                            "db_ndbno": "01032"
+                        },
+                        {
+                            "db_name": "Nutritional Yeast",
+                            "db_full_name": "PREMIUM NUTRITIONAL YEAST SEASONING",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
                                 "db_amount": 0
                             }, 
                             "db_ndbno": "45067042"
+                        }
+                    ]
+                }
+            ]
+        },       
+        {
+            "method_name" : "Frozen Treats",
+            "food_groups": [
+                {
+                    "group_name": "db_Milk",
+                    "food_alts": [
+                        {
+                            "db_name": "Whole Milk",
+                            "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 55.10
+                            }, 
+                            "db_ndbno": "01077"
+                        },
+                        {
+                            "db_name": "Almond Milk",
+                            "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.10
+                            }, 
+                            "db_ndbno": "14091"
+                        },
+                        {
+                            "db_name": "Coconut Milk",
+                            "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.08
+                            }, 
+                            "db_ndbno": "14171"
+                        },
+                        {
+                            "db_name": "Rice Milk",
+                            "db_full_name": "Beverages, rice milk, unsweetened",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.97
+                            }, 
+                            "db_ndbno": "14639"
+                        },
+                        {
+                            "db_name": "Reduced Fat Milk",
+                            "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.92
+                            }, 
+                            "db_ndbno": "01080"
+                        },
+                        {
+                            "db_name": "Nonfat Milk",
+                            "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.25
+                            }, 
+                            "db_ndbno": "01086"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sugar",
+                    "food_alts": [
+                        {
+                            "db_name": "Agave Nectar",
+                            "db_full_name": "ORGANIC RAW AGAVE NECTAR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 76.19
+                            }, 
+                            "db_ndbno": "45068013"
+                        },
+                        {
+                            "db_name": "Sugar",
+                            "db_full_name": "Sugars, granulated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 99.8
+                            }, 
+                            "db_ndbno": "19335"
+                        },
+                        {
+                            "db_name": "Honey",
+                            "db_full_name": "Honey",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.12
+                            }, 
+                            "db_ndbno": "19296"
+                        },
+                        {
+                            "db_name": "Maple Syrup",
+                            "db_full_name": "Syrups, maple",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60.46
+                            }, 
+                            "db_ndbno": "19353"
+                        },
+                        {
+                            "db_name": "Stevia",
+                            "db_full_name": "Sweetener, herbal extract powder from Stevia leaf",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.00
+                            }, 
+                            "db_ndbno": "19918"
+                        },
+                        {
+                            "db_name": "Medjool Dates",
+                            "db_full_name": "Dates, medjool",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 66.47
+                            }, 
+                            "db_ndbno": "09421"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Peanut_Butter",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Butter",
+                            "db_full_name": "Peanut butter, smooth style, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.325
+                            }, 
+                            "db_ndbno": "16398"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "Nuts, almond butter, plain, without salt added",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 4.152
+                            }, 
+                            "db_ndbno": "12195"
+                        }
+                    ]
+                }
+            ]       
+        },       
+        {
+            "method_name" : "Beverage",
+            "food_groups": [
+                {
+                    "group_name": "db_Milk",
+                    "food_alts": [
+                        {
+                            "db_name": "Whole Milk",
+                            "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 55.10
+                            }, 
+                            "db_ndbno": "01077"
+                        },
+                        {
+                            "db_name": "Almond Milk",
+                            "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.10
+                            }, 
+                            "db_ndbno": "14091"
+                        },
+                        {
+                            "db_name": "Coconut Milk",
+                            "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.08
+                            }, 
+                            "db_ndbno": "14171"
+                        },
+                        {
+                            "db_name": "Rice Milk",
+                            "db_full_name": "Beverages, rice milk, unsweetened",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.97
+                            }, 
+                            "db_ndbno": "14639"
+                        },
+                        {
+                            "db_name": "Reduced Fat Milk",
+                            "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.92
+                            }, 
+                            "db_ndbno": "01080"
+                        },
+                        {
+                            "db_name": "Nonfat Milk",
+                            "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.25
+                            }, 
+                            "db_ndbno": "01086"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Sugar",
+                    "food_alts": [
+                        {
+                            "db_name": "Agave Nectar",
+                            "db_full_name": "ORGANIC RAW AGAVE NECTAR",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 76.19
+                            }, 
+                            "db_ndbno": "45068013"
+                        },
+                        {
+                            "db_name": "Sugar",
+                            "db_full_name": "Sugars, granulated",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 99.8
+                            }, 
+                            "db_ndbno": "19335"
+                        },
+                        {
+                            "db_name": "Honey",
+                            "db_full_name": "Honey",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.12
+                            }, 
+                            "db_ndbno": "19296"
+                        },
+                        {
+                            "db_name": "Maple Syrup",
+                            "db_full_name": "Syrups, maple",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 60.46
+                            }, 
+                            "db_ndbno": "19353"
+                        },
+                        {
+                            "db_name": "Stevia",
+                            "db_full_name": "Sweetener, herbal extract powder from Stevia leaf",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.00
+                            }, 
+                            "db_ndbno": "19918"
+                        },
+                        {
+                            "db_name": "Medjool Dates",
+                            "db_full_name": "Dates, medjool",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sugar",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 66.47
+                            }, 
+                            "db_ndbno": "09421"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Peanut_Butter",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Butter",
+                            "db_full_name": "Peanut butter, smooth style, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.325
+                            }, 
+                            "db_ndbno": "16398"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "Nuts, almond butter, plain, without salt added",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 4.152
+                            }, 
+                            "db_ndbno": "12195"
+                        }
+                    ]
+                }
+            ]
+        },       
+        {
+            "method_name" : "Soup",
+            "food_groups": [
+                {
+                    "group_name": "db_Milk",
+                    "food_alts": [
+                        {
+                            "db_name": "Whole Milk",
+                            "db_full_name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 55.10
+                            }, 
+                            "db_ndbno": "01077"
+                        },
+                        {
+                            "db_name": "Almond Milk",
+                            "db_full_name": "Beverages, almond milk, unsweetened, shelf stable",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.10
+                            }, 
+                            "db_ndbno": "14091"
+                        },
+                        {
+                            "db_name": "Coconut Milk",
+                            "db_full_name": "Beverages, coconut milk, sweetened, fortified with calcium, vitamins A, B12, D2",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 2.08
+                            }, 
+                            "db_ndbno": "14171"
+                        },
+                        {
+                            "db_name": "Rice Milk",
+                            "db_full_name": "Beverages, rice milk, unsweetened",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.97
+                            }, 
+                            "db_ndbno": "14639"
+                        },
+                        {
+                            "db_name": "Reduced Fat Milk",
+                            "db_full_name": "Milk, reduced fat, fluid, 2% milkfat, with added nonfat milk solids and vitamin A and vitamin D",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 1.92
+                            }, 
+                            "db_ndbno": "01080"
+                        },
+                        {
+                            "db_name": "Nonfat Milk",
+                            "db_full_name": " Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 0.25
+                            }, 
+                            "db_ndbno": "01086"
+                        }
+                    ]
+                },
+                {
+                    "group_name": "db_Fats_and_Oils",
+                    "food_alts": [
+                        {
+                            "db_name": "butter",
+                            "db_full_name": "Butter, light, stick, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 50.489
+                            }, 
+                            "db_ndbno": "04602"
+                        },
+                        {
+                            "db_name": "olive oil",
+                            "db_full_name": "Oil, olive, salad or cooking",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 13.808
+                            }, 
+                            "db_ndbno": "04053"
+                        },
+                        {
+                            "db_name": "coconut oil",
+                            "db_full_name": "Oil, Coconut",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.475
+                            }, 
+                            "db_ndbno": "04047"
+                        },
+                        {
+                            "db_name": "canola oil",
+                            "db_full_name": "Oil, canola",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 100
+                            }, 
+                            "db_ndbno": "04582"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "method_name" : "Slow Cook",
+            "food_groups": [
+                {
+                    "group_name": "db_Fats_and_Oils",
+                    "food_alts": [
+                        {
+                            "db_name": "butter",
+                            "db_full_name": "Butter, light, stick, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 50.489
+                            }, 
+                            "db_ndbno": "04602"
+                        },
+                        {
+                            "db_name": "olive oil",
+                            "db_full_name": "Oil, olive, salad or cooking",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 13.808
+                            }, 
+                            "db_ndbno": "04053"
+                        },
+                        {
+                            "db_name": "coconut oil",
+                            "db_full_name": "Oil, Coconut",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 82.475
+                            }, 
+                            "db_ndbno": "04047"
+                        },
+                        {
+                            "db_name": "canola oil",
+                            "db_full_name": "Oil, canola",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 100
+                            }, 
+                            "db_ndbno": "04582"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "method_name" : "Others",
+            "food_groups": [
+                {
+                    "group_name": "db_Peanut_Butter",
+                    "food_alts": [
+                        {
+                            "db_name": "Peanut Butter",
+                            "db_full_name": "Peanut butter, smooth style, without salt",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 10.325
+                            }, 
+                            "db_ndbno": "16398"
+                        },
+                        {
+                            "db_name": "Almond Butter",
+                            "db_full_name": "Nuts, almond butter, plain, without salt added",
+                            "db_main_nutrient": {
+                                "db_nutrient": "sat_fat",
+                                "db_unit": "gram per 100g",
+                                "db_amount": 4.152
+                            }, 
+                            "db_ndbno": "12195"
                         }
                     ]
                 }
