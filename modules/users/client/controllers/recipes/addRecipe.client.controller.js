@@ -152,7 +152,8 @@
       $scope.recipe.ingredients.forEach( (ingredient, x) => {
         $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
           cooking_method.food_groups.forEach( (food_group, j) => {
-            food_group.food_alts.forEach( (food_alt, k) => {                
+            food_group.food_alts.forEach( (food_alt, k) => {   
+              console.log("Food alt", food_alt.db_name);             
               if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
                 $scope.have_match = 1;
               }
@@ -163,7 +164,7 @@
             $scope.have_match = 0;
           });
         });
-
+        console.log("All alt in group", $scope.all_alt_in_group);
         // Loop through all the alternatives
         if($scope.all_alt_in_group.length > 0) {
           // HEALTH MAP
