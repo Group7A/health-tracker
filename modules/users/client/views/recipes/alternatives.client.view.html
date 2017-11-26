@@ -13,12 +13,12 @@
 		<div class="col-md-6 al-containerPaddingR">
 			<h1 class="al-h1 text-center">Alternative Recipe</h1>
 			<div class="al-tabs" ng-hide="health">
-				<div class="al-tabMargin active" ng-click="showHealthy()"><a class="tabA" href="">Healthiest</a> </div>
+				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA active" href="">Healthiest</a> </div>
 				<div class="" ng-click="showTruest()"><a class="tabA" href="">Truest to Taste</a></div>
 			</div>
 			<div class="al-tabs" ng-show="truest">
 				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA" href="">Healthiest</a> </div>
-				<div class="active" ng-click="showTruest()"><a class="tabA" href="">Truest to Taste</a></div>
+				<div class="" ng-click="showTruest()"><a class="tabA active" href="">Truest to Taste</a></div>
 			</div>
 			<div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in healthy_alternatives" 
 					ng-click="getReport(alternative.map_ndbno)">
