@@ -29,6 +29,10 @@
     $scope.recipe = $stateParams.recipe;
     $scope.multiple_alternatives = $stateParams.multiple_map;
 
+    console.log("Here is the recipe", $scope.recipe);
+    
+    $scope.ingredients = $scope.recipe.ingredients;
+
     //console.log($stateParams.multiple_map);
     console.log($scope.multiple_alternatives);
 

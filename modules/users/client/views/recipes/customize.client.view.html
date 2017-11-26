@@ -22,12 +22,12 @@
   </div> -->
 
   <!--<h1 style="margin-left: 400px">--><h1>Customize Recipe</h1>
-
+  <div ng-repeat="ingredient in ingredients">
   <!--<table style="margin-top: 90px">--><table>
     <tr>
-      <td style="width: 50%">{{wholename}}</td>
-      <td style="width: 25%">Units: {{wholeUni}}</td>
-      <td>Quantity: {{wholeQua}}</td>
+      <td style="width: 50%">Original Ingredient: {{ingredient.name.toUpperCase()}}</td>
+      <td style="width: 25%">Units: {{ingredient.units}}</td>
+      <td>Quantity: {{ingredient.quantity}}</td>
     </tr>
   </table>
   <!--<button style="margin-left: 455px; margin-top: 5px; margin-bottom: 5px">see 3 other possibilities</button>-->
@@ -112,6 +112,7 @@
         </tr>
       </table>
     <!--</div>-->
+    </div>
   </div>
   <!--</br>
   <table>
