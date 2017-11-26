@@ -5,9 +5,9 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams'];
 
-  function CustomizeController(UsersService, $scope) {
+  function CustomizeController(UsersService, $scope, $stateParams) {
     var vm = this;
 
     $scope.wholename = "Whole Milk";
@@ -26,6 +26,8 @@
 		  alert($scope.name);
 	  }
 
+    console.log($stateParams.multiple_map);
+    //console.log($stateParams.multiple_alternatives);
 
 
     // vm.customizings = UsersService.query();

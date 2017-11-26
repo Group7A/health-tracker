@@ -16,6 +16,7 @@
     $scope.recipe = $stateParams.recipe;
     $scope.healthy_alternatives = $stateParams.healthy_map;
     $scope.truest_alternatives = $stateParams.truest_map;
+    $scope.multiple_alternatives = $stateParams.multiple_map;
     $scope.health = false;
     $scope.truest = false;
 

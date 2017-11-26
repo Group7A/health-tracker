@@ -97,7 +97,8 @@
       var transferData = {
         'recipe': recipe,
         'healthy_map': $scope.healthy_map,
-        'truest_map': $scope.truest_map
+        'truest_map': $scope.truest_map,
+        'multiple_map': $scope.multiple_map
       };
 
       $state.go('alternatives', transferData);
@@ -136,6 +137,7 @@
       // Initialize variables
       $scope.healthy_map = [];
       $scope.truest_map = [];
+      $scope.multiple_map = [];
       $scope.in_food_group;
       $scope.orig_nutrient_amount;
       $scope.all_alt_in_group = [];
@@ -181,7 +183,7 @@
           //MULTIPLE ITEMS MAP
           if($scope.all_alt_in_group.length < $scope.top_alt_count){
             $scope.all_alt_in_group.forEach((alt_item, i) => {
-              $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+              $scope.multiple_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
             });
           }
           else{
@@ -193,7 +195,7 @@
             }
             $scope.all_alt_in_group.forEach((alt_item, i) => {
               if(i==0 || i==$scope.mid_ind || i==$scope.all_alt_in_group.length-1){
-                $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+                $scope.multiple_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
               }
             });
           }	
