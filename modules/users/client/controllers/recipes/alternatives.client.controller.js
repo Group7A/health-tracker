@@ -39,6 +39,10 @@
       $scope.health = true;
     }
 
+    $scope.uppercaseFirstLetter = function(string) {
+    	return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     // TODO: Sort through alternatives and get healthiest and truest to taste
     // $scope.ingredients.forEach( (ingredient, i) => {
     //   $scope.alternatives.forEach( (alternative, j) => {
