@@ -135,6 +135,24 @@
 
   // TODO this should be Users service
   angular
+    .module('users.services')
+    .factory('DetailsService', DetailsService);
+
+  DetailsService.$inject = ['$resource'];
+
+  function DetailsService($resource) {
+    return $resource('/api/users/details/:recipeID', {
+      recipeID: '@_id'
+    }, {
+      get: {
+        method: 'GET', 
+        isArray: true
+      }
+    });
+  }
+
+  // TODO this should be Users service
+  angular
     .module('users.admin.services')
     .factory('AdminService', AdminService);
 

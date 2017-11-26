@@ -11,7 +11,7 @@
     <div ui-view></div>
 
     <div class="dropMenu">
-      <div class="dropdown">
+      <!--<div class="dropdown">
         Filter by:
         <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="filterSelection('calories')">
           Calories
@@ -21,8 +21,9 @@
           <input type="range" min="0" max="1000" value="500" class="slider" id="calories">
           <center><span id="calVal"></span> Calories</center>
         </div>
-      </div>
+      </div>-->
       <div class="dropdown">
+        Filter by:
         <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Diet
           <span class="caret"></span></a>
@@ -152,8 +153,8 @@
             class="col-xs-12 col-sm-6 col-md-3 properties"
             ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeDetails: recipe})">
-              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 100%">
+            <a ui-sref="details({recipeID: recipe._id})">
+              <img class="img-prop" ng-src="{{recipe.image}}">
             </a>
             <!--Add Recipe-->
             <a class="add-delete" ng-show="vm.authentication.user" href="">
@@ -165,7 +166,7 @@
             <div class="col-md-4">
               <center>
                 <h3 class="card-name">
-                  <a ui-sref="details({recipeDetails: recipe})" style="text-decoration: none">
+                  <a ui-sref="details({recipeID: recipe._id})" style="text-decoration: none">
                     {{recipe.name}}
                   </a>
                 </h3>
@@ -200,7 +201,7 @@
             ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeDetails: myRecipe})">
-              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 100%">
+              <img class="img-prop" ng-src="{{myRecipe.image}}">
             </a>
             <a class="add-delete" ng-show="vm.authentication.user" href="">
                 <span class="glyphicon glyphicon-remove" ng-click="delete(myRecipe)" style="color:red"></span>

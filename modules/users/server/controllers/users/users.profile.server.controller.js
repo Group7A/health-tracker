@@ -258,6 +258,18 @@ exports.me = function (req, res) {
   res.json(safeUserObject || null);
 };
 
+exports.getDetails = function (req, res) {
+  var user = req.user;
+  var id = req.recipeID;
+
+  User.find({'recipes._id': id}, (err, details) => {
+    if(err) res.status(500).send(err);
+    else {
+        res.json(details);
+    }
+  });
+}
+
 exports.add = function (req, res) {
   var user = req.user;
   var recipe = req.body;
