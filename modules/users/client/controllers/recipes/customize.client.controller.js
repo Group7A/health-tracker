@@ -91,8 +91,8 @@
           $scope.searched.report.food.nutrients.forEach((nutrient, i) => {
             if (nutrient.name === 'Protein') alternative.nutrients.push(nutrient);
             else if (nutrient.name === 'Total lipid (fat)') alternative.nutrients.push(nutrient);
-            //else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
-            else if (nutrient.name === 'Fiber, total dietary') alternative.nutrients.push(nutrient);
+            else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
+            //else if (nutrient.name === 'Fiber, total dietary') alternative.nutrients.push(nutrient);
             else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
             //else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
           });
