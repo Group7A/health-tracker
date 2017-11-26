@@ -133,7 +133,7 @@
     return Users;
   }
 
-  // TODO this should be Users service
+  // Details service
   angular
     .module('users.services')
     .factory('DetailsService', DetailsService);
@@ -144,9 +144,13 @@
     return $resource('/api/users/details/:recipeID', {
       recipeID: '@_id'
     }, {
-      get: {
+      getRecipe: {
         method: 'GET', 
-        isArray: true
+        url: '/api/users/details/:recipeID',
+        params: {
+          recipeID: '@_id'
+        }
+        // isArray: true
       }
     });
   }

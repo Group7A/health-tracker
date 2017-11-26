@@ -259,14 +259,25 @@ exports.me = function (req, res) {
 };
 
 exports.getDetails = function (req, res) {
-  var user = req.user;
-  var id = req.recipeID;
+  var id = mongoose.Types.ObjectId(req.recipeID);
 
-  User.find({'recipes._id': id}, (err, details) => {
-    if(err) res.status(500).send(err);
-    else {
-        res.json(details);
+  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').exec(function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
     }
+
+    var recipeDetails = '';
+
+    users.forEach(function (user) {
+      user.recipes.forEach( function(recipe) {
+        var recipeId = {'id': recipe._id};
+        if(recipeId.id = id) recipeDetails = recipe;
+      });
+    });
+
+    res.send(recipeDetails);
   });
 }
 
