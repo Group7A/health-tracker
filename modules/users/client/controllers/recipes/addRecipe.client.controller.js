@@ -153,7 +153,10 @@
         $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
           cooking_method.food_groups.forEach( (food_group, j) => {
             food_group.food_alts.forEach( (food_alt, k) => {   
-              console.log("Food alt", food_alt.db_name);             
+              console.log("Food alt", food_alt.db_name);
+              console.log("Ingredient name", ingredient.name);
+              console.log("cooking style", $scope.recipe.cookingStyle);
+              console.log("cooking method", cooking_method.method_name);            
               if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
                 $scope.have_match = 1;
               }
