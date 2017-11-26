@@ -16,9 +16,9 @@
 				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA" href="">Healthiest</a> </div>
 				<div class="" ng-click="showTruest()"><a class="tabA" href="">Truest to Taste</a></div>
 			</div>
-			<div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
-					ng-click="getReport(healthy_alternatives.map_ndbno)">
-				<li>Data should go here<div class="al-list-measureR"></div>{{healthy_map.map_name}}</li>
+			<div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in healthy_alternatives" 
+					ng-click="getReport(alternative.map_ndbno)">
+				<li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
 			</div>
 			<!--<div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in alternatives" 
 			ng-click="getReport(truest_alternative.map_ndbno)">
