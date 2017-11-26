@@ -24,10 +24,12 @@
     	// var input = document.getElementById("inputEmail3").value;
     	//alert(input)
 		  alert($scope.name);
-	  }
+    }
+    
+    $scope.multiple_alternatives = $stateParams.multiple_map;
 
-    console.log($stateParams.multiple_map);
-    //console.log($stateParams.multiple_alternatives);
+    //console.log($stateParams.multiple_map);
+    console.log($scope.multiple_alternatives);
 
 
     // vm.customizings = UsersService.query();
