@@ -25,7 +25,7 @@
   <div ng-repeat="ingredient in ingredients">
   <!--<table style="margin-top: 90px">--><table>
     <tr>
-      <td style="width: 50%">Original Ingredient: {{ingredient.name.toUpperCase()}}</td>
+      <td style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
       <td style="width: 25%">Units: {{ingredient.units}}</td>
       <td>Quantity: {{ingredient.quantity}}</td>
     </tr>
@@ -53,15 +53,15 @@
     <!--<div id="demo" class="collapse">-->
       <table id="myTable">
         <tr>
-          <th>{{wholename}}</th>
-          <th ng-repeat="alternative in alternatives">{{alternative.name}} Alternate Ingredient Name</th>
-          <th>Alternate Ingredient Name</th>
+          <th>{{uppercaseFirstLetter(ingredient.name)}}</th>
+          <th ng-repeat="alternative in alternatives">{{alternative.map_name}}</th>
+          <!--<th>Alternate Ingredient Name</th>-->
         </tr>
         <tr >
           <td>
-            <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PICTURE" width="225" height="170">
-            <table id="insideTable">
-              <tr ng-repeat="nutrient in alternative.nutrients">
+            <!--<img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PICTURE" width="225" height="170">
+            --><table id="insideTable">
+              <tr>
                 <th>{{nutirent.name}}Calories</th>
                 <th>Fat</th>
                 <th>Sugar</th>
@@ -76,19 +76,19 @@
             </table>
           </td>
           <td ng-repeat="alternative in alternatives">
-            <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
-            <table id="insideTable">
+            <!--<img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
+            --><table id="insideTable">
               <tr>
-                <th>Calories</th>
-                <th>Fat</th>
+                <th ng-repeat="nutrient in alternative.nutrients">{{nutrient.name}} Calories</th>
+                <!--<th>Fat</th>
                 <th>Sugar</th>
-                <th>Protein</th>
+                <th>Protein</th>-->
               </tr>
               <tr>
+                <td ng-repeat="nutrient in alternative.nutrients">{{nutrient.data}} {{nutrient.units}} DATA</td>
+                <!--<td>DATA</td>
                 <td>DATA</td>
-                <td>DATA</td>
-                <td>DATA</td>
-                <td>DATA</td>
+                <td>DATA</td>-->
               </tr>
             </table>
           </td>

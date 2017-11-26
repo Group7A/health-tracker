@@ -27,7 +27,7 @@
     }
     
     $scope.recipe = $stateParams.recipe;
-    $scope.multiple_alternatives = $stateParams.multiple_map;
+    $scope.alternatives = $stateParams.multiple_map;
 
     console.log("Here is the recipe", $scope.recipe);
     
@@ -36,6 +36,10 @@
     //console.log($stateParams.multiple_map);
     console.log($scope.multiple_alternatives);
 
+
+    $scope.uppercaseFirstLetter = function(string) {
+    	return string.charAt(0).toUpperCase() + string.slice(1);
+	}
     
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
