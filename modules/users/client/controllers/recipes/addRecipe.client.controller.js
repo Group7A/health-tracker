@@ -143,7 +143,7 @@
       $scope.top_alt_count = 3;
       $scope.mid_ind;
 
-      $scope.alt_request = 1;
+      //$scope.alt_request = 1;
       // 0 - want single healthies alt
       // 1 - want single "tastiest" alt
       // 2 - want 3 alts for ingredients
