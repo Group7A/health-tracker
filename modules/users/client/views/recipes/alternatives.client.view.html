@@ -5,7 +5,7 @@
 			<div class="ingredient-containerL al-list" ng-repeat="ingredient in ingredients">
 				<li><div class="al-list-measureL">
 					{{ingredient.quantity}} {{ingredient.units}}
-				</div>{{ingredient.name}}</li>
+				</div>{{uppercaseFirstLetter(ingredient.name)}}</li>
 
 			</div>
 			<button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
