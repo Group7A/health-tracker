@@ -34,7 +34,7 @@
     $scope.ingredients = $scope.recipe.ingredients;
 
     //console.log($stateParams.multiple_map);
-    console.log($scope.alternatives);
+    console.log("alternatives", $scope.alternatives);
 
 
     $scope.uppercaseFirstLetter = function(string) {
@@ -43,6 +43,20 @@
     
 
     $scope.name = 'Nothing Here';
+    async function getI() {
+    	var ingredients = await $scope.ingredients;
+
+    	ingredients.forEach( (ingredient, i) => {
+	    	getReport(ingredient);
+	    	if(i==0){
+	    		$scope.name = ingredient.map_name;
+	    	}
+	    });
+    }
+
+    getI();
+
+    //$scope.name = 'Nothing Here';
     //search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;

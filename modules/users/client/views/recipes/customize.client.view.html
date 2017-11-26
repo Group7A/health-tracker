@@ -68,10 +68,11 @@
                 <th>Protein</th>
               </tr>
               <tr>
-                <td>{{wholeCal}}</td>
+                <td ng-repeat="nutrient in ingredient.nutrients">{{nutrient.value}} {{nutrient.units}}</td>  
+                <!--<td>{{wholeCal}}</td>
                 <td>{{wholeFat}}</td>
                 <td>{{wholeSug}}</td>
-                <td>{{wholePro}}</td>
+                <td>{{wholePro}}</td>-->
               </tr>
             </table>
           </td>
