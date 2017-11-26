@@ -5,9 +5,9 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http'];
 
-  function CustomizeController(UsersService, $scope, $stateParams) {
+  function CustomizeController(UsersService, $scope, $stateParams, $http) {
     var vm = this;
 
     $scope.wholename = "Whole Milk";
@@ -34,12 +34,28 @@
     $scope.ingredients = $scope.recipe.ingredients;
 
     //console.log($stateParams.multiple_map);
-    console.log($scope.multiple_alternatives);
+    console.log($scope.alternatives);
 
 
     $scope.uppercaseFirstLetter = function(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
-	}
+    }
+    
+
+    $scope.name = 'Nothing Here';
+    //search through each alternative and getReport for each one
+    async function getR() {
+    	var alternatives = await $scope.alternatives;
+
+    	alternatives.forEach( (alternative, i) => {
+	    	getReport(alternative);
+	    	if(i==0){
+	    		$scope.name = alternative.map_name;
+	    	}
+	    });
+    }
+
+    getR();
     
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
@@ -75,10 +91,10 @@
           $scope.searched.report.food.nutrients.forEach((nutrient, i) => {
             if (nutrient.name === 'Protein') alternative.nutrients.push(nutrient);
             else if (nutrient.name === 'Total lipid (fat)') alternative.nutrients.push(nutrient);
-            else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
+            //else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
             else if (nutrient.name === 'Fiber, total dietary') alternative.nutrients.push(nutrient);
             else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
-            else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
+            //else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
           });
     
           console.log('nutrients: ', alternative.nutrients);
