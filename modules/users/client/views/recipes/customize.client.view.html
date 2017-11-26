@@ -55,7 +55,7 @@
       <table id="myTable">
         <tr>
           <!--<th>{{uppercaseFirstLetter(ingredient.name)}}</th>-->
-          <th ng-repeat="alternative in alternatives">{{alternative.map_name}}</th>
+          <th ng-repeat="alternative in alternatives"><input type="checkbox" name="alternative"> {{alternative.map_name}}</input></th>
           <!--<th>Alternate Ingredient Name</th>-->
         </tr>
         <tr >
