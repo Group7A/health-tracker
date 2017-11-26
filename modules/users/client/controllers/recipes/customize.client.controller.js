@@ -43,20 +43,6 @@
     
 
     $scope.name = 'Nothing Here';
-    async function getI() {
-    	var ingredients = await $scope.ingredients;
-
-    	ingredients.forEach( (ingredient, i) => {
-	    	getReport(ingredient);
-	    	if(i==0){
-	    		$scope.name = ingredient.map_name;
-	    	}
-	    });
-    }
-
-    getI();
-
-    //$scope.name = 'Nothing Here';
     //search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
@@ -96,9 +82,11 @@
                 $scope.searched = results.data;
                 assignFood(alternative);
               });
+          //console.log("alternative to lookup", alternative);
         };
     
         function assignFood(alternative) {
+          //console.log("assign food alternative", alternative);
           $scope.food = $scope.searched.report.food.name.toLowerCase();
           alternative.nutrients = [];
     
@@ -110,7 +98,7 @@
             else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
             //else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
           });
-    
+          
           console.log('nutrients: ', alternative.nutrients);
         }
     
