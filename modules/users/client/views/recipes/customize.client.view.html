@@ -79,13 +79,17 @@
             <!--<img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
             --><table id="insideTable">
               <tr>
-                <th ng-repeat="nutrient in alternative.nutrients">{{nutrient.name}} Calories</th>
-                <!--<th>Fat</th>
+                <th>Calories</th>
+                <th>Fat</th>
+                <th>Sugar</th>
+                <th>Protein</th>
+                <!--<th ng-repeat="nutrient in alternative.nutrients">{{nutrient.name}} Calories</th>
+                <th>Fat</th>
                 <th>Sugar</th>
                 <th>Protein</th>-->
               </tr>
               <tr>
-                <td ng-repeat="nutrient in alternative.nutrients">{{nutrient.value}} {{nutrient.units}} DATA</td>
+                <td ng-repeat="nutrient in alternative.nutrients">{{nutrient.value}} {{nutrient.units}}</td>
                 <!--<td>DATA</td>
                 <td>DATA</td>
                 <td>DATA</td>-->
