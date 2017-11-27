@@ -20,7 +20,7 @@
     	return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    $scope.none = false;
+    //$scope.none = false;
 
     // Search through each alternative and getReport for each one
     async function getR() {
@@ -29,15 +29,15 @@
     	alternatives.forEach( (alternative, i) => {
         console.log("alternative.map_name", alternative.map_name);
         if(alternative.map_name === "No alternatives available"){
-          $scope.none = true;
-          console.log("none", $scope.none);
+          alternative.none = true;
         }
         else {
           alternative.forEach( (alt, j) => {
-            $scope.none = false
+            alternative.none = false
             getReport(alt);
           });
         }
+        console.log("none", alternative.none);
 	    });
     }
 

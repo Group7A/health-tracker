@@ -17,16 +17,16 @@
           <table id="myTable">
             <thead>
               <th ng-repeat="alternative in alternatives[$index]">
-                <input ng-hide="none" type="radio" name="alternative" ng-model="alternative.choice"> 
+                <input ng-hide="alternative.none" type="radio" name="alternative" ng-model="alternative.choice"> 
                   {{alternative.map_name}}
                 </input>
-                <div ng-show="none">
+                <div ng-show="alternative.none">
                   No alternatives available
                 </div>
               </th>
             </thead>
             <tr>
-              <td ng-repeat="alternative in alternatives[$index]" ng-hide="none">
+              <td ng-repeat="alternative in alternatives[$index]" ng-hide="alternative.none">
                 <table id="insideTable">
                   <thead>
                     <th>Protein</th>
