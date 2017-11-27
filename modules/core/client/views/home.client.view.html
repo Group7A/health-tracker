@@ -153,7 +153,7 @@
             class="col-xs-12 col-sm-6 col-md-3 properties"
             ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeID: recipe._id})">
+            <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})">
               <img class="img-prop" ng-src="{{recipe.image}}">
             </a>
             <!--Add Recipe-->
@@ -166,7 +166,7 @@
             <div class="col-md-4">
               <center>
                 <h3 class="card-name">
-                  <a ui-sref="details({recipeID: recipe._id})" style="text-decoration: none">
+                  <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" style="text-decoration: none">
                     {{recipe.name}}
                   </a>
                 </h3>
@@ -200,7 +200,7 @@
             class="col-xs-12 col-sm-6 col-md-3 properties"
             ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeDetails: myRecipe})">
+            <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})">
               <img class="img-prop" ng-src="{{myRecipe.image}}">
             </a>
             <a class="add-delete" ng-show="vm.authentication.user" href="">
@@ -212,7 +212,7 @@
             <div class="col-md-4">
               <center>
                 <h3 class="card-name">
-                  <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
+                  <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" style="text-decoration: none">
                     {{myRecipe.name}}
                   </a>
                 </h3>

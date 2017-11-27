@@ -48,18 +48,18 @@
             <div class="ingredient-containerRecipeDetails">
               <div class="row heading" ng-hide="direct">
                   <div class="col-md-4 col-md-offset-1 ingDirActive">
-                    <a class="padding-text" ng-click="direct=false">Ingredients</a>
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
                   </div>
                   <div class="col-md-4 text-center ingDirDisable">
-                    <a class="padding-text" ng-click="direct=true">Directions</a>
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
                   </div>
               </div>
               <div class="row heading" ng-show="direct">
                   <div class="col-md-4 col-md-offset-1 text-center ingDirDisable">
-                    <a class="padding-text" ng-click="direct=false">Ingredients</a>
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
                   </div>
                   <div class="col-md-4 ingDirActive">
-                    <a class="padding-text" ng-click="direct=true">Directions</a>
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
                   </div>
               </div>
               <div class="text" ng-hide="direct">
@@ -87,10 +87,12 @@
             </div>  
           </div>
           <div class="col-md-6" style="padding-right: 10%;">
-            <a type="button" class="savebtn"><span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> Save Recipe</a>
+            <a type="button" class="savebtn" href="" ng-click="add(recipe)">
+              <span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> 
+              Save Recipe</a>
         
             <div style="margin-left: -46px;">
-              <img class="heroimage" src="http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg">
+              <img class="heroimage" ng-src="recipe.image">
             </div>
           </div>
         </div>
