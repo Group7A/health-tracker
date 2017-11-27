@@ -13,9 +13,31 @@
     $scope.recipe = $stateParams.recipeDetails;
     //$scope.recipe = $stateParams;
 
+    // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
     else $scope.showDirections = false;
     console.log($scope.recipe);
+
+    // RATING
+    if($scope.recipe.review.length > 0) {
+      $scope.recipe.totalRating = averageStars($scope.recipe.review);
+    }
+    else $scope.recipe.totalRating = 0;
+
+    function averageStars(starsArray) {
+      var total = 0;
+
+      for(var i = 0; i < starsArray.length; i++) {
+          total += starsArray[i].rating;
+      }
+
+      var avg = total / starsArray.length;
+      return avg;
+    }
+
+    $scope.getNumber = (num) => {
+      return new Array(num); 
+    }
 
     // ======== ADD A RECIPE ===========
     $scope.add = (recipe) => {

@@ -20,18 +20,26 @@
     	return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    //$scope.none = false;
+
     // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
-        if(alternative.map_name == "No alternatives available") alternative.none = true;
+        console.log("alternative.map_name", alternative.map_name);
+        if(alternative.map_name === "No alternatives available"){
+          alternatives[i] = "";
+          alternative.none = true;
+        }
         else {
           alternative.forEach( (alt, j) => {
-            alternative.none = false
             getReport(alt);
+            alternative.none = false
           });
         }
+        console.log("none", alternative.none);
+        console.log("alternatives", alternatives);
 	    });
     }
 
