@@ -56,7 +56,8 @@
     }
 
     getR();
-    
+
+
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
     
@@ -69,6 +70,10 @@
         var max = '200';
         var ds = 'Standard Reference';
     
+    function newFunction() {
+      ;
+    }
+
         function getReport (alternative) {
           var reportURL = 
               'http://api.nal.usda.gov/ndb/reports/' + 
