@@ -1,46 +1,52 @@
 <section>
-  <h1>Customize Recipe</h1>
-  </br>
-  <p>Select the checkbox next to the alternative you would like to use for each given ingredient.</p>
-  </br>
-  <div ng-repeat="ingredient in ingredients">
-  </br>
-    <table>
-      <tr>
-        <td style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
-        <td style="width: 25%">Units: {{ingredient.units}}</td>
-        <td>Quantity: {{ingredient.quantity}}</td>
-      </tr>
-    </table>
-    <div class="container">
-        <table id="myTable">
-          <tr>
-            <!--<th>{{uppercaseFirstLetter(ingredient.name)}}</th>-->
-            <th ng-repeat="alternative in alternatives">
-              <input type="radio" name="alternative"> 
-                {{alternative.map_name}}
-              </input>
-            </th>
-            <!--<th>Alternate Ingredient Name</th>-->
-          </tr>
-          <tr>
-            <td ng-repeat="alternative in alternatives">
-              <table id="insideTable">
-                <tr>
-                  <th>Protein</th>
-                  <th>Fat</th>
-                  <th>Carbs</th>
-                  <th>Sugar</th>
-                </tr>
-                <tr>
-                  <td ng-repeat="nutrient in alternative.nutrients">{{nutrient.value}} {{nutrient.units}}</td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+  <center>
+    <h1>Customize Recipe</h1>
+    </br>
+    <p>Select the checkbox next to the alternative you would like to use for each given ingredient.</p>
+    </br>
+    <div ng-repeat="ingredient in ingredients">
+      </br>
+      <table>
+        <tr>
+          <td style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
+          <td style="width: 25%">Units: {{ingredient.units}}</td>
+          <td>Quantity: {{ingredient.quantity}}</td>
+        </tr>
+      </table>
+      <div class="container">
+          <table id="myTable">
+            <thead>
+              <!--<th>{{uppercaseFirstLetter(ingredient.name)}}</th>-->
+              <th ng-repeat="alternative in alternatives[$index]">
+                <input type="radio" name="alternative" ng-model="alternative.choice"> 
+                  {{alternative.map_name}}
+                </input>
+              </th>
+            </thead>
+            <tr>
+              <td ng-repeat="alternative in alternatives[$index]">
+                <table id="insideTable">
+                  <tr>
+                    <th>Protein</th>
+                    <th>Fat</th>
+                    <th>Carbs</th>
+                    <th>Sugar</th>
+                  </tr>
+                  <tr>
+                    <td ng-repeat="nutrient in alternative.nutrients">
+                      {{nutrient.value}} {{nutrient.unit}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+      </div>
     </div>
-  </div>
+
+    <br> <br>
+    <button class="btn btn-success">SAVE</button>
+  </center>
   <!--</br>
   <table>
     <tr>
@@ -188,15 +194,6 @@
   </div>
   </div>
   <!--<button style="margin-left: 455px; margin-top: 5px; margin-bottom: 5px">see 1 other possibilities</button>-->
-  </br>
-  </br>
-  </br>
-  </br>
-  <button class="btn btn-success">SAVE</button>
-  </br>
-  </br>
-  </br>
-
 </section>
 
 <style>

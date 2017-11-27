@@ -12,16 +12,12 @@
     
     $scope.recipe = $stateParams.recipe;
     $scope.alternatives = $stateParams.multiple_map;
-    
     $scope.ingredients = $scope.recipe.ingredients;
-    console.log("alternatives", $scope.alternatives);
 
     $scope.uppercaseFirstLetter = function(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    
 
-    $scope.name = 'Nothing Here';
     //search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
