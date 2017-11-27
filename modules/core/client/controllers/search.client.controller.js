@@ -31,29 +31,33 @@
     $scope.flip = function(alternative) {
       alternative.flipped = !alternative.flipped;
     }
-    //function to uppercase the first letter
+
+    // Function to make first letter uppercase
     $scope.uppercaseFirstLetter = function(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
-	}
+	  }
 
     // FIRST ITME IS ORIGINAL INGREDIENT
     $scope.alternatives = TransferService.getAlternatives();
     $scope.name = 'No Search';
-    //search through each alternative and getReport for each one
+
+    // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
-    	alternatives.forEach( (alternative, i) => {
-	    	getReport(alternative);
-	    	if(i==0){
-	    		$scope.name = alternative.map_name;
-	    	}
-	    });
+      if(alternatives.length > 0) {
+        alternatives.forEach( (alternative, i) => {
+          getReport(alternative);
+          if(i==0){
+            $scope.name = alternative.map_name;
+          }
+        });
+      }
+      else $scope.name = 'No Search';
     }
 
     getR();
 
-    console.log('Here are alternatives: ', $scope.alternatives);
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
 
@@ -93,13 +97,10 @@
         else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
         else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
       });
-
-      console.log('nutrients: ', alternative.nutrients);
     }
 
     function getURL(url) {
       return $http.get(url);
     }
-
   }
 }());
