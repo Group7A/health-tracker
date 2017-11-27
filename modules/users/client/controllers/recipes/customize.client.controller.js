@@ -20,20 +20,21 @@
     	return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    $scope.none = true;
+    $scope.none = false;
 
     // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
-        if(alternative.map_name == "No alternatives available"){
-          none = true;
-          console.log("none", none);
+        console.log("alternative.map_name", alternative.map_name);
+        if(alternative.map_name === "No alternatives available"){
+          $scope.none = true;
+          console.log("none", $scope.none);
         }
         else {
           alternative.forEach( (alt, j) => {
-            alternative.none = false
+            $scope.none = false
             getReport(alt);
           });
         }
