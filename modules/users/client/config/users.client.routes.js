@@ -57,7 +57,8 @@
         params: { 
           'recipe': null,
           'healthy_map': null,
-          'truest_map': null
+          'truest_map': null,
+          'multiple_map': null
         },
         controller: 'AlternativesController',
         controllerAs: 'vm',
@@ -68,6 +69,10 @@
       .state('customize', { // CUSTOMIZE A RECIPE
         url: '/customize',
         templateUrl: 'modules/users/client/views/recipes/customize.client.view.html',
+        params: { 
+          'recipe': null,
+          'multiple_map': null
+        },
         controller: 'CustomizeController',
         controllerAs: 'vm',
         data: {

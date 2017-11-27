@@ -97,7 +97,8 @@
       var transferData = {
         'recipe': recipe,
         'healthy_map': $scope.healthy_map,
-        'truest_map': $scope.truest_map
+        'truest_map': $scope.truest_map,
+        'multiple_map': $scope.multiple_map
       };
 
       $state.go('alternatives', transferData);
@@ -136,6 +137,7 @@
       // Initialize variables
       $scope.healthy_map = [];
       $scope.truest_map = [];
+      $scope.multiple_map = [];
       $scope.in_food_group;
       $scope.orig_nutrient_amount;
       $scope.all_alt_in_group = [];
@@ -143,7 +145,7 @@
       $scope.top_alt_count = 3;
       $scope.mid_ind;
 
-      $scope.alt_request = 1;
+      //$scope.alt_request = 1;
       // 0 - want single healthies alt
       // 1 - want single "tastiest" alt
       // 2 - want 3 alts for ingredients
@@ -152,8 +154,12 @@
       $scope.recipe.ingredients.forEach( (ingredient, x) => {
         $scope.alt_food_object.cooking_methods.forEach( (cooking_method, i) => {
           cooking_method.food_groups.forEach( (food_group, j) => {
-            food_group.food_alts.forEach( (food_alt, k) => {                
-              if((food_alt.db_name == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
+            food_group.food_alts.forEach( (food_alt, k) => {   
+              //console.log("Food alt", food_alt.db_name);
+              //console.log("Ingredient name", ingredient.name);
+              //console.log("cooking style", $scope.recipe.cookingStyle);
+              //console.log("cooking method", cooking_method.method_name);            
+              if((food_alt.db_name.toLowerCase() == ingredient.name.toLowerCase()) && ($scope.recipe.cookingStyle == cooking_method.method_name)){
                 $scope.have_match = 1;
               }
               else if ((food_alt.db_name != ingredient.name) && ($scope.have_match == 1)){
@@ -163,7 +169,7 @@
             $scope.have_match = 0;
           });
         });
-
+        console.log("All alt in group", $scope.all_alt_in_group);
         // Loop through all the alternatives
         if($scope.all_alt_in_group.length > 0) {
           // HEALTH MAP
@@ -173,6 +179,26 @@
           // TRUEST TO TASTE MAP
           var alt_item = $scope.all_alt_in_group[0];
           $scope.truest_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+        
+          //MULTIPLE ITEMS MAP
+          if($scope.all_alt_in_group.length < $scope.top_alt_count){
+            $scope.all_alt_in_group.forEach((alt_item, i) => {
+              $scope.multiple_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+            });
+          }
+          else{
+            // Control what alt we give
+            $scope.mid_ind = $scope.all_alt_in_group.length/2;
+            // Index is not whole number
+            if($scope.mid_ind % 1 != 0){
+              $scope.mid_ind = $scope.mid_ind - 0.5;
+            }
+            $scope.all_alt_in_group.forEach((alt_item, i) => {
+              if(i==0 || i==$scope.mid_ind || i==$scope.all_alt_in_group.length-1){
+                $scope.multiple_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
+              }
+            });
+          }	
         }
         else { // If no alternatives available, send this to the map
           $scope.healthy_map.push({"map_name": 'No alternatives available'});
