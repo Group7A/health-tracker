@@ -22,6 +22,9 @@
   </div> -->
 
   <!--<h1 style="margin-left: 400px">--><h1>Customize Recipe</h1>
+  </br>
+  <p>Select the checkbox next to the alternative you would like to use for each given ingredient.</p>
+  </br>
   <div ng-repeat="ingredient in ingredients">
   </br>
   <!--<table style="margin-top: 90px">--><table>
@@ -55,7 +58,7 @@
       <table id="myTable">
         <tr>
           <!--<th>{{uppercaseFirstLetter(ingredient.name)}}</th>-->
-          <th ng-repeat="alternative in alternatives"><input type="checkbox" name="alternative"> {{alternative.map_name}}</input></th>
+          <th ng-repeat="alternative in alternatives"><input type="radio" name="alternative"> {{alternative.map_name}}</input></th>
           <!--<th>Alternate Ingredient Name</th>-->
         </tr>
         <tr >
@@ -340,6 +343,7 @@
   }
 
   p {
+    color: gray;
     /*margin-left: 450px;*/
   }
 
