@@ -20,13 +20,13 @@
 
             <div class="col-md-6 al-containerPaddingR">
               <h1 class="al-h1 text-center">Alternative Recipe</h1>
-              <div class="al-tabs" ng-hide="health">
-                <div class="al-tabMargin" ng-click="showHealthy()"><a class="padding-text active" href="">Healthiest</a> </div>
-                <div class="" ng-click="showTruest()"><a class="padding-text" href="">Truest to Taste</a></div>
+              <div class="row row-fix" ng-hide="health">
+                <div class="col-md-6" ng-click="showHealthy()"><a class="padding-text active al-tabL" href="">Healthiest </a></div>
+                <div class="col-md-6" ng-click="showTruest()"><a class="padding-text al-tabR" href="">Truest to Taste</a></div>
               </div>
-              <div class="al-tabs" ng-show="truest">
-                <div class="al-tabMargin" ng-click="showHealthy()"><a class="padding-text" href="">Healthiest</a> </div>
-                <div class="" ng-click="showTruest()"><a class="padding-text active" href="">Truest to Taste</a></div>
+              <div class="row row-fix" ng-show="truest">
+                <div class="col-md-6" ng-click="showHealthy()"><a class="padding-text al-tabL" href="">Healthiest</a> </div>
+                <div class="col-md-6" ng-click="showTruest()"><a class="padding-text active al-tabR" href="">Truest to Taste</a></div>
               </div>
               <div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in healthy_alternatives" 
                   ng-click="getReport(alternative.map_ndbno)">
