@@ -532,7 +532,32 @@ span.glyphicon-time {
   color: white;
   text-decoration: none;
   background: rgba(174,200,107,0.8);
-  /*border: 2px solid rgba(174,200,107,0.7);*/
+}
+.glyphicon-ring-delete {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #DF5D4A;
+  color: #DF5D4A;
+  display: inline-table;
+  text-align: center;
+}
+.glyphicon-delete {
+  background: #DF5D4A;
+  color: white;
+  border: 2px solid #DF5D4A;
+}
+.glyphicon-delete:hover {
+  color: white;
+  text-decoration: none;
+  background: rgba(223,93,74,0.8);
+}
+.glyphicon-ring-delete .glyphicon-bordered {
+  font-size: 20px;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 2px;
+  top: 0;
 }
 .glyphicon-ring .glyphicon-bordered {
   font-size: 20px;
