@@ -29,13 +29,13 @@
     	alternatives.forEach( (alternative, i) => {
         console.log("alternative.map_name", alternative.map_name);
         if(alternative.map_name === "No alternatives available"){
-          alternative.none = true;
           alternatives[i] = "";
+          alternative.none = true;
         }
         else {
           alternative.forEach( (alt, j) => {
-            alternative.none = false
             getReport(alt);
+            alternative.none = false
           });
         }
         console.log("none", alternative.none);
