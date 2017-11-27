@@ -104,12 +104,12 @@ a:hover .header-profile-image {
 
 }
 .searchBar-btn{
-  background-color: rgba(223,93,74,0.6);
+  background-color: rgb(223,93,74);
   height: 40px;
   width: 40px;
 }
 .searchBar-btn:hover{
-  background-color: rgba(223,93,74,0.4)
+  background-color: rgba(223,93,74,0.8)
 }
 .head{
   font-size: 16px;
@@ -238,8 +238,8 @@ body{
   left: 5%;
   color: #fff;
   width: 100%;
-  height: 60px;
-  padding-top: 10px;
+  height: 70px;
+  padding-top: 7px;
 }
 
 .card-info2{
@@ -250,7 +250,7 @@ body{
   width: 100%;
   /*background-color: rgba(68,68,68,0.3);*/
   background-color: rgba(20,20,20,0.5);
-  height: 60px;
+  height: 70px;
 }
 
 .card-name{
