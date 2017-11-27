@@ -48,18 +48,18 @@
             <div class="ingredient-containerRecipeDetails">
               <div class="row heading" ng-hide="direct">
                   <div class="col-md-4 col-md-offset-1 ingDirActive">
-                    <a class="padding-text" ng-click="direct=false">Ingredients</a>
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
                   </div>
                   <div class="col-md-4 text-center ingDirDisable">
-                    <a class="padding-text" ng-click="direct=true">Directions</a>
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
                   </div>
               </div>
               <div class="row heading" ng-show="direct">
                   <div class="col-md-4 col-md-offset-1 text-center ingDirDisable">
-                    <a class="padding-text" ng-click="direct=false">Ingredients</a>
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
                   </div>
                   <div class="col-md-4 ingDirActive">
-                    <a class="padding-text" ng-click="direct=true">Directions</a>
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
                   </div>
               </div>
               <div class="text" ng-hide="direct">
@@ -87,10 +87,12 @@
             </div>  
           </div>
           <div class="col-md-6" style="padding-right: 10%;">
-            <a type="button" class="savebtn"><span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> Save Recipe</a>
+            <a type="button" class="savebtn" href="" ng-click="add(recipe)">
+              <span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> 
+              Save Recipe</a>
         
             <div style="margin-left: -46px;">
-              <img class="heroimage" src="http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg">
+              <img class="heroimage" ng-src="recipe.image">
             </div>
           </div>
         </div>
@@ -98,98 +100,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- ########################## -->
-<!-- <div class="heroimage">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h5>{{recipe.name}}</h5>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="recipeDetail">
-  <div>
-    <div class="heading">
-      Ingredients
-    </div>
-    <hr>
-    <div class="text">
-      <ul class="list">
-        <li ng-repeat="ingredient in recipe.ingredients">
-          {{ingredient.quantity}} {{ingredient.units}} of {{ingredient.name}}
-        </li>
-      </ul>
-      
-    </div>
-  </div>  
-
-  <div class="directions">
-    <div class="heading">
-      Directions
-    </div>
-    <hr>
-    <div style="margin-left: 29%;">
-      <div class="verticalLine">
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-        {{recipe.time}} min | Total
-      </div>
-    </div>
-    <div class="text">
-      <ul class="list">
-        <li class="direction-list"> 
-          Cooking style: <u>{{recipe.cookingStyle}}</u> 
-        </li>
-        <li ng-show="showDirections" class="direction-list" ng-repeat="directions in recipe.directionsList">
-          <div class="glyphicon-ring glyphicon-white"> 
-            {{$index + 1}}
-          </div> 
-          {{directions.directions}} 
-        </li>
-        <li ng-hide="showDirections" class="direction-list">
-          <div>No directions available</div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-</div>
-
-<div class="review-containter">
-  <div>
-    <div class="heading">
-      Review
-    </div>
-    <hr>
-    
-  </div>
-  
-</div>
-
- -->
-
-<!-- <section>
-  <div class="page-header">
-    <h1>Recipedetails</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="recipedetail in vm.recipedetails"
-       ui-sref="recipedetails.view({ recipedetailId: recipedetail._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="recipedetail.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="recipedetail.user" ng-bind="recipedetail.user.displayName"></span>
-        <span ng-if="!recipedetail.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="recipedetail.name"></h4>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.recipedetails.$resolved && !vm.recipedetails.length">
-    No Recipedetails yet, why don't you <a ui-sref="recipedetails.create">create one</a>?
-  </div>
-</section>

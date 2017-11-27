@@ -28,9 +28,16 @@
                       Method
                     </div>
                     <select style= "border-radius: 0px;" ng-model="recipe.cookingStyle">
-                      <option>baked</option>
-                      <option>fried</option>
-                      <option>grilled</option>
+                      <option>Beverage</option>
+                      <option>Baked Goods</option>
+                      <option>Baked Foods</option>
+                      <option>Fried</option>
+                      <option>Frozen Treats</option>
+                      <option>Grilled</option>
+                      <option>Slow Cook</option>
+                      <option>Soup</option>
+                      <option>Stove Top</option>
+                      <option>Others</option>
                     </select>                       
                   </div>
                 </div>
@@ -58,7 +65,7 @@
                         </li>
                         <li>
                           <label class="small healthClassifications">
-                            <input ng-model="recipe.healthClassifications.noSugar" type="checkbox"/>&nbsp;No Sugar
+                            <input ng-model="recipe.healthClassifications.lowCalorie" type="checkbox"/>&nbsp;Low Calorie
                           </label>
                         </li>
                         <li>
@@ -68,12 +75,12 @@
                         </li>
                         <li>
                           <label class="small healthClassifications">
-                            <input ng-model="recipe.healthClassifications.vegan" type="checkbox"/>&nbsp;Vegan 
+                            <input ng-model="recipe.healthClassifications.noSugar" type="checkbox"/>&nbsp;No Sugar
                           </label>
                         </li>
                         <li>
                           <label class="small healthClassifications">
-                            <input ng-model="recipe.healthClassifications.lowCalorie" type="checkbox"/>&nbsp;Low Calorie
+                            <input ng-model="recipe.healthClassifications.vegan" type="checkbox"/>&nbsp;Vegan 
                           </label>
                         </li>
                       </div>

@@ -39,11 +39,14 @@
         }
       })
       .state('details', { // RECIPE DETAILS
-        url: '/recipe-details',
+        url: '/recipe-details/:recipeID',
         templateUrl: 'modules/users/client/views/recipes/recipeDetails.client.view.html',
         params: { recipeDetails: null },
         controller: 'RecipeDetailsController',
         controllerAs: 'vm',
+        resolve: {
+          detailsResolve: getRecipeDetails
+        },
         data: {
           pageTitle: 'Recipe Details'
         }
@@ -54,7 +57,8 @@
         params: { 
           'recipe': null,
           'healthy_map': null,
-          'truest_map': null
+          'truest_map': null,
+          'multiple_map': null
         },
         controller: 'AlternativesController',
         controllerAs: 'vm',
@@ -65,6 +69,10 @@
       .state('customize', { // CUSTOMIZE A RECIPE
         url: '/customize',
         templateUrl: 'modules/users/client/views/recipes/customize.client.view.html',
+        params: { 
+          'recipe': null,
+          'multiple_map': null
+        },
         controller: 'CustomizeController',
         controllerAs: 'vm',
         data: {
@@ -174,5 +182,13 @@
           pageTitle: 'Password reset form'
         }
       });
+  }
+
+  getRecipeDetails.$inject = ['$stateParams', 'DetailsService'];
+
+  function getRecipeDetails($stateParams, DetailsService) {
+    return DetailsService.get({ 
+      'recipeID': $stateParams.recipeID 
+    }).$promise;
   }
 }());

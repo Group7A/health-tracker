@@ -80,7 +80,7 @@ var RecipeSchema = new Schema({
   },
   ingredients: [IngredientSchema],
   review: [ReviewSchema]
-});
+},{collection: 'Recipe'});
 
 /**
  * User Schema
@@ -306,6 +306,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
 UserSchema.statics.seed = seed;
 
 mongoose.model('User', UserSchema);
+mongoose.model('Recipe', RecipeSchema, 'Recipe');
 
 /**
 * Seeds the User collection with document (User)
