@@ -29,8 +29,20 @@
           </div>
           <div class="col-md-2" style="padding-left: 10px;">
             <div style="float:left;">   
-              <img src="../modules/users/client/img/addRecipe/rateBlack.png" style="height: 20px; width: 20px; margin-right: 4px;">              
-                Stars
+              <!--<img src="../modules/users/client/img/addRecipe/rateBlack.png" style="height: 20px; width: 20px; margin-right: 4px;">              
+                Stars-->
+
+              <!--<div class="card-icon-container">-->
+                <div id="stars">
+                  Rating:
+                  <span ng-repeat="i in getNumber(5) track by $index" 
+                    class="fa fa-star" 
+                    ng-class="recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'">
+                  </span>
+                </div>
+              <!--</div>-->
+
+
               <!-- <div class="acidjs-rating-stars">
                 <form id="rating">
                     <input ng-click="getStars(5)" type="radio" name="group-1" id="group-1-0" value="5"/><label for="group-1-0"></label>
@@ -100,3 +112,5 @@
     </div>
   </div>
 </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
