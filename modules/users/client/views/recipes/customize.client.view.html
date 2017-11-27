@@ -2,36 +2,38 @@
   <center>
     <h1>Customize Recipe</h1>
     </br>
-    <p>Select the checkbox next to the alternative you would like to use for each given ingredient.</p>
+    <p>Select the alternative you would like to use for each given ingredient.</p>
     </br>
     <div ng-repeat="ingredient in ingredients">
       </br>
       <table>
-        <tr>
-          <td style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
-          <td style="width: 25%">Units: {{ingredient.units}}</td>
-          <td>Quantity: {{ingredient.quantity}}</td>
-        </tr>
+        <thead>
+          <th style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
+          <th>Quantity: {{ingredient.quantity}}</td>
+          <th style="width: 25%">Units: {{ingredient.units}}</td>
+        </thead>
       </table>
       <div class="container">
           <table id="myTable">
             <thead>
-              <!--<th>{{uppercaseFirstLetter(ingredient.name)}}</th>-->
               <th ng-repeat="alternative in alternatives[$index]">
-                <input type="radio" name="alternative" ng-model="alternative.choice"> 
+                <input ng-hide="alternative.none" type="radio" name="alternative" ng-model="alternative.choice"> 
                   {{alternative.map_name}}
                 </input>
+                <div ng-show="alternative.none">
+                  No alternatives available
+                </div>
               </th>
             </thead>
             <tr>
-              <td ng-repeat="alternative in alternatives[$index]">
+              <td ng-repeat="alternative in alternatives[$index]" ng-hide="alternative.none">
                 <table id="insideTable">
-                  <tr>
+                  <thead>
                     <th>Protein</th>
                     <th>Fat</th>
                     <th>Carbs</th>
                     <th>Sugar</th>
-                  </tr>
+                  </thead>
                   <tr>
                     <td ng-repeat="nutrient in alternative.nutrients">
                       {{nutrient.value}} {{nutrient.unit}}
@@ -43,157 +45,9 @@
           </table>
       </div>
     </div>
-
     <br> <br>
     <button class="btn btn-success">SAVE</button>
   </center>
-  <!--</br>
-  <table>
-    <tr>
-      <td style="width: 50%">Ingredient Name</td>
-      <td style="width: 25%">Units: Pounds</td>
-      <td>Quantity: 1</td>
-    </tr>
-  </table>
-  <!--<button class="btn btn-success" ng-click="alert()" id="collapseBTN">See 2 other possibilities</button>-->
-  <!--<button id="collapseBTN" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Other Possibilities</button>
-  <div id="demo" class="collapse">
-    <table id="myTable">
-      <tr>
-        <th>Original Ingredient Name</th>
-        <th>Alternate Ingredient Name</th>
-        <th>Alternate Ingredient Name</th>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </div>
-  </div>
-  </br>
-  </br>
-  <table>
-    <tr>
-      <td style="width: 50%">Ingredient Name #3</td>
-      <td style="width: 25%">Units: Cups</td>
-      <td>Quantity: 2</td>
-    </tr>
-  </table>
-  <button id="collapseBTN" type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">See Other Possibilities</button>
-  <div id="demo" class="collapse">
-    <table id="myTable">
-      <tr>
-        <th>Original Ingredient Name</th>
-        <th>Alternate Ingredient Name</th>
-        <th>Alternate Ingredient Name</th>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-        <td>
-          <img src="https://www.rxbar.com/media/wysiwyg/homepage/Ingredients.jpg" alt="PLACEHOLDER PICTURE" width="225" height="170">
-          <table id="insideTable">
-            <tr>
-              <th>Calories</th>
-              <th>Fat</th>
-              <th>Sugar</th>
-              <th>Protein</th>
-            </tr>
-            <tr>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-              <td>DATA</td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </div>
-  </div>
-  <!--<button style="margin-left: 455px; margin-top: 5px; margin-bottom: 5px">see 1 other possibilities</button>-->
 </section>
 
 <style>

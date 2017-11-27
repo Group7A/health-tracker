@@ -10,25 +10,28 @@
   function CustomizeController(UsersService, $scope, $stateParams, $http) {
     var vm = this;
     
+    // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
     $scope.alternatives = $stateParams.multiple_map;
     $scope.ingredients = $scope.recipe.ingredients;
 
+    // Make first letter upercase
     $scope.uppercaseFirstLetter = function(string) {
     	return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    //search through each alternative and getReport for each one
+    // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
-	    	alternative.forEach( (alt, j) => {
-           getReport(alt);
-            if(i==0){
-              $scope.name = alternative.map_name;
-            }
-        });
+        if(alternative.map_name == "No alternatives available") alternative.none = true;
+        else {
+          alternative.forEach( (alt, j) => {
+            alternative.none = false
+            getReport(alt);
+          });
+        }
 	    });
     }
 
@@ -69,9 +72,7 @@
         if (nutrient.name === 'Protein') alternative.nutrients.push(nutrient);
         else if (nutrient.name === 'Total lipid (fat)') alternative.nutrients.push(nutrient);
         else if (nutrient.name === 'Carbohydrate, by difference') alternative.nutrients.push(nutrient);
-        //else if (nutrient.name === 'Fiber, total dietary') alternative.nutrients.push(nutrient);
         else if (nutrient.name === 'Sugars, total') alternative.nutrients.push(nutrient);
-        //else if (nutrient.name === 'Cholesterol') alternative.nutrients.push(nutrient);
       });
     }
 
