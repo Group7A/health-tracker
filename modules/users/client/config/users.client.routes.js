@@ -182,8 +182,8 @@
   getRecipeDetails.$inject = ['$stateParams', 'DetailsService'];
 
   function getRecipeDetails($stateParams, DetailsService) {
-    return DetailsService.getRecipe({
-      recipeID: $stateParams.recipeID
+    return DetailsService.get({ 
+      'recipeID': $stateParams.recipeID 
     }).$promise;
   }
 }());

@@ -144,13 +144,8 @@
     return $resource('/api/users/details/:recipeID', {
       recipeID: '@_id'
     }, {
-      getRecipe: {
-        method: 'GET', 
-        url: '/api/users/details/:recipeID',
-        params: {
-          recipeID: '@_id'
-        }
-        // isArray: true
+      update: {
+        method: 'PUT'
       }
     });
   }

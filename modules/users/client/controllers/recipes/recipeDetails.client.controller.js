@@ -11,14 +11,18 @@
     var vm = this;
 
     //$scope.recipe = $stateParams.recipeDetails;
-    //$scope.recipe = $stateParams;
-    async function getDetails() {
-      $scope.recipe = await DetailsService.getRecipe({'recipeID': $stateParams.recipeID});
+    $scope.recipe = $stateParams;
+    // async function getDetails() {
+    //   $scope.recipe = await DetailsService.get({
+    //     'recipeID': $stateParams.recipeID
+    //   });
     
-      if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
-      else $scope.showDirections = false;
-      console.log($scope.recipe);
-    }
+      // if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
+      // else $scope.showDirections = false;
+     console.log($scope.recipe);
+    // }
+
+    //getDetails();
     
   }
 }());

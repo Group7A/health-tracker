@@ -306,6 +306,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
 UserSchema.statics.seed = seed;
 
 mongoose.model('User', UserSchema);
+mongoose.model('Recipe', RecipeSchema);
 
 /**
 * Seeds the User collection with document (User)

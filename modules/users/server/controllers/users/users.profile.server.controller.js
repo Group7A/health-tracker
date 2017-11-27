@@ -14,6 +14,8 @@ var _ = require('lodash'),
   amazonS3URI = require('amazon-s3-uri'),
   config = require(path.resolve('./config/config')),
   User = mongoose.model('User'),
+  Recipe = mongoose.model('Recipe'),
+  ObjectId = require('mongodb').ObjectID,
   validator = require('validator');
 
 // ADD FIELDS
@@ -259,27 +261,32 @@ exports.me = function (req, res) {
 };
 
 exports.getDetails = function (req, res) {
-  var id = mongoose.Types.ObjectId(req.recipeID);
+  var recipe = req.recipe;
 
-  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').exec(function (err, users) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
+  //var recipeDetails = {'id': id};
+
+  res.send(recipe);
+}
+
+exports.recipeByID = function(req, res, next, id) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Recipe is invalid'
+    });
+  }
+
+  Recipe.findById(ObjectId(id), function (err, recipe) {
+    if(err) return next(err);
+    else if(!recipe) {
+      return res.status(404).send({
+        message: 'No recipe with that identifier has been found'
       });
     }
-
-    var recipeDetails = '';
-
-    users.forEach(function (user) {
-      user.recipes.forEach( function(recipe) {
-        var recipeId = {'id': recipe._id};
-        if(recipeId.id = id) recipeDetails = recipe;
-      });
-    });
-
-    res.send(recipeDetails);
+    
+    req.recipe = recipe;
+    next();
   });
-}
+};
 
 exports.add = function (req, res) {
   var user = req.user;
