@@ -133,6 +133,23 @@
     return Users;
   }
 
+  // Details service
+  angular
+    .module('users.services')
+    .factory('DetailsService', DetailsService);
+
+  DetailsService.$inject = ['$resource'];
+
+  function DetailsService($resource) {
+    return $resource('/api/users/details/:recipeID', {
+      recipeID: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
+  }
+
   // TODO this should be Users service
   angular
     .module('users.admin.services')

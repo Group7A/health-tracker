@@ -631,7 +631,7 @@
                             "db_ndbno": "04511"
                         },
                         {
-                            "db_name": "Avacado Oil",
+                            "db_name": "Avocado Oil",
                             "db_full_name": "Oil, avocado",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -821,8 +821,8 @@
                             "db_ndbno": "45036200"
                         },
                         {  
-                            "db_name": "Mashed Avacado",
-                            "db_full_name": "avacado",
+                            "db_name": "Mashed Avocado",
+                            "db_full_name": "avocado",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",
@@ -1896,7 +1896,7 @@
                             "db_ndbno": "04511"
                         },
                         {
-                            "db_name": "Avacado Oil",
+                            "db_name": "Avocado Oil",
                             "db_full_name": "Oil, avocado",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
@@ -2351,8 +2351,8 @@
                             "db_ndbno": "45036200"
                         },
                         {  
-                            "db_name": "Mashed Avacado",
-                            "db_full_name": "avacado",
+                            "db_name": "Mashed Avocado",
+                            "db_full_name": "avocado",
                             "db_main_nutrient": {
                                 "db_nutrient": "sat_fat",
                                 "db_unit": "gram per 100g",

@@ -9,6 +9,7 @@ module.exports = function (app) {
   app.route('/api/users/add').post(users.add);
   app.route('/api/users/myRecipes').get(users.myRecipes);
   app.route('/api/users/community').get(users.listRecipes);
+  app.route('/api/users/details/:recipeID').get(users.getDetails);
 
   // Setting up the users profile api
   app.route('/api/users/me').get(users.me);
@@ -19,4 +20,5 @@ module.exports = function (app) {
 
   // Finish by binding the user middleware
   app.param('userId', users.userByID);
+  app.param('recipeID', users.recipeByID);
 };

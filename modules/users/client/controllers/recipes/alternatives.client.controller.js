@@ -10,25 +10,15 @@
   function AlternativesController(UsersService, TransferService, $scope, $stateParams) {
     var vm = this;
 
-    // $scope.alternatives = TransferService.getAlternatives();
-    // $scope.recipe = TransferService.getRecipe();
-
     $scope.recipe = $stateParams.recipe;
     $scope.healthy_alternatives = $stateParams.healthy_map;
     $scope.truest_alternatives = $stateParams.truest_map;
     $scope.multiple_alternatives = $stateParams.multiple_map;
+
+    console.log($scope.multiple_alternatives);
     $scope.health = false;
     $scope.truest = false;
-
-    console.log("Here are healthy alternatives: ", $scope.healthy_alternatives);
-    console.log("Here are truest alternatives: ", $scope.truest_alternatives);
-    console.log("Here is the recipe", $scope.recipe);
-
     $scope.ingredients = $scope.recipe.ingredients;
-
-    /*$scope.switch = () => {
-      $scope.health = !$scope.health;
-    }*/
 
     $scope.showHealthy = function () {
       $scope.health = false;

@@ -365,9 +365,9 @@ body{
 
 /*COMMUNITY IMAGE */
 .img-prop{
-  width:100%;
-  height:100%;
   background: none repeat scroll 0 0 #FFFFFF;
+  height:242px;
+  width:300px;
 }
 
 .communityImageContainer:before {
