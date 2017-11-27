@@ -86,7 +86,7 @@
       $scope.have_match = 0;
       $scope.top_alt_count = 3;
       $scope.mid_ind;
-      $scope.cookingStyle = 'Fried';
+      $scope.cookingStyle = 'None';
 
       $scope.alt_request = 2;
       // 0 - want single healthies alt
