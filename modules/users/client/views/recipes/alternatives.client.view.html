@@ -1,38 +1,48 @@
-<div>
-	<div class="row al-row">
-		<div class="col-md-6 al-containerPaddingL">
-			<h1 class="al-h1L text-center">{{recipe.name}}</h1>
-			<div class="ingredient-containerL al-list" ng-repeat="ingredient in ingredients">
-				<li><div class="al-list-measureL">
-					{{ingredient.quantity}} {{ingredient.units}}
-				</div>{{uppercaseFirstLetter(ingredient.name)}}</li>
+<div class="row text-center" style="background-color:rgb(230,230,230)">
+  <div class="col-md-10 col-md-offset-1" style="background-color:rgb(244,244,244)">
+    <div class="" style="padding-left: 3%; padding-right: 3%;">
+      <div style="background-color:rgb(255,255,255); box-shadow: 4px 5px 10px rgb(231,231,231); padding-bottom: 65px;">
+				<div>
+          <h5>{{recipe.name}}</h5>
+        </div>
+				<div class="row al-row">
+					<div class="col-md-6 al-containerPaddingL">
+						<h1 class="al-h1L text-center">My Recipe</h1>
+						<div class="ingredient-containerL al-list">
+							<li ng-repeat="ingredient in ingredients"><div class="al-list-measureL">
+								{{ingredient.quantity}} {{ingredient.units}}
+				     </div>
+                {{uppercaseFirstLetter(ingredient.name)}}
+              </li>
+              </div>
+              <button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
+            </div>
 
-			</div>
-			<button type="button" class="htb htb-primary btn-lg sharp">Edit</button>
-		</div>
-		<div class="col-md-6 al-containerPaddingR">
-			<h1 class="al-h1 text-center">Alternative Recipe</h1>
-			<div class="al-tabs" ng-hide="health">
-				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA active" href="">Healthiest</a> </div>
-				<div class="" ng-click="showTruest()"><a class="tabA" href="">Truest to Taste</a></div>
-			</div>
-			<div class="al-tabs" ng-show="truest">
-				<div class="al-tabMargin" ng-click="showHealthy()"><a class="tabA" href="">Healthiest</a> </div>
-				<div class="" ng-click="showTruest()"><a class="tabA active" href="">Truest to Taste</a></div>
-			</div>
-			<div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in healthy_alternatives" 
-					ng-click="getReport(alternative.map_ndbno)">
-				<li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
-			</div>
-			<div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in truest_alternatives" 
-			ng-click="getReport(alternative.map_ndbno)">
-				<li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
-			</div>
-			<button type="button" class="htb htb-primary btn-lg sharp al-btnR"
-				ui-sref="customize({recipe: recipe, multiple_map: multiple_alternatives})">Customize</button>
-		</div>
+            <div class="col-md-6 al-containerPaddingR">
+              <h1 class="al-h1 text-center">Alternative Recipe</h1>
+              <div class="al-tabs" ng-hide="health">
+                <div class="al-tabMargin" ng-click="showHealthy()"><a class="padding-text active" href="">Healthiest</a> </div>
+                <div class="" ng-click="showTruest()"><a class="padding-text" href="">Truest to Taste</a></div>
+              </div>
+              <div class="al-tabs" ng-show="truest">
+                <div class="al-tabMargin" ng-click="showHealthy()"><a class="padding-text" href="">Healthiest</a> </div>
+                <div class="" ng-click="showTruest()"><a class="padding-text active" href="">Truest to Taste</a></div>
+              </div>
+              <div ng-hide="health" class="ingredient-containerR al-list" ng-repeat="alternative in healthy_alternatives" 
+                  ng-click="getReport(alternative.map_ndbno)">
+                <li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
+              </div>
+              <div ng-show="truest" class="ingredient-containerR al-list" ng-repeat="alternative in truest_alternatives" 
+              ng-click="getReport(alternative.map_ndbno)">
+                <li><div class="al-list-measureR"></div>{{alternative.map_name}}</li>
+              </div>
+              <button type="button" class="htb htb-primary btn-lg sharp al-btnR"
+                ui-sref="customize({recipe: recipe, multiple_map: multiple_alternatives})">Customize</button>
+            </div>
+          </div>
+        </div>
+      </div>
 	</div>
-
 </div>
 
 
@@ -41,7 +51,6 @@
 		border-bottom: 4px solid #DF5D4A;
 	}
 </style>
-
 <!--
 <div class="row al-row">
 	<div class="col-md-6 al-containerPaddingL">
