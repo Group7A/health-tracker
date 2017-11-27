@@ -5,7 +5,7 @@
 
   <nav class="navbar-collapse" uib-collapse="!vm.isCollapsed" role="navigation">
     <div class="navbar-header logo">
-      <a ui-sref="home" class="navbar-brand lo logo-color">HEALTH TRACKER</a>
+      <a ui-sref="home" class="navbar-brand lo logo-color"><img src="../modules/core/client/img/brand/logoHT.png" style="    width: 126px; height: 74px"></a>
     </div>
 <!--     <div class="navbar-header logo">
       <a ui-sref="home" class="navbar-brand lo logo-color">
@@ -16,13 +16,13 @@
     <!--  -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">
       <div class="col-sm-3 col-md-3">
-        <form class="navbar-form" role="search" ng-submit="vm.getAlternatives()">
-          <div class="input-group">
+        <form class="navbar-form" role="search" ng-submit="vm.getAlternatives()" style="margin-top: 17px;">
+          <div class="input-group" style="height:40px">
               <input type="text" class="form-control searchBar" ng-model="vm.searchFood"
                 placeholder="Search" name="search" id = "search" list = "Foods"/>
               <div class="input-group-btn">
                 <button class="btn searchBar searchBar-btn" type="submit">
-                  <i class="glyphicon glyphicon-search"></i>
+                  <i class="glyphicon glyphicon-search" style="color:white; font-size: 18px"></i>
                 </button>
               </div>
           </div>
@@ -35,11 +35,11 @@
 
     <!-- LOGGED OUT = SIGN UP AND SIGN IN -->
     <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
+      <li ui-sref-active="">
         <a class="head text-navbar" ui-sref="authentication.signup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
+      <li ui-sref-active="">
         <a class="head text-navbar" ui-sref="authentication.signin">Sign In</a>
       </li>
     </ul>
