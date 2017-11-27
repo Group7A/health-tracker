@@ -16,8 +16,8 @@
     <!--  -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 ">
       <div class="col-sm-3 col-md-3">
-        <form class="navbar-form" role="search" ng-submit="vm.getAlternatives()">
-          <div class="input-group" style="height:54px">
+        <form class="navbar-form" role="search" ng-submit="vm.getAlternatives()" style="margin-top: 17px;">
+          <div class="input-group" style="height:40px">
               <input type="text" class="form-control searchBar" ng-model="vm.searchFood"
                 placeholder="Search" name="search" id = "search" list = "Foods"/>
               <div class="input-group-btn">
@@ -35,11 +35,11 @@
 
     <!-- LOGGED OUT = SIGN UP AND SIGN IN -->
     <ul class="nav navbar-nav navbar-right" ng-hide="vm.authentication.user">
-      <li ui-sref-active="active">
+      <li ui-sref-active="">
         <a class="head text-navbar" ui-sref="authentication.signup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
+      <li ui-sref-active="">
         <a class="head text-navbar" ui-sref="authentication.signin">Sign In</a>
       </li>
     </ul>

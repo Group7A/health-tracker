@@ -10,7 +10,7 @@
 
     <div ui-view></div>
 
-    <div class="dropMenu col-md-6 col-md-offset-4">
+    <div class="col-md-6 col-md-offset-4">
       <div class="dropdown">
         Filter by:
         <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="filterSelection('calories')">
@@ -74,29 +74,29 @@
               <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
             </a>
             <!--Add Recipe-->
-            <a class="add-delete" ng-show="vm.authentication.user" href="">
-              <span class="glyphicon glyphicon-plus" ng-click="add(recipe)"></span>
+            <a class="add-delete glyphicon-ring glyphicon-white" ng-show="vm.authentication.user" href="">
+              <span class="glyphicon glyphicon-plus glyphicon-bordered" ng-click="add(recipe)"></span>
             </a>
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-4">
-              <center>
-                <h3 class="card-name">
-                  <a ui-sref="details({recipeDetails: recipe})" style="text-decoration: none">
+            <div class="col-md-7">
+              <div class="card-name">
+                <!-- <h3 > -->
+                  <a ui-sref="details({recipeDetails: recipe})" class="cardA">
                     {{recipe.name}}
                   </a>
-                </h3>
-              </center>
+                <!-- </h3> -->
+              </div>
             </div>
-            <div class="card-icon-container col-md-8">
-              <center>
+            <div class="col-md-5">
+              <div class="card-icon-container">
                 <div id="stars">
                   <span ng-repeat="i in getNumber(5) track by $index" 
                     class="fa fa-star" ng-class="recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
                 </div>
-              </center>
-              <ul class="nav navbar-nav navbar-right">
+              </div>
+              <ul class="card-icon-container">
                 <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
                 <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
                 <img class="card-icon" ng-show="recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
@@ -124,13 +124,13 @@
           <div class="card-info2"></div>
           <div class="card-info row">
             <div class="col-md-4">
-              <center>
+              <div>
                 <h3 class="card-name">
                   <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
                     {{myRecipe.name}}
                   </a>
                 </h3>
-              </center> 
+              </div> 
             </div>
             <div class="card-icon-container col-md-8">
               <center>
@@ -139,7 +139,7 @@
                     class="fa fa-star" ng-class="myRecipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
                 </div>
               </center>
-              <ul class="nav navbar-nav navbar-right">
+              <ul class="">
                 <img class="card-icon" ng-show="myRecipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
                 <img class="card-icon" ng-show="myRecipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
                 <img class="card-icon" ng-show="myRecipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
