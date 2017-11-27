@@ -7,7 +7,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose').set('debug', true),
+  mongoose = require('mongoose'),
   multer = require('multer'),
   multerS3 = require('multer-s3'),
   aws = require('aws-sdk'),
@@ -304,6 +304,42 @@ exports.add = function (req, res) {
   };
 
   user.recipes.push(addedRecipe);
+
+  user.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      req.login(user, function (err) {
+        if (err) {
+          res.status(400).send(err);
+        } else {
+          res.json(user);
+        }
+      });
+    }
+  });
+};
+
+exports.updateRecipe = function(req, res) {
+  var user = req.user;
+  var recipe = req.body;
+
+  var updatedRecipe = {
+    'name': recipe.name,
+    'cookingStyle': recipe.cookingStyle,
+    'time': recipe.time,
+    'healthClassifications': recipe.healthClassifications,
+    'ingredients': recipe.ingredients,
+    'directionsList': recipe.directionsList,
+    'review': recipe.review,
+    'image': recipe.image
+  };
+
+  user.recipes.forEach( (rec, i) => {
+    if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
+  });
 
   user.save(function (err) {
     if (err) {

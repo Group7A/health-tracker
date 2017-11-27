@@ -16,5 +16,9 @@
         $scope: scope
       });
     }));
+
+    it('Should run', function() {
+      expect(5).toEqual(5);
+    });
   });
 }());

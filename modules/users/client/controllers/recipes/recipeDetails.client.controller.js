@@ -11,12 +11,11 @@
     var vm = this;
 
     $scope.recipe = $stateParams.recipeDetails;
-    //$scope.recipe = $stateParams;
+    console.log($scope.recipe);
 
     // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
     else $scope.showDirections = false;
-    console.log($scope.recipe);
 
     // RATING
     if($scope.recipe.review.length > 0) {
@@ -53,5 +52,30 @@
     function addRecipeFailure(response) {
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' });
     }
+
+    // RATING FROM USER
+    $scope.getStars = (number) => {
+      $scope.rating = number;
+    }
+
+    // Submit Review
+    $scope.submitReview = () => {
+      $scope.recipe.review.push({
+        'rating': $scope.rating,
+        'writtenReview': $scope.writtenReview
+      });
+
+      UsersService.updateMyRecipe($scope.recipe)
+        .then(updateSuccess)
+        .catch(updateFailure);
+
+      function updateSuccess(response) {
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Review submitted!' });
+      }
+
+      function updateFailure(response) {
+        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Review submission failed!' })
+      }
+    };
   }
 }());

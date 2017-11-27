@@ -7,6 +7,7 @@ module.exports = function (app) {
   app.route('/api/users/deleteRecipe').post(users.deleteRecipe);
   app.route('/api/users/alternatives').post(users.alternatives);
   app.route('/api/users/add').post(users.add);
+  app.route('/api/users/updateRecipe').post(users.updateRecipe);
   app.route('/api/users/myRecipes').get(users.myRecipes);
   app.route('/api/users/community').get(users.listRecipes);
   app.route('/api/users/details/:recipeID').get(users.getDetails);
