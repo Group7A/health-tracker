@@ -136,11 +136,11 @@
 
     <!-- COMMUNITY RECIPES -->
     <div ng-show="showCommunity">
-      <div class="row row-margin">
-        <div ng-repeat="recipe in communityRecipesFiltered | 
+      <div ng-repeat="recipe in communityRecipesFiltered | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
-            class="col-xs-12 col-sm-6 col-md-3 properties"
-            ng-show="checkStyle(recipe) && checkClassif(recipe)">
+            ng-class="!(($index) % 4) ? 'row row-margin' : 'none'">
+        <div class="col-xs-12 col-sm-6 col-md-3 properties"
+              ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
             <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})">
               <img class="img-prop" ng-src="{{recipe.image}}">
