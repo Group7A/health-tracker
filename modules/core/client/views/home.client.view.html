@@ -190,7 +190,7 @@
             <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})">
               <img class="img-prop" ng-src="{{myRecipe.image}}">
             </a>
-            <a class="add-delete glyphicon-ring glyphicon-white" ng-show="vm.authentication.user" href="">
+            <a class="add-delete glyphicon-ring-delete glyphicon-delete" ng-show="vm.authentication.user" href="">
                 <span class="glyphicon glyphicon-remove glyphicon-bordered" ng-click="delete(myRecipe)" ></span>
               </a>
           </div>
