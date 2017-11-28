@@ -65,7 +65,6 @@
 
     // Submit Review
     $scope.submitReview = () => {
-      $scope.recipe.editAfterAdd = false;
       $scope.recipe.review.push({
         'rating': $scope.rating,
         'writtenReview': $scope.writtenReview
