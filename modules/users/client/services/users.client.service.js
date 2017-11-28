@@ -79,6 +79,10 @@
         method: 'POST',
         url: '/api/users/add'
       },
+      updateRecipe: {
+        method: 'POST',
+        url: '/api/users/updateRecipe'
+      },
       myRecipes: {
         method: 'GET',
         url: '/api/users/myRecipes'
@@ -118,6 +122,9 @@
       },
       addRecipe: function (param) {
         return this.add(param).$promise;
+      },
+      updateMyRecipe: function (param) {
+        return this.updateRecipe(param).$promise;
       },
       getMyRecipes: function () {
         return this.myRecipes().$promise;

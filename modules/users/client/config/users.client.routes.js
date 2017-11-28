@@ -34,6 +34,9 @@
         templateUrl: 'modules/users/client/views/recipes/addRecipe.client.view.html',
         controller: 'AddRecipeController',
         controllerAs: 'vm',
+        params: { 
+          'recipe': null
+        },
         data: {
           pageTitle: 'Add Recipe'
         }
@@ -188,7 +191,7 @@
 
   function getRecipeDetails($stateParams, DetailsService) {
     return DetailsService.get({ 
-      'recipeID': $stateParams.recipeID 
+      'recipeID': $stateParams.recipeID
     }).$promise;
   }
 }());

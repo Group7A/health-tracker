@@ -15,7 +15,11 @@
                 {{uppercaseFirstLetter(ingredient.name)}}
               </li>
               </div>
-              <button type="button" class="htb htb-primary btn-lg sharp al-btnL"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+              <button type="button" class="htb htb-primary btn-lg sharp al-btnL"
+                ui-sref="add({'recipe': recipe})">
+                <span class="glyphicon glyphicon-pencil"></span> 
+                Edit
+              </button>
             </div>
 
             <div class="col-md-6 al-containerPaddingR">

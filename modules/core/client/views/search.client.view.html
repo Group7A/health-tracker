@@ -31,13 +31,13 @@
               <div class="col-md-3" ng-repeat="alternative in alternatives">
                 <div class="boxed">
 
-                  <div ng-hide="alternative.flipped" style="height: 66px;
-    background-color: #737373;" >
+                  <div ng-hide="alternative.flipped" style="height: 90px;
+                      background-color: #737373;" >
                     </br>
                     <a href="" ng-click="flip(alternative)" style="text-decoration: none">
                       <text>{{alternative.map_name.toUpperCase()}}</text>
                       </br>
-                      <img class="comparisonImg" src="http://www.newhealthadvisor.com/images/1HT19198/soy%20milk.jpg" alt="Soy Milk">
+                      <img class="comparisonImg" ng-src="{{alternative.image}}">
                     </a>
                     </br>
                     </br>
