@@ -66,13 +66,13 @@
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Update recipe failed!' })
       }
     }
-    
 
     // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
+        console.log("alternative.map_name", alternative.map_name);
         if(alternative.map_name === "No alternatives available"){
           alternatives[i] = "";
           alternative.none = true;
@@ -83,6 +83,8 @@
             alternative.none = false
           });
         }
+        console.log("none", alternative.none);
+        console.log("alternatives", alternatives);
 	    });
     }
 
@@ -100,7 +102,7 @@
 
     function getReport (alternative) {
       var reportURL = 
-          'https://api.nal.usda.gov/ndb/reports/' + 
+          'http://api.nal.usda.gov/ndb/reports/' + 
           '?ndbno=' + alternative.map_ndbno + 
           '&type=' + type + 
           '&format=' + format + 
