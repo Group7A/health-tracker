@@ -86,14 +86,14 @@
               <span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> 
               Save Recipe</a>
         
-            <div style="margin-left: -46px;">
+            <div>
               <img class="heroimage" ng-src="{{recipe.image}}">
             </div>
           </div>
         </div>
 
         <div class="col-md-6 col-md-offset-3" id="comment_rate">
-          <hr style="margin-top: 64px;">
+          <hr style="margin-top: 100px;">
           
           <h3>What did you think of this recipe?</h3>          
           </br>
@@ -123,13 +123,13 @@
                 </a> -->
 
               </div>
-              <div style="float: right">
-                <!-- <u>Rating</u> -->
-                <div id="stars">
-                  <span ng-repeat="i in getNumber(5) track by $index" 
-                    class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                <div style="float: right">
+                  <!-- <u>Rating</u> -->
+                  <div id="stars">
+                    <span ng-repeat="i in getNumber(5) track by $index" 
+                      class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                  </div>
                 </div>
-              </div>
               </div>
               <br>
               <div style="float: left; padding-left: 10px; padding-right: 10px;">
@@ -138,8 +138,7 @@
                   {{review.writtenReview}} 
                 </div>
               </div>
-              
-              
+              <br> <br>
             </div>
           </div>
         </div>

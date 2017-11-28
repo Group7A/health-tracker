@@ -56,8 +56,6 @@
       };
     }
 
-      console.log($scope.recipe);
-
     // Get image of recipe
     async function getImage() {
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
