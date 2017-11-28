@@ -413,6 +413,24 @@ body{
   right:10px;
 }
 
+/*Background template*/
+.layer1{
+  background-color:rgb(230,230,230);
+}
+.layer2{
+  background-color:rgb(244,244,244);
+}
+.layer3{
+  padding-left: 3%; 
+  padding-right: 3%;
+}
+.layer4{
+  background-color:rgb(255,255,255); 
+  box-shadow: 4px 5px 10px rgb(231,231,231); 
+  min-height: 627px; 
+  padding-bottom: 9%;
+}
+
 /*Responsive Home View*/
 /*@media  (min-width: 480px) {
   .properties {
