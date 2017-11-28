@@ -72,7 +72,6 @@
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
-        console.log("alternative.map_name", alternative.map_name);
         if(alternative.map_name === "No alternatives available"){
           alternatives[i] = "";
           alternative.none = true;
@@ -83,8 +82,6 @@
             alternative.none = false
           });
         }
-        console.log("none", alternative.none);
-        console.log("alternatives", alternatives);
 	    });
     }
 
@@ -102,7 +99,7 @@
 
     function getReport (alternative) {
       var reportURL = 
-          'http://api.nal.usda.gov/ndb/reports/' + 
+          'https://api.nal.usda.gov/ndb/reports/' + 
           '?ndbno=' + alternative.map_ndbno + 
           '&type=' + type + 
           '&format=' + format + 

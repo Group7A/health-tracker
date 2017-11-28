@@ -15,9 +15,6 @@
     vm.recipe = recipe;
     $scope.recipe = $stateParams.recipeDetails;
 
-    console.log($stateParams);
-    console.log(vm.recipe);
-
     // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
     else $scope.showDirections = false;
@@ -65,6 +62,7 @@
 
     // Submit Review
     $scope.submitReview = () => {
+      $scope.recipe.editAfterAdd = false;
       $scope.recipe.review.push({
         'rating': $scope.rating,
         'writtenReview': $scope.writtenReview

@@ -22,8 +22,15 @@
 
     if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
       $scope.recipe = $stateParams.recipe;
+       $scope.recipe.editAfterAdd = true;
+       $scope.ingredientList = $scope.recipe.ingredients;
+       $scope.directionsList = $scope.recipe.directionsList;
     }
-    else $scope.recipe = {
+    else {
+      $scope.ingredientList = [{}];
+      $scope.directionsList = [{}];
+
+      $scope.recipe = {
         'name': '',
         'cookingStyle': '',
         'time':'',
@@ -47,10 +54,9 @@
           'rating': ''
         }]
       };
+    }
 
-      console.log($scope.recipe);
-
-    // GET IMAGE
+    // Get image of recipe
     async function getImage() {
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       let host = 'https://api.cognitive.microsoft.com';

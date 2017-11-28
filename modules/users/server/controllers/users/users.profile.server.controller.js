@@ -7,7 +7,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose').set('debug', true),
+  mongoose = require('mongoose'),
   multer = require('multer'),
   multerS3 = require('multer-s3'),
   aws = require('aws-sdk'),
@@ -360,9 +360,16 @@ exports.updateRecipe = function(req, res) {
     'image': recipe.image
   };
 
-  user.recipes.forEach( (rec, i) => {
-    if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
-  });
+ // If not editing after add, then it's updating in recipe details
+ if(!recipe.editAfterAdd) {
+    user.recipes.forEach( (rec, i) => {
+      if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
+    });
+  } // If editing after add, then you can pop since the recipe was just added to the end of the array
+  else {
+    user.recipes.pop();
+    user.recipes.push(updatedRecipe);
+  }
 
   user.save(function (err) {
     if (err) {
