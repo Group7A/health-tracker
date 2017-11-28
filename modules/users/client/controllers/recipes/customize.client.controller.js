@@ -5,57 +5,29 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http'];
 
-  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification) {
+  function CustomizeController(UsersService, $scope, $stateParams, $http) {
     var vm = this;
     
     // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
-    $scope.recipe.editAfterAdd = true;
     $scope.alternatives = $stateParams.multiple_map;
     $scope.ingredients = $scope.recipe.ingredients;
-    var newIngredients = $scope.recipe.ingredients;
-    $scope.choices = [];
 
     // Make first letter upercase
-    // $scope.uppercaseFirstLetter = function(string) {
-    // 	return string.charAt(0).toUpperCase() + string.slice(1);
-    // }
-
-    $scope.newIngredient = function(ing, i) {
-      newIngredients[i] = {
-        "name": ing
-      };
-
-      console.log(newIngredients);
+    $scope.uppercaseFirstLetter = function(string) {
+    	return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    $scope.saveIngredients = function() {
-      var recipe = $scope.recipe;
-      recipe.ingredients.forEach( (ingredient, i) => {
-         ingredient.name = newIngredients[i].name;
-      }); 
-      
-      UsersService.updateMyRecipe(recipe)
-        .then(updateSuccess)
-        .catch(updateFailure);
-
-      function updateSuccess(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' })
-      }
-
-      function updateFailure(response) {
-        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Update recipe failed!' })
-      }
-    }
-    
+    //$scope.none = false;
 
     // Search through each alternative and getReport for each one
     async function getR() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
+        console.log("alternative.map_name", alternative.map_name);
         if(alternative.map_name === "No alternatives available"){
           alternatives[i] = "";
           alternative.none = true;
@@ -66,6 +38,8 @@
             alternative.none = false
           });
         }
+        console.log("none", alternative.none);
+        console.log("alternatives", alternatives);
 	    });
     }
 
@@ -85,7 +59,7 @@
 
     function getReport (alternative) {
       var reportURL = 
-          'https://api.nal.usda.gov/ndb/reports/' + 
+          'http://api.nal.usda.gov/ndb/reports/' + 
           '?ndbno=' + alternative.map_ndbno + 
           '&type=' + type + 
           '&format=' + format + 
