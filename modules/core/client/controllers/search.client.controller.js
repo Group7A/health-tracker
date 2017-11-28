@@ -48,6 +48,7 @@
       if(alternatives.length > 0) {
         alternatives.forEach( (alternative, i) => {
           getReport(alternative);
+          getImage(alternative);
           if(i==0){
             $scope.name = alternative.map_name;
           }
@@ -101,6 +102,31 @@
 
     function getURL(url) {
       return $http.get(url);
+    }
+
+    // GET IMAGE
+    async function getImage(food) {
+      // let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
+      // let host = 'https://api.cognitive.microsoft.com';
+      // let path = '/bing/v7.0/search';
+      // let search = food.name + ' food';
+
+      // let req = {
+      //     method : 'GET',
+      //     url: host + path + '?q=' + encodeURIComponent(search),
+      //     headers : {
+      //         'Ocp-Apim-Subscription-Key' : subscriptionKey,
+      //     }
+      // };
+
+      // await $http(req)
+      //   .then( (response) => {
+      //     food.image = response.data.images.value[0].contentUrl;
+      //   })
+      //   .catch( (err) => {
+      //     console.log(err);
+      //   });
+      food.image = "./modules/core/client/img/no-image.jpg";
     }
   }
 }());
