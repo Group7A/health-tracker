@@ -17,6 +17,18 @@ describe('Users E2E Tests:', function () {
     password: 'P@$$w0rd!!'
   };
 
+  var recipe = {
+    enterRecipeName: 'pizza',
+    method: 'baked',
+    prepTime: 30,
+    diet: 'none',
+    rate: 5,
+    ingredientName: 'tomatoSauce',
+    quantity: 3,
+    units: 'ounces',
+    steps: 'make dough in a pie shape'
+  }
+
   var signout = function () {
     // Make sure user is signed out first
     browser.get('http://localhost:3001/authentication/signout');
@@ -549,4 +561,224 @@ describe('Users E2E Tests:', function () {
       expect(element.all(by.css('.ui-notification')).get(0).getText()).toBe('Password Changed Successfully');
     });
   });
+
+  describe('Add recipe page', function () {
+
+    it('must have enter recipe name', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Recipe name is entered
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must enter recipe name');
+    });
+
+    it('must have cooking style', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must select cooking style');
+    });
+
+    it('must have preparation time', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must enter preparation time');
+    });
+
+    it('must have health classification', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must select diet preferences');
+    });
+
+    it('must rate the recipe', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must rate the recipe');
+    });
+
+    it('must enter ingredient name', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must enter ingredient(s) name');
+    });
+
+    it('must enter quantity of the ingredient', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must enter a quantity');
+    });
+
+    it('must enter units of the ingredient', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter steps for the recipe
+      element(by.model('recipe.directionsList[$index].directions')).sendKeys(recipe.steps);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must select a unit');
+    });
+
+    it('must enter steps on how to make the recipe', function () {
+      browser.get('http://localhost:3001/add-recipe');
+      // Enter name of the recipe
+      element(by.model('recipe.name')).sendKeys(recipe.enterRecipeName);
+      // Enter cooking style
+      element(by.model('recipe.cookingStyle')).sendKeys(recipe.method);
+      // Enter preparation time
+      element(by.model('recipe.time')).sendKeys(recipe.prepTime);
+      // Select diet preference
+      element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      // Rate the recipe
+      element(by.click('getStars(5)')).sendKeys(recipe.rate);
+      // Enter ingredient(s) for the recipe
+      element(by.model('recipe.ingredients[$index].name')).sendKeys(recipe.ingredientName);
+      // Enter quantities for the ingredients
+      element(by.model('recipe.ingredients[$index].quantity')).sendKeys(recipe.quantity);
+      // Enter units of the quantities
+      element(by.model('recipe.ingredients[$index].units')).sendKeys(recipe.units);
+      // Click Healthify button
+      element(by.css('button[type=submit]')).click();
+      // Cooking method is selected
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('You must enter direction on how to make the recipe');
+    });
+  });
+
 });
