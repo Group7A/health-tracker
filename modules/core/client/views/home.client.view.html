@@ -1,10 +1,10 @@
 <div class="container">
     <div class="lowerNav text-center">
       <div class="textLN">
-        <a ng-click="showPopular()" class="left" 
-            ng-class="showCommunity ? underline : no-underline" href="">Popular Recipes</a>
-        <a ng-click="showMyRecipes()" ng-show="vm.authentication.user"
-            ng-class="showCommunity ? no-underline : underline" href="">My Recipes</a>
+        <a ng-click="display = !display" class="left tl" 
+            ng-class="{'underline': !display, 'no-underline': display}" href="">Popular Recipes</a>
+        <a ng-click="display = !display" ng-show="vm.authentication.user"
+            ng-class="{'underline': display, 'no-underline': !display}" class="tl" href="">My Recipes</a>
       </div>
     </div>
 
@@ -135,9 +135,8 @@
       </div>
     </div>
     
-
     <!-- COMMUNITY RECIPES -->
-    <div ng-show="showCommunity">
+    <div ng-hide="display">
       <div class="row row-margin">
         <div ng-repeat="recipe in communityRecipesFiltered | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
@@ -182,7 +181,7 @@
     </div>
 
     <!--MY RECIPES-->
-    <div ng-hide="showCommunity">
+    <div ng-show="display">
       <div class="row row-margin">
         <div ng-repeat="myRecipe in myRecipes | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
