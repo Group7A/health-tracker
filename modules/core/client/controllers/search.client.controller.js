@@ -73,7 +73,7 @@
 
     function getReport (alternative) {
       var reportURL = 
-          'http://api.nal.usda.gov/ndb/reports/' + 
+          'https://api.nal.usda.gov/ndb/reports/' + 
           '?ndbno=' + alternative.map_ndbno + 
           '&type=' + type + 
           '&format=' + format + 

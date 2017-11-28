@@ -17,13 +17,16 @@
     vm.getImage = getImage;
 
     // Initialize recipe, and ingredients, directions lists
-    $scope.ingredientList = [{}];
-    $scope.directionsList = [{}];
-
     if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
       $scope.recipe = $stateParams.recipe;
+      $scope.recipe.editAfterAdd = true;
+      $scope.ingredientList = $scope.recipe.ingredients;
+      $scope.directionsList = $scope.recipe.directionsList;
     }
-    else $scope.recipe = {
+    else {
+      $scope.ingredientList = [{}];
+      $scope.directionsList = [{}];
+      $scope.recipe = {
         'name': '',
         'cookingStyle': '',
         'time':'',
@@ -47,10 +50,9 @@
           'rating': ''
         }]
       };
+    }
 
-      console.log($scope.recipe);
-
-    // GET IMAGE
+    // Get image of recipe
     async function getImage() {
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       let host = 'https://api.cognitive.microsoft.com';
@@ -74,7 +76,7 @@
         });
     }
 
-    // ADD RECIPE TO MONGO
+    // Add recipe to db
     function updateMyRecipes(isValid) {
       var recipe = $scope.recipe;
       recipe.image = $scope.image;
@@ -148,7 +150,7 @@
 
     sort_alt();
 
-    // GET ALTERNATIVES FROM RECIPE
+    // Get alternatives from recipe
     function getAlternatives() {
       // Initialize variables
       $scope.healthy_map = [];
@@ -264,7 +266,7 @@
       $scope.$emit('customerDeleted', direction); 
     };
 
-    // RATING FROM USER
+    // Rating from user
     $scope.getStars = (number) => {
       $scope.recipe.review[0].rating = number;
     }
