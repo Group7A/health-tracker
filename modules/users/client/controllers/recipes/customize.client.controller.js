@@ -14,37 +14,41 @@
     $scope.recipe = $stateParams.recipe;
     $scope.alternatives = $stateParams.multiple_map;
 
-    if($scope.alternatives) getR();
+    // Get alternative data and set first letter to be uppercase
+    if($scope.alternatives) {
+      $scope.alternatives.forEach( (alternative) => {
+        alternative.map_name = uppercaseFirstLetter(alternative.map_name);
+      });
 
+      getR();
+    }
+
+    // Get ingredients data and initialize user choices
     if($scope.recipe) {
       $scope.recipe.editAfterAdd = true;
       $scope.ingredients = $scope.recipe.ingredients;
 
       $scope.ingredients.forEach( (ingredient) => {
+        ingredient.name = uppercaseFirstLetter(ingredient.name);
         ingredient.choice = ingredient.name;
       });
     }
 
-    // $scope.choices = [{
-    //   'name': ''
-    // }];
-
     // Make first letter upercase
-    // $scope.uppercaseFirstLetter = function(string) {
-    // 	return string.charAt(0).toUpperCase() + string.slice(1);
-    // }
+    function uppercaseFirstLetter(string) {
+    	return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
-    // $scope.newIngredient = function(choice, i) {
-    //   $scope.choices[i].name = choice;
-    // }
-
+    // Save new ingredients to the recipe
     $scope.saveIngredients = function() {
-      var recipe = $scope.recipe;
+      var recipe = angular.copy($scope.recipe);
 
+      // Get the new ingredients to save
       recipe.ingredients.forEach( (ingredient) => {
          ingredient.name = ingredient.choice;
       }); 
       
+      // Calls API to save the recipe
       UsersService.updateMyRecipe(recipe)
         .then(updateSuccess)
         .catch(updateFailure);
@@ -104,6 +108,7 @@
           });
     };
 
+    // Get nutrients of ingredients
     function assignFood(alternative) {
       $scope.food = $scope.searched.report.food.name.toLowerCase();
       alternative.nutrients = [];
