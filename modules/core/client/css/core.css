@@ -401,7 +401,7 @@ body{
 .img-prop{
   background: none repeat scroll 0 0 #FFFFFF;
   height:300px;
-  width:99%;
+  width:100%;
 }
 
 .communityImageContainer:before {
