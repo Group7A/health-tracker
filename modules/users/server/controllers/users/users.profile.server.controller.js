@@ -263,8 +263,6 @@ exports.me = function (req, res) {
 exports.getDetails = function (req, res) {
   var recipe = req.recipe;
 
-  //var recipeDetails = {'id': id};
-
   res.send(recipe);
 }
 
@@ -275,17 +273,42 @@ exports.recipeByID = function(req, res, next, id) {
     });
   }
 
-  Recipe.findById(id, function (err, recipe) {
-    if(err) return next(err);
-    // else if(!recipe) {
-    //   return res.status(404).send({
-    //     message: 'No recipe with that identifier has been found'
-    //   });
-    // }
-    
-    req.recipe = recipe;
-    next();
+  var recipe = {
+    'test': 'working' 
+  };
+
+  var u = '';
+  var recipeMap = [];
+  var count = 0;
+
+  User.find({}, function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    u = users;
+
+    // users.forEach(function (user) {
+    //   recipeMap[count] = user.recipes;
+    //   count++;
+    // });
   });
+
+  // recipeMap.forEach( (rec, i) => {
+  //   if(rec._id == id) recipe = recipeMap[i];
+  // });
+
+  // req.recipe = {
+  //   "map": recipeMap
+  // };
+
+    req.recipe = {
+      "map": u
+    };
+
+  next();
 };
 
 exports.add = function (req, res) {
@@ -304,6 +327,42 @@ exports.add = function (req, res) {
   };
 
   user.recipes.push(addedRecipe);
+
+  user.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      req.login(user, function (err) {
+        if (err) {
+          res.status(400).send(err);
+        } else {
+          res.json(user);
+        }
+      });
+    }
+  });
+};
+
+exports.updateRecipe = function(req, res) {
+  var user = req.user;
+  var recipe = req.body;
+
+  var updatedRecipe = {
+    'name': recipe.name,
+    'cookingStyle': recipe.cookingStyle,
+    'time': recipe.time,
+    'healthClassifications': recipe.healthClassifications,
+    'ingredients': recipe.ingredients,
+    'directionsList': recipe.directionsList,
+    'review': recipe.review,
+    'image': recipe.image
+  };
+
+  user.recipes.forEach( (rec, i) => {
+    if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
+  });
 
   user.save(function (err) {
     if (err) {

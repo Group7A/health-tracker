@@ -6,10 +6,10 @@
     .controller('AddRecipeController', AddRecipeController);
 
   AddRecipeController.$inject = ['UsersService', 'TransferService', '$scope', '$http', 
-    'Authentication', 'Notification', '$location', '$state'];
+    'Authentication', 'Notification', '$location', '$state', '$stateParams'];
 
   function AddRecipeController(UsersService, TransferService, $scope, $http, 
-      Authentication, Notification, $location, $state) {
+      Authentication, Notification, $location, $state, $stateParams) {
     var vm = this;
 
     vm.user = Authentication.user;
@@ -19,30 +19,36 @@
     // Initialize recipe, and ingredients, directions lists
     $scope.ingredientList = [{}];
     $scope.directionsList = [{}];
-    $scope.recipe = {
-      'name': '',
-      'cookingStyle': '',
-      'time':'',
-      'healthClassifications': {
-        'glutenFree': false,
-        'noSugar': false,
-        'lowFat': false,
-        'vegan': false,
-        'lowCalorie': false
-      },
-      'ingredients': [{
+
+    if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
+      $scope.recipe = $stateParams.recipe;
+    }
+    else $scope.recipe = {
         'name': '',
-        'quantity': '',
-        'units': ''
-      }],
-      'directionsList': [{
-        'directions': ''
-      }],
-      'review': [{
-        'writtenReview': '',
-        'rating': ''
-      }]
-    };
+        'cookingStyle': '',
+        'time':'',
+        'healthClassifications': {
+          'glutenFree': false,
+          'noSugar': false,
+          'lowFat': false,
+          'vegan': false,
+          'lowCalorie': false
+        },
+        'ingredients': [{
+          'name': '',
+          'quantity': '',
+          'units': ''
+        }],
+        'directionsList': [{
+          'directions': ''
+        }],
+        'review': [{
+          'writtenReview': '',
+          'rating': ''
+        }]
+      };
+
+      console.log($scope.recipe);
 
     // GET IMAGE
     async function getImage() {
@@ -79,20 +85,30 @@
         return false;
       }
 
-      UsersService.addRecipe(recipe)
-        .then(success)
-        .catch(failure);
+      if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
+        UsersService.updateMyRecipe(recipe)
+          .then(updateSuccess)
+          .catch(updateFailure);
+      }
+      else UsersService.addRecipe(recipe)
+            .then(addSuccess)
+            .catch(addFailure);
 
-      function success(response) {
+      function addSuccess(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
       }
 
-      function failure(response) {
+      function addFailure(response) {
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
       }
 
-      //TransferService.setRecipe(recipe);
-      //$location.path('/alternatives');
+      function updateSuccess(response) {
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' })
+      }
+
+      function updateFailure(response) {
+        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Update recipe failed!' })
+      }
 
       var transferData = {
         'recipe': recipe,
