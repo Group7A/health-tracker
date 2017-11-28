@@ -6,7 +6,10 @@
         </br>
         <p>Select the alternative you would like to use for each given ingredient.</p>
         </br>
-        <center>
+        <center ng-show="loading">
+          <img src="./modules/core/client/img/loaders/loader.gif" alt="Loading...">
+        </center>
+        <center ng-hide="loading">
           <div ng-repeat="ingredient in ingredients">
             </br>
             <table>

@@ -5,19 +5,24 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification', '$state'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification', '$state', '$timeout'];
 
-  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification, $state) {
+  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification, $state, $timeout) {
     var vm = this;
+
+    $scope.loading = true;
+    $timeout( function() {
+      $scope.loading = false
+    }, 5000);
     
     // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
     $scope.alternatives = $stateParams.multiple_map;
 
-    // Get alternative data and set first letter to be uppercase
+    // Get alternative data
     if($scope.alternatives) {
       $scope.alternatives.forEach( (alternative) => {
-        alternative.map_name = uppercaseFirstLetter(alternative.map_name);
+        alternative.map_name = alternative.map_name;
       });
 
       getR();
@@ -29,15 +34,15 @@
       $scope.ingredients = $scope.recipe.ingredients;
 
       $scope.ingredients.forEach( (ingredient) => {
-        ingredient.name = uppercaseFirstLetter(ingredient.name);
+        ingredient.name = ingredient.name;
         ingredient.choice = ingredient.name;
       });
     }
 
     // Make first letter upercase
-    function uppercaseFirstLetter(string) {
-    	return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    // function uppercaseFirstLetter(string) {
+    // 	return string.charAt(0).toUpperCase() + string.slice(1);
+    // }
 
     // Save new ingredients to the recipe
     $scope.saveIngredients = function() {
