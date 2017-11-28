@@ -5,13 +5,18 @@
     .module('users')
     .controller('RecipeDetailsController', RecipeDetailsController);
 
-  RecipeDetailsController.$inject = ['UsersService', 'DetailsService', 'CommunityService', '$stateParams', '$scope', 'Notification'];
+  RecipeDetailsController.$inject = ['UsersService', 'DetailsService', 'CommunityService', 
+      '$stateParams', '$scope', 'Notification', 'detailsResolve'];
 
-  function RecipeDetailsController(UsersService, DetailsService, CommunityService, $stateParams, $scope, Notification) {
+  function RecipeDetailsController(UsersService, DetailsService, CommunityService, 
+      $stateParams, $scope, Notification, recipe) {
     var vm = this;
 
+    vm.recipe = recipe;
     $scope.recipe = $stateParams.recipeDetails;
-    console.log($scope.recipe);
+
+    console.log($stateParams);
+    console.log(vm.recipe);
 
     // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;

@@ -7,7 +7,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose'),
+  mongoose = require('mongoose').set('debug', true),
   multer = require('multer'),
   multerS3 = require('multer-s3'),
   aws = require('aws-sdk'),
@@ -263,8 +263,6 @@ exports.me = function (req, res) {
 exports.getDetails = function (req, res) {
   var recipe = req.recipe;
 
-  //var recipeDetails = {'id': id};
-
   res.send(recipe);
 }
 
@@ -275,17 +273,42 @@ exports.recipeByID = function(req, res, next, id) {
     });
   }
 
-  Recipe.findById(id, function (err, recipe) {
-    if(err) return next(err);
-    // else if(!recipe) {
-    //   return res.status(404).send({
-    //     message: 'No recipe with that identifier has been found'
-    //   });
-    // }
-    
-    req.recipe = recipe;
-    next();
+  var recipe = {
+    'test': 'working' 
+  };
+
+  var u = '';
+  var recipeMap = [];
+  var count = 0;
+
+  User.find({}, function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    u = users;
+
+    // users.forEach(function (user) {
+    //   recipeMap[count] = user.recipes;
+    //   count++;
+    // });
   });
+
+  // recipeMap.forEach( (rec, i) => {
+  //   if(rec._id == id) recipe = recipeMap[i];
+  // });
+
+  // req.recipe = {
+  //   "map": recipeMap
+  // };
+
+    req.recipe = {
+      "map": u
+    };
+
+  next();
 };
 
 exports.add = function (req, res) {

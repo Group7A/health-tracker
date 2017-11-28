@@ -191,7 +191,7 @@
 
   function getRecipeDetails($stateParams, DetailsService) {
     return DetailsService.get({ 
-      'recipeID': $stateParams.recipeID 
+      'recipeID': $stateParams.recipeID
     }).$promise;
   }
 }());

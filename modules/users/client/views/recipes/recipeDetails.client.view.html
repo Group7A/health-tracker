@@ -92,30 +92,32 @@
           </div>
         </div>
 
-        <hr>
-
         <div id="comment_rate">
-          <h5>Reviews</h5>
-          <div ng-repeat="review in recipe.review" class="row">
-            <div ng-if="$index > 0">
+          <hr>
+          <h5>Top 3 Reviews</h5>
+          <div ng-repeat="review in recipe.review | 
+              orderBy:'rating':true | limitTo: 3" class="row">
+            <div>
               <center>
-                <h4>Review {{$index}}:</h4> 
+                <h4>Review {{$index+1}}:</h4> 
               </center>
               <div class="col-md-2 col-md-push-4">
-                Rating: 
+                <u>Rating</u>
                 <div id="stars">
                   <span ng-repeat="i in getNumber(5) track by $index" 
                     class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
                 </div>
               </div>
-              <div class="col-md-2 col-md-pull-4">
-                Review: 
+              <div class="col-md-2 col-md-push-4">
+                <u>Comment</u>
                 <div> 
                   {{review.writtenReview}} 
                 </div>
               </div>
             </div>
           </div>
+
+          <hr>
 
           <h3>What did you think of this recipe?</h3>
           <p>Rating:</p>
