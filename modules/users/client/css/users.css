@@ -272,10 +272,7 @@
   margin-right: 25px;
   color: rgb(174,200,107);
 }
-/*.al-list-measureR{
-  float: left;
-  margin-right: 25px;
-}*/
+
 /*BUTTONS*/
 .sharp {
   border-radius:2px;
@@ -304,6 +301,10 @@
 .al-btnR{
   float: right;
 }
+.al-btnL{
+  float: left;
+}
+
 
 /*SIGN UP & SIGN IN*/
 .box-field{
