@@ -1,10 +1,10 @@
 <div class="container">
     <div class="lowerNav text-center">
       <div class="textLN">
-        <a ng-click="showPopular()" class="left" 
-            ng-class="showCommunity ? underline : no-underline" href="">Popular Recipes</a>
-        <a ng-click="showMyRecipes()" ng-show="vm.authentication.user"
-            ng-class="showCommunity ? no-underline : underline" href="">My Recipes</a>
+        <a ng-click="display = !display" class="left tl" 
+            ng-class="{'underline': !display, 'no-underline': display}" href="">Popular Recipes</a>
+        <a ng-click="display = !display" ng-show="vm.authentication.user"
+            ng-class="{'underline': display, 'no-underline': !display}" class="tl" href="">My Recipes</a>
       </div>
     </div>
 
@@ -135,16 +135,15 @@
       </div>
     </div>
     
-
     <!-- COMMUNITY RECIPES -->
-    <div ng-show="showCommunity">
+    <div ng-hide="display">
       <div class="row row-margin">
         <div ng-repeat="recipe in communityRecipesFiltered | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
             class="col-xs-12 col-sm-6 col-md-3 properties"
             ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})">
+            <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" style="float:left">
               <img class="img-prop" ng-src="{{recipe.image}}">
             </a>
             <!--Add Recipe-->
@@ -182,14 +181,14 @@
     </div>
 
     <!--MY RECIPES-->
-    <div ng-hide="showCommunity">
+    <div ng-show="display">
       <div class="row row-margin">
         <div ng-repeat="myRecipe in myRecipes | 
             orderBy:'totalRating':ratingFilter | limitTo: 16" 
             class="col-xs-12 col-sm-6 col-md-3 properties"
             ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})">
+            <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" style="float:left">
               <img class="img-prop" ng-src="{{myRecipe.image}}">
             </a>
             <a class="add-delete glyphicon-ring-delete glyphicon-delete" ng-show="vm.authentication.user" href="">

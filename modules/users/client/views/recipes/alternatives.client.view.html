@@ -1,7 +1,7 @@
-<div class="row text-center" style="background-color:rgb(230,230,230)">
-  <div class="col-md-10 col-md-offset-1" style="background-color:rgb(244,244,244)">
-    <div class="" style="padding-left: 3%; padding-right: 3%;">
-      <div style="background-color:rgb(255,255,255); box-shadow: 4px 5px 10px rgb(231,231,231); padding-bottom: 65px;">
+<div class="row row-fix text-center layer1">
+  <div class="col-md-10 col-md-offset-1 layer2">
+    <div class="layer3">
+      <div class="layer4">
 				<div>
           <h5>{{recipe.name}}</h5>
         </div>
@@ -24,11 +24,11 @@
 
             <div class="col-md-6 al-containerPaddingR">
               <h1 class="al-h1 text-center">Alternative Recipe</h1>
-              <div class="row row-fix" ng-hide="health">
+              <div class="row" ng-hide="health">
                 <div class="col-md-6" ng-click="showHealthy()"><a class="padding-text active al-tabL" href="">Healthiest </a></div>
                 <div class="col-md-6" ng-click="showTruest()"><a class="padding-text al-tabR" href="">Truest to Taste</a></div>
               </div>
-              <div class="row row-fix" ng-show="truest">
+              <div class="row" ng-show="truest">
                 <div class="col-md-6" ng-click="showHealthy()"><a class="padding-text al-tabL" href="">Healthiest</a> </div>
                 <div class="col-md-6" ng-click="showTruest()"><a class="padding-text active al-tabR" href="">Truest to Taste</a></div>
               </div>
