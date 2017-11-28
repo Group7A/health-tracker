@@ -5,22 +5,67 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification', '$state', '$timeout'];
 
-  function CustomizeController(UsersService, $scope, $stateParams, $http) {
+  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification, $state, $timeout) {
     var vm = this;
+
+    $scope.loading = true;
+    $timeout( function() {
+      $scope.loading = false
+    }, 5000);
     
     // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
     $scope.alternatives = $stateParams.multiple_map;
-    $scope.ingredients = $scope.recipe.ingredients;
 
-    // Make first letter upercase
-    $scope.uppercaseFirstLetter = function(string) {
-    	return string.charAt(0).toUpperCase() + string.slice(1);
+    // Get alternative data
+    if($scope.alternatives) {
+      $scope.alternatives.forEach( (alternative) => {
+        alternative.map_name = alternative.map_name;
+      });
+
+      getR();
     }
 
-    //$scope.none = false;
+    // Get ingredients data and initialize user choices
+    if($scope.recipe) {
+      $scope.recipe.editAfterAdd = true;
+      $scope.ingredients = $scope.recipe.ingredients;
+
+      $scope.ingredients.forEach( (ingredient) => {
+        ingredient.name = ingredient.name;
+        ingredient.choice = ingredient.name;
+      });
+    }
+
+    // Make first letter upercase
+    // function uppercaseFirstLetter(string) {
+    // 	return string.charAt(0).toUpperCase() + string.slice(1);
+    // }
+
+    // Save new ingredients to the recipe
+    $scope.saveIngredients = function() {
+      var recipe = angular.copy($scope.recipe);
+
+      // Get the new ingredients to save
+      recipe.ingredients.forEach( (ingredient) => {
+         ingredient.name = ingredient.choice;
+      }); 
+      
+      // Calls API to save the recipe
+      UsersService.updateMyRecipe(recipe)
+        .then(updateSuccess)
+        .catch(updateFailure);
+
+      function updateSuccess(response) {
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' });
+      }
+
+      function updateFailure(response) {
+        Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Update recipe failed!' })
+      }
+    }
 
     // Search through each alternative and getReport for each one
     async function getR() {
@@ -42,8 +87,6 @@
         console.log("alternatives", alternatives);
 	    });
     }
-
-    getR();
 
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
@@ -72,6 +115,7 @@
           });
     };
 
+    // Get nutrients of ingredients
     function assignFood(alternative) {
       $scope.food = $scope.searched.report.food.name.toLowerCase();
       alternative.nutrients = [];

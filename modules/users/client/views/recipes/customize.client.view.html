@@ -6,12 +6,20 @@
         </br>
         <p>Select the alternative you would like to use for each given ingredient.</p>
         </br>
-        <center>
+        <center ng-show="loading">
+          <img src="./modules/core/client/img/loaders/loader.gif" alt="Loading...">
+        </center>
+        <center ng-hide="loading">
           <div ng-repeat="ingredient in ingredients">
             </br>
             <table>
               <thead>
-                <th style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</th>
+                <th style="width: 50%">
+                  <input type="radio"
+                      ng-model="ingredient.choice" ng-value="ingredient.name">
+                      {{ingredient.name}}
+                  </input>
+                </th>
                 <th>Quantity: {{ingredient.quantity}}</th>
                 <th style="width: 25%">Units: {{ingredient.units}}</th>
               </thead>
@@ -20,7 +28,8 @@
                 <table id="myTable">
                   <thead>
                     <th ng-repeat="alternative in alternatives[$index]">
-                      <input ng-hide="alternative.none" type="radio" name="alternative" ng-model="alternative.choice"> 
+                      <input ng-hide="alternative.none" type="radio"
+                          ng-model="ingredient.choice" ng-value="alternative.map_name"> 
                         {{alternative.map_name}}
                       </input>
                       <div ng-show="alternative.none">
