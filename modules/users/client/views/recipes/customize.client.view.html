@@ -1,54 +1,61 @@
-<section>
-  <center>
-    <h1>Customize Recipe</h1>
-    </br>
-    <p>Select the alternative you would like to use for each given ingredient.</p>
-    </br>
-    <div ng-repeat="ingredient in ingredients">
-      </br>
-      <table>
-        <thead>
-          <th style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</td>
-          <th>Quantity: {{ingredient.quantity}}</td>
-          <th style="width: 25%">Units: {{ingredient.units}}</td>
-        </thead>
-      </table>
-      <div class="container">
-          <table id="myTable">
-            <thead>
-              <th ng-repeat="alternative in alternatives[$index]">
-                <input ng-hide="alternative.none" type="radio" name="alternative" ng-model="alternative.choice"> 
-                  {{alternative.map_name}}
-                </input>
-                <div ng-show="alternative.none">
-                  No alternatives available
-                </div>
-              </th>
-            </thead>
-            <tr>
-              <td ng-repeat="alternative in alternatives[$index]" ng-hide="alternative.none">
-                <table id="insideTable">
+<div class="row text-center" style="background-color:rgb(230,230,230)">
+  <div class="col-md-10 col-md-offset-1" style="background-color:rgb(244,244,244)">
+    <div class="" style="padding-left: 3%; padding-right: 3%;">
+      <div style="background-color:rgb(255,255,255); box-shadow: 4px 5px 10px rgb(231,231,231); min-height: 627px; padding-bottom: 9%;">  
+        <h5>Customize Recipe</h5>
+        </br>
+        <p>Select the alternative you would like to use for each given ingredient.</p>
+        </br>
+        <center>
+          <div ng-repeat="ingredient in ingredients">
+            </br>
+            <table>
+              <thead>
+                <th style="width: 50%">Original Ingredient: {{uppercaseFirstLetter(ingredient.name)}}</th>
+                <th>Quantity: {{ingredient.quantity}}</th>
+                <th style="width: 25%">Units: {{ingredient.units}}</th>
+              </thead>
+            </table>
+            <div class="container">
+                <table id="myTable">
                   <thead>
-                    <th>Protein</th>
-                    <th>Fat</th>
-                    <th>Carbs</th>
-                    <th>Sugar</th>
+                    <th ng-repeat="alternative in alternatives[$index]">
+                      <input ng-hide="alternative.none" type="radio" name="alternative" ng-model="alternative.choice"> 
+                        {{alternative.map_name}}
+                      </input>
+                      <div ng-show="alternative.none">
+                        No alternatives available
+                      </div>
+                    </th>
                   </thead>
                   <tr>
-                    <td ng-repeat="nutrient in alternative.nutrients">
-                      {{nutrient.value}} {{nutrient.unit}}
+                    <td ng-repeat="alternative in alternatives[$index]" ng-hide="alternative.none">
+                      <table id="insideTable">
+                        <thead>
+                          <th>Protein</th>
+                          <th>Fat</th>
+                          <th>Carbs</th>
+                          <th>Sugar</th>
+                        </thead>
+                        <tr>
+                          <td ng-repeat="nutrient in alternative.nutrients">
+                            {{nutrient.value}} {{nutrient.unit}}
+                          </td>
+                        </tr>
+                      </table>
                     </td>
                   </tr>
                 </table>
-              </td>
-            </tr>
-          </table>
+            </div>
+          </div>
+        </center>
+        
+        <br> <br>
+        <button class="htb htb-primary btn-lg sharp">SAVE</button>
       </div>
     </div>
-    <br> <br>
-    <button class="btn btn-success">SAVE</button>
-  </center>
-</section>
+  </div>
+</div>
 
 <style>
   th {
@@ -70,6 +77,7 @@
     border: 2px solid #AEC86B;
     width: 60%;
     margin-left: 0px;
+    box-shadow: 0px 0px 10px rgb(231,231,231);
   }
 
   p {

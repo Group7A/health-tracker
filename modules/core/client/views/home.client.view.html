@@ -9,130 +9,132 @@
     </div>
 
     <div ui-view></div>
-
-    <div class="col-md-6 col-md-offset-4" style="padding-left: 5%;"> 
-      <div class="dropdown">
-        Filter by:
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Diet
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li>
-            <label ng-click="healthClassificationFilter('any')" class="small healthClassifications">
-              <input ng-model="showAnyClass" type="checkbox"/>&nbsp;Any
-            </label>
-          </li>
-          <li>
-            <label ng-click="healthClassificationFilter('glutenFree')" class="small healthClassifications">
-              <input ng-model="showGlutenFree" type="checkbox"/>&nbsp;Gluten Free
-            </label>
-          </li>
-          <li>
-            <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
-              <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
-            </label>
-          </li>
-          <li>
-            <label ng-click="healthClassificationFilter('lowFat')" class="small healthClassifications">
-              <input ng-model="showLowFat" type="checkbox"/>&nbsp;Low Fat
-            </label>
-          </li>
-          <li>
-            <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
-              <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
-            </label>
-          </li>
-          <li>
-            <label ng-click="healthClassificationFilter('vegan')" class="small healthClassifications">
-              <input ng-model="showVegan" type="checkbox"/>&nbsp;Vegan
-            </label>
-          </li>
-          
+    <div class="row row-fix">
+      <div class="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-4" style="padding-left: 5%;"> 
+        <div class="dropdown">
+          Filter by:
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diet
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="healthClassificationFilter('any')" class="small healthClassifications">
+                <input ng-model="showAnyClass" type="checkbox"/>&nbsp;Any
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('glutenFree')" class="small healthClassifications">
+                <input ng-model="showGlutenFree" type="checkbox"/>&nbsp;Gluten Free
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
+                <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('lowFat')" class="small healthClassifications">
+                <input ng-model="showLowFat" type="checkbox"/>&nbsp;Low Fat
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
+                <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('vegan')" class="small healthClassifications">
+                <input ng-model="showVegan" type="checkbox"/>&nbsp;Vegan
+              </label>
+            </li>
+            
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cooking Style
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li>
-            <label ng-click="cookingStyleFilter('any')" class="small healthClassifications">
-              <input ng-model="showAny" type="checkbox"/>&nbsp;Any
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('beverage')" class="small healthClassifications">
-              <input ng-model="showBeverage" type="checkbox"/>&nbsp;Beverage
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('bakedGoods')" class="small healthClassifications">
-              <input ng-model="showBakedGoods" type="checkbox"/>&nbsp;Baked Goods
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('bakedFoods')" class="small healthClassifications">
-              <input ng-model="showBakedFoods" type="checkbox"/>&nbsp;Baked Foods
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('fried')" class="small healthClassifications">
-              <input ng-model="showFried" type="checkbox"/>&nbsp;Fried
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('frozenTreats')" class="small healthClassifications">
-              <input ng-model="showFrozenTreats" type="checkbox"/>&nbsp;Frozen Treats
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('grilled')" class="small healthClassifications">
-              <input ng-model="showGrilled" type="checkbox"/>&nbsp;Grilled
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('slowCook')" class="small healthClassifications">
-              <input ng-model="showSlowCook" type="checkbox"/>&nbsp;Slow Cook
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('soup')" class="small healthClassifications">
-              <input ng-model="showSoup" type="checkbox"/>&nbsp;Soup
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('stoveTop')" class="small healthClassifications">
-              <input ng-model="showStoveTop" type="checkbox"/>&nbsp;Stove Top
-            </label>
-          </li>
-          <li>
-            <label ng-click="cookingStyleFilter('others')" class="small healthClassifications">
-              <input ng-model="showOthers" type="checkbox"/>&nbsp;Others
-            </label>
-          </li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cooking Style
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="cookingStyleFilter('any')" class="small healthClassifications">
+                <input ng-model="showAny" type="checkbox"/>&nbsp;Any
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('beverage')" class="small healthClassifications">
+                <input ng-model="showBeverage" type="checkbox"/>&nbsp;Beverage
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('bakedGoods')" class="small healthClassifications">
+                <input ng-model="showBakedGoods" type="checkbox"/>&nbsp;Baked Goods
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('bakedFoods')" class="small healthClassifications">
+                <input ng-model="showBakedFoods" type="checkbox"/>&nbsp;Baked Foods
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('fried')" class="small healthClassifications">
+                <input ng-model="showFried" type="checkbox"/>&nbsp;Fried
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('frozenTreats')" class="small healthClassifications">
+                <input ng-model="showFrozenTreats" type="checkbox"/>&nbsp;Frozen Treats
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('grilled')" class="small healthClassifications">
+                <input ng-model="showGrilled" type="checkbox"/>&nbsp;Grilled
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('slowCook')" class="small healthClassifications">
+                <input ng-model="showSlowCook" type="checkbox"/>&nbsp;Slow Cook
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('soup')" class="small healthClassifications">
+                <input ng-model="showSoup" type="checkbox"/>&nbsp;Soup
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('stoveTop')" class="small healthClassifications">
+                <input ng-model="showStoveTop" type="checkbox"/>&nbsp;Stove Top
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('others')" class="small healthClassifications">
+                <input ng-model="showOthers" type="checkbox"/>&nbsp;Others
+              </label>
+            </li>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Rating
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li>
-            <label ng-click="ratingFilterOption('highest')" class="small healthClassifications">
-              <input ng-model="highestRating" type="checkbox"/>&nbsp;Highest to Lowest
-            </label>
-          </li>
-          <li>
-            <label ng-click="ratingFilterOption('lowest')" class="small healthClassifications">
-              <input ng-model="lowestRating" type="checkbox"/>&nbsp;Lowest to Highest
-            </label>
-          </li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rating
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="ratingFilterOption('highest')" class="small healthClassifications">
+                <input ng-model="highestRating" type="checkbox"/>&nbsp;Highest to Lowest
+              </label>
+            </li>
+            <li>
+              <label ng-click="ratingFilterOption('lowest')" class="small healthClassifications">
+                <input ng-model="lowestRating" type="checkbox"/>&nbsp;Lowest to Highest
+              </label>
+            </li>
+          </div>
         </div>
       </div>
     </div>
+    
 
     <!-- COMMUNITY RECIPES -->
     <div ng-show="showCommunity">
@@ -152,9 +154,9 @@
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-7">
+            <div class="col-md-7" style="padding-right: 0px;">
                 <div class="card-name">
-                  <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" style="text-decoration: none" class="cardA">
+                  <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" class="cardA">
                     {{recipe.name}}
                   </a>
                 </div>
@@ -196,10 +198,10 @@
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-7">
+            <div class="col-md-7" style="padding-right: 0px;">
                 <div class="card-name">
-                  <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" style="text-decoration: none" class="cardA">
-                    {{myRecipe.name}}
+                  <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" class="cardA">
+                    {{myRecipe.name}} 
                   </a>
                 </div>
             </div> 
