@@ -5,36 +5,44 @@
     .module('users')
     .controller('CustomizeController', CustomizeController);
 
-  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification'];
+  CustomizeController.$inject = ['UsersService', '$scope', '$stateParams', '$http', 'Notification', '$state'];
 
-  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification) {
+  function CustomizeController(UsersService, $scope, $stateParams, $http, Notification, $state) {
     var vm = this;
     
     // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
-    $scope.recipe.editAfterAdd = true;
     $scope.alternatives = $stateParams.multiple_map;
-    $scope.ingredients = $scope.recipe.ingredients;
-    var newIngredients = $scope.recipe.ingredients;
-    $scope.choices = [];
+
+    if($scope.alternatives) getR();
+
+    if($scope.recipe) {
+      $scope.recipe.editAfterAdd = true;
+      $scope.ingredients = $scope.recipe.ingredients;
+
+      $scope.ingredients.forEach( (ingredient) => {
+        ingredient.choice = ingredient.name;
+      });
+    }
+
+    // $scope.choices = [{
+    //   'name': ''
+    // }];
 
     // Make first letter upercase
     // $scope.uppercaseFirstLetter = function(string) {
     // 	return string.charAt(0).toUpperCase() + string.slice(1);
     // }
 
-    $scope.newIngredient = function(ing, i) {
-      newIngredients[i] = {
-        "name": ing
-      };
-
-      console.log(newIngredients);
-    }
+    // $scope.newIngredient = function(choice, i) {
+    //   $scope.choices[i].name = choice;
+    // }
 
     $scope.saveIngredients = function() {
       var recipe = $scope.recipe;
-      recipe.ingredients.forEach( (ingredient, i) => {
-         ingredient.name = newIngredients[i].name;
+
+      recipe.ingredients.forEach( (ingredient) => {
+         ingredient.name = ingredient.choice;
       }); 
       
       UsersService.updateMyRecipe(recipe)
@@ -42,7 +50,7 @@
         .catch(updateFailure);
 
       function updateSuccess(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' })
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' });
       }
 
       function updateFailure(response) {
@@ -68,8 +76,6 @@
         }
 	    });
     }
-
-    getR();
 
     // API KEY
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';

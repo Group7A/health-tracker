@@ -69,7 +69,9 @@
 
       await $http(req)
         .then( (response) => {
-          $scope.image = response.data.images.value[0].contentUrl;
+          if(response.data.images) {
+            $scope.image = response.data.images.value[0].contentUrl;
+          }
         })
         .catch( (err) => {
           console.log(err);

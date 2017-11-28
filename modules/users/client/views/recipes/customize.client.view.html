@@ -12,9 +12,9 @@
             <table>
               <thead>
                 <th style="width: 50%">
-                  <input type="radio" ng-change="newIngredient(ingredient.name, $index)" 
-                      ng-model="$parent.choice" ng-value="ingredient.name">
-                    Original Ingredient: {{ingredient.name}}
+                  <input type="radio"
+                      ng-model="ingredient.choice" ng-value="ingredient.name">
+                      {{ingredient.name}}
                   </input>
                 </th>
                 <th>Quantity: {{ingredient.quantity}}</th>
@@ -25,9 +25,8 @@
                 <table id="myTable">
                   <thead>
                     <th ng-repeat="alternative in alternatives[$index]">
-                      <input ng-hide="alternative.none" type="radio" name="alternative" 
-                          ng-change="newIngredient(alternative.map_name, $parent.$index)" 
-                          ng-model="$parent.$parent.choice" ng-value="alternative.map_name"> 
+                      <input ng-hide="alternative.none" type="radio"
+                          ng-model="ingredient.choice" ng-value="alternative.map_name"> 
                         {{alternative.map_name}}
                       </input>
                       <div ng-show="alternative.none">
