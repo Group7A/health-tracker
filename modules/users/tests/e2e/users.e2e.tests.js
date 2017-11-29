@@ -572,6 +572,10 @@ describe('Users E2E Tests:', function () {
       element(by.model('recipe.time')).sendKeys(recipe.prepTime);
       // Select diet preference
       element(by.model('recipe.healthClassifications.glutenFree')).sendKeys(recipe.diet);
+      element(by.model('recipe.healthClassifications.noSugar')).sendKeys(recipe.diet);
+      element(by.model('recipe.healthClassifications.lowFat')).sendKeys(recipe.diet);
+      element(by.model('recipe.healthClassifications.vegan')).sendKeys(recipe.diet);
+      element(by.model('recipe.healthClassifications.lowCalorie')).sendKeys(recipe.diet);
       // Rate the recipe
       element(by.click('getStars(5)')).sendKeys(recipe.rate);
       // Enter ingredient(s) for the recipe
