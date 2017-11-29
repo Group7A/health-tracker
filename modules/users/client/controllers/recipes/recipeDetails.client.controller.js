@@ -15,6 +15,8 @@
     vm.user = Authentication.user;
     vm.recipe = recipe;
     $scope.recipe = $stateParams.recipeDetails;
+    $scope.anonymous = false;
+    $scope.rating = 0;
 
     // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
@@ -67,7 +69,7 @@
       $scope.recipe.review.push({
         'rating': $scope.rating,
         'writtenReview': $scope.writtenReview,
-        'reviewedBy': vm.user.displayName
+        'reviewedBy': $scope.anonymous ? "Anonymous" : vm.user.displayName
       });
 
       UsersService.updateMyRecipe($scope.recipe)
@@ -76,6 +78,12 @@
 
       function updateSuccess(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Review submitted!' });
+        $scope.rating = 0;
+        $scope.writtenReview = '';
+        $scope.anonymous = false;
+
+        var star = document.getElementsByName("group-1");
+        for(var i=0; i<star.length; i++) star[i].checked = false;
       }
 
       function updateFailure(response) {
