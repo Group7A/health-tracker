@@ -29,6 +29,15 @@
           pageTitle: 'Profile'
         }
       })
+      .state('leaderboard', { // LEADERBOARD
+        url: '/leaderboard',
+        templateUrl: '/modules/core/client/views/leaderboard.client.view.html',
+        controller: 'LeaderboardController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Leaderboard'
+        }
+      })
       .state('add', { // ADD RECIPES
         url: '/add-recipe',
         templateUrl: 'modules/users/client/views/recipes/addRecipe.client.view.html',
