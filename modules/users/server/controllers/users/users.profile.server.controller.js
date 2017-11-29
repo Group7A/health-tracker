@@ -388,6 +388,12 @@ exports.updateRecipe = function(req, res) {
   });
 };
 
+exports.reviewRecipe = function(req, res) {
+  var recipe = req.body;
+
+  res.send(recipe);
+}
+
 exports.myRecipes = function (req, res) {
   var user = req.user;
 

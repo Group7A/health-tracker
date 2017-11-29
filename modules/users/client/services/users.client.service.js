@@ -83,6 +83,10 @@
         method: 'POST',
         url: '/api/users/updateRecipe'
       },
+      reviewRecipe: {
+        method: 'POST',
+        url: '/api/users/reviewRecipe'
+      },
       myRecipes: {
         method: 'GET',
         url: '/api/users/myRecipes'
@@ -125,6 +129,9 @@
       },
       updateMyRecipe: function (param) {
         return this.updateRecipe(param).$promise;
+      },
+      reviewOtherRecipe: function (param) {
+        return this.reviewRecipe(param).$promise;
       },
       getMyRecipes: function () {
         return this.myRecipes().$promise;

@@ -72,7 +72,7 @@
         'reviewedBy': $scope.anonymous ? "Anonymous" : vm.user.displayName
       });
 
-      UsersService.updateMyRecipe($scope.recipe)
+      UsersService.reviewOtherRecipe($scope.recipe)
         .then(updateSuccess)
         .catch(updateFailure);
 
@@ -84,6 +84,8 @@
 
         var star = document.getElementsByName("group-1");
         for(var i=0; i<star.length; i++) star[i].checked = false;
+
+        console.log(response);
       }
 
       function updateFailure(response) {
