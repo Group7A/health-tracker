@@ -391,7 +391,42 @@ exports.updateRecipe = function(req, res) {
 exports.reviewRecipe = function(req, res) {
   var recipe = req.body;
 
-  res.send(recipe);
+  User.find({}, function (err, users) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    users.forEach(function (user) {
+      user.recipes.forEach( (currentRecipe, i) => {
+        if(currentRecipe._id = recipe._id) {
+          user.recipes[i] = recipe;
+
+          // user.save(function (err) {
+          //   if (err) {
+          //     return res.status(422).send({
+          //       message: errorHandler.getErrorMessage(err)
+          //     });
+          //   } else {
+          //     req.login(user, function (err) {
+          //       if (err) {
+          //         res.status(400).send(err);
+          //       } else {
+          //         res.json(user);
+          //       }
+          //     });
+          //   }
+          // });
+          res.json({
+            'user': user,
+            'currentID': currentRecipe._id,
+            'recipeID': recipe._id
+          });
+        }
+      });
+    });
+  });
 }
 
 exports.myRecipes = function (req, res) {
