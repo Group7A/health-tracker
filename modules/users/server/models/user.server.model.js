@@ -57,7 +57,8 @@ var IngredientSchema = new Schema({
 
 var ReviewSchema = new Schema({
   writtenReview: String,
-  rating: Number
+  rating: Number,
+  reviewedBy: String
 });
 
 var RecipeSchema = new Schema({

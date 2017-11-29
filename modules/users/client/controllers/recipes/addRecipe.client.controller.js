@@ -51,7 +51,8 @@
         }],
         'review': [{
           'writtenReview': '',
-          'rating': ''
+          'rating': '',
+          'reviewdBy': vm.user.displayName
         }]
       };
     }

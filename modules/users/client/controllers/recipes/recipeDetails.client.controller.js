@@ -6,14 +6,17 @@
     .controller('RecipeDetailsController', RecipeDetailsController);
 
   RecipeDetailsController.$inject = ['UsersService', 'DetailsService', 'CommunityService', 
-      '$stateParams', '$scope', 'Notification', 'detailsResolve'];
+      '$stateParams', '$scope', 'Notification', 'detailsResolve', 'Authentication'];
 
   function RecipeDetailsController(UsersService, DetailsService, CommunityService, 
-      $stateParams, $scope, Notification, recipe) {
+      $stateParams, $scope, Notification, recipe, Authentication) {
     var vm = this;
 
+    vm.user = Authentication.user;
     vm.recipe = recipe;
     $scope.recipe = $stateParams.recipeDetails;
+    $scope.anonymous = false;
+    $scope.rating = 0;
 
     // DIRECTIONS
     if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
@@ -65,15 +68,24 @@
       $scope.recipe.editAfterAdd = false;
       $scope.recipe.review.push({
         'rating': $scope.rating,
-        'writtenReview': $scope.writtenReview
+        'writtenReview': $scope.writtenReview,
+        'reviewedBy': $scope.anonymous ? "Anonymous" : vm.user.displayName
       });
 
-      UsersService.updateMyRecipe($scope.recipe)
+      UsersService.reviewOtherRecipe($scope.recipe)
         .then(updateSuccess)
         .catch(updateFailure);
 
       function updateSuccess(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Review submitted!' });
+        $scope.rating = 0;
+        $scope.writtenReview = '';
+        $scope.anonymous = false;
+
+        var star = document.getElementsByName("group-1");
+        for(var i=0; i<star.length; i++) star[i].checked = false;
+
+        console.log(response);
       }
 
       function updateFailure(response) {
