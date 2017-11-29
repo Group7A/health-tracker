@@ -6,12 +6,13 @@
     .controller('RecipeDetailsController', RecipeDetailsController);
 
   RecipeDetailsController.$inject = ['UsersService', 'DetailsService', 'CommunityService', 
-      '$stateParams', '$scope', 'Notification', 'detailsResolve'];
+      '$stateParams', '$scope', 'Notification', 'detailsResolve', 'Authentication'];
 
   function RecipeDetailsController(UsersService, DetailsService, CommunityService, 
-      $stateParams, $scope, Notification, recipe) {
+      $stateParams, $scope, Notification, recipe, Authentication) {
     var vm = this;
 
+    vm.user = Authentication.user;
     vm.recipe = recipe;
     $scope.recipe = $stateParams.recipeDetails;
 
@@ -65,7 +66,8 @@
       $scope.recipe.editAfterAdd = false;
       $scope.recipe.review.push({
         'rating': $scope.rating,
-        'writtenReview': $scope.writtenReview
+        'writtenReview': $scope.writtenReview,
+        'reviewedBy': vm.user.displayName
       });
 
       UsersService.updateMyRecipe($scope.recipe)
