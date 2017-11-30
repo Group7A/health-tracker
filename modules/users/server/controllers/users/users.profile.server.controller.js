@@ -7,7 +7,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose').set('debug', true),
+  mongoose = require('mongoose'),
   multer = require('multer'),
   multerS3 = require('multer-s3'),
   aws = require('aws-sdk'),
@@ -57,6 +57,50 @@ exports.myRecipes = function (req, res) {
       });
     }
     else res.send({'recipes': recipes});
+  });
+};
+
+// Leaderboard List
+exports.leaderboard = function (req, res) {
+  var leaders = [];
+
+  Recipe.find({}, function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else {
+      recipes.forEach( (recipe, i) => {
+        var index = 0;
+
+        if(leaders.length > 0) {
+          leaders.forEach( (leader, j) => {
+            if(leader.name == recipe.ownedBy) index = j;
+            else index = -1;
+          });
+        }
+        else {
+          leaders.push({
+            'name': recipe.ownedBy,
+            'recipeCount': 1
+          });
+        }
+
+        // If person is already in the array
+        if(index !== -1) {
+          leaders[index].recipeCount++;
+        }
+        else {
+          leaders.push({
+            'name': recipe.ownedBy,
+            'recipeCount': 1
+          });
+        }
+      });
+
+      res.send({'leaders': leaders});
+    }
   });
 };
 

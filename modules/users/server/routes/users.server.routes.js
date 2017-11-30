@@ -11,6 +11,7 @@ module.exports = function (app) {
   app.route('/api/users/reviewRecipe').post(users.reviewRecipe);
   app.route('/api/users/myRecipes').get(users.myRecipes);
   app.route('/api/users/community').get(users.listRecipes);
+  app.route('/api/users/leaderboard').get(users.leaderboard);
   app.route('/api/users/details/:recipeID').get(users.getDetails);
 
   // Setting up the users profile api
