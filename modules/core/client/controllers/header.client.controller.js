@@ -73,11 +73,13 @@
         });
     }
 
-    //sort_alt();
+    // sort_alt();
 
     vm.getAlternatives = getAlternatives;
 
     function getAlternatives() {
+      sort_alt();
+      
       // Initialize variables
       $scope.map = [];
       $scope.in_food_group;

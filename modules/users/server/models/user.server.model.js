@@ -80,7 +80,8 @@ var RecipeSchema = new Schema({
     lowCalorie: Boolean
   },
   ingredients: [IngredientSchema],
-  review: [ReviewSchema]
+  review: [ReviewSchema],
+  ownedBy: String
 });
 
 /**

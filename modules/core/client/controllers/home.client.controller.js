@@ -11,6 +11,7 @@
     var vm = this;
 
     vm.authentication = Authentication;
+    if(Authentication.user) vm.user = Authentication.user;
 
     // CALORIE SLIDER - Display the default slider value
     // var slider = document.getElementById('calories');
@@ -101,6 +102,8 @@
 
     // ======== ADD A RECIPE ===========
     $scope.add = (recipe) => {
+      recipe.ownedBy = vm.user.displayName;
+      
       CommunityService.addRecipe(recipe)
         .then(addRecipeSuccess)
         .catch(addRecipeFailure);
@@ -125,7 +128,8 @@
     // ========= DELETE RECIPE ============
     $scope.delete = (myRecipe) => {
       var myRecipeIndex = {
-        'index': $scope.myRecipes.indexOf(myRecipe)
+        'index': $scope.myRecipes.indexOf(myRecipe),
+        'recipe': myRecipe
       };
 
       CommunityService.deleteThisRecipe(myRecipeIndex)

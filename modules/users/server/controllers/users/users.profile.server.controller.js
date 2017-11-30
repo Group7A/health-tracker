@@ -7,7 +7,7 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
-  mongoose = require('mongoose'),
+  mongoose = require('mongoose').set('debug', true),
   multer = require('multer'),
   multerS3 = require('multer-s3'),
   aws = require('aws-sdk'),
@@ -47,16 +47,24 @@ exports.listRecipes = function (req, res) {
 
 // List of My Recipes
 exports.myRecipes = function (req, res) {
-  var recipes = req.user.recipes;
+  //var recipes = req.user.recipes;
+  var userDisplayName = req.user.displayName;
 
-  res.json({'recipes': recipes});
+  Recipe.find({'ownedBy': userDisplayName}, function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else res.send({'recipes': recipes});
+  });
 };
 
 // Get details of recipe
 exports.getDetails = function (req, res) {
-  var recipe = req.recipe;
+  var recipeDetails = req.recipeDetails;
 
-  res.send(recipe);
+  res.send(recipeDetails);
 }
 
 // Get recipe by id as middleware
@@ -74,38 +82,14 @@ exports.recipeByID = function(req, res, next, id) {
       });
     }
 
-    req.recipe = recipe;
+    req.recipeDetails = recipe;
     next();
   });
 };
 
 // Add recipe
 exports.add = function (req, res) {
-  var user = req.user;
   var recipe = req.body;
-
-  var addedRecipe = {
-    'name': recipe.name,
-    'cookingStyle': recipe.cookingStyle,
-    'time': recipe.time,
-    'healthClassifications': recipe.healthClassifications,
-    'ingredients': recipe.ingredients,
-    'directionsList': recipe.directionsList,
-    'review': recipe.review,
-    'image': recipe.image
-  };
-
-  user.recipes.push(addedRecipe);
-
-  // Save recipe for user
-  user.save(function (err) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } 
-  });
-
   var newRecipe = new Recipe(recipe);
 
   newRecipe.save(function (err) {
@@ -120,44 +104,16 @@ exports.add = function (req, res) {
 
 // Update recipe
 exports.updateRecipe = function(req, res) {
-  var user = req.user;
   var recipe = req.body;
 
-  var updatedRecipe = {
-    'name': recipe.name,
-    'cookingStyle': recipe.cookingStyle,
-    'time': recipe.time,
-    'healthClassifications': recipe.healthClassifications,
-    'ingredients': recipe.ingredients,
-    'directionsList': recipe.directionsList,
-    'review': recipe.review,
-    'image': recipe.image
-  };
-
- // If not editing after add, then it's updating in recipe details
- if(!recipe.editAfterAdd) {
-    user.recipes.forEach( (rec, i) => {
-      if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
-    });
-  } // If editing after add, then you can pop since the recipe was just added to the end of the array
-  else {
-    user.recipes.pop();
-    user.recipes.push(updatedRecipe);
-  }
-
-  user.save(function (err) {
+  Recipe.findByIdAndUpdate(recipe._id, recipe, {new: true}, function (err, updatedRecipe) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
+    }
+    else {
+      res.json(updatedRecipe)
     }
   });
 };
@@ -187,25 +143,15 @@ exports.alternatives = function (req, res) {
 
 // Delete recipe
 exports.deleteRecipe = function (req, res) {
-  var myRecipeIndex = req.body.index;
-  var user = req.user;
+  var recipe = req.body.recipe;
 
-  user.recipes.splice(myRecipeIndex, 1);
-
-  user.save(function (err) {
+  Recipe.findByIdAndRemove(recipe._id, function(err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
     }
+    else res.send(recipe);
   });
 };
 
