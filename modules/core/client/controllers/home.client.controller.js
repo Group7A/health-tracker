@@ -39,20 +39,22 @@
       .catch(failure);
 
     async function CommunityRecipeSuccess(response) {
-      $scope.communityRecipes = await response;
-      $scope.communityRecipesFiltered = [];
-      $scope.communityNames = [];
+      // $scope.communityRecipes = await response;
+      // $scope.communityRecipesFiltered = [];
+      // $scope.communityNames = [];
+
+      $scope.communityRecipesFiltered = await response.recipes;
 
       // Filter through all recipes and put them in one array
-      for(var recipe in $scope.communityRecipes) { 
-        for(var rec in $scope.communityRecipes[recipe]) {
-          // Check for ID to make sure it's a recipe. Also check if recipe is already in array
-          if($scope.communityRecipes[recipe][rec]._id && !$scope.communityNames.includes($scope.communityRecipes[recipe][rec].name)) { 
-            $scope.communityRecipesFiltered.push($scope.communityRecipes[recipe][rec]);
-            $scope.communityNames.push($scope.communityRecipes[recipe][rec].name);
-          };
-        }
-      }
+      // for(var recipe in $scope.communityRecipes) { 
+      //   for(var rec in $scope.communityRecipes[recipe]) {
+      //     // Check for ID to make sure it's a recipe. Also check if recipe is already in array
+      //     if($scope.communityRecipes[recipe][rec]._id && !$scope.communityNames.includes($scope.communityRecipes[recipe][rec].name)) { 
+      //       $scope.communityRecipesFiltered.push($scope.communityRecipes[recipe][rec]);
+      //       $scope.communityNames.push($scope.communityRecipes[recipe][rec].name);
+      //     };
+      //   }
+      // }
 
       for(var recipe in $scope.communityRecipesFiltered) {
         if($scope.communityRecipesFiltered[recipe].review.length > 0) {
