@@ -237,6 +237,7 @@
 .ingredient-containerR{
   background-color: rgba(156,156,156,0.6);
   padding: 25px 50px 25px 50px;
+  box-shadow: 0px 0px 10px rgb(231,231,231);
 }
 .al-h1L{
   color: #383838;
@@ -281,7 +282,8 @@
 }
 
 .htb {
-    padding: 5px 24px;
+    /*padding: 5px 24px;*/
+    padding: 5px 60px;
     border: 0 none;
     font-size: 16px;
 }
@@ -510,11 +512,15 @@ span.glyphicon-time {
   top: 0;
 }
 .review-containter{
-	height: 200px;
-	text-align: center;
-	margin-top: 3%;
-	background-color: grey;
+	/*background-color: currentColor;*/
+  /*background-color: rgb(230,230,230);*/
+  background-color: #737373;
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 9%;
 }
+
 
 
 /*ADD RECIPE*/
@@ -549,4 +555,16 @@ span.glyphicon-time {
 .healthClassifications:hover {
  background:#eee;
  cursor:pointer;
+}
+
+/*Customize*/
+.head-custo{
+  text-transform: uppercase;
+  width: 65%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 25px;
+  background-color: #737373;
+  color: #AEC86B;
+  font-weight: bold;
 }
