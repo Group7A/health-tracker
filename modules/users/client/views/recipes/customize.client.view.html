@@ -11,7 +11,10 @@
         </center>
         <center ng-hide="loading">
           <div class="row" ng-repeat="ingredient in ingredients" style="margin-top: 13px;">
-            <div class="head-custo">{{ingredient.name}}<input type="radio" ng-model="ingredient.choice" ng-value="ingredient.name"></input></div>
+            <div class="head-custo">
+              {{ingredient.name}}
+              <input type="radio" ng-model="ingredient.choice" ng-value="ingredient.name"></input>
+            </div>
             <div class="col-md-8 col-md-offset-2">
               <div class="col-md-4" ng-repeat="alternative in alternatives[$index]" style="padding-left: 0; padding-right: 0;">
                 <div class="boxed" style="min-height: 200px;">
@@ -21,126 +24,28 @@
                       </br>
                       </br>
                       <div class="container">
-                        <!-- <table id="myTable"> -->
-                          <!-- <thead> -->
-                            <!-- <th ng-repeat="alternative in alternatives[$index]"> -->
-                              <input ng-hide="alternative.none" type="radio"
-                                  ng-model="ingredient.choice" ng-value="alternative.map_name"> 
-                              </input>
-                              <div ng-show="alternative.none">
-                                No alternatives available
-                              </div>
-                            <!-- </th> -->
-                          <!-- </thead> -->
-                          <!-- <tr> -->
-                            <!-- <td ng-hide="alternative.none"> -->
-                              <table ng-hide="alternative.none">
-                                <thead>
-                                  <th>Protein</th>
-                                  <th>Fat</th>
-                                  <th>Carbs</th>
-                                  <th>Sugar</th>
-                                </thead>
-                                <tr>
-                                  <td ng-repeat="nutrient in alternative.nutrients">
-                                    {{nutrient.value}} {{nutrient.unit}}
-                                  </td>
-                                </tr>
-                              </table>
-                            <!-- </td> -->
-                          <!-- </tr> -->
-                        <!-- </table> -->
-                      </div>
-                      <!-- <div class="container">
-                        <table id="myTable">
+                        <input type="radio" ng-model="ingredient.choice" ng-value="alternative.map_name"></input>
+                        <table>
                           <thead>
-                            <th >
-                              <input ng-hide="alternative.none" type="radio"
-                                  ng-model="ingredient.choice" ng-value="alternative.map_name"> 
-                                {{alternative.map_name}}
-                              </input>
-                              <div ng-show="alternative.none">
-                                No alternatives available
-                              </div>
-                            </th>
+                            <th>Protein</th>
+                            <th>Fat</th>
+                            <th>Carbs</th>
+                            <th>Sugar</th>
                           </thead>
                           <tr>
-                            <td  ng-hide="alternative.none">
-                              <table id="insideTable">
-                                <thead>
-                                  <th>Protein</th>
-                                  <th>Fat</th>
-                                  <th>Carbs</th>
-                                  <th>Sugar</th>
-                                </thead>
-                                <tr>
-                                  <td ng-repeat="nutrient in alternative.nutrients">
-                                    {{nutrient.value}} {{nutrient.unit}}
-                                  </td>
-                                </tr>
-                              </table>
+                            <td ng-repeat="nutrient in alternative.nutrients">
+                              {{nutrient.value}} {{nutrient.unit}}
                             </td>
                           </tr>
                         </table>
-                      </div> -->
-                      </br>
-                      
-                      </br>
+                      </div>
+                      </br> </br>
                     </a>
                 </div>
               </div>
             </div>
-            
           </div>
-         <!--  <div ng-repeat="ingredient in ingredients">
-            </br>
-            <table>
-              <thead>
-                <th style="width: 50%">
-                  <input type="radio"
-                      ng-model="ingredient.choice" ng-value="ingredient.name">
-                      {{ingredient.name}}
-                  </input>
-                </th>
-                <th>Quantity: {{ingredient.quantity}}</th>
-                <th style="width: 25%">Units: {{ingredient.units}}</th>
-              </thead>
-            </table>
-            <div class="container">
-                <table id="myTable">
-                  <thead>
-                    <th ng-repeat="alternative in alternatives[$index]">
-                      <input ng-hide="alternative.none" type="radio"
-                          ng-model="ingredient.choice" ng-value="alternative.map_name"> 
-                        {{alternative.map_name}}
-                      </input>
-                      <div ng-show="alternative.none">
-                        No alternatives available
-                      </div>
-                    </th>
-                  </thead>
-                  <tr>
-                    <td ng-repeat="alternative in alternatives[$index]" ng-hide="alternative.none">
-                      <table id="insideTable">
-                        <thead>
-                          <th>Protein</th>
-                          <th>Fat</th>
-                          <th>Carbs</th>
-                          <th>Sugar</th>
-                        </thead>
-                        <tr>
-                          <td ng-repeat="nutrient in alternative.nutrients">
-                            {{nutrient.value}} {{nutrient.unit}}
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
-            </div>
-          </div> -->
         </center>
-        
         <br> <br>
         <button ng-click="saveIngredients()" class="htb htb-primary btn-lg sharp">
             SAVE
