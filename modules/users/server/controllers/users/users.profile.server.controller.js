@@ -33,26 +33,169 @@ if (useS3Storage) {
   s3 = new aws.S3();
 }
 
-/**
- * List of Community Recipes
- */
+// List of Community Recipes
 exports.listRecipes = function (req, res) {
-  User.find({}, '-salt -password -providerData').sort('-created').populate('user', 'displayName').exec(function (err, users) {
+  Recipe.find({}, function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else res.send({'recipes': recipes});
+  });
+};
+
+// List of My Recipes
+exports.myRecipes = function (req, res) {
+  //var recipes = req.user.recipes;
+  var userDisplayName = req.user.displayName;
+
+  Recipe.find({'ownedBy': userDisplayName}, function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else res.send({'recipes': recipes});
+  });
+};
+
+// Leaderboard List
+exports.leaderboard = function (req, res) {
+  var leaders = [];
+
+  Recipe.find({}, function (err, recipes) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else {
+      recipes.forEach( (recipe, i) => {
+        var index = 0;
+
+        if(leaders.length > 0) {
+          leaders.forEach( (leader, j) => {
+            if(leader.name == recipe.ownedBy) index = j;
+            else index = -1;
+          });
+        }
+        else {
+          leaders.push({
+            'name': recipe.ownedBy,
+            'recipeCount': 1
+          });
+        }
+
+        // If person is already in the array
+        if(index !== -1) {
+          leaders[index].recipeCount++;
+        }
+        else {
+          leaders.push({
+            'name': recipe.ownedBy,
+            'recipeCount': 1
+          });
+        }
+      });
+
+      res.send({'leaders': leaders});
+    }
+  });
+};
+
+// Get details of recipe
+exports.getDetails = function (req, res) {
+  var recipeDetails = req.recipeDetails;
+
+  res.send(recipeDetails);
+}
+
+// Get recipe by id as middleware
+exports.recipeByID = function(req, res, next, id) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).send({
+      message: 'Recipe is invalid'
+    });
+  }
+
+ Recipe.findById(id, function (err, recipe) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     }
 
-    var recipeMap = {};
-    var count = 0;
+    req.recipeDetails = recipe;
+    next();
+  });
+};
 
-    users.forEach(function (user) {
-      recipeMap[count] = user.recipes;
-      count++;
-    });
+// Add recipe
+exports.add = function (req, res) {
+  var recipe = req.body;
+  var newRecipe = new Recipe(recipe);
 
-    res.send(recipeMap);
+  newRecipe.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } 
+    else res.json(newRecipe);
+  });
+};
+
+// Update recipe
+exports.updateRecipe = function(req, res) {
+  var recipe = req.body;
+
+  Recipe.findByIdAndUpdate(recipe._id, recipe, {new: true}, function (err, updatedRecipe) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else {
+      res.json(updatedRecipe)
+    }
+  });
+};
+
+// Save new review for recipe
+exports.reviewRecipe = function(req, res) {
+  var rec = req.body;
+
+  Recipe.findByIdAndUpdate(rec._id, {'review': rec.review}, function (err, recipe) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else res.send(recipe);
+  });
+}
+
+// Get alternative search
+exports.alternatives = function (req, res) {
+  var searchFood = req.body.food;
+  var cookingStyle = req.body.cookingStyle;
+  var alternativeData = req.body.response;
+
+  res.json(searchFood);
+};
+
+// Delete recipe
+exports.deleteRecipe = function (req, res) {
+  var recipe = req.body.recipe;
+
+  Recipe.findByIdAndRemove(recipe._id, function(err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    else res.send(recipe);
   });
 };
 
@@ -258,175 +401,4 @@ exports.me = function (req, res) {
   }
 
   res.json(safeUserObject || null);
-};
-
-exports.getDetails = function (req, res) {
-  var recipe = req.recipe;
-
-  res.send(recipe);
-}
-
-exports.recipeByID = function(req, res, next, id) {
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).send({
-      message: 'Recipe is invalid'
-    });
-  }
-
-  var recipe = {
-    'test': 'working' 
-  };
-
-  var u = '';
-  var recipeMap = [];
-  var count = 0;
-
-  User.find({}, function (err, users) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    }
-
-    u = users;
-
-    // users.forEach(function (user) {
-    //   recipeMap[count] = user.recipes;
-    //   count++;
-    // });
-  });
-
-  // recipeMap.forEach( (rec, i) => {
-  //   if(rec._id == id) recipe = recipeMap[i];
-  // });
-
-  // req.recipe = {
-  //   "map": recipeMap
-  // };
-
-    req.recipe = {
-      "map": u
-    };
-
-  next();
-};
-
-exports.add = function (req, res) {
-  var user = req.user;
-  var recipe = req.body;
-
-  var addedRecipe = {
-    'name': recipe.name,
-    'cookingStyle': recipe.cookingStyle,
-    'time': recipe.time,
-    'healthClassifications': recipe.healthClassifications,
-    'ingredients': recipe.ingredients,
-    'directionsList': recipe.directionsList,
-    'review': recipe.review,
-    'image': recipe.image
-  };
-
-  user.recipes.push(addedRecipe);
-
-  user.save(function (err) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
-    }
-  });
-};
-
-exports.updateRecipe = function(req, res) {
-  var user = req.user;
-  var recipe = req.body;
-
-  var updatedRecipe = {
-    'name': recipe.name,
-    'cookingStyle': recipe.cookingStyle,
-    'time': recipe.time,
-    'healthClassifications': recipe.healthClassifications,
-    'ingredients': recipe.ingredients,
-    'directionsList': recipe.directionsList,
-    'review': recipe.review,
-    'image': recipe.image
-  };
-
- // If not editing after add, then it's updating in recipe details
- if(!recipe.editAfterAdd) {
-    user.recipes.forEach( (rec, i) => {
-      if(rec._id == recipe._id) user.recipes[i] = updatedRecipe;
-    });
-  } // If editing after add, then you can pop since the recipe was just added to the end of the array
-  else {
-    user.recipes.pop();
-    user.recipes.push(updatedRecipe);
-  }
-
-  user.save(function (err) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
-    }
-  });
-};
-
-exports.reviewRecipe = function(req, res) {
-  var recipe = req.body;
-
-  res.send(recipe);
-}
-
-exports.myRecipes = function (req, res) {
-  var user = req.user;
-
-  res.json(user);
-};
-
-exports.alternatives = function (req, res) {
-  var searchFood = req.body.food;
-  var cookingStyle = req.body.cookingStyle;
-  var alternativeData = req.body.response;
-
-  res.json(searchFood);
-};
-
-exports.deleteRecipe = function (req, res) {
-  var myRecipeIndex = req.body.index;
-  var user = req.user;
-
-  user.recipes.splice(myRecipeIndex, 1);
-
-  user.save(function (err) {
-    if (err) {
-      return res.status(422).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
-      });
-    }
-  });
 };

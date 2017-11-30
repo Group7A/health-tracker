@@ -21,7 +21,7 @@
     $scope.directionsList = [{}];
 
     if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
-      $scope.recipe = $stateParams.recipe;
+       $scope.recipe = $stateParams.recipe;
        $scope.recipe.editAfterAdd = true;
        $scope.ingredientList = $scope.recipe.ingredients;
        $scope.directionsList = $scope.recipe.directionsList;
@@ -52,8 +52,9 @@
         'review': [{
           'writtenReview': '',
           'rating': '',
-          'reviewdBy': vm.user.displayName
-        }]
+          'reviewedBy': vm.user.displayName
+        }],
+        'ownedBy': vm.user.displayName
       };
     }
 
@@ -104,7 +105,8 @@
             .catch(addFailure);
 
       function addSuccess(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' })
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' });
+        recipe._id = response._id;
       }
 
       function addFailure(response) {
@@ -112,7 +114,9 @@
       }
 
       function updateSuccess(response) {
-        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' })
+        Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' });
+        recipe._id = response._id;
+        console.log("Update:", response);
       }
 
       function updateFailure(response) {

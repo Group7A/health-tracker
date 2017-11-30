@@ -14,19 +14,21 @@
 
     vm.user = Authentication.user;
     vm.recipe = recipe;
-    $scope.recipe = $stateParams.recipeDetails;
+    //$scope.recipe = $stateParams.recipeDetails;
     $scope.anonymous = false;
     $scope.rating = 0;
 
+    console.log(vm.recipe);
+
     // DIRECTIONS
-    if($scope.recipe.directionsList.length > 0) $scope.showDirections = true;
+    if(vm.recipe.directionsList.length > 0) $scope.showDirections = true;
     else $scope.showDirections = false;
 
     // RATING
-    if($scope.recipe.review.length > 0) {
-      $scope.recipe.totalRating = averageStars($scope.recipe.review);
+    if(vm.recipe.review.length > 0) {
+      vm.recipe.totalRating = averageStars(vm.recipe.review);
     }
-    else $scope.recipe.totalRating = 0;
+    else vm.recipe.totalRating = 0;
 
     function averageStars(starsArray) {
       var total = 0;
@@ -44,8 +46,8 @@
     }
 
     // ======== ADD A RECIPE ===========
-    $scope.add = (recipe) => {
-      CommunityService.addRecipe(recipe)
+    $scope.add = (rec) => {
+      CommunityService.addRecipe(rec)
         .then(addRecipeSuccess)
         .catch(addRecipeFailure);
     };
@@ -55,7 +57,7 @@
     }
 
     function addRecipeFailure(response) {
-      Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' });
+      Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> You already own this recipe!' });
     }
 
     // RATING FROM USER
@@ -65,14 +67,14 @@
 
     // Submit Review
     $scope.submitReview = () => {
-      $scope.recipe.editAfterAdd = false;
-      $scope.recipe.review.push({
+      vm.recipe.editAfterAdd = false;
+      vm.recipe.review.push({
         'rating': $scope.rating,
         'writtenReview': $scope.writtenReview,
         'reviewedBy': $scope.anonymous ? "Anonymous" : vm.user.displayName
       });
 
-      UsersService.reviewOtherRecipe($scope.recipe)
+      UsersService.reviewOtherRecipe(vm.recipe)
         .then(updateSuccess)
         .catch(updateFailure);
 
