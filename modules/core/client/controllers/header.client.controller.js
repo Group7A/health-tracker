@@ -9,25 +9,15 @@
 
   function HeaderController($scope, $state, Authentication, menuService, TransferService, $http) {
     var vm = this;
-
-    vm.accountMenu = menuService.getMenu('account').items[0];
     vm.authentication = Authentication;
-    vm.isCollapsed = false;
-    vm.menu = menuService.getMenu('topbar');
-
-    $scope.$on('$stateChangeSuccess', stateChangeSuccess);
-
-    function stateChangeSuccess() {
-      // Collapsing the menu after navigation
-      vm.isCollapsed = false;
-    }
-
-    $scope.altFoods = [];
+    vm.getAlternatives = getAlternatives;
+    sort_alt();
 
     // Sort alternative ingredients
     async function sort_alt() {
       await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
         .then ((response) => {
+          $scope.altFoods = [];
           $scope.alt_food_object = response.data;
           
           $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
@@ -73,13 +63,8 @@
         });
     }
 
-    // sort_alt();
-
-    vm.getAlternatives = getAlternatives;
-
-    function getAlternatives() {
-      sort_alt();
-      
+    // Get alternatives when searching
+    async function getAlternatives() {
       // Initialize variables
       $scope.map = [];
       $scope.in_food_group;
