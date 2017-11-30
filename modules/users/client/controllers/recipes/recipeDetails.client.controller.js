@@ -57,7 +57,7 @@
     }
 
     function addRecipeFailure(response) {
-      Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' });
+      Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> You already own this recipe!' });
     }
 
     // RATING FROM USER
