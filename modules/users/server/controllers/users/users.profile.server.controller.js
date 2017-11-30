@@ -273,40 +273,13 @@ exports.recipeByID = function(req, res, next, id) {
     });
   }
 
-  var recipe = {
-    'test': 'working' 
-  };
-
-  var u = '';
-  var recipeMap = [];
-  var count = 0;
-
-  User.find({}, function (err, users) {
+ Recipe.findById(id, function (err, recipe) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     }
-
-    u = users;
-
-    // users.forEach(function (user) {
-    //   recipeMap[count] = user.recipes;
-    //   count++;
-    // });
   });
-
-  // recipeMap.forEach( (rec, i) => {
-  //   if(rec._id == id) recipe = recipeMap[i];
-  // });
-
-  // req.recipe = {
-  //   "map": recipeMap
-  // };
-
-    req.recipe = {
-      "map": u
-    };
 
   next();
 };
@@ -328,20 +301,24 @@ exports.add = function (req, res) {
 
   user.recipes.push(addedRecipe);
 
+  // Save recipe for user
   user.save(function (err) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
-    } else {
-      req.login(user, function (err) {
-        if (err) {
-          res.status(400).send(err);
-        } else {
-          res.json(user);
-        }
+    } 
+  });
+
+  var newRecipe = new Recipe(recipe);
+
+  newRecipe.save(function (err) {
+    if (err) {
+      return res.status(422).send({
+        message: errorHandler.getErrorMessage(err)
       });
-    }
+    } 
+    else res.json(newRecipe);
   });
 };
 
@@ -389,43 +366,15 @@ exports.updateRecipe = function(req, res) {
 };
 
 exports.reviewRecipe = function(req, res) {
-  var recipe = req.body;
+  var rec = req.body;
 
-  User.find({}, function (err, users) {
+  Recipe.findByIdAndUpdate(rec._id, {'review': rec.review}, function (err, recipe) {
     if (err) {
       return res.status(422).send({
         message: errorHandler.getErrorMessage(err)
       });
     }
-
-    users.forEach(function (user) {
-      user.recipes.forEach( (currentRecipe, i) => {
-        if(currentRecipe._id = recipe._id) {
-          user.recipes[i] = recipe;
-
-          // user.save(function (err) {
-          //   if (err) {
-          //     return res.status(422).send({
-          //       message: errorHandler.getErrorMessage(err)
-          //     });
-          //   } else {
-          //     req.login(user, function (err) {
-          //       if (err) {
-          //         res.status(400).send(err);
-          //       } else {
-          //         res.json(user);
-          //       }
-          //     });
-          //   }
-          // });
-          res.json({
-            'user': user,
-            'currentID': currentRecipe._id,
-            'recipeID': recipe._id
-          });
-        }
-      });
-    });
+    else res.send(recipe);
   });
 }
 
