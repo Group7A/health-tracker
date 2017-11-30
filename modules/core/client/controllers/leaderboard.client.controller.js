@@ -5,11 +5,16 @@
     .module('core')
     .controller('LeaderboardController', LeaderboardController);
 
-  LeaderboardController.$inject = ['$scope', 'Authentication', 'Notification', 'CommunityService', '$state'];
+  LeaderboardController.$inject = ['$scope', 'Authentication', 'Notification', 'CommunityService', '$state', '$timeout'];
 
-  function LeaderboardController($scope, Authentication, Notification, CommunityService, $state) {
+  function LeaderboardController($scope, Authentication, Notification, CommunityService, $state, $timeout) {
     var vm = this;
     vm.authentication = Authentication;
+
+    $scope.loading = true;
+    $timeout( function() {
+      $scope.loading = false
+    }, 2000);
 
     CommunityService.getLeaderboard()
       .then(getSuccess)
