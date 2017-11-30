@@ -79,6 +79,7 @@ exports.recipeByID = function(req, res, next, id) {
   });
 };
 
+// Add recipe
 exports.add = function (req, res) {
   var user = req.user;
   var recipe = req.body;
@@ -117,6 +118,7 @@ exports.add = function (req, res) {
   });
 };
 
+// Update recipe
 exports.updateRecipe = function(req, res) {
   var user = req.user;
   var recipe = req.body;
@@ -160,6 +162,7 @@ exports.updateRecipe = function(req, res) {
   });
 };
 
+// Save new review for recipe
 exports.reviewRecipe = function(req, res) {
   var rec = req.body;
 
@@ -173,6 +176,7 @@ exports.reviewRecipe = function(req, res) {
   });
 }
 
+// Get alternative search
 exports.alternatives = function (req, res) {
   var searchFood = req.body.food;
   var cookingStyle = req.body.cookingStyle;
@@ -181,6 +185,7 @@ exports.alternatives = function (req, res) {
   res.json(searchFood);
 };
 
+// Delete recipe
 exports.deleteRecipe = function (req, res) {
   var myRecipeIndex = req.body.index;
   var user = req.user;

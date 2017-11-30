@@ -73,7 +73,7 @@
         });
     }
 
-    sort_alt();
+    //sort_alt();
 
     vm.getAlternatives = getAlternatives;
 
