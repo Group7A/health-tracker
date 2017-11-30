@@ -3,28 +3,28 @@
     <div class="layer3">
       <div class="layer4" style="min-height:1250px;">
         <div>
-          <h5>{{recipe.name}}</h5>
+          <h5>{{vm.recipe.name}}</h5>
         </div>
         <div class="container-fluid" style="padding-left: 50px; color: rgb(169,169,169)">
           <div class="col-md-2 col-md-offset-2">
             <div style="float:right; text-transform: capitalize; ">  
               <img src="../modules/users/client/img/addRecipe/cooking-styleBlack.png" style="height: 25px; width: 25px; margin-right: 4px; margin-top: -2px;">  
-                {{recipe.cookingStyle}}
+                {{vm.recipe.cookingStyle}}
             </div>
           </div>
           <div class="col-md-2">
             <div style="border-right: 1px solid rgb(169,169,169); border-left: 1px solid rgb(169,169,169); ">   
-              <img src="../modules/users/client/img/addRecipe/timerBlack.png" style="height: 20px; width: 20px; margin-right: 4px;">{{recipe.time}} mins                                 
+              <img src="../modules/users/client/img/addRecipe/timerBlack.png" style="height: 20px; width: 20px; margin-right: 4px;">{{vm.recipe.time}} mins                                 
             </div>
           </div>
           <div class="col-md-2" style=" padding-left: 0px; padding-right: 20px;">
             <div style="border-right: 1px solid rgb(169,169,169); margin-left: -13px;">      
               <!-- <img src="../modules/users/client/img/addRecipe/platesBlack.png" style="height: 25px; width: 25px; margin-right: 4px;"> -->
-              <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">                             
+              <img class="card-icon" ng-show="vm.recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">                             
             </div>                    
           </div>
           <div class="col-md-2" style="padding-left: 10px;">
@@ -32,7 +32,7 @@
               <div id="stars">
                 <span ng-repeat="i in getNumber(5) track by $index" 
                   class="fa fa-star" 
-                  ng-class="recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'">
+                  ng-class="vm.recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'">
                 </span>
               </div>                  
             </div>
@@ -59,7 +59,7 @@
               </div>
               <div class="text" ng-hide="direct">
                 <ul class="list" style="padding-right: 17%;">
-                  <li ng-repeat="ingredient in recipe.ingredients">
+                  <li ng-repeat="ingredient in vm.recipe.ingredients">
                     <p class="ingredient-quantity">{{ingredient.quantity}}</p> {{ingredient.units}} of {{ingredient.name}}
                     <hr class="hr-ingredientes">
                   </li>
@@ -67,7 +67,7 @@
               </div>
               <div class="text" ng-show="direct" >
                 <ul class="list" style="padding-right: 17%;">
-                  <li ng-show="showDirections" class="direction-list" ng-repeat="directions in recipe.directionsList">
+                  <li ng-show="showDirections" class="direction-list" ng-repeat="directions in vm.recipe.directionsList">
                     <div class="ingredient-quantity"> 
                       {{$index + 1}}
                     </div> 
@@ -82,12 +82,12 @@
             </div>  
           </div>
           <div class="col-md-6" style="padding-right: 10%;">
-            <a type="button" class="savebtn" href="" ng-click="add(recipe)">
+            <a type="button" class="savebtn" href="" ng-click="add(vm.recipe)">
               <span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> 
               Save Recipe</a>
         
             <div>
-              <img class="heroimage" ng-src="{{recipe.image}}">
+              <img class="heroimage" ng-src="{{vm.recipe.image}}">
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@
           <button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
           <hr style="margin-top: 50px;">
           <h3>Top 3 Reviews</h3>
-          <div ng-repeat="review in recipe.review | 
+          <div ng-repeat="review in vm.recipe.review | 
               orderBy:'rating':true | limitTo: 3" class="row" style="padding: 10px 8% 10px 8%;">
             <div>
             <div >
