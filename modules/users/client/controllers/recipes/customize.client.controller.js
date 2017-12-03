@@ -30,7 +30,6 @@
 
     // Get ingredients data and initialize user choices
     if($scope.recipe) {
-      $scope.recipe.editAfterAdd = true;
       $scope.ingredients = $scope.recipe.ingredients;
 
       $scope.ingredients.forEach( (ingredient) => {
