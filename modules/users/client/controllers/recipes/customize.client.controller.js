@@ -10,6 +10,7 @@
   function CustomizeController(UsersService, $scope, $stateParams, $http, Notification, $state, $timeout) {
     var vm = this;
 
+    // Set loading gif to start on screen for 5 seconds to allow data to load
     $scope.loading = true;
     $timeout( function() {
       $scope.loading = false
@@ -17,6 +18,8 @@
     
     // Get map and recipe/ingredients from previous state
     $scope.recipe = $stateParams.recipe;
+    $scope.healthy_map = $stateParams.healthy_map;
+    $scope.truest_map = $stateParams.truest_map;
     $scope.alternatives = $stateParams.multiple_map;
 
     // Get alternative data
@@ -25,7 +28,7 @@
         alternative.map_name = alternative.map_name;
       });
 
-      getR();
+      getUSDAResults();
     }
 
     // Get ingredients data and initialize user choices
@@ -67,7 +70,7 @@
     }
 
     // Search through each alternative and getReport for each one
-    async function getR() {
+    async function getUSDAResults() {
     	var alternatives = await $scope.alternatives;
 
     	alternatives.forEach( (alternative, i) => {
@@ -84,18 +87,15 @@
 	    });
     }
 
-    // API KEY
+    // USDA API key and variables needed for API use
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
-    
-    // FOR REPORT
     var type = 'b';
     var format = 'json';
-
-    // FOR INDIVIDUAL SEARCHES
     var sort = 'n';
     var max = '200';
     var ds = 'Standard Reference';
 
+    // Get info from USDA API
     function getReport (alternative) {
       var reportURL = 
           'https://api.nal.usda.gov/ndb/reports/' + 
@@ -104,6 +104,7 @@
           '&format=' + format + 
           '&api_key=' + apiKey; 
 
+      // Does $http.get of USDA API results
       getURL(reportURL)
           .then((results) => {
             $scope.searched = results.data;
