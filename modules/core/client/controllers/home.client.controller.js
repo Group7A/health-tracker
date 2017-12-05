@@ -68,10 +68,12 @@
       return new Array(num); 
     }
 
-    // Get my recipes
-    CommunityService.getMyRecipes()
-      .then(MyRecipeSuccess)
-      .catch(failure);
+    // Get my recipes if user is logged in
+    if(Authentication.user) {
+      CommunityService.getMyRecipes()
+        .then(MyRecipeSuccess)
+        .catch(failure);
+    }
 
     function MyRecipeSuccess(response) {
       $scope.myRecipes = response.recipes;

@@ -47,7 +47,6 @@ exports.listRecipes = function (req, res) {
 
 // List of My Recipes
 exports.myRecipes = function (req, res) {
-  //var recipes = req.user.recipes;
   var userDisplayName = req.user.displayName;
 
   Recipe.find({'ownedBy': userDisplayName}, function (err, recipes) {
