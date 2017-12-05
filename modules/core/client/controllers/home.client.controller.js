@@ -23,7 +23,7 @@
     //   output.innerHTML = this.value;
     // };
 
-    // ========= SHOW COMMUNITY OR MY RECIPES ========
+    // Show community or my recipes
     $scope.showCommunity = true;
 
     $scope.showPopular = () => {
@@ -34,28 +34,14 @@
       $scope.showCommunity = false;
     };
 
-    // =========== GET COMMUNITY RECIPES ============
+    // Get community recipes list
     CommunityService.getList()
       .then(CommunityRecipeSuccess)
       .catch(failure);
 
+    // Set variables to the response's data
     async function CommunityRecipeSuccess(response) {
-      // $scope.communityRecipes = await response;
-      // $scope.communityRecipesFiltered = [];
-      // $scope.communityNames = [];
-
       $scope.communityRecipesFiltered = await response.recipes;
-
-      // Filter through all recipes and put them in one array
-      // for(var recipe in $scope.communityRecipes) { 
-      //   for(var rec in $scope.communityRecipes[recipe]) {
-      //     // Check for ID to make sure it's a recipe. Also check if recipe is already in array
-      //     if($scope.communityRecipes[recipe][rec]._id && !$scope.communityNames.includes($scope.communityRecipes[recipe][rec].name)) { 
-      //       $scope.communityRecipesFiltered.push($scope.communityRecipes[recipe][rec]);
-      //       $scope.communityNames.push($scope.communityRecipes[recipe][rec].name);
-      //     };
-      //   }
-      // }
 
       for(var recipe in $scope.communityRecipesFiltered) {
         if($scope.communityRecipesFiltered[recipe].review.length > 0) {
@@ -65,22 +51,24 @@
       };
     }
 
+    // Get average rating to display
     function averageStars(starsArray) {
       var total = 0;
 
       for(var i = 0; i < starsArray.length; i++) {
-          total += starsArray[i].rating;
+        total += starsArray[i].rating;
       }
 
       var avg = total / starsArray.length;
       return avg;
     }
 
+    // Get number in html
     $scope.getNumber = (num) => {
       return new Array(num); 
     }
 
-    // ======== GET MY RECIPES =========
+    // Get my recipes
     CommunityService.getMyRecipes()
       .then(MyRecipeSuccess)
       .catch(failure);
@@ -100,7 +88,7 @@
       console.log('Failure: ', error);
     }  
 
-    // ======== ADD A RECIPE ===========
+    // Add a recipe
     $scope.add = (recipe) => {
       recipe.ownedBy = vm.user.displayName;
       
@@ -109,6 +97,7 @@
         .catch(addRecipeFailure);
     };
 
+    // Send notification and then update the lists
     function addRecipeSuccess(response) {
       Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' });
 
@@ -125,7 +114,7 @@
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> You already own this recipe!' });
     }
 
-    // ========= DELETE RECIPE ============
+    // Delete a recipe
     $scope.delete = (myRecipe) => {
       var myRecipeIndex = {
         'index': $scope.myRecipes.indexOf(myRecipe),
@@ -137,6 +126,7 @@
         .catch(deleteRecipeFailure);
     };
 
+    // Send notification and update lists
     function deleteRecipeSuccess(response) {
       Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Delete recipe successful!' });
 
@@ -154,10 +144,11 @@
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Delete recipe failed!' });
     }
 
-    // RATING FILTER
+    // Rating filter
     $scope.ratingFilter = true;
     $scope.highestRating = true;
 
+    // Go from highest to lowest or lowest to highest
     $scope.ratingFilterOption = (highestOrLowest) => {
       if(highestOrLowest === 'highest') {
         $scope.ratingFilter = true;
@@ -171,7 +162,7 @@
       }
     }
 
-    // HEALTH CLASSIFICATION FILTER
+    // Health classification filters
     $scope.showAnyClass = true;
     $scope.showGlutenFree = false;
     $scope.showNoSugar = false;
@@ -179,6 +170,7 @@
     $scope.showVegan = false;
     $scope.showLowCalorie = false;
 
+    // Get which classification to filter
     $scope.healthClassificationFilter = (classif) => {
       if(classif === 'any') {
         $scope.showAnyClass = true;
@@ -239,7 +231,7 @@
       else return true; 
     }
 
-    // COOKING STYLE FILTER
+    // Cooking style filter
     $scope.showAny = true;
     $scope.showBeverage = false;
     $scope.showBakedGoods = false;
@@ -252,6 +244,7 @@
     $scope.showStoveTop = false;
     $scope.showOthers = false;
 
+    // Get which style to filter
     $scope.cookingStyleFilter = (style) => {
       if(style === 'any') {
         $scope.showAny = true;

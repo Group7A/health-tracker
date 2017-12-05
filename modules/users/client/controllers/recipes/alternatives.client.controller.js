@@ -15,7 +15,6 @@
     $scope.healthy_alternatives = $stateParams.healthy_map;
     $scope.truest_alternatives = $stateParams.truest_map;
     $scope.multiple_alternatives = $stateParams.multiple_map;
-    
     if($scope.recipe) $scope.ingredients = $scope.recipe.ingredients;
 
     // Toggle between healthy and truest to taste views

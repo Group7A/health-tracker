@@ -38,6 +38,9 @@
         templateUrl: '/modules/core/client/views/search.client.view.html',
         controller: 'SearchController',
         controllerAs: 'vm',
+        params: { 
+          'alternatives': null
+        },
         css: '/modules/core/client/css/search.css'
       })
       .state('not-found', {
