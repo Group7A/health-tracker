@@ -14,11 +14,8 @@
 
     vm.user = Authentication.user;
     vm.recipe = recipe;
-    //$scope.recipe = $stateParams.recipeDetails;
     $scope.anonymous = false;
     $scope.rating = 0;
-
-    console.log(vm.recipe);
 
     // Directions list
     if(vm.recipe.directionsList.length > 0) $scope.showDirections = true;
@@ -88,6 +85,8 @@
 
         var star = document.getElementsByName("group-1");
         for(var i=0; i<star.length; i++) star[i].checked = false;
+
+        vm.recipe.totalRating = averageStars(vm.recipe.review);
       }
 
       function updateFailure(response) {
