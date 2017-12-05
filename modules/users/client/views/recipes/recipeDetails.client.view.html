@@ -1,94 +1,206 @@
-<div class="heroimage">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h5>{{recipe.name}}</h5>
+<div class="row row-fix text-center layer1">
+  <div class="col-md-10 col-md-offset-1 layer2">
+    <div class="layer3">
+      <div class="layer4" style="min-height:1250px; padding-bottom:0">
+        <div>
+          <h5>{{vm.recipe.name}}</h5>
+        </div>
+        <div class="container-fluid" style="padding-left: 50px; color: rgb(169,169,169)">
+          <div class="col-md-2 col-md-offset-2">
+            <div style="float:right; text-transform: capitalize; ">  
+              <img src="../modules/users/client/img/addRecipe/cooking-styleBlack.png" style="height: 25px; width: 25px; margin-right: 4px; margin-top: -2px;">  
+                {{vm.recipe.cookingStyle}}
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div style="border-right: 1px solid rgb(169,169,169); border-left: 1px solid rgb(169,169,169); ">   
+              <img src="../modules/users/client/img/addRecipe/timerBlack.png" style="height: 20px; width: 20px; margin-right: 4px;">{{vm.recipe.time}} mins                                 
+            </div>
+          </div>
+          <div class="col-md-2" style=" padding-left: 0px; padding-right: 20px;">
+            <div style="border-right: 1px solid rgb(169,169,169); margin-left: -13px;">      
+              <!-- <img src="../modules/users/client/img/addRecipe/platesBlack.png" style="height: 25px; width: 25px; margin-right: 4px;"> -->
+              <img class="card-icon" ng-show="vm.recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                <img class="card-icon" ng-show="vm.recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">                             
+            </div>                    
+          </div>
+          <div class="col-md-2" style="padding-left: 10px;">
+            <div style="float:left;">   
+              <div id="stars">
+                <span ng-repeat="i in getNumber(5) track by $index" 
+                  class="fa fa-star" 
+                  ng-class="vm.recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'">
+                </span>
+              </div>                  
+            </div>
+          </div>
+        </div>
+        <div class="row rox-fix" style="margin-top: 50px">
+          <div class="col-md-6" style="padding-left: 10%;" >
+            <div class="ingredient-containerRecipeDetails">
+              <div class="row row-fix heading" ng-hide="direct">
+                  <div class="col-md-4 col-md-offset-1 ingDirActive">
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
+                  </div>
+                  <div class="col-md-4 text-center ingDirDisable">
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
+                  </div>
+              </div>
+              <div class="row row-fix heading" ng-show="direct">
+                  <div class="col-md-4 col-md-offset-1 text-center ingDirDisable">
+                    <a class="padding-text" href="" ng-click="direct=false">Ingredients</a>
+                  </div>
+                  <div class="col-md-4 ingDirActive">
+                    <a class="padding-text" href="" ng-click="direct=true">Directions</a>
+                  </div>
+              </div>
+              <div class="text" ng-hide="direct">
+                <ul class="list" style="padding-right: 17%;">
+                  <li ng-repeat="ingredient in vm.recipe.ingredients">
+                    <p class="ingredient-quantity">{{ingredient.quantity}}</p> {{ingredient.units}} of {{ingredient.name}}
+                    <hr class="hr-ingredientes">
+                  </li>
+                </ul>
+              </div>
+              <div class="text" ng-show="direct" >
+                <ul class="list" style="padding-right: 17%;">
+                  <li ng-show="showDirections" class="direction-list" ng-repeat="directions in vm.recipe.directionsList">
+                    <div class="ingredient-quantity"> 
+                      {{$index + 1}}
+                    </div> 
+                    {{directions.directions}} 
+                    <hr class="hr-ingredientes">
+                  </li>
+                  <li ng-hide="showDirections" class="direction-list">
+                    <div>No directions available</div>
+                  </li>
+                </ul>
+              </div>
+            </div>  
+          </div>
+          <div class="col-md-6" style="padding-right: 10%;">
+            <a type="button" class="savebtn" href="" ng-click="add(vm.recipe)">
+              <span class="glyphicon glyphicon-plus-sign savebtn-size" aria-hidden="true"></span> 
+              Save Recipe</a>
+        
+            <div>
+              <img class="heroimage" ng-src="{{vm.recipe.image}}">
+            </div>
+          </div>
+        </div>
+        <div class="row review-containter">
+          <!--<div class="col-md-6 col-md-offset-3" id="comment_rate">
+            <hr style="margin-top: 80px;">
+            
+            <h3>What did you think of this recipe?</h3>          
+            </br>
+            <div style="float: left">
+              <input ng-model="anonymous" type="checkbox">&nbsp;Review as anonymous?</input>
+            </div>
+            <div class="acidjs-rating-stars" style="float:right">
+              <form id="rating">
+                <input ng-click="getStars(5)" type="radio" name="group-1" id="group-1-0" value="5"/><label for="group-1-0"></label>
+                <input ng-click="getStars(4)" type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label>
+                <input ng-click="getStars(3)" type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label>
+                <input ng-click="getStars(2)" type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label>
+                <input ng-click="getStars(1)" type="radio" name="group-1" id="group-1-4" value="1" /><label for="group-1-4"></label>
+              </form>
+            </div>
+            <textarea ng-model="writtenReview" placeholder="Leave a comment on this recipe here"></textarea>
+            <br>-->
+            <!--<button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
+            <hr style="margin-top: 50px;">
+            <h3>Top 3 Reviews</h3>
+            <div ng-repeat="review in recipe.review | 
+                orderBy:'rating':true | limitTo: 3" class="row" style="padding: 10px 8% 10px 8%;">
+              <div>
+              <div >
+                <div style="float:left">
+                  <div>{{review.reviewedBy}}:</div> -->
+
+                 <!--  <a class="dropdown-toggle user-header-dropdown-toggle head" uib-dropdown-toggle role="button">
+                    <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+                    <span ng-bind="vm.authentication.user.displayName"></span>
+                  </a> -->
+
+        <div class="col-md-6 col-md-offset-3" id="comment_rate">
+          <hr style="margin-top: 100px;">
+          
+          <h3>What did you think of this recipe?</h3>          
+          </br>
+          <div style="float: left">
+            <input ng-model="anonymous" type="checkbox">&nbsp;Review as anonymous?</input>
+          </div>
+          <div class="acidjs-rating-stars" style="float:right">
+            <form id="rating">
+              <input ng-click="getStars(5)" type="radio" name="group-1" id="group-1-0" value="5"/><label for="group-1-0"></label>
+              <input ng-click="getStars(4)" type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label>
+              <input ng-click="getStars(3)" type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label>
+              <input ng-click="getStars(2)" type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label>
+              <input ng-click="getStars(1)" type="radio" name="group-1" id="group-1-4" value="1" /><label for="group-1-4"></label>
+            </form>
+          </div>
+          <textarea ng-model="writtenReview" placeholder="Leave a comment on this recipe here"></textarea>
+          <br>
+          <button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
+          <hr style="margin-top: 50px;">
+          <h3>Top 3 Reviews</h3>
+          <div ng-repeat="review in vm.recipe.review | 
+              orderBy:'rating':true | limitTo: 3" class="row" style="padding: 10px 8% 10px 8%;">
+            <div>
+            <div >
+              <div style="float:left">
+                <div>{{review.reviewedBy}}:</div> 
+               <!--  <a class="dropdown-toggle user-header-dropdown-toggle head" uib-dropdown-toggle role="button">
+                  <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
+                  <span ng-bind="vm.authentication.user.displayName"></span>
+                </a> -->
+
+              </div>
+                <div style="float: right">
+                  <!-- <u>Rating</u> -->
+                  <div id="stars">
+                    <span ng-repeat="i in getNumber(5) track by $index" 
+                      class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                  </div>
+                </div>
+                <br>
+                <div style="float: left; padding-left: 10px; padding-right: 10px;">
+                  <!-- <u>Comment</u> -->
+                  <div> 
+                    {{review.writtenReview}} 
+                  </div>
+                </div>
+                <br> <br>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <div class="savebtn">
-  
-</div> -->
-<div class="recipeDetail">
-  <div>
-    <div class="heading">
-      Ingredients
-    </div>
-    <hr>
-    <div class="text">
-      <ul class="list">
-        <li ng-repeat="ingredient in recipe.ingredients">
-          {{ingredient.quantity}} {{ingredient.units}} of {{ingredient.name}}
-        </li>
-      </ul>
-      
-    </div>
-  </div>  
 
-  <div class="directions">
-    <div class="heading">
-      Directions
-    </div>
-    <hr>
-    <div style="margin-left: 29%;">
-      <div class="verticalLine">
-        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
-        {{recipe.time}} min | Total
-      </div>
-    </div>
-    <div class="text">
-      <ul class="list">
-        <li class="direction-list"> 
-          Cooking style: <u>{{recipe.cookingStyle}}</u> 
-        </li>
-        <li ng-show="showDirections" class="direction-list" ng-repeat="directions in recipe.directionsList">
-          <div class="glyphicon-ring glyphicon-white"> 
-            {{$index + 1}}
-          </div> 
-          {{directions.directions}} 
-        </li>
-        <li ng-hide="showDirections" class="direction-list">
-          <div>No directions available</div>
-        </li>
-      </ul>
-    </div>
-  </div>
+<style>
+/*input[type=text]:focus {
+    border: 3px solid #555;
+}*/
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    background-color: #f8f8f8;
+    resize: none;
+    overflow: auto;
+    /*box-shadow: 4px 5px 10px rgb(231,231,231);*/
+    box-shadow: 4px 5px 10px rgb(130,130,130);
+}
+</style>
 
-</div>
-<!-- Reviews -->
-<div class="review-containter">
-  <div>
-    <div class="heading">
-      Review
-    </div>
-    <hr>
-    
-  </div>
-  
-</div>
-
-
-
-<!-- <section>
-  <div class="page-header">
-    <h1>Recipedetails</h1>
-  </div>
-  <div class="list-group">
-    <a ng-repeat="recipedetail in vm.recipedetails"
-       ui-sref="recipedetails.view({ recipedetailId: recipedetail._id })"
-       class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span ng-bind="recipedetail.created | date:'mediumDate'"></span>
-        by
-        <span ng-if="recipedetail.user" ng-bind="recipedetail.user.displayName"></span>
-        <span ng-if="!recipedetail.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" ng-bind="recipedetail.name"></h4>
-    </a>
-  </div>
-  <div class="alert alert-warning text-center" ng-if="vm.recipedetails.$resolved && !vm.recipedetails.length">
-    No Recipedetails yet, why don't you <a ui-sref="recipedetails.create">create one</a>?
-  </div>
-</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

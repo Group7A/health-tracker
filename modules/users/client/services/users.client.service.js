@@ -79,6 +79,14 @@
         method: 'POST',
         url: '/api/users/add'
       },
+      updateRecipe: {
+        method: 'POST',
+        url: '/api/users/updateRecipe'
+      },
+      reviewRecipe: {
+        method: 'POST',
+        url: '/api/users/reviewRecipe'
+      },
       myRecipes: {
         method: 'GET',
         url: '/api/users/myRecipes'
@@ -119,6 +127,12 @@
       addRecipe: function (param) {
         return this.add(param).$promise;
       },
+      updateMyRecipe: function (param) {
+        return this.updateRecipe(param).$promise;
+      },
+      reviewOtherRecipe: function (param) {
+        return this.reviewRecipe(param).$promise;
+      },
       getMyRecipes: function () {
         return this.myRecipes().$promise;
       },
@@ -131,6 +145,23 @@
     });
 
     return Users;
+  }
+
+  // Details service
+  angular
+    .module('users.services')
+    .factory('DetailsService', DetailsService);
+
+  DetailsService.$inject = ['$resource'];
+
+  function DetailsService($resource) {
+    return $resource('/api/users/details/:recipeID', {
+      recipeID: '@_id'
+    }, {
+      update: {
+        method: 'PUT'
+      }
+    });
   }
 
   // TODO this should be Users service

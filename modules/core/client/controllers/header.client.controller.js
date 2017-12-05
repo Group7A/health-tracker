@@ -9,25 +9,17 @@
 
   function HeaderController($scope, $state, Authentication, menuService, TransferService, $http) {
     var vm = this;
-
-    vm.accountMenu = menuService.getMenu('account').items[0];
     vm.authentication = Authentication;
-    vm.isCollapsed = false;
-    vm.menu = menuService.getMenu('topbar');
-
-    $scope.$on('$stateChangeSuccess', stateChangeSuccess);
-
-    function stateChangeSuccess() {
-      // Collapsing the menu after navigation
-      vm.isCollapsed = false;
-    }
+    vm.getAlternatives = getAlternatives;
+    sort_alt();
 
     // Sort alternative ingredients
     async function sort_alt() {
       await $http.get('./modules/users/client/controllers/recipes/food_alternatives.json')
         .then ((response) => {
+          $scope.altFoods = [];
           $scope.alt_food_object = response.data;
-
+          
           $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
             cooking_method.food_groups.forEach( (food_group, j) => {
               food_group.food_alts.sort(function(a, b) {
@@ -45,14 +37,34 @@
               });
             });
           });
+
+          $scope.duplicate = 0;
+
+          $scope.alt_food_object.cooking_methods.forEach((cooking_method, i) => {
+            cooking_method.food_groups.forEach( (food_group, j) => {
+              food_group.food_alts.forEach( (food_alt, k) => {
+
+                $scope.altFoods.forEach( (altFood, l) => {
+                  if(food_alt.db_name == altFood){
+                    $scope.duplicate = 1;
+                  }
+                });
+
+                if($scope.duplicate == 0){
+                    $scope.altFoods.push(food_alt.db_name);
+                }
+                else{
+                  $scope.duplicate = 0
+                }
+                
+              });
+            });
+          });
         });
     }
 
-    sort_alt();
-
-    vm.getAlternatives = getAlternatives;
-
-    function getAlternatives() {
+    // Get alternatives when searching
+    async function getAlternatives() {
       // Initialize variables
       $scope.map = [];
       $scope.in_food_group;
@@ -61,7 +73,7 @@
       $scope.have_match = 0;
       $scope.top_alt_count = 3;
       $scope.mid_ind;
-      $scope.cookingStyle = 'baked';
+      $scope.cookingStyle = 'None';
 
       $scope.alt_request = 2;
       // 0 - want single healthies alt
@@ -73,14 +85,13 @@
         cooking_method.food_groups.forEach( (food_group, j) => {
           food_group.food_alts.forEach( (food_alt, k) => {
               
-            if((food_alt.db_name == vm.searchFood) && ($scope.cookingStyle == cooking_method.method_name)){
+            if((food_alt.db_name.toLowerCase() == vm.searchFood.toLowerCase()) && ($scope.cookingStyle == cooking_method.method_name)){
               var alt_item = food_alt;
               $scope.map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
               $scope.have_match = 1;
             }
-            else if ((food_alt.db_name != vm.searchFood) && ($scope.have_match == 1)){
+            else if ((food_alt.db_name.toLowerCase() != vm.searchFood.toLowerCase()) && ($scope.have_match == 1)){
               $scope.all_alt_in_group.push(food_alt);
-              console.log(food_alt);
             }			
           });
           $scope.have_match = 0;
@@ -120,10 +131,10 @@
       else $scope.map.push({"map_name": "No alternatives available"});
 
       // FIRST ITEM IN MAP IS THE ORIGINAL ITEM
-      console.log($scope.map);
       TransferService.setAlternatives($scope.map);
 
-      $state.go('search');
+      if($state.is('search')) $state.reload();
+      else $state.go('search');
     }
   }
 }());

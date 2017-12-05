@@ -52,10 +52,16 @@
 }
 .profile-container{
   background-color:rgb(255,255,255); 
-  padding-bottom: 24px; 
-  margin-top: 120px;
-  box-shadow: 7px 7px 8px #888888;
+  padding-bottom: 30px; 
+  margin-top: 60px;
+  /*box-shadow: 7px 7px 8px #888888;*/
+  /*box-shadow: 4px 5px 10px rgb(231,231,231);*/
+  /*box-shadow: 0px 0px 10px rgb(231,231,231);*/
+  box-shadow: 0px 0px 12px 1px rgb(231,231,231);
   border-radius: 2px;
+  /*margin-bottom: 60px;*/
+  padding-left: 0;
+  padding-right: 0;
 }
 .tab-selection{
   background-color: rgb(255,255,255); 
@@ -79,13 +85,15 @@
   text-decoration: none; 
 }
 .padding-text{
-  margin-left: 15px;
   color: rgb(78,78,78);
   font-size: 15px;
 }
 .padding-text:hover{
   color: rgba(78,78,78,0.8);
   text-decoration: none;
+}
+.margin-tab{
+  margin-left: 15px;
 }
 .row-fix{
   margin-right: 0; 
@@ -94,13 +102,30 @@
 .linkUpdatePic{
   color: white !important;
 }
+.padding-icon{
+  padding-right: 10px;
+  font-size: 16px;
+}
 
 /*ghfhjgfj */
 .profileImg-container {
-    position: relative;
-    margin-bottom: 0;
+  position: relative;
+  margin-bottom: 0;
     /*width: 50%;*/
-
+  margin-top: -10px;
+}
+.info-container{
+  padding-left: 0;
+  padding-right: 0;
+  /*box-shadow: 3px 3px 5px 6px rgb(231,231,231);*/
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0, .65);
+  box-shadow: 0 0 10px rgba(0,0,0, .65);
+  margin-top: -40px;
+}
+.info-container1{
+  padding-right: 0px;
+  padding-left: 50px;
 }
 
 .image {
@@ -116,20 +141,13 @@
   transition: .5s ease;
   opacity: 0;
   position: absolute;
-  /*top: 50%;*/
   left: 50%;
   transform: translate(-50%, -100%);
-  /*-ms-transform: translate(-50%, -50%)*/
   width: 100%;
 }
 .middleOkCancel {
   transition: .5s ease;
-  /*position: absolute;*/
-  /*top: 50%;*/
-  /*left: 50%;*/
   transform: translate(0%, 20%);
-  /*-ms-transform: translate(-50%, -50%)*/
-  /*width: 100%;*/
 }
 .text1OkCancel {
   background-color: rgba(43,43,43,0.8);
@@ -157,8 +175,8 @@
 .text1 {
   background-color: rgba(43,43,43,0.8);
   color: white;
-  font-size: 14px;
-  padding: 10px 32px;
+  font-size: 12px;
+  padding: 10px 23px;
 }
 .text1:hover{
   background-color: rgba(43,43,43,0.9);
@@ -167,32 +185,63 @@
 .health-container{
   background-color: rgb(219,219,219);
   border-radius: 2px;
-  width: 119%;
-  padding-left: 16px;
-  padding-right: 24px;
-  box-shadow: 3px 3px 5px #888888;
+  /*width: 119%;*/
+/*  padding-left: 16px;
+  padding-right: 24px;*/
+  box-shadow: 4px 5px 10px rgb(231,231,231);
 }
-.health-containerL{
-  margin-left: -10px;
+.HrowContainer{
+  padding-left: 9%;
+  padding-right: 9%;
 }
-.health-containerR{
-  margin-left: 7px;
+.health-headerMargin{
+  padding-top: 7%;
+}
+.health-containerBox{
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-
+.profileHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 5%;
+  padding-left: 38%;
+}
+.settingsHeading{
+  background-color: #AEC86B;
+  height: 80px;  
+  color: white;
+  font-size: 24px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding-top: 5%;
+}
+.personal-profile{
+  margin-top: 25px;
+  padding-left: 7%;
+  padding-right: 7%;
+}
 
 /* ALTERNATIVE VIEW*/
 .ingredient-containerL{
-  background-color: rgba(156,156,156,0.3);
+  /*background-color: rgb(244,244,244);*/
   padding: 25px 50px 25px 50px;
+  box-shadow: 0px 0px 10px rgb(231,231,231);
+  border-radius: 2px;
 }
 .ingredient-containerR{
   background-color: rgba(156,156,156,0.6);
   padding: 25px 50px 25px 50px;
+  box-shadow: 0px 0px 10px rgb(231,231,231);
 }
 .al-h1L{
   color: #383838;
-  margin-bottom: 25px;
+  margin-bottom: 29px;
   font-size: 28px;
 }
 .al-h1{
@@ -207,23 +256,15 @@
   padding: 0px 130px 0 25px;
 }
 .al-row{
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   margin-right: 0; 
   margin-left: 0; 
 }
-.al-tabs{
-  padding-left: 34%;
-}
-.al-tabMargin{
+.al-tabR{
   float: left;
-  margin-right: 15px
 }
-.tabA{
-  color: gray;
-}
-.tabA:hover{
-  color: black;
-
+.al-tabL{
+  float: right;
 }
 .al-list{
   list-style-type: none;
@@ -234,64 +275,16 @@
   margin-right: 25px;
   color: rgb(174,200,107);
 }
-.al-list-measureR{
-  float: left;
-  margin-right: 25px;
-}
+
 /*BUTTONS*/
-/*.btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.42857143;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 10px 16px;
-}
-  
-.btn-lg {
-  font-size: 18px;
-  line-height: 1.33;
-  border-radius: 6px;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #428bca;
-  border-color: #357ebd;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #3276b1;
-  border-color: #285e8e;
-}*/
-
 .sharp {
   border-radius:2px;
 }
 
 .htb {
-    padding: 5px 24px;
+    /*padding: 5px 24px;*/
+    padding: 5px 60px;
     border: 0 none;
-    /*font-weight: 700;*/
-    /*letter-spacing: 1px;*/
-    /*text-transform: uppercase;*/
     font-size: 16px;
 }
 .htb:focus, .htb:active:focus, .htb.active:focus {
@@ -312,10 +305,14 @@
 .al-btnR{
   float: right;
 }
+.al-btnL{
+  float: left;
+}
+
 
 /*SIGN UP & SIGN IN*/
 .box-field{
-  border-radius: 0;
+  border-radius: 2px;
   border: 1px solid rgb(174,200,107);
 }
 .logo-margin{
@@ -357,12 +354,12 @@
 /* RECIPE DETAILS CSS */
 .heroimage {
   width:100%;
-  height:500px;
-  background: url('http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size:cover;
-  background-attachment: fixed;
+  height:350px;
+  /*background: url('http://www.seriouseats.com/images/2015/09/20150914-pressure-cooker-recipes-roundup-09.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-position: center;*/
+  /*background-size:cover;*/
+  /*background-attachment: fixed;*/
 }
 .heroimage h5 {
   color:white;
@@ -370,35 +367,80 @@
   text-align: center;
   padding-top: 250px;
   font-size: 30px;
+  text-transform: capitalize;
 
 }
 .savebtn{
-	width: 150px;
-	height: 50px;
-	background-color: red;
 	float: right;
-	margin-right: 10%;
+  color: rgb(169,169,169);
+  margin-bottom: 10px;
+}
+.savebtn:hover{
+  text-decoration: none;
+  color: grey;
+}
+.savebtn-size{
+  color: #DF5D4A;
+  /*font-size: 24px;*/
+
 }
 .recipeDetail{
 	text-align: center;
 	margin-top: 5%;
 }
 .heading{
-	font-size: 20px;
-	margin-right: 45%;
+	font-size: 16px;
+  padding-top: 35px;
+}
+.ingDirActive{
+  border-bottom: 2px solid #DF5D4A;
+  text-align: center;
+  font-weight: bold;
+}
+.ingDirDisable{
+  border-bottom: 2px solid gray;
+}
+.ingDirActive-a{
+  text-decoration: none;
 }
 .text{
 	font-size: 15px;
 	/*margin-right: 45%;*/
-	display: inline-block;
-    text-align: left;
-    line-height: 230%;
-    margin-top: 10px;
+	/*display: inline-block;*/
+  /*text-align: left;*/
+  line-height: 230%;
+  margin-top: 20px;
 }
+.
 hr{
 	width: 60%;
 	border-width: 1.5px;
 	margin-top: 10px;
+}
+.hr-ingredientes{
+  border:none;
+  border-top:1.5px dotted rgb(230,230,230);
+  color:#fff;
+  /*background-color:#fff;*/
+  /*height:1px;*/
+  width:100%;
+}
+.ingredient-containerRecipeDetails{
+  background-color: rgb(244,244,244);
+  text-align: left;
+  padding-left: 10%;
+  /* padding-bottom: 183px; */
+  max-height: 410px;
+  min-height: 410px;
+  overflow-y:scroll;
+  box-shadow: inset 1px -5px 9px -6px #AEC86B;
+}
+.ingredient-quantity{
+  color: #AEC86B;
+  font-size: 32px;
+  font-weight: bold;
+  float: left;
+  margin-right: 18px;
 }
 .directions{
 	margin-top: 15px;
@@ -415,27 +457,70 @@ span.glyphicon-time {
 }
 .list{
 	list-style-type: none;
+  padding: 0px;
 }
 .glyphicon-ring {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid white;
-  color: white;
+  border: 2px solid #AEC86B;
+  color: #AEC86B;
   display: inline-table;
   text-align: center;
 }
 .glyphicon-white {
-  background: white;
-  color: black;
-  border: 1px solid black;
+  background: #AEC86B;
+  color: white;
+  border: 2px solid #AEC86B;
+}
+.glyphicon-white:hover {
+  color: white;
+  text-decoration: none;
+  background: rgba(174,200,107,0.8);
+}
+.glyphicon-ring-delete {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #DF5D4A;
+  color: #DF5D4A;
+  display: inline-table;
+  text-align: center;
+}
+.glyphicon-delete {
+  background: #DF5D4A;
+  color: white;
+  border: 2px solid #DF5D4A;
+}
+.glyphicon-delete:hover {
+  color: white;
+  text-decoration: none;
+  background: rgba(223,93,74,0.8);
+}
+.glyphicon-ring-delete .glyphicon-bordered {
+  font-size: 20px;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 2px;
+  top: 0;
+}
+.glyphicon-ring .glyphicon-bordered {
+  font-size: 20px;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 2px;
+  top: 0;
 }
 .review-containter{
-	height: 200px;
-	text-align: center;
-	margin-top: 3%;
-	background-color: grey;
+	/*background-color: currentColor;*/
+  /*background-color: rgb(230,230,230);*/
+  background-color: #737373;
+  margin-top: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 9%;
 }
+
 
 
 /*ADD RECIPE*/
@@ -444,6 +529,21 @@ span.glyphicon-time {
   margin-top: 36px;
   margin-bottom: 36px;
   font-size: 30px;
+}
+
+/*SETTINGS VIEW*/
+.seven {
+  background-color: #013A6B;
+  /*background-image: -webkit-linear-gradient(150deg, #AEC86B 35%, #8DB83A 35%);*/
+  /*background-image: -webkit-linear-gradient(150deg, #8DB83A 35%, #AEC86B 35%);*/
+  background-image: -webkit-linear-gradient(150deg, rgb(244,244,244) 35%, rgb(244,244,244) 35%);
+  min-height: 650px;
+}
+
+.setting-container {
+  margin-top: 35px;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .healthClassifications {
@@ -455,4 +555,16 @@ span.glyphicon-time {
 .healthClassifications:hover {
  background:#eee;
  cursor:pointer;
+}
+
+/*Customize*/
+.head-custo{
+  text-transform: uppercase;
+  width: 65%;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 25px;
+  background-color: #737373;
+  color: #AEC86B;
+  font-weight: bold;
 }

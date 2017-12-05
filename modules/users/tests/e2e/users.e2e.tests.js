@@ -473,9 +473,12 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Errors
-      expect(element.all(by.css('.error-text')).get(0).getAttribute('innerHTML')).toBe('Your current password is required.');
-      expect(element.all(by.css('.error-text')).get(1).getAttribute('innerHTML')).toBe('Enter a new password.');
-      expect(element.all(by.css('.error-text')).get(2).getAttribute('innerHTML')).toBe('Verify your new password.');
+      // expect(element.all(by.css('.error-text')).get(0).getAttribute('innerHTML')).toBe('Your current password is required.');
+      // expect(element.all(by.css('.error-text')).get(1).getAttribute('innerHTML')).toBe('Enter a new password.');
+      // expect(element.all(by.css('.error-text')).get(2).getAttribute('innerHTML')).toBe('Verify your new password.');
+
+      expect(element.all(by.css('.error-text')).get(0).getAttribute('innerHTML')).toBe('Username or Email is required.');
+      expect(element.all(by.css('.error-text')).get(1).getAttribute('innerHTML')).toBe('Password is required.');
     });
 
     it('Should report a password with less than 10 characters long - "P@$$w0rd!"', function () {
@@ -483,9 +486,9 @@ describe('Users E2E Tests:', function () {
   //    var ptor = protractor.getInstance();
   //    ptor.waitForAngular();
       // Enter Current Password
-      element(by.model('vm.passwordDetails.currentPassword')).sendKeys(user1.password);
+      element(by.model('vm.credentials.password')).sendKeys(user1.password);
       // Enter Invalid Password
-      element(by.model('vm.passwordDetails.newPassword')).sendKeys('P@$$w0rd!');
+      element(by.model('vm.credentials.newPassword')).sendKeys('P@$$w0rd!');
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error

@@ -1,4 +1,5 @@
 /*Classes used for the entire */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 h3{
   color: rgb(78,78,78);
   margin-bottom: 20px;
@@ -8,21 +9,34 @@ h4{
   font-weight:bold;
   color: rgb(78,78,78);
 }
+h5{
+  color: black;
+  /*text-shadow:2px 2px #333;*/
+  text-align: center;
+  padding-top: 75px;
+  font-size: 40px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: rgb(78,78,78);
+  margin-top: 0px;
+}
 .text-navbar{
   font-size: 16px;
   font-weight: 600;
 }
 
-.underline {
-  text-decoration: underline;
+.underline{
+  text-decoration: none;
+  border-bottom: 2px solid #AEC86B;
 }
 
 .no-underline {
   text-decoration: none;
+
 }
 
 .content {
-  margin-top: 52px ;
+  margin-top: 71px ;
 }
 
 .undecorated-link:hover {
@@ -75,7 +89,8 @@ a:hover .header-profile-image {
   display: block;
 }
 .navbar-right {
-  margin-right: 20px;
+  margin-right: 20px !important;
+  margin-top: 12px;
 }
 .input-group{
   width: 500px;
@@ -84,17 +99,25 @@ a:hover .header-profile-image {
   font-size: 20px;
 }
 .searchBar{
-  border-radius: 0;
+  border-radius: 2px;
+  height: inherit;
+  width: 445px;
 
 }
 .searchBar-btn{
-  background-color: rgb(249,192,120);
+  background-color: rgb(223,93,74);
+  height: 40px;
+  width: 40px;
 }
 .searchBar-btn:hover{
-  background-color: rgb(247,202,154);
+  background-color: rgba(223,93,74,0.8)
+}
+.head{
+  font-size: 16px;
+  color: rgb(78,78,78);
 }
 .head:hover{
-  color: #383838 !important;
+  color: rgba(78,78,78,0.8) !important;
 }
 .navbar{
   background-color: white;
@@ -108,11 +131,20 @@ a:hover .header-profile-image {
   border-color: transparent;
   border-bottom: 1px solid rgba(0,0,0,0.25);
 }
-.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-  color: rgb(249,192,120); 
-  background-color: transparent;
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: rgb(78,78,78);
+    background-color: transparent; 
 }
-
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .active > a {
+    /* background-image: -webkit-linear-gradient(top, #080808 0%, #0f0f0f 100%); */
+    background-image: -o-linear-gradient(top, #080808 0%, #0f0f0f 100%);
+    /* background-image: -webkit-gradient(linear, left top, left bottom, from(#080808), to(#0f0f0f)); */
+    /* background-image: linear-gradient(to bottom, #080808 0%, #0f0f0f 100%); */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff080808', endColorstr='#ff0f0f0f', GradientType=0);
+    /* background-repeat: repeat-x; */
+    /* -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25); */
+    /* box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25); */
+}
 .user-img{
   border-radius: 50%;
   width:30px;
@@ -123,7 +155,7 @@ a:hover .header-profile-image {
   padding-top: 12px !important;
 }
 .logo{
-  margin-left: 15px !important;
+  margin-left: 32px !important;
 
 }  
 .HTlogo{
@@ -134,7 +166,9 @@ a:hover .header-profile-image {
 /*  font-weight: bolder;
   text-shadow: 0px 1px 0px rgba(0,0,0,0.3) !important*/
   padding: 0;
-  margin-top: 10px;
+  margin-top: 7px;
+  height: 63px;
+
 
 }
 /*
@@ -154,6 +188,7 @@ a:hover .header-profile-image {
 
 body{
   font-family: "Source Sans Pro", "Sans";
+  font-size: 15px;
 }
 .row-margin{
   margin-right: 0; 
@@ -166,7 +201,7 @@ body{
   padding-left: 0;
   padding-right: 0;
   width: 100%;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  /*border-bottom: 1px solid rgba(0,0,0,0.05);*/
 }
 .properties{
   height: 300px;
@@ -190,8 +225,17 @@ body{
   margin-right: 50px;
 }
 
-.textLN a{
+.tl{
   color: #FFFFFF;
+  text-decoration: none;
+}
+.tl:hover{
+  color: white;
+  text-decoration: none;
+}
+.tl:focus{
+  color: white;
+  text-decoration: none;
 }
 
 .filter-dropdown{
@@ -203,8 +247,9 @@ body{
   bottom: 0%;
   left: 5%;
   color: #fff;
-  width: 95%;
-  height: 60px;
+  width: 100%;
+  height: 70px;
+  padding-top: 7px;
 }
 
 .card-info2{
@@ -213,15 +258,16 @@ body{
   left: 0%;
   color: #fff;
   width: 100%;
-  background-color: rgba(68,68,68,0.3);
-  height: 60px;
+  /*background-color: rgba(68,68,68,0.3);*/
+  background-color: rgba(20,20,20,0.5);
+  height: 70px;
 }
 
 .card-name{
-  font-size: 14px;
-  margin-top: 10px;
-  margin-left: 10px;
-  float: left;
+  /*margin-top: 10px;*/
+  /*margin-left: 10px;*/
+  text-transform: capitalize;
+  font-size: 18px;
 }
 
 .card-icon{
@@ -232,16 +278,18 @@ body{
 
 .card-icon-container{
   float: right;
-  margin-top: 10px;
+  /*margin-top: 10px;*/
+}
+.cardA{
+  color: white;
+  text-decoration: none;
+}
+.cardA:hover{
+  color: white;
+  text-decoration: none;
 }
 
 /* Drop down menus in home page */
-.dropMenu{
-  float: left;
-  width: 100%;
-  padding-left: 36.3%;
-
-}
 
 @media  (max-width: 500px) {
   .dropMenu {
@@ -352,9 +400,9 @@ body{
 
 /*COMMUNITY IMAGE */
 .img-prop{
-  width:100%;
-  height:100%;
   background: none repeat scroll 0 0 #FFFFFF;
+  height:300px;
+  width:100%;
 }
 
 .communityImageContainer:before {
@@ -375,6 +423,34 @@ body{
   right:10px;
 }
 
+/*Background template*/
+.layer1{
+  background-color:rgb(230,230,230);
+}
+.layer2{
+  background-color:rgb(244,244,244);
+}
+.layer3{
+  padding-left: 3%; 
+  padding-right: 3%;
+}
+.layer4{
+  background-color:rgb(255,255,255); 
+  box-shadow: 4px 5px 10px rgb(231,231,231); 
+  min-height: 627px; 
+  padding-bottom: 9%;
+}
+
+/*Responsive Home View*/
+/*@media  (min-width: 480px) {
+  .properties {
+      width: 50%;
+  }
+}
+*/
+
+
+
 /*
 Color Guide
 Green: rgb(174,200,107), hex(AEC86B);
@@ -382,4 +458,5 @@ light blue: rgb(140,212,201), hex(8CD4C9);
 light orange: rgb(249,192,120), hex(F9C078);
 orange: rgb(253,131,93), hex(FD835D);
 dark orange: rgb(223,93,74), hex(DF5D4A);
+grey: rgb(57,62,65);
 */

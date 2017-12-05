@@ -1,0 +1,24 @@
+<section>
+    <center>
+        <h1>Leaderboard</h1>
+        <center ng-show="loading">
+          <img src="./modules/core/client/img/loaders/loader.gif" alt="Loading...">
+        </center>
+        <table ng-hide="loading" class="table table-striped" style="width: 80%">
+            <thead>
+                <th>Leader</th>
+                <th>Number of Recipes</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="leader in vm.leaders">
+                    <td>
+                        {{leader.name}}
+                    </td>
+                    <td>
+                        {{leader.recipeCount}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+</section>

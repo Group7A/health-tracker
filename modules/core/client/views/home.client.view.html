@@ -1,111 +1,179 @@
 <div class="container">
     <div class="lowerNav text-center">
       <div class="textLN">
-        <a ng-click="showPopular()" class="left" 
-            ng-class="showCommunity ? underline : no-underline" href="">Popular Recipes</a>
-        <a ng-click="showMyRecipes()" ng-show="vm.authentication.user"
-            ng-class="showCommunity ? no-underline : underline" href="">My Recipes</a>
+        <a ng-click="display = !display" class="left tl" 
+            ng-class="{'underline': !display, 'no-underline': display}" href="">Popular Recipes</a>
+        <a ng-click="display = !display" ng-show="vm.authentication.user"
+            ng-class="{'underline': display, 'no-underline': !display}" class="tl" href="">My Recipes</a>
       </div>
     </div>
 
     <div ui-view></div>
-
-    <div class="dropMenu">
-      <div class="dropdown">
-        Filter by:
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="filterSelection('calories')">
-          Calories
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <input type="range" min="0" max="1000" value="500" class="slider" id="calories">
-          <center><span id="calVal"></span> Calories</center>
+    <div class="row row-fix">
+      <div class="col-xs-6 col-xs-offset-6 col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-4" style="padding-left: 5%;"> 
+        <div class="dropdown">
+          Filter by:
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diet
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="healthClassificationFilter('any')" class="small healthClassifications">
+                <input ng-model="showAnyClass" type="checkbox"/>&nbsp;Any
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('glutenFree')" class="small healthClassifications">
+                <input ng-model="showGlutenFree" type="checkbox"/>&nbsp;Gluten Free
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('lowCalorie')" class="small healthClassifications">
+                <input ng-model="showLowCalorie" type="checkbox"/>&nbsp;Low Calorie
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('lowFat')" class="small healthClassifications">
+                <input ng-model="showLowFat" type="checkbox"/>&nbsp;Low Fat
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('noSugar')" class="small healthClassifications">
+                <input ng-model="showNoSugar" type="checkbox"/>&nbsp;No Sugar
+              </label>
+            </li>
+            <li>
+              <label ng-click="healthClassificationFilter('vegan')" class="small healthClassifications">
+                <input ng-model="showVegan" type="checkbox"/>&nbsp;Vegan
+              </label>
+            </li>
+            
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Diet
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li><a href="" class="small" data-value="vegan" tabIndex="-1"><input type="checkbox"/>&nbsp;Vegan</a></li>
-          <li><a href="" class="small" data-value="pescetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Pescetarian</a></li>
-          <li><a href="" class="small" data-value="ovo-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Ovo Vegetarian</a></li>
-          <li><a href="" class="small" data-value="lacto-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Lacto-Vegetarian </a></li>
-          <li><a href="" class="small" data-value="lacto-ovo-vegetarian" tabIndex="-1"><input type="checkbox"/>&nbsp;Lacto-Ovo-Vegetarian</a></li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cooking Style
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="cookingStyleFilter('any')" class="small healthClassifications">
+                <input ng-model="showAny" type="checkbox"/>&nbsp;Any
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('beverage')" class="small healthClassifications">
+                <input ng-model="showBeverage" type="checkbox"/>&nbsp;Beverage
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('bakedGoods')" class="small healthClassifications">
+                <input ng-model="showBakedGoods" type="checkbox"/>&nbsp;Baked Goods
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('bakedFoods')" class="small healthClassifications">
+                <input ng-model="showBakedFoods" type="checkbox"/>&nbsp;Baked Foods
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('fried')" class="small healthClassifications">
+                <input ng-model="showFried" type="checkbox"/>&nbsp;Fried
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('frozenTreats')" class="small healthClassifications">
+                <input ng-model="showFrozenTreats" type="checkbox"/>&nbsp;Frozen Treats
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('grilled')" class="small healthClassifications">
+                <input ng-model="showGrilled" type="checkbox"/>&nbsp;Grilled
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('slowCook')" class="small healthClassifications">
+                <input ng-model="showSlowCook" type="checkbox"/>&nbsp;Slow Cook
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('soup')" class="small healthClassifications">
+                <input ng-model="showSoup" type="checkbox"/>&nbsp;Soup
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('stoveTop')" class="small healthClassifications">
+                <input ng-model="showStoveTop" type="checkbox"/>&nbsp;Stove Top
+              </label>
+            </li>
+            <li>
+              <label ng-click="cookingStyleFilter('others')" class="small healthClassifications">
+                <input ng-model="showOthers" type="checkbox"/>&nbsp;Others
+              </label>
+            </li>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Cooking Style
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <li><a href="#" class="small" data-value="fried" tabIndex="-1"><input type="checkbox"/>&nbsp;Fried</a></li>
-          <li><a href="#" class="small" data-value="grilled" tabIndex="-1"><input type="checkbox"/>&nbsp;Grilled</a></li>
-          <li><a href="#" class="small" data-value="baked" tabIndex="-1"><input type="checkbox"/>&nbsp;Baked</a></li>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Rating
-          <span class="caret"></span></a>
-        </button>
-        <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
-          <div class="acidjs-rating-stars">
-            <form id="rating">
-                <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label>
-                <input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label>
-                <input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label>
-                <input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label>
-                <input type="radio" name="group-1" id="group-1-4" value="1" /><label for="group-1-4"></label>
-            </form>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle btn-prop" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rating
+            <span class="caret"></span></a>
+          </button>
+          <div class="dropdown-menu filter-dropdown" aria-labelledby="dropdownMenuButton">
+            <li>
+              <label ng-click="ratingFilterOption('highest')" class="small healthClassifications">
+                <input ng-model="highestRating" type="checkbox"/>&nbsp;Highest to Lowest
+              </label>
+            </li>
+            <li>
+              <label ng-click="ratingFilterOption('lowest')" class="small healthClassifications">
+                <input ng-model="lowestRating" type="checkbox"/>&nbsp;Lowest to Highest
+              </label>
+            </li>
           </div>
         </div>
       </div>
     </div>
-
+    
     <!-- COMMUNITY RECIPES -->
-    <div ng-show="showCommunity">
+    <div ng-hide="display">
       <div class="row row-margin">
-        <div ng-repeat="recipe in communityRecipesFiltered" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="recipe in communityRecipesFiltered | 
+            orderBy:'totalRating':ratingFilter | limitTo: 16" 
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(recipe) && checkClassif(recipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeDetails: recipe})">
-              <img class="img-prop" ng-src="{{recipe.image}}" style="height: 80%">
+            <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" style="float:left">
+              <img class="img-prop" ng-src="{{recipe.image}}">
             </a>
             <!--Add Recipe-->
-            <a class="add-delete" ng-show="vm.authentication.user" href="">
-              <span class="glyphicon glyphicon-plus" ng-click="add(recipe)"></span>
+            <a class="add-delete glyphicon-ring glyphicon-white" ng-show="vm.authentication.user" href="">
+              <span class="glyphicon glyphicon-plus glyphicon-bordered" ng-click="add(recipe)"></span>
             </a>
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-4">
-              <center>
-                <h3 class="card-name">
-                  <a ui-sref="details({recipeDetails: recipe})" style="text-decoration: none">
+            <div class="col-md-7" style="padding-right: 0px;">
+                <div class="card-name">
+                  <a ui-sref="details({recipeID: recipe._id, recipeDetails: recipe})" class="cardA">
                     {{recipe.name}}
                   </a>
-                </h3>
-              </center>
-            </div>
-            <div class="card-icon-container col-md-8">
-              <center>
-                <div id="stars">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
                 </div>
-              </center>
-              <ul class="nav navbar-nav navbar-right">
-                <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
-                <img class="card-icon" ng-show="recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
-              </ul>
+            </div>
+            <div class="col-md-5">
+              <div class="card-icon-container">
+                <div id="stars">
+                  <span ng-repeat="i in getNumber(5) track by $index" 
+                    class="fa fa-star" ng-class="recipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                </div>
+              </div>
+                <ul class="card-icon-container">
+                  <img class="card-icon" ng-show="recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                  <img class="card-icon" ng-show="recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                  <img class="card-icon" ng-show="recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                  <img class="card-icon" ng-show="recipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                  <img class="card-icon" ng-show="recipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
+                </ul>
             </div>
           </div>
         </div>
@@ -113,45 +181,43 @@
     </div>
 
     <!--MY RECIPES-->
-    <div ng-hide="showCommunity">
+    <div ng-show="display">
       <div class="row row-margin">
-        <div ng-repeat="myRecipe in myRecipes" class="col-xs-12 col-sm-6 col-md-3 properties">
+        <div ng-repeat="myRecipe in myRecipes | 
+            orderBy:'totalRating':ratingFilter | limitTo: 16" 
+            class="col-xs-12 col-sm-6 col-md-3 properties"
+            ng-show="checkStyle(myRecipe) && checkClassif(myRecipe)">
           <div class="communityImageContainer">
-            <a ui-sref="details({recipeDetails: myRecipe})">
-              <img class="img-prop" ng-src="{{myRecipe.image}}" style="height: 80%">
+            <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" style="float:left">
+              <img class="img-prop" ng-src="{{myRecipe.image}}">
             </a>
-            <a class="add-delete" ng-show="vm.authentication.user" href="">
-                <span class="glyphicon glyphicon-remove" ng-click="delete(myRecipe)" style="color:red"></span>
+            <a class="add-delete glyphicon-ring-delete glyphicon-delete" ng-show="vm.authentication.user" href="">
+                <span class="glyphicon glyphicon-remove glyphicon-bordered" ng-click="delete(myRecipe)" ></span>
               </a>
           </div>
           <div class="card-info2"></div>
           <div class="card-info row">
-            <div class="col-md-4">
-              <center>
-                <h3 class="card-name">
-                  <a ui-sref="details({recipeDetails: myRecipe})" style="text-decoration: none">
-                    {{myRecipe.name}}
+            <div class="col-md-7" style="padding-right: 0px;">
+                <div class="card-name">
+                  <a ui-sref="details({recipeID: myRecipe._id, recipeDetails: myRecipe})" class="cardA">
+                    {{myRecipe.name}} 
                   </a>
-                </h3>
-              </center> 
-            </div>
-            <div class="card-icon-container col-md-8">
-              <center>
-                <div id="stars">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
                 </div>
-              </center>
-              <ul class="nav navbar-nav navbar-right">
-                <img class="card-icon" ng-show="myRecipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
-                <img class="card-icon" ng-show="myRecipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
-                <img class="card-icon" ng-show="myRecipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
-                <img class="card-icon" ng-show="myRecipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
-                <img class="card-icon" ng-show="myRecipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
-              </ul>
+            </div> 
+            <div class="col-md-5">
+              <div class="card-icon-container ">
+                <div id="stars">
+                  <span ng-repeat="i in getNumber(5) track by $index" 
+                    class="fa fa-star" ng-class="myRecipe.totalRating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                </div>
+              </div>
+                <ul class="card-icon-container">
+                  <img class="card-icon" ng-show="myRecipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
+                  <img class="card-icon" ng-show="myRecipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
+                  <img class="card-icon" ng-show="myRecipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
+                  <img class="card-icon" ng-show="myRecipe.healthClassifications.vegan" src="./modules/core/client/img/healthClassifications/vegan.png">
+                  <img class="card-icon" ng-show="myRecipe.healthClassifications.lowCalorie" src="./modules/core/client/img/healthClassifications/lowCalorie.png">
+                </ul>
             </div>
           </div>
         </div>

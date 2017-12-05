@@ -18,6 +18,10 @@
         method: 'GET',
         url: '/api/users/myRecipes'
       },
+      leaderboard: {
+        method: 'GET',
+        url: '/api/users/leaderboard'
+      },
       add: {
         method: 'POST',
         url: '/api/users/add'
@@ -34,6 +38,9 @@
       },
       getMyRecipes: function () {
         return this.myRecipes().$promise;
+      },
+      getLeaderboard: function () {
+        return this.leaderboard().$promise;
       },
       addRecipe: function(param) {
         return this.add(param).$promise;
