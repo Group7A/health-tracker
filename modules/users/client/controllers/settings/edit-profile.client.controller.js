@@ -19,7 +19,6 @@
 
      //profile picture
     vm.upload = function (dataUrl) {
-
       Upload.upload({
         url: '/api/users/picture',
         data: {
@@ -34,7 +33,6 @@
       }, function (evt) {
         vm.progress = parseInt(100.0 * evt.loaded / evt.total, 10);
       });
-      console.log("upload clicked");
     };
 
     // Called after the user has successfully uploaded a new picture

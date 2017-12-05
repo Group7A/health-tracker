@@ -20,13 +20,14 @@
     $scope.ingredientList = [{}];
     $scope.directionsList = [{}];
 
-    if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
+    // If coming from alternatives state, get the data from there
+    if($state.previous.state.name == "alternatives") {
        $scope.recipe = $stateParams.recipe;
        $scope.recipe.editAfterAdd = true;
        $scope.ingredientList = $scope.recipe.ingredients;
        $scope.directionsList = $scope.recipe.directionsList;
     }
-    else {
+    else { // Else, initialize everything to be empty
       $scope.ingredientList = [{}];
       $scope.directionsList = [{}];
 
@@ -58,7 +59,7 @@
       };
     }
 
-    // Get image of recipe
+    // Get image of recipe from Bing web search API
     async function getImage() {
       let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       let host = 'https://api.cognitive.microsoft.com';
@@ -84,8 +85,9 @@
         });
     }
 
-    // ADD RECIPE TO MONGO
+    // Add recipe to mongo
     function updateMyRecipes(isValid) {
+      // Get recipe and image, as well as alternatives to send to next page
       var recipe = $scope.recipe;
       recipe.image = $scope.image;
       getAlternatives();
@@ -95,15 +97,17 @@
         return false;
       }
 
-      if($state.previous.state.name == "alternatives" || $state.previous.state.name == "customize") {
+      // If coming from alternatives, update the recipe user just added
+      if($state.previous.state.name == "alternatives") {
         UsersService.updateMyRecipe(recipe)
           .then(updateSuccess)
           .catch(updateFailure);
       }
-      else UsersService.addRecipe(recipe)
+      else UsersService.addRecipe(recipe) // If coming here for the first time, just add recipe
             .then(addSuccess)
             .catch(addFailure);
 
+      // Send notification and get id of recipe
       function addSuccess(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Add recipe successful!' });
         recipe._id = response._id;
@@ -113,16 +117,17 @@
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Add recipe failed!' })
       }
 
+      // Send notification and get id of recipe
       function updateSuccess(response) {
         Notification.success({ message: '<i class="glyphicon glyphicon-ok"></i> Update recipe successful!' });
         recipe._id = response._id;
-        console.log("Update:", response);
       }
 
       function updateFailure(response) {
         Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> Update recipe failed!' })
       }
 
+      // Get data to transfer to the alternatives page
       var transferData = {
         'recipe': recipe,
         'healthy_map': $scope.healthy_map,
@@ -161,7 +166,7 @@
 
     sort_alt();
 
-    // GET ALTERNATIVES FROM RECIPE
+    // Get alternatives from recipe
     function getAlternatives() {
       // Initialize variables
       $scope.healthy_map = [];
@@ -173,11 +178,6 @@
       $scope.have_match = 0;
       $scope.top_alt_count = 3;
       $scope.mid_ind;
-
-      //$scope.alt_request = 1;
-      // 0 - want single healthies alt
-      // 1 - want single "tastiest" alt
-      // 2 - want 3 alts for ingredients
 
       // Get alternatives
       $scope.recipe.ingredients.forEach( (ingredient, x) => {
@@ -197,15 +197,15 @@
         
         // Loop through all the alternatives
         if($scope.all_alt_in_group.length > 0) {
-          // HEALTH MAP
+          // Map for healthiest alternatives
           var alt_item = $scope.all_alt_in_group[$scope.all_alt_in_group.length-1];
           $scope.healthy_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
 
-          // TRUEST TO TASTE MAP
+          // Map for truest to taste/nutrionally closest recipes
           var alt_item = $scope.all_alt_in_group[0];
           $scope.truest_map.push({"map_ndbno": alt_item.db_ndbno, "map_name": alt_item.db_name, "nutrient": alt_item.db_main_nutrient.db_amount, "flipped": false});
         
-          //MULTIPLE ITEMS MAP
+          // Map for 3 alternatives, for the customizing page
           if($scope.all_alt_in_group.length < $scope.top_alt_count){
             var alts = [];
             $scope.all_alt_in_group.forEach((alt_item, i) => {
@@ -221,7 +221,8 @@
           }
           else{
             // Control what alt we give
-            $scope.mid_ind = $scope.all_alt_in_group.length/2;
+            $scope.mid_ind = $scope.all_alt_in_group.length / 2;
+
             // Index is not whole number
             if($scope.mid_ind % 1 != 0){
               $scope.mid_ind = $scope.mid_ind - 0.5;
@@ -277,7 +278,7 @@
       $scope.$emit('customerDeleted', direction); 
     };
 
-    // RATING FROM USER
+    // Rating from users
     $scope.getStars = (number) => {
       $scope.recipe.review[0].rating = number;
     }

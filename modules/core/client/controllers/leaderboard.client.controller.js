@@ -11,11 +11,13 @@
     var vm = this;
     vm.authentication = Authentication;
 
+    // Show loading gif while data loads
     $scope.loading = true;
     $timeout( function() {
       $scope.loading = false
     }, 2000);
 
+    // Call API to get leaderboard data
     CommunityService.getLeaderboard()
       .then(getSuccess)
       .catch(getFailure);

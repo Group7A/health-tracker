@@ -48,19 +48,21 @@ var validateUsername = function (username) {
   );
 };
 
-// Recipe Schema for user
+// Ingredients schema
 var IngredientSchema = new Schema({
   name: String,
   quantity: Number,
   units: String
 });
 
+// Review schema for ratings and written reviews
 var ReviewSchema = new Schema({
   writtenReview: String,
   rating: Number,
   reviewedBy: String
 });
 
+// Recipe Schema 
 var RecipeSchema = new Schema({
   name: String,
   time: Number,

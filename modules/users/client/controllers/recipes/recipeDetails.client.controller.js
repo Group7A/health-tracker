@@ -14,22 +14,20 @@
 
     vm.user = Authentication.user;
     vm.recipe = recipe;
-    //$scope.recipe = $stateParams.recipeDetails;
     $scope.anonymous = false;
     $scope.rating = 0;
 
-    console.log(vm.recipe);
-
-    // DIRECTIONS
+    // Directions list
     if(vm.recipe.directionsList.length > 0) $scope.showDirections = true;
     else $scope.showDirections = false;
 
-    // RATING
+    // Rating
     if(vm.recipe.review.length > 0) {
       vm.recipe.totalRating = averageStars(vm.recipe.review);
     }
     else vm.recipe.totalRating = 0;
 
+    // Get average number of stars of recipe
     function averageStars(starsArray) {
       var total = 0;
 
@@ -41,11 +39,12 @@
       return avg;
     }
 
+    // Get number from html
     $scope.getNumber = (num) => {
       return new Array(num); 
     }
 
-    // ======== ADD A RECIPE ===========
+    // Add a recipe 
     $scope.add = (rec) => {
       CommunityService.addRecipe(rec)
         .then(addRecipeSuccess)
@@ -60,7 +59,7 @@
       Notification.error({ message: '<i class="glyphicon glyphicon-remove"></i> You already own this recipe!' });
     }
 
-    // RATING FROM USER
+    // Rating from user
     $scope.getStars = (number) => {
       $scope.rating = number;
     }
@@ -87,7 +86,7 @@
         var star = document.getElementsByName("group-1");
         for(var i=0; i<star.length; i++) star[i].checked = false;
 
-        console.log(response);
+        vm.recipe.totalRating = averageStars(vm.recipe.review);
       }
 
       function updateFailure(response) {

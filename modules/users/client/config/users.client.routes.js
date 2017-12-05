@@ -9,10 +9,9 @@
   routeConfig.$inject = ['$stateProvider'];
 
   function routeConfig($stateProvider) {
-    // Users state routing
     $stateProvider
       .state('settings', {
-        url: '/settings', // SETTINGS
+        url: '/settings',
         templateUrl: '/modules/users/client/views/settings/settings.client.view.html',
         controller: 'SettingsController',
         controllerAs: 'vm',
@@ -20,7 +19,7 @@
           roles: ['user', 'admin']
         }
       })
-      .state('profile', { // MY PROFILE
+      .state('profile', {
         url: '/profile',
         templateUrl: '/modules/users/client/views/settings/edit-profile.client.view.html',
         controller: 'EditProfileController',
@@ -29,7 +28,7 @@
           pageTitle: 'Profile'
         }
       })
-      .state('leaderboard', { // LEADERBOARD
+      .state('leaderboard', {
         url: '/leaderboard',
         templateUrl: '/modules/core/client/views/leaderboard.client.view.html',
         controller: 'LeaderboardController',
@@ -38,7 +37,7 @@
           pageTitle: 'Leaderboard'
         }
       })
-      .state('add', { // ADD RECIPES
+      .state('add', {
         url: '/add-recipe',
         templateUrl: 'modules/users/client/views/recipes/addRecipe.client.view.html',
         controller: 'AddRecipeController',
@@ -50,7 +49,7 @@
           pageTitle: 'Add Recipe'
         }
       })
-      .state('details', { // RECIPE DETAILS
+      .state('details', {
         url: '/recipe-details/:recipeID',
         templateUrl: 'modules/users/client/views/recipes/recipeDetails.client.view.html',
         params: { recipeDetails: null },
@@ -63,7 +62,7 @@
           pageTitle: 'Recipe Details'
         }
       })
-      .state('alternatives', { // SUGGESTED ALTERNATIVES
+      .state('alternatives', {
         url: '/alternatives',
         templateUrl: 'modules/users/client/views/recipes/alternatives.client.view.html',
         params: { 
@@ -78,26 +77,19 @@
           pageTitle: 'Alternatives'
         }
       })
-      .state('customize', { // CUSTOMIZE A RECIPE
+      .state('customize', {
         url: '/customize',
         templateUrl: 'modules/users/client/views/recipes/customize.client.view.html',
         params: { 
           'recipe': null,
+          'healthy_map': null,
+          'truest_map': null,
           'multiple_map': null
         },
         controller: 'CustomizeController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Customize'
-        }
-      })
-      .state('healthprofile', { // HEALTH PROFILE
-        url: '/healthprofile',
-        templateUrl: '/modules/users/client/views/settings/edit-health-profile.client.view.html',
-        controller: 'EditHealthProfileController',
-        controllerAs: 'vm',
-        data: {
-          pageTitle: 'Health Profile'
         }
       })
       .state('settings.password', {

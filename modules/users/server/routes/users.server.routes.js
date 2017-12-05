@@ -4,6 +4,7 @@ module.exports = function (app) {
   // User Routes
   var users = require('../controllers/users.server.controller');
 
+  // Setting up recipe api
   app.route('/api/users/deleteRecipe').post(users.deleteRecipe);
   app.route('/api/users/alternatives').post(users.alternatives);
   app.route('/api/users/add').post(users.add);
@@ -21,7 +22,7 @@ module.exports = function (app) {
   app.route('/api/users/password').post(users.changePassword);
   app.route('/api/users/picture').post(users.changeProfilePicture);
 
-  // Finish by binding the user middleware
+  // Finish by binding the user and recipe middleware
   app.param('userId', users.userByID);
   app.param('recipeID', users.recipeByID);
 };

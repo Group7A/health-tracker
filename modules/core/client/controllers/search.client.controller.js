@@ -5,11 +5,12 @@
     .module('core')
     .controller('SearchController', SearchController);
 
-  SearchController.$inject = ['$scope', 'menuService', 'TransferService', '$http'];
+  SearchController.$inject = ['$scope', 'menuService', 'TransferService', '$http', '$stateParams'];
 
-  function SearchController($scope, menuService, TransferService, $http) {
+  function SearchController($scope, menuService, TransferService, $http, $stateParams) {
     var vm = this;
 
+    // Flip between item view and comparison view
     $scope.showItem = true;
     $scope.showComparison = false;
     $scope.flipped = false;
@@ -28,6 +29,7 @@
       }
     };
 
+    // Flip between nutrional values and pictures
     $scope.flip = function(alternative) {
       alternative.flipped = !alternative.flipped;
     }
@@ -37,12 +39,12 @@
     	return string.charAt(0).toUpperCase() + string.slice(1);
 	  }
 
-    // FIRST ITME IS ORIGINAL INGREDIENT
+    // Get data from header controller
     $scope.alternatives = TransferService.getAlternatives();
     $scope.name = 'No Search';
 
     // Search through each alternative and getReport for each one
-    async function getR() {
+    async function getUSDAResults() {
     	var alternatives = await $scope.alternatives;
 
       if(alternatives.length > 0) {
@@ -57,20 +59,17 @@
       else $scope.name = 'No Search';
     }
 
-    getR();
+    getUSDAResults();
 
-    // API KEY
+    // USDA API Key  and information for API
     var apiKey = 'YAJ2M9l67OaqNMPCEfBcoccVtQDY5LPUR20rFzP8';
-
-		// FOR REPORT
     var type = 'b';
     var format = 'json';
-
-		// FOR INDIVIDUAL SEARCHES
     var sort = 'n';
     var max = '200';
     var ds = 'Standard Reference';
 
+    // Get USDA API info
     function getReport (alternative) {
       var reportURL = 
           'http://api.nal.usda.gov/ndb/reports/' + 
@@ -79,6 +78,7 @@
           '&format=' + format + 
           '&api_key=' + apiKey; 
 
+      // $http.get 
       getURL(reportURL)
           .then((results) => {
             $scope.searched = results.data;
@@ -104,7 +104,7 @@
       return $http.get(url);
     }
 
-    // GET IMAGE
+    // TODO - Get actual images. Overloading API right now
     async function getImage(food) {
       // let subscriptionKey = '6e4bbfc395054217a71390d8b08ff40b';
       // let host = 'https://api.cognitive.microsoft.com';
