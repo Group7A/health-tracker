@@ -19,7 +19,6 @@
           </div>
           <div class="col-md-2" style=" padding-left: 0px; padding-right: 20px;">
             <div style="border-right: 1px solid rgb(169,169,169); margin-left: -13px;">      
-              <!-- <img src="../modules/users/client/img/addRecipe/platesBlack.png" style="height: 25px; width: 25px; margin-right: 4px;"> -->
               <img class="card-icon" ng-show="vm.recipe.healthClassifications.glutenFree" src="./modules/core/client/img/healthClassifications/glutenFree.png">
                 <img class="card-icon" ng-show="vm.recipe.healthClassifications.noSugar" src="./modules/core/client/img/healthClassifications/noSugar.png">
                 <img class="card-icon" ng-show="vm.recipe.healthClassifications.lowFat" src="./modules/core/client/img/healthClassifications/lowFat.png">
@@ -92,8 +91,8 @@
           </div>
         </div>
         <div class="row review-containter">
-          <!--<div class="col-md-6 col-md-offset-3" id="comment_rate">
-            <hr style="margin-top: 80px;">
+          <div class="col-md-6 col-md-offset-3" id="comment_rate">
+            <hr style="margin-top: 100px;">
             
             <h3>What did you think of this recipe?</h3>          
             </br>
@@ -110,75 +109,37 @@
               </form>
             </div>
             <textarea ng-model="writtenReview" placeholder="Leave a comment on this recipe here"></textarea>
-            <br>-->
-            <!--<button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
+            <br>
+            <button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
             <hr style="margin-top: 50px;">
+            
             <h3>Top 3 Reviews</h3>
-            <div ng-repeat="review in recipe.review | 
+            <div ng-repeat="review in vm.recipe.review | 
                 orderBy:'rating':true | limitTo: 3" class="row" style="padding: 10px 8% 10px 8%;">
               <div>
               <div >
                 <div style="float:left">
-                  <div>{{review.reviewedBy}}:</div> -->
-
-                 <!--  <a class="dropdown-toggle user-header-dropdown-toggle head" uib-dropdown-toggle role="button">
-                    <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-                    <span ng-bind="vm.authentication.user.displayName"></span>
-                  </a> -->
-
-        <div class="col-md-6 col-md-offset-3" id="comment_rate">
-          <hr style="margin-top: 100px;">
-          
-          <h3>What did you think of this recipe?</h3>          
-          </br>
-          <div style="float: left">
-            <input ng-model="anonymous" type="checkbox">&nbsp;Review as anonymous?</input>
-          </div>
-          <div class="acidjs-rating-stars" style="float:right">
-            <form id="rating">
-              <input ng-click="getStars(5)" type="radio" name="group-1" id="group-1-0" value="5"/><label for="group-1-0"></label>
-              <input ng-click="getStars(4)" type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label>
-              <input ng-click="getStars(3)" type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label>
-              <input ng-click="getStars(2)" type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label>
-              <input ng-click="getStars(1)" type="radio" name="group-1" id="group-1-4" value="1" /><label for="group-1-4"></label>
-            </form>
-          </div>
-          <textarea ng-model="writtenReview" placeholder="Leave a comment on this recipe here"></textarea>
-          <br>
-          <button ng-click="submitReview()" class="htb htb-primary btn-lg sharp" style="float:right">Submit Review</button>
-          <hr style="margin-top: 50px;">
-          <h3>Top 3 Reviews</h3>
-          <div ng-repeat="review in vm.recipe.review | 
-              orderBy:'rating':true | limitTo: 3" class="row" style="padding: 10px 8% 10px 8%;">
-            <div>
-            <div >
-              <div style="float:left">
-                <div>{{review.reviewedBy}}:</div> 
-               <!--  <a class="dropdown-toggle user-header-dropdown-toggle head" uib-dropdown-toggle role="button">
-                  <img ng-src="{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-                  <span ng-bind="vm.authentication.user.displayName"></span>
-                </a> -->
-
-              </div>
-                <div style="float: right">
-                  <!-- <u>Rating</u> -->
-                  <div id="stars">
-                    <span ng-repeat="i in getNumber(5) track by $index" 
-                      class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
-                  </div>
+                  <div>
+                    {{review.reviewedBy}}:
+                  </div> 
                 </div>
-                <br>
-                <div style="float: left; padding-left: 10px; padding-right: 10px;">
-                  <!-- <u>Comment</u> -->
-                  <div> 
-                    {{review.writtenReview}} 
+                  <div style="float: right">
+                    <div id="stars">
+                      <span ng-repeat="i in getNumber(5) track by $index" 
+                        class="fa fa-star" ng-class="review.rating - ($index+1) >= 0 ? 'checked' : 'none'"></span>
+                    </div>
                   </div>
+                  <br>
+                  <div style="float: left; padding-left: 10px; padding-right: 10px;">
+                    <div> 
+                      {{review.writtenReview}} 
+                    </div>
+                  </div>
+                  <br> <br>
                 </div>
-                <br> <br>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
