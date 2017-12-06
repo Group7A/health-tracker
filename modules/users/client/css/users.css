@@ -521,8 +521,17 @@ span.glyphicon-time {
   padding-bottom: 9%;
 }
 
-
-
+.recipePictureR{
+  margin-top: 30px;
+}
+.marginPictureR{
+  /*padding-right: 10%;*/
+}
+@media (min-width: 991px){
+  .marginPictureR{
+    padding-right: 10%;
+  }
+}
 /*ADD RECIPE*/
 .recipeName{
   color: #737373;
