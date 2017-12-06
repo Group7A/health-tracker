@@ -3,7 +3,7 @@
     <div class="layer3">
       <div class="layer4">
         <div class="container">
-          <center style="margin-top: 35px;">
+          <center class="headerSear">
             <text id="title">Healthy Alternatives for "</text>
             <text id="ingredient">{{uppercaseFirstLetter(name)}}</text>
             <text id="title">"</text>
@@ -71,7 +71,7 @@
 
           <div ng-show="showComparison" class="showContainer">
 
-            <table class="searchV">
+            <table class="searchV" style="overflow-y:scroll;">
               <tr>
                 <th></th>
                 <th class="th-propertiesSearch" ng-repeat = "alternative in alternatives"> {{uppercaseFirstLetter(alternative.map_name)}} </th> 
