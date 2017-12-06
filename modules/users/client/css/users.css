@@ -134,6 +134,13 @@
   }
   .info-container1{
     padding-left: 0px;
+    padding-left: 35%;
+    padding-right: 35%;
+  }
+}
+@media (max-width: 530px){
+  .info-container1{
+    padding-left: 0px;
     padding-left: 20%;
     padding-right: 20%;
   }
@@ -550,6 +557,34 @@ span.glyphicon-time {
   margin-bottom: 36px;
   font-size: 30px;
 }
+.floatIng{
+  float:right;
+}
+.widthTdDir{
+  width: 345px;
+}
+.widthTdIng{
+  width: 185px;
+}
+.widthDivDir{
+  width:60%;
+}
+
+@media (max-width: 991px){
+  .floatIng{
+    float:none;
+  }
+  .widthTdDir{
+    width: 100%;
+  }
+  .widthDivDir{
+    width:100%;
+  }
+  .widthTdIng{
+    width: 176px;
+  }
+}
+
 
 /*SETTINGS VIEW*/
 .seven {
