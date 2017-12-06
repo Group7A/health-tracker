@@ -69,6 +69,8 @@ tr:nth-child(even) {
 .showContainer{
   padding-left: 7%; 
   padding-right: 7%;
+  min-width: 100px;
+  overflow-y: scroll;
 }
 .tr-propertiesSearch{
   line-height: 36px;
@@ -123,7 +125,11 @@ text{
 .hr-search{
   margin-top: 5px;
 }
-
+.headerSear{
+  margin-top: 35px;
+  padding-left: 21%;
+  padding-right: 21%;
+}
 /*
 Color Guide
 Green: rgb(174,200,107), hex(AEC86B);

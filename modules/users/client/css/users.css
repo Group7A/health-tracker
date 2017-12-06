@@ -127,6 +127,24 @@
   padding-right: 0px;
   padding-left: 50px;
 }
+@media (max-width: 991px){
+  .info-container{
+    margin-top: 10px;
+    /*width: 40%;*/
+  }
+  .info-container1{
+    padding-left: 0px;
+    padding-left: 35%;
+    padding-right: 35%;
+  }
+}
+@media (max-width: 530px){
+  .info-container1{
+    padding-left: 0px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
 
 .image {
   opacity: 1;
@@ -254,6 +272,14 @@
 }
 .al-containerPaddingR{
   padding: 0px 130px 0 25px;
+}
+@media (max-width: 991px){
+  .al-containerPaddingL{
+    padding: 0px 0 0 0;
+  }
+  .al-containerPaddingR{
+    padding: 50px 0 0 0;
+  }
 }
 .al-row{
   /*margin-top: 50px;*/
@@ -521,8 +547,17 @@ span.glyphicon-time {
   padding-bottom: 9%;
 }
 
-
-
+.recipePictureR{
+  margin-top: 30px;
+}
+.marginPictureR{
+  /*padding-right: 10%;*/
+}
+@media (min-width: 991px){
+  .marginPictureR{
+    padding-right: 10%;
+  }
+}
 /*ADD RECIPE*/
 .recipeName{
   color: #737373;
@@ -530,6 +565,34 @@ span.glyphicon-time {
   margin-bottom: 36px;
   font-size: 30px;
 }
+.floatIng{
+  float:right;
+}
+.widthTdDir{
+  width: 345px;
+}
+.widthTdIng{
+  width: 185px;
+}
+.widthDivDir{
+  width:60%;
+}
+
+@media (max-width: 991px){
+  .floatIng{
+    float:none;
+  }
+  .widthTdDir{
+    width: 100%;
+  }
+  .widthDivDir{
+    width:100%;
+  }
+  .widthTdIng{
+    width: 176px;
+  }
+}
+
 
 /*SETTINGS VIEW*/
 .seven {
