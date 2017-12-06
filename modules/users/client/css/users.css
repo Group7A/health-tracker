@@ -273,6 +273,14 @@
 .al-containerPaddingR{
   padding: 0px 130px 0 25px;
 }
+@media (max-width: 991px){
+  .al-containerPaddingL{
+    padding: 0px 0 0 0;
+  }
+  .al-containerPaddingR{
+    padding: 50px 0 0 0;
+  }
+}
 .al-row{
   /*margin-top: 50px;*/
   margin-right: 0; 
