@@ -127,6 +127,17 @@
   padding-right: 0px;
   padding-left: 50px;
 }
+@media (max-width: 991px){
+  .info-container{
+    margin-top: 10px;
+    /*width: 40%;*/
+  }
+  .info-container1{
+    padding-left: 0px;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
 
 .image {
   opacity: 1;
