@@ -1,5 +1,5 @@
 ## Health Tracker
-A web application to improve healthy dietary behaviors.
+A web application to help improve healthy dietary behaviors.
 
 ## Website Link: https://myhealthify.herokuapp.com/
 
