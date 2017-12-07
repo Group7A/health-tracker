@@ -29,6 +29,10 @@ describe('Users E2E Tests:', function () {
     steps: 'make dough in a pie shape'
   }
 
+  var item = {
+    ing: 'whole milk'
+  }
+
   var signout = function () {
     // Make sure user is signed out first
     browser.get('http://localhost:3001/authentication/signout');
@@ -585,7 +589,14 @@ describe('Users E2E Tests:', function () {
   });
 
   describe('Add recipe page', function () {
+    // var EC = protractor.ExpectedConditions;
+  //  var cat = (element.all(by.css('.error-text')).get(0).getAttribute('innerHTML')).toBe('Email address is invalid.');
 
+  //  browser.wait(EC.presenceOf(cat), 5000);
+
+      // var ptor = protractor.getInstance();
+      // ptor.waitForAngular();
+      browser.sleep(5000);
     it('must have enter recipe name', function () {
       browser.get('http://localhost:3001/add-recipe');
       // Enter cooking style
@@ -807,8 +818,8 @@ describe('Users E2E Tests:', function () {
     });
   });
 
-  // describe('Profile page', function () {
-  //   it('Should report missing first name', function () {
+  // describe('Home page', function () {
+  //   it('Should allow users to add popular recipes to "my recipes" page', function () {
   //     browser.get('http://localhost:3001/authentication/signup');
   //     // Enter Last Name
   //     element(by.model('vm.credentials.lastName')).sendKeys(user1.lastName);
@@ -821,8 +832,67 @@ describe('Users E2E Tests:', function () {
   //     // Click Submit button
   //     element(by.css('button[type=submit]')).click();
   //     // First Name Error
-  //     expect(element.all(by.css('.error-text')).get(0).getText()).toBe('First name is required.');
+  //   //  console.log(element.all(by.css('.error-text')).get(0).getAttribute('innerHTML'));
+  //     expect(element.all(by.css('.error-text')).get(0).getAttribute('innerHTML')).toBe('First name is required.');
   //   });
   // });
+
+  describe('Profile page', function () {
+    it('Should report missing first name', function () {
+      browser.get('http://localhost:3001/profile');
+      // Enter Last Name
+      element(by.model('vm.user.lastName')).sendKeys(user1.lastName);
+     
+      // Enter Username
+      element(by.model('vm.user.username')).sendKeys(user1.username);
+      
+      // Click Submit button
+      element(by.css('button[type=submit]')).click();
+      // First Name Error
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('First name is required.');
+    });
+
+    it('Should report missing first name', function () {
+      browser.get('http://localhost:3001/profile');
+      // Enter Last Name
+      element(by.model('vm.user.firstName')).sendKeys(user1.firstName);
+     
+      // Enter Username
+      element(by.model('vm.user.username')).sendKeys(user1.username);
+      
+      // Click Submit button
+      element(by.css('button[type=submit]')).click();
+      // First Name Error
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('Last name is required.');
+    });
+
+    it('Should report missing first name', function () {
+      browser.get('http://localhost:3001/profile');
+      // Enter Last Name
+      element(by.model('vm.user.firstName')).sendKeys(user1.firstName);
+     
+      // Enter Username
+      element(by.model('vm.user.lastName')).sendKeys(user1.lastName);
+      
+      // Click Submit button
+      element(by.css('button[type=submit]')).click();
+      // First Name Error
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('username is required.');
+    });
+  });
+
+  describe('Search bar', function () {
+    it('Should search for food alternatives', function () {
+      browser.get('http://localhost:3001/search');
+      // Enter Last Name
+      element(by.model('vm.searchFood')).sendKeys(item.ing);
+      
+      // Click Submit button
+      element(by.css('button[type=submit]')).click();
+      // First Name Error
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('whole milk');
+    });
+
+});
 
 });
