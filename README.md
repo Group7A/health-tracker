@@ -8,7 +8,7 @@ A web application to improve healthy dietary behaviors.
 - BootStrap
 
 ## Project Features
-![home-page](https://imgur.com/CtuazLi)
+![home-page](https://i.imgur.com/CjWjJxV.png)
 
 Users can:
 - Sign up for an account
